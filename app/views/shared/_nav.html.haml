@@ -1,0 +1,27 @@
+#nav
+  %ul{:class=>"nav horizontal"}
+    %li.first
+      =link_to "Courses", catalog_index_path
+    %li
+      - if current_user
+        =link_to "My Contributions", url_for(:controller => "contributions", :action=>"index", :user_id => current_user.login)
+      - else
+        =link_to "Contribute", new_course_path
+    %li
+      =link_to "Contact"
+    / %li
+    /   - if session[:user]
+    /     .message
+    /       ="Hello #{session[:user]}" 
+    /     / -form_tag(user_session_path, :method => :delete) do
+    /     /   (
+    /     /   =submit_tag "logout", :class=>"button positive"
+    /     /   )
+    /   - else
+    /     =link_to("Login", url_for(new_user_session_path))
+    
+    
+
+
+
+
