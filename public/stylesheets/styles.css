@@ -1,0 +1,11 @@
+li.editable, li.editable_textarea, li.editable_date_picker {
+  list-style-type: none;
+  clear:right;
+}
+
+li.editable-container {
+  position: relative;
+}
+
+ol li{ list-style:none outside !important;}
+

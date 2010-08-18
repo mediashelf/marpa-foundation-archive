@@ -2,11 +2,10 @@
 <table>
   <tr>
     <th class="title">Title</th>
-    <th class="creator">Creator</th>
-    <th class="deposited">Deposited</th>
-    <th class="type">Type</th>
-    <th class="files">files</th>
-    <th class="status">Status</th>
+    <th class="date_recorded">Date Recorded</th>
+    <th class="location">Location</th>
+    <th class="topics">Main Topics</th>
+    <th class="files">Files</th>
   </tr>
   <% docs.each_with_index do |document,counter| %>
    <%= render_document_partial document, 'index', :counter => counter %>

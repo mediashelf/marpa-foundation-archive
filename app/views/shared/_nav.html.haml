@@ -6,7 +6,7 @@
       - if current_user
         =link_to "My Contributions", url_for(:controller => "contributions", :action=>"index", :user_id => current_user.login)
       - else
-        =link_to "Contribute", new_course_path
+        =link_to "Contribute", url_for(:action => "new", :controller => "assets", :content_type => "marpa_course")
     %li
       =link_to "Contact"
     / %li
