@@ -1,7 +1,9 @@
-gem "ruby-fedora"
-require "active_fedora"
+require "hydra"
+
 class MarpaLecture < ActiveFedora::Base
 
+    include Hydra::ModelMethods
+  
     has_relationship "course", :is_part_of
     has_relationship "file", :is_component_of, :inbound => true
     has_relationship "manifestation", :is_description_of

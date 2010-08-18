@@ -1,6 +1,8 @@
-gem "ruby-fedora"
-require "active_fedora"
+require "hydra"
+
 class MarpaCourse < ActiveFedora::Base
+
+    include Hydra::ModelMethods
 
     has_relationship "lectures", :is_part_of, :inbound => true
     
