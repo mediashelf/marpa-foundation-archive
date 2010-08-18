@@ -1,0 +1,52 @@
+%h1 
+  =@course_solr_result["title_field"]
+//.editable_active{:id=>"lecture_changeme:2000_title_0", :rel=>"/lectures/changeme:2000"} 
+#metadata.column.span-10
+  %h2 Metadata
+
+  #system_create_date.field
+    %label
+      Date Created:
+    =@course_solr_result["system_create_date"]
+  #system_modified_date.field
+    %label
+      Date Last Modified
+    =@course_solr_result["system_modified_date"]
+
+  #contributor_info
+    %label
+      Contributed By
+    =@course_solr_result["contributed_by_field"]
+  #owner_info
+    %label
+      Controlled By
+    =@course.owner_id
+
+  =metadata_field(@course, "dublin_core", :title, :label => "Title")
+  =metadata_field(@course, "dublin_core", :creator, :label => "Teacher")
+  =metadata_field(@course, "dublin_core", :subject, :label => "Topic")
+  (ie. Text, Song, Topic) (ex. “dbu ma la ‘jug pa” "Progressive Stages of Meditation on Emptiness")
+  =metadata_field(@course, "properties", :sub_topic, :label => "Sub Topic")
+  (ex. “chapter 6” "Mind Only Stage")
+  =metadata_field(@course, "properties", :commentary_taught, :label => "Commentary Taught")
+  (ex. “commentary by mi pham”)
+  =metadata_field(@course, "properties", :tibetan_materials, :label => "Tibetan Materials")
+  Tibetan book/pecha/handout Name & Page Numbers
+  =metadata_field(@course, "properties", :english_materials, :label => "English Materials")
+  English book/handout Name & Page Numbers
+  =metadata_field(@course, "dublin_core", :language, :label => "Languages")
+
+  =metadata_field(@course, "dublin_core", :contributor, :label => "Translator")
+  =metadata_field(@course, "dublin_core", :date, :label => "Dates of Teaching")
+  =metadata_field(@course, "dublin_core", :spatial, :label => "Location")
+
+  -#=render :partial=>"shared/metadata_datastream", :collection => @course.metadata_streams
+  -#=@course_solr_result.keys.inspect
+=stylesheet_link_tag 'lectures.css', :cache=>true
+#lectures.column.span-13.last
+  %h2 Lectures in this Course
+  #lecture_list
+    =image_tag('ajax-loader.gif')
+=javascript_tag do
+  ="window._token='#{form_authenticity_token}'"
+  ="async_load('#{course_lectures_url(@course)}', 'lecture_list');"

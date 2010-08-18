@@ -1,0 +1,16 @@
+=stylesheet_link_tag 'lectures.css', :cache=>true
+.lecture_info
+  %h1
+    #title 
+    =editable_single_value_field(@lecture, "dublin_core", :title, :label=>"Title")
+    /=edit_in_place_for(@lecture, "dublin_core","title") 
+  .column.span-15
+    -#=metadata_field(:date, @lecture.datastreams["dublin_core"], :label => "Date Recorded")
+    =metadata_field(@lecture, "dublin_core", :date, :label => "Date Recorded")
+    =metadata_field(@lecture, "dublin_core", :subject, :label => "Topics")
+    =metadata_field(@lecture, "properties", :sub_topic, :label => "Sub-Topics")
+  .column.span-9.last
+    =metadata_field(@lecture, "properties", :tibetan_materials, :label => "Tibetan handouts, books, pecha, page numbers")
+    =metadata_field(@lecture, "properties", :english_materials, :label => "English handouts, books, pecha, page numbers")
+    =metadata_field(@lecture, "properties", :notes, :label => "Notes")
+    =render :partial=>"file_assets"

@@ -1,0 +1,8 @@
+%h1
+  ="Edit #{@lecture.datastreams["dublin_core"].title_values.first}"
+-form_for :lecture, :url => {:action => "update" } do |f| 
+  = f.error_messages 
+  =render :partial=>"metadata_form", :locals=>{:f=>f}
+  =submit_tag 'Update'
+
+=render :partial=>"file_assets"

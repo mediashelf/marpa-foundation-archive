@@ -1,0 +1,19 @@
+-form_for :lecture, :url => {:action => "create" } do |f| 
+  = f.error_messages 
+  .column.span-15
+    =metadata_form_field("title", f, :label => "Title")
+    =metadata_form_field("date", f, :label => "Date Recorded")
+    =metadata_form_field("subject", f, :label => "Topics")
+    =metadata_form_field("sub_topics", f, :label => "Sub-Topics")
+    =metadata_form_field("commentary_taught", f, :label => "Commentary Taught")
+    .column.span-6
+      =metadata_form_field("contributor", f, :label=>"Translator")
+    .column.span-5.last
+      =metadata_form_field("language", f, :label=>"Language of Translator (broken)")
+  .column.span-9.last
+    =#metadata_form_field("original_recorded_by", f, :label=>"Originally Recorded by")
+    =metadata_form_field("tibetan_materials", f, :label=>"Tibetan handouts, books, pecha, page numbers")
+    =metadata_form_field("english_materials", f, :label=>"English handouts, books, pecha, page numbers")
+    =metadata_form_field("notes", f, :label=>"Notes")
+    
+    =submit_tag 'Create'

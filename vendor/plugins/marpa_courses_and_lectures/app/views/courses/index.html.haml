@@ -1,0 +1,17 @@
+-@page_explanation = "This Courses & Lectures app is an example of a slightly more complex ActiveFedora application.  It was built around a specific organization's notion of what Courses & Lectures are, how they fit together, and how the people in the organization want to create/maintain their collections."
+#actions
+  =link_to("New Course", new_course_path)
+=render :partial=>"search/pagination"
+
+%table#courses
+  %col{:width=>"25%"}/
+  %col{:width=>"15%"}/
+  %col{:width=>"15%"}/
+  %col{:width=>"55%"}/
+  
+  %th Title
+  %th Date Recorded
+  %th Location 
+  %th Main Topics 
+  =render :partial=>'courses/result', :collection=>@solr_result.hits
+

@@ -1,0 +1,13 @@
+%tr[result]
+  =result.inspect
+  %td
+    =link_to result["title_facet"], course_path(result["id"])
+  %td
+    =result["date_field"]
+  %td
+    =result["location_field"]
+  %td
+    =render :partial=>"shared/solr_result_field_value", :collection => result["subject_field"]
+  %td
+    =result["date_field"]
+-#    =render :partial=>"result_field_value", :collection => result["subject_heading_field"]
