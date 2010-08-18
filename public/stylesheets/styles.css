@@ -1,11 +1,11 @@
 
 label {color: #666666; font-weight: normal;}
-legend {position: absolute; top: -9999px; left: -9999px;}
-fieldset {
-		border: 0 none;
-		border-bottom: 1px dotted #cccccc ;
-		padding-bottom: .5em;
-		margin-bottom: .5em;}
+/*legend {position: absolute; top: -9999px; left: -9999px;}*/
+/*fieldset {
+    border: 0 none;
+    border-bottom: 1px dotted #cccccc ;
+    padding-bottom: .5em;
+    margin-bottom: .5em;}*/
 
 
 #contributor_fields dt label {position: absolute; top: -9999px; left:-9999px;}
@@ -30,20 +30,23 @@ ol dl {
 
 dl dt {
 	float:left;
-	width:9em;
+	width:7em;
 	text-align: right;
 	font-weight: normal;
 	color: #666666;
 	margin: 5px;
+	clear:left;
 	}
 
 dl dd {
-	float: left;
+  float: left;
 	color: #000000;
 	margin: 5px;
 	max-width: 44em;
 	position: relative;
 	}
+
+span.editable-text {width: 400px;}
 	
 dl dd#topic_tag li {
 	padding: 2px 0;
@@ -217,14 +220,14 @@ li.editable-container {
   position: relative;
 }
 
-dd .fl-inlineEdit-invitation-text {
+.fl-inlineEdit-invitation-text {
   color: #CCCCCC !important;
   font-style: italic;
   border  : 1px dashed #CCCCCC;
   padding : 1px 3px;
 }
 
-dd :hover.editable-text {
+dd :hover.editable-text, .editable-text:hover {
 	color: #00cc00 !important;
 }
 

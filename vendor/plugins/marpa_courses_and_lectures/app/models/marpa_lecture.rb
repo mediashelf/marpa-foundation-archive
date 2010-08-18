@@ -8,12 +8,14 @@ class MarpaLecture < ActiveFedora::Base
     has_relationship "file", :is_component_of, :inbound => true
     has_relationship "manifestation", :is_description_of
 
-    has_metadata :name => "dublin_core", :type => ActiveFedora::QualifiedDublinCoreDatastream do |m|
+    has_metadata :name => "descMetadata", :type => ActiveFedora::QualifiedDublinCoreDatastream do |m|
       # Date Recorded dc:date
       # Topics dc:subject
     end
     
     has_metadata :name => "properties", :type => ActiveFedora::MetadataDatastream do |m|
+      m.field 'collection', :string
+      m.field 'depositor', :string
       m.field "sub_topic", :string
       m.field "commentary_taught", :string 
       m.field "restriction_level", :string
@@ -24,6 +26,8 @@ class MarpaLecture < ActiveFedora::Base
       # Location of our master file
       #number of units in original recording 
     end
+    
+    has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
     
     def file_objects_append(file_asset)
       super(file_asset)

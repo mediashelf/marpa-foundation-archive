@@ -1,0 +1,97 @@
+%form#document_metadata{ :action=>url_for(:action=>"update", :controller=>"assets"), :method=>"post", "accept-charset"=>"utf-8"}
+  %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"marpa_course"}
+
+  %fieldset#title_fields
+    %legend Title & Teacher
+    %dl
+      %dt
+        = fedora_field_label("descMetadata", :title, "Title")        
+      %dd.title        
+        = fedora_text_field(@document_fedora,"descMetadata", :title, :multiple=>false)        
+      %dt
+        = fedora_field_label("descMetadata", :date, "Dates of Teaching")        
+      %dd.date_of_teaching        
+        = fedora_text_field(@document_fedora,"descMetadata", :date, :multiple=>false)  
+      %dt
+        = fedora_field_label("descMetadata", :spatial, "Location")        
+      %dd.location        
+        = fedora_text_field(@document_fedora,"descMetadata", :spatial, :multiple=>false)  
+      %dt
+        = fedora_field_label("descMetadata", :creator, "Teacher")        
+      %dd.title  
+        = fedora_text_field(@document_fedora,"descMetadata", :creator, :multiple=>false)  
+    
+        
+  %fieldset#topic_fields
+    %legend Topics
+    %dl
+      %dt
+        = fedora_field_label("descMetadata", :subject, "Topic:")
+        = fedora_text_field_insert_link "descMetadata", :subject
+        -#(ie. Text, Song, Topic) (ex. “dbu ma la ‘jug pa” "Progressive Stages of Meditation on Emptiness")   
+      %dd.topic
+        = fedora_text_field(@document_fedora,"descMetadata", :subject, :multiple=>true)
+      %dt
+        = fedora_field_label("properties", :sub_topic, "Sub Topic:")
+        = fedora_text_field_insert_link "properties", :sub_topic
+        -#(ex. “chapter 6” "Mind Only Stage")
+      %dd.sub_topic
+        = fedora_text_field(@document_fedora,"properties", :sub_topic, :multiple=>true)
+      %dt
+        = fedora_field_label("properties", :commentary_taught, "Commentary Taught") 
+        -#(ex. “commentary by mi pham”)
+      %dd.commentary_taught        
+        = fedora_text_field(@document_fedora,"properties", :commentary_taught, :multiple=>false)
+
+  %fieldset#misc_metadata
+    %legend 
+    %dl
+      %dt
+        = fedora_field_label("descMetadata", :language, "Language(s)") 
+        = fedora_text_field_insert_link "descMetadata", :language       
+      %dd.language        
+        = fedora_text_field(@document_fedora,"descMetadata", :languages, :multiple=>true)        
+      %dt
+        = fedora_field_label("descMetadata", :contributor, "Translator(s)")
+        = fedora_text_field_insert_link "descMetadata", :contributor               
+      %dd.translator        
+        = fedora_text_field(@document_fedora,"descMetadata", :contributor, :multiple=>true)     
+        
+  %fieldset#course_materials
+    %legend Course Materials
+    %dl
+      %dt
+        = fedora_field_label("properties", :tibetan_materials, "Tibetan Materials")   
+        -# Tibetan book/pecha/handout Name & Page Numbers 
+      %dd.tibetan_materials        
+        = fedora_text_field(@document_fedora,"properties", :tibetan_materials, :multiple=>false) 
+      %dt
+        = fedora_field_label("properties", :english_materials, "English Materials")   
+        -# English book/pecha/handout Name & Page Numbers 
+      %dd.tibetan_materials        
+        = fedora_text_field(@document_fedora,"properties", :english_materials, :multiple=>false) 
+  
+  %fieldset#technical_metadata
+    %legend Technical Metadata
+    %dl
+      %dt
+        %label
+          Date Created:
+      %dd.system_create_date
+        =@document["system_create_dt"]
+      %dt
+        %label
+          Date Last Modified
+      %dd.system_modified_date
+        =@document["system_modified_dt"]
+      %dt
+        %label
+          Contributed By
+      %dd.contributor_info
+        =@document["depositor_t"]
+      %dt
+        %label
+          Controlled By
+      %dd.owner_info  
+        =@document_fedora.owner_id
+            
