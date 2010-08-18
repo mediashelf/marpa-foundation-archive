@@ -30,9 +30,11 @@ class ApplicationController
     
     javascript_includes << ['blacklight', 'application', 'accordion', { :plugin=>:blacklight } ]
     
-    stylesheet_links << ['yui', 'jquery/ui-lightness/jquery-ui-1.8.1.custom.css', 'application', {:plugin=>:blacklight, :media=>'all'}]
-    stylesheet_links << ['hydrangea','styles', {:media=>'all'}]
-    stylesheet_links << ['marpa-foundation', {:media=>'all'}]    
+    stylesheet_links << ['yui', 'jquery/ui-lightness/jquery-ui-1.8.1.custom.css', {:plugin=>:blacklight, :media=>'all'}]
+    stylesheet_links << ['hydrangea', {:media=>'all'}]
+    
+    stylesheet_links << ['styles', {:media=>'all'}]
+    stylesheet_links << ['marpa-foundation', 'layout', 'navigation', 'application', 'marpa-foundation-styles',  {:media=>'all'}]    
   end 
       
   protected

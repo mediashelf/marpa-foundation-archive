@@ -1,0 +1,164 @@
+ul#parts fieldset {display:none}
+h3
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+th, .section_footer
+{
+	border-bottom: solid #CBCB98 1px;
+	border-top: solid #CBCB98 1px;
+	color: #5B6366;
+}
+th, .lecture_info h1
+{
+  background-color: #e5dbbb;
+  border-left:solid 1px #ffffcc;
+  border-right:solid 1px #ffffcc;
+}
+a
+{
+	color: #0098DB;
+}
+a.addmlink 
+{
+	text-decoration: none;
+	font-weight: bold;
+
+}
+/*label
+{
+  display: block;
+}*/
+body
+{
+}
+.container
+{
+	background-color:#ffffcc;
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+#header, #banner, #navigation, #page_actions, #pagination a, #actions a, .nav a  
+{
+  color: #eec885;
+}
+#header #herald, #header #site_description 
+{
+  padding-left:10px
+}
+#site_name, #page_explanation, #page_actions, .nav a.active, .nav a:hover, #actions a:hover
+{
+  color: #ffffcc;
+}
+#site_name
+{
+	font-size:20px;
+	text-align: left;
+}
+#page_explanation 
+{
+  float:right;
+  width:400px;
+  color: #ffffcc;
+  padding: 10px 25px 20px 25px;
+  text-align:left;
+}
+#site_description {}
+#site_greeting {}
+#navigation 
+{
+  border-top:solid 2px #e5dbbb;
+  border-bottom:solid 2px #e5dbbb;
+}
+#page_actions 
+{
+  height: 40px;
+}
+#pagination 
+{
+  float:right;
+  padding-right:10px;
+  padding-top:10px;
+}
+
+#footer
+{
+	margin-top: 100px;
+}
+#actions 
+{
+	display:inline;
+}
+#user_info
+{
+	padding-top:10px;
+	color:#fff;
+	float: right;
+	margin-right: 15px;
+}
+#user_info a
+{
+	display:inline;
+	text-transform:none;
+	font-size:12px;
+	background:transparent;
+	text-decoration:underline;
+	border:none;
+}
+.horizontal li
+{
+	display: inline;
+	list-style: none;
+	text-decoration: none;
+}
+#search_box
+{
+	display:inline;
+	float:left;
+}
+textarea 
+{
+	width:100%;
+}
+#overview textarea
+{
+	width:435px;
+}
+#object_detail
+{
+	margin-top: 20px;
+}
+#overview_metadata
+{
+	background-color: #CBCB98;
+	color: #5B6366;
+	font-size: 1.15em;
+	padding: 15px 0px 15px 25px;
+}
+#overview_parts
+{
+	margin-bottom:15px
+}
+#basic_overview
+{
+	background-color: #F4AA00;
+}
+#basic_overview label
+{
+	color:black;
+	font-size:16px;
+	font-weight: normal;
+}
+#overview {
+	width:450px;
+}
+#object_detail, #overview_metadata
+{
+	padding-left: 20px;
+}
+.copyright
+{
+	margin-top: 10px;
+	text-align: center;
+}

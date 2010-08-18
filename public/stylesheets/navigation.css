@@ -1,0 +1,30 @@
+ul.nav
+{
+	display: inline;
+  float: left;
+  margin: 5px 0;
+  padding: 0;
+	width:100%;
+}
+ul.nav li
+{
+	display:block;
+	float:left;
+	font-size: 1em;
+}
+.nav a, #actions a
+{
+	display:block;
+	padding: 10px;
+	font-size: 1.1em;
+	text-transform:uppercase;
+	text-decoration: none;
+}
+.nav li.last 
+{
+	float:right;
+}
+.nav li.last a 
+{
+	border:none;
+}

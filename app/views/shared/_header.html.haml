@@ -1,5 +1,4 @@
 .yui-u.first
-  = link_to image_tag("application.png", :alt=>'',:id=>'application-img'), root_path 
   / - if params[:controller] == 'catalog' and params[:action] == 'index' 
   /   = render 'shared/search_form', :localized_params=>params 
   / - else  
