@@ -18,7 +18,7 @@ module HydraFedoraMetadataHelper
       base_id = generate_base_id(field_name, current_value, field_values, opts)
       name = "asset[#{datastream_name}][#{field_name}][#{z}]"
       body << "<#{container_tag_type.to_s} class=\"editable-container field\" id=\"#{base_id}-container\">"
-        body << "<a href='#' class='destructive field'>X</a>" unless z == 0
+        body << "<a href=\"\" title=\"Delete '#{h(current_value)}'\" class=\"destructive field\">Delete</a>" unless z == 0
         body << "<span class=\"editable-text text\" id=\"#{base_id}-text\">#{h(current_value)}</span>"
         body << "<input class=\"editable-edit edit\" id=\"#{base_id}\" data-datastream-name=\"#{datastream_name}\" rel=\"#{field_name}\" name=\"#{name}\" value=\"#{h(current_value)}\"/>"
       body << "</#{container_tag_type}>"
@@ -58,7 +58,7 @@ module HydraFedoraMetadataHelper
       
       body << "<#{container_tag_type.to_s} class=\"field_value textile-container field\" id=\"#{base_id}-container\">"
         # Not sure why there is we're not allowing the for the first textile to be deleted, but this was in the original helper.
-        body << "<a href='#' class='destructive field'>X</a>" unless z == 0
+        body << "<a href=\"\" title=\"Delete '#{h(current_value)}'\" class=\"destructive field\">Delete</a>" unless z == 0
         body << "<div class=\"textile-text text\" id=\"#{base_id}-text\">#{processed_field_value}</div>"
         body << "<input class=\"textile-edit edit\" id=\"#{base_id}\" data-datastream-name=\"#{datastream_name}\" rel=\"#{field_name}\" name=\"#{name}\" value=\"#{h(current_value)}\"/>"
       body << "</#{container_tag_type}>"
@@ -157,11 +157,14 @@ module HydraFedoraMetadataHelper
   
   def fedora_text_field_insert_link(datastream_name, field_key, opts={})
     field_name = field_name_for(field_key)
-    "<a class='addval textfield' href='#' data-datastream-name=\"#{datastream_name}\" rel=\"#{field_name}\">+</a>"
+    link_text = "Add #{field_key[1].to_s.titlecase}"
+    "<a class='addval textfield' href='#' data-datastream-name=\"#{datastream_name}\" rel=\"#{field_name}\" title='#{link_text}'>#{link_text}</a>"
   end
   
   def fedora_text_area_insert_link(datastream_name, field_key, opts={})
-    "<a class='addval textarea' href='#'>+</a>"
+    field_name = field_name_for(field_key)
+    link_text = "Add #{field_key[1].to_s.titlecase}"
+    "<a class='addval textarea' href='#' data-datastream-name=\"#{datastream_name}\" rel=\"#{field_name}\" title='#{link_text}'>#{link_text}</a>"    
   end
   
   def fedora_field_label(datastream_name, field_key, label=nil)
@@ -179,7 +182,7 @@ module HydraFedoraMetadataHelper
   def field_selectors_for(datastream_name, field_key)
     result = ""
     if field_key.kind_of?(Array)
-      h_name = ActiveFedora::NokogiriDatastream.accessor_hierarchical_name(*field_key)
+      h_name = OM::XML::Terminology.term_hierarchical_name(*field_key)
       field_key.each do |pointer|
         if pointer.kind_of?(Hash)
           k = pointer.keys.first
@@ -257,7 +260,7 @@ module HydraFedoraMetadataHelper
   
   def field_name_for(field_key)
     if field_key.kind_of?(Array)
-      return ActiveFedora::NokogiriDatastream.accessor_hierarchical_name(*field_key)
+      return OM::XML::Terminology.term_hierarchical_name(*field_key)
     else
       field_key.to_s
     end
