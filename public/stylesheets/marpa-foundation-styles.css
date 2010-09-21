@@ -34,6 +34,13 @@ a {
 	text-decoration:underline;
 }
 
+#banner a, #banner a:visited {
+	color:#EEC885;
+}
+#banner a:hover {
+	color:#FFFFCC;
+	text-decoration:underline;
+}
 a.addval {
   font-size:0.9em;
 }
