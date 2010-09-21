@@ -59,7 +59,7 @@ body
 #page_explanation 
 {
   float:right;
-  width:400px;
+  width:auto;
   color: #ffffcc;
   padding: 10px 25px 20px 25px;
   text-align:left;

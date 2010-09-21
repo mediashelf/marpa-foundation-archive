@@ -34,6 +34,9 @@ a {
 	text-decoration:underline;
 }
 
+a.addval {
+  font-size:0.9em;
+}
 
 :focus { /* overriding Fluid setting */
 	outline-color: none;
