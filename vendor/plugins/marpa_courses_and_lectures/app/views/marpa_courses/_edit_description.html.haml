@@ -24,38 +24,15 @@
         = fedora_field_label("descMetadata", :creator, "Teacher")        
       %dd.title  
         = fedora_text_field(@document_fedora,"descMetadata", :creator, :multiple=>false)  
-    
-        
-      %dt
-        = fedora_field_label("marpaCore", [:digital_master, :identifier], "Original Filename")        
-      %dd.digital_master_identifier  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
       %dt
         = fedora_field_label("marpaCore", [:commentary_taught, :author], "Commentary Author")        
       %dd.commentary_taught_author  
         = fedora_text_field(@document_fedora,"marpaCore", [:commentary_taught, :author], :multiple=>false)
         
       %dt
-        = fedora_field_label("marpaCore", [:digital_master, :location], "Master Copy Location")        
-      %dd.digital_master_location  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
-        
-      %dt
         = fedora_field_label("marpaCore", [:note], "Notes")        
       %dd.note  
         = fedora_text_field(@document_fedora,"marpaCore", [:note], :multiple=>false)
-      %dt
-        = fedora_field_label("marpaCore", [:physical_instance, :annotation], "Notes on original recording")        
-      %dd.physical_instance_annotation  
-        = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)
-      %dt
-        = fedora_field_label("marpaCore", [:digital_master, :file_size], "File Size")        
-      %dd.digital_master_file_size  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
-      %dt
-        = fedora_field_label("marpaCore", [:technical_note], "Technical Notes")        
-      %dd.technical_note  
-        = fedora_text_field(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
       %dt
         = fedora_field_label("marpaCore", [:digital_master, :duration], "Time")        
       %dd.digital_master_duration  
@@ -92,8 +69,20 @@
     %legend Technical Metadata
     %dl
       %dt
+        = fedora_field_label("marpaCore", [:digital_master, :file_size], "File Size")        
+      %dd.digital_master_file_size  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:digital_master, :location], "Master Copy Location")        
+      %dd.digital_master_location  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:digital_master, :identifier], "Original Filename")        
+      %dd.digital_master_identifier  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
+      %dt
         %label
-          Date Created:
+          Date added to Archive
       %dd.system_create_date
         =@document["system_create_dt"]
       %dt
@@ -111,4 +100,12 @@
           Controlled By
       %dd.owner_info  
         =@document_fedora.owner_id
+      %dt
+        = fedora_field_label("marpaCore", [:technical_note], "Technical Notes")        
+      %dt
+        = fedora_field_label("marpaCore", [:physical_instance, :annotation], "Notes on original recording")        
+      %dd.physical_instance_annotation  
+        = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)
+      %dd.technical_note  
+        = fedora_text_field(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
             
