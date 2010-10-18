@@ -12,6 +12,8 @@ class S3Content < ActiveFedora::Base
     m.field "account_id", :symbol
   end  
   
+  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  
   def label=(label)
     super
     datastreams_in_memory["descMetadata"].title_values = label
