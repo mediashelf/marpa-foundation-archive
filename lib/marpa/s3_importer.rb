@@ -1,4 +1,7 @@
 require 'aws/s3'
+require "s3_content"
+require "active-fedora"
+
 bucket_name = 'marpa-foundation'
 import_directory = "import"
 
