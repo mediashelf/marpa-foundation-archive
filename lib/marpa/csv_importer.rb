@@ -33,6 +33,12 @@ class Marpa::CSVImporter
     @courses = {}
   end
   
+  def import(file_path)
+    parse_csv(file_path)
+    report
+    populate_fedora
+  end
+  
   # Parse CSV file at @file_path
   def parse_csv(file_path)
 
@@ -64,8 +70,13 @@ class Marpa::CSVImporter
   
   def populate_fedora
     @courses.each_pair do |course_name, course|
-      course_fedora = fobject_from_row(course[:metadata], MarpaCourse)
-      course_fedora.save
+      if course[:metadata].nil?
+        puts "There's something wrong with the course #{course_name}.  It has no metadata.  #{course.inspect}"
+        debugger
+      else
+        course_fedora = fobject_from_row(course[:metadata], MarpaCourse)
+        course_fedora.save
+      end
       course[:lectures].each do |lecture_row|
         lecture_fedora = fobject_from_row(lecture_row, MarpaLecture)
         lecture_fedora.add_relationship(:is_part_of, course_fedora)
@@ -82,11 +93,17 @@ class Marpa::CSVImporter
       ds_name = mapping.first
       field_pointer = mapping.last
       new_values[ds_name] ||= {}
-      new_values[ds_name][field_pointer] = row[heading]
+      begin
+        new_values[ds_name][field_pointer] = row[heading]
+      rescue
+        debugger
+      end
     end
     # obj.update_datastream_attributes(new_values)
     obj.datastreams["descMetadata"].update_attributes(new_values["descMetadata"])
     obj.datastreams["marpaCore"].update_indexed_attributes(new_values["marpaCore"])
+    obj.datastreams["rightsMetadata"].permissions({:group=>"archivist"}, "edit")
+    obj.datastreams["rightsMetadata"].permissions({:group=>"admin"}, "edit")    
     return obj
   end
   
