@@ -7,7 +7,11 @@
       %dt
         = fedora_field_label("descMetadata", :title, "Title")        
       %dd.title        
-        = fedora_text_field(@document_fedora,"descMetadata", :title, :multiple=>false)        
+        = fedora_text_field(@document_fedora,"descMetadata", :title, :multiple=>false) 
+      %dt
+        = fedora_field_label("descMetadata", :tibetan_title, "Tibetan Title")        
+      %dd.title        
+        = fedora_text_field(@document_fedora,"descMetadata", :tibetan_title, :multiple=>false)       
       %dt
         = fedora_field_label("descMetadata", :date, "Dates of Teaching")        
       %dd.date_of_teaching        
@@ -22,6 +26,42 @@
         = fedora_text_field(@document_fedora,"descMetadata", :creator, :multiple=>false)  
     
         
+      %dt
+        = fedora_field_label("marpaCore", [:digital_master, :identifier], "Original Filename")        
+      %dd.digital_master_identifier  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:commentary_taught, :author], "Commentary Author")        
+      %dd.commentary_taught_author  
+        = fedora_text_field(@document_fedora,"marpaCore", [:commentary_taught, :author], :multiple=>false)
+        
+      %dt
+        = fedora_field_label("marpaCore", [:digital_master, :location], "Master Copy Location")        
+      %dd.digital_master_location  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
+        
+      %dt
+        = fedora_field_label("marpaCore", [:note], "Notes")        
+      %dd.note  
+        = fedora_text_field(@document_fedora,"marpaCore", [:note], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:physical_instance, :annotation], "Notes on original recording")        
+      %dd.physical_instance_annotation  
+        = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:digital_master, :file_size], "File Size")        
+      %dd.digital_master_file_size  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:technical_note], "Technical Notes")        
+      %dd.technical_note  
+        = fedora_text_field(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
+      %dt
+        = fedora_field_label("marpaCore", [:digital_master, :duration], "Time")        
+      %dd.digital_master_duration  
+        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :duration], :multiple=>false)    
+      
+      
   %fieldset#topic_fields
     %legend Topics
     %dl
@@ -31,17 +71,7 @@
         -#(ie. Text, Song, Topic) (ex. “dbu ma la ‘jug pa” "Progressive Stages of Meditation on Emptiness")   
       %dd.topic
         = fedora_text_field(@document_fedora,"descMetadata", :subject, :multiple=>true)
-      %dt
-        = fedora_field_label("properties", :sub_topic, "Sub Topic:")
-        = fedora_text_field_insert_link "properties", :sub_topic
-        -#(ex. “chapter 6” "Mind Only Stage")
-      %dd.sub_topic
-        = fedora_text_field(@document_fedora,"properties", :sub_topic, :multiple=>true)
-      %dt
-        = fedora_field_label("properties", :commentary_taught, "Commentary Taught") 
-        -#(ex. “commentary by mi pham”)
-      %dd.commentary_taught        
-        = fedora_text_field(@document_fedora,"properties", :commentary_taught, :multiple=>false)
+
 
   %fieldset#misc_metadata
     %legend 
@@ -57,19 +87,6 @@
       %dd.translator        
         = fedora_text_field(@document_fedora,"descMetadata", :contributor, :multiple=>true)     
         
-  %fieldset#course_materials
-    %legend Course Materials
-    %dl
-      %dt
-        = fedora_field_label("properties", :tibetan_materials, "Tibetan Materials")   
-        -# Tibetan book/pecha/handout Name & Page Numbers 
-      %dd.tibetan_materials        
-        = fedora_text_field(@document_fedora,"properties", :tibetan_materials, :multiple=>false) 
-      %dt
-        = fedora_field_label("properties", :english_materials, "English Materials")   
-        -# English book/pecha/handout Name & Page Numbers 
-      %dd.tibetan_materials        
-        = fedora_text_field(@document_fedora,"properties", :english_materials, :multiple=>false) 
   
   %fieldset#technical_metadata
     %legend Technical Metadata
