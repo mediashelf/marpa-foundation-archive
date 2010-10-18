@@ -3,7 +3,7 @@ source 'http://gemcutter.org'
 
 gem 'rails', '2.3.5'
 
-gem 'active-fedora', '>=1.2.2'  
+gem 'active-fedora', '1.2.3'  
 gem 'authlogic', '>=0.1.0'
 gem "aws-s3"
 gem 'builder'
@@ -43,8 +43,8 @@ gem 'block_helpers'
 group :development, :test do
   gem 'ruby-debug'
   gem 'ruby-debug-base'
-  gem 'rspec', '<2.0.0'
-  gem 'rspec-rails', '<2.0.0'
+  gem 'rspec', '<2.0.0'  
+  gem 'rspec-rails', '<2.0.0' # rspec-rails 2.0.0 requires Rails 3.
   gem 'mocha'
   gem 'cucumber'
   gem 'cucumber-rails'

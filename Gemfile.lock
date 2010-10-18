@@ -44,7 +44,7 @@ GEM
     diff-lcs (1.1.2)
     facets (2.8.4)
     fastercsv (1.5.3)
-    gherkin (2.2.8)
+    gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     haml (3.0.21)
@@ -106,7 +106,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
-  active-fedora (>= 1.2.2)
+  active-fedora (= 1.2.3)
   authlogic (>= 0.1.0)
   aws-s3
   block_helpers
