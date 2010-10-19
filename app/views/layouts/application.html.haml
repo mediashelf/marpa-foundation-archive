@@ -25,6 +25,8 @@
     #bd
   
       #yui-main
+        / .yui-u
+        /   = render :partial=>"shared/search_util_links"
         .yui-b
           = render :partial=>'/flash_msg'
           = yield 
