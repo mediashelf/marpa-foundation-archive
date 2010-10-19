@@ -383,7 +383,7 @@
       <str name="qf_dismax">id^0.8 id_t^0.8 title_t^0.3 mods_t^0.2</str>
       <str name="pf_dismax">id^0.9  id_t^0.9 title_t^0.5 mods_t^0.2</str>
       <str name="fl">
-        id,title_t,date_t,year_facet,month_facet,has_model_s,has_collection_member_s,system_create_dt,
+        id,title_t,date_t,year_facet,month_facet,has_model_s,has_collection_member_s,system_create_dt,spatial_t
         person_0_role_t,person_1_role_t,person_2_role_t,person_3_role_t,person_4_role_t,person_5_role_t,person_6_role_t,
         person_7_role_t,person_8_role_t,person_9_role_t,
         person_0_first_name_t,person_1_first_name_t,person_2_first_name_t,person_3_first_name_t,person_4_first_name_t,
@@ -519,7 +519,7 @@
         ord(popularity)^0.5 recip(rord(price),1,1000,1000)^0.3
      </str>
      <str name="fl">
-        id,text,title_facet,date_t,medium_t,location_t
+        id,text,title_facet,date_t,medium_t,spatial_t
      </str>
      <str name="mm">
         2&lt;-1 5&lt;-2 6&lt;90%
