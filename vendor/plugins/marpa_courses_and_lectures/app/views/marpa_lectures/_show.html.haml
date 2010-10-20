@@ -8,14 +8,20 @@
   </style>
 
 .document_viewer#cover_container
-
+  
+  %div.accordion-section
+    %h2.section-title Recordings
+    = render :partial => 'marpa_lectures/recordings'
+  
   %div.accordion-section
     %h2.section-title Description
     = render :partial => 'marpa_courses/edit_description'
 
-  %div.accordion-section
-    %h2.section-title Download Files
-    %div#uploads{'data-pid' => params[:id]}
+
+    
+  / %div.accordion-section
+  /   %h2.section-title Download Files
+  /   %div#uploads{'data-pid' => params[:id]}
 
 - sidebar_items << capture do 
   = #render :partial=>"catalog/_show_partials/facets", :locals=>{:document=>document, :facets_display_heading => "This document refers to:"}

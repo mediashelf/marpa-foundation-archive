@@ -1,110 +1,56 @@
-%form#document_metadata{ :action=>url_for(:action=>"update", :controller=>"assets"), :method=>"post", "accept-charset"=>"utf-8"}
-  %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"marpa_course"}
+- stylesheet_links << "../javascripts/date-picker/css/datepicker" 
 
-  %fieldset#title_fields
-    %legend Title & Teacher
-    %dl
-      %dt
-        = fedora_field_label("descMetadata", :title, "Title")        
-      %dd.title        
-        = fedora_text_field(@document_fedora,"descMetadata", :title, :multiple=>false) 
-      %dt
-        = fedora_field_label("descMetadata", :tibetan_title, "Tibetan Title")        
-      %dd.title        
-        = fedora_text_field(@document_fedora,"descMetadata", :tibetan_title, :multiple=>false)       
-      %dt
-        = fedora_field_label("descMetadata", :date, "Dates of Teaching")        
-      %dd.date_of_teaching        
-        = fedora_text_field(@document_fedora,"descMetadata", :date, :multiple=>false)  
-      %dt
-        = fedora_field_label("descMetadata", :spatial, "Location")        
-      %dd.location        
-        = fedora_text_field(@document_fedora,"descMetadata", :spatial, :multiple=>false)  
-      %dt
-        = fedora_field_label("descMetadata", :creator, "Teacher")        
-      %dd.title  
-        = fedora_text_field(@document_fedora,"descMetadata", :creator, :multiple=>false)  
-      %dt
-        = fedora_field_label("marpaCore", [:commentary_taught, :author], "Commentary Author")        
-      %dd.commentary_taught_author  
-        = fedora_text_field(@document_fedora,"marpaCore", [:commentary_taught, :author], :multiple=>false)
+- javascript_includes << infusion_javascripts(:default_no_jquery, :extras=>[:inline_editor_integrations], :debug=>true, :render_html=>false) 
+- javascript_includes << "jquery.jeditable.mini" 
+- javascript_includes << "date-picker/js/datepicker" 
+- javascript_includes << "jquery.form.js"
+- javascript_includes << "jquery.hydraMetadata.js"  
+- javascript_includes << 'custom'
+- javascript_includes << "catalog/edit"
+- javascript_includes << "/plugin_assets/fluid-infusion/infusion/components/undo/js/Undo.js" 
+- javascript_includes << "jquery.notice.js"
+// For Fancybox
+- javascript_includes << "fancybox/jquery.fancybox-1.3.1.pack.js"
+- stylesheet_links << "../javascripts/fancybox/jquery.fancybox-1.3.1.css"
+
+// For slider controls
+- javascript_includes << "select_to_ui_slider/selectToUISlider.jQuery.js"
+- stylesheet_links << ["../javascripts/select_to_ui_slider/css/ui.slider.extras.css"]
+- stylesheet_links << "slider"
+
+- extra_head_content << capture do 
+  :javascript
+    $(document).ready(function() {
+      $(document).catalogEdit();
+    });
+
+.document_viewer#cover_container
+
+  .multipleEdit
+    #loading{:style=>"display:none;"}
+      %img{:src=>"/images/ajax-loader.gif", :width=>"32", :height=>"32", :alt=>"Saving..."} 
+    - if flash[:notice]
+      .notice
+        = flash[:notice]
         
-      %dt
-        = fedora_field_label("marpaCore", [:note], "Notes")        
-      %dd.note  
-        = fedora_text_field(@document_fedora,"marpaCore", [:note], :multiple=>false)
-      %dt
-        = fedora_field_label("marpaCore", [:digital_master, :duration], "Time")        
-      %dd.digital_master_duration  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :duration], :multiple=>false)    
+    %div.accordion-section
+      %h2.section-title Recordings
+      = render :partial => 'marpa_lectures/recordings'
       
-      
-  %fieldset#topic_fields
-    %legend Topics
-    %dl
-      %dt
-        = fedora_field_label("descMetadata", :subject, "Topic:")
-        = fedora_text_field_insert_link "descMetadata", :subject
-        -#(ie. Text, Song, Topic) (ex. “dbu ma la ‘jug pa” "Progressive Stages of Meditation on Emptiness")   
-      %dd.topic
-        = fedora_text_field(@document_fedora,"descMetadata", :subject, :multiple=>true)
-
-
-  %fieldset#misc_metadata
-    %legend 
-    %dl
-      %dt
-        = fedora_field_label("descMetadata", :language, "Language(s)") 
-        = fedora_text_field_insert_link "descMetadata", :language       
-      %dd.language        
-        = fedora_text_field(@document_fedora,"descMetadata", :languages, :multiple=>true)        
-      %dt
-        = fedora_field_label("descMetadata", :contributor, "Translator(s)")
-        = fedora_text_field_insert_link "descMetadata", :contributor               
-      %dd.translator        
-        = fedora_text_field(@document_fedora,"descMetadata", :contributor, :multiple=>true)     
+    %div.accordion-section
+      %h2.section-title Describe the Talk
+      = render :partial => 'marpa_lectures/edit_description'
         
-  
-  %fieldset#technical_metadata
-    %legend Technical Metadata
-    %dl
-      %dt
-        = fedora_field_label("marpaCore", [:digital_master, :file_size], "File Size")        
-      %dd.digital_master_file_size  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
-      %dt
-        = fedora_field_label("marpaCore", [:digital_master, :location], "Master Copy Location")        
-      %dd.digital_master_location  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
-      %dt
-        = fedora_field_label("marpaCore", [:digital_master, :identifier], "Original Filename")        
-      %dd.digital_master_identifier  
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
-      %dt
-        %label
-          Date added to Archive
-      %dd.system_create_date
-        =@document["system_create_dt"]
-      %dt
-        %label
-          Date Last Modified
-      %dd.system_modified_date
-        =@document["system_modified_dt"]
-      %dt
-        %label
-          Contributed By
-      %dd.contributor_info
-        =@document["depositor_t"]
-      %dt
-        %label
-          Controlled By
-      %dd.owner_info  
-        =@document_fedora.owner_id
-      %dt
-        = fedora_field_label("marpaCore", [:technical_note], "Technical Notes")        
-      %dt
-        = fedora_field_label("marpaCore", [:physical_instance, :annotation], "Notes on original recording")        
-      %dd.physical_instance_annotation  
-        = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)
-      %dd.technical_note  
-        = fedora_text_field(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
+    / %div.accordion-section
+    /   %h2.section-title Upload Supplemental Files
+    /   = render :partial => 'marpa_courses/talks'
+
+    %div.accordion-section#permissions
+      %h2.section-title Set permissions
+      %span#permissions
+        = render :partial => "permissions/index", :locals => {:document => document, :asset_id=>params[:id]}
+
+- sidebar_items << capture do
+  = delete_asset_link(params[:id], "course")
+
+= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')

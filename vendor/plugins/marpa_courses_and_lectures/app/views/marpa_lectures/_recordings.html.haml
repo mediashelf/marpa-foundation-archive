@@ -1,0 +1,4 @@
+- parts_ids = @document_fedora.parts(:response_format=>:id_array)
+- s3_parts = parts_ids.collect {|id| S3Content.load_instance(id)}
+%ul
+  =render :partial=>'s3_contents/recording', :collection=>s3_parts    
