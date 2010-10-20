@@ -31,7 +31,7 @@ class Marpa::S3Importer
   def import(import_directory=@import_directory)
     import = load_directory(import_directory)
     report
-    process_import(import)
+    populate_fedora(import)
   end
 
   def load_directory(import_directory=@import_directory)
@@ -43,25 +43,6 @@ class Marpa::S3Importer
   
   def report
     puts "... found #{@import.size} objects in #{import_directory} directory within #{@bucket_name} bucket"
-  end
-  
-  # Create a Fedora object of @model with metadata from @row
-  # @param [AWS::S3::S3Object] s3o the S3 object to import
-  # @return [S3Content] the Fedora S3Content object
-  def fobject_from_s3object(s3object)
-    path = s3object.key.gsub("#{@import_directory}/", "")
-    s3c = S3Content.new
-    s3_ds = s3c.datastreams["s3"]
-      s3_ds.key_values = s3object.key
-      # These methods work, but re-using existing variables for speed.
-      # s3_ds.bucket = obj.bucket.name
-      # s3_ds.account_id = AWS::S3::Base.connection.access_key_id
-      s3_ds.bucket_values = @bucket_name
-      s3_ds.account_id_values = @account_id
-    s3c.datastreams["descMetadata"].import_id_values = path
-    s3c.datastreams["rightsMetadata"].permissions({:group=>"archivist"}, "edit")
-    s3c.datastreams["rightsMetadata"].permissions({:group=>"admin"}, "edit")
-    return s3c
   end
 
   def populate_fedora(import=@import)
@@ -79,4 +60,26 @@ class Marpa::S3Importer
      end
     end
   end
+  
+  # Create a Fedora object of @model with metadata from @row
+  # @param [AWS::S3::S3Object] s3o the S3 object to import
+  # @return [S3Content] the Fedora S3Content object
+  def fobject_from_s3object(s3object)
+    s3c = S3Content.new
+    s3_ds = s3c.datastreams["s3"]
+      s3_ds.key_values = s3object.key
+      # These methods work, but re-using existing variables for speed.
+      # s3_ds.bucket = obj.bucket.name
+      # s3_ds.account_id = AWS::S3::Base.connection.access_key_id
+      s3_ds.bucket_values = @bucket_name
+      s3_ds.account_id_values = @account_id
+    path = s3object.key.gsub("#{@import_directory}/", "")
+    ext = File.extname(path)
+    path = path.gsub(ext, "").gsub("/", "-")
+    s3c.datastreams["descMetadata"].import_id_values = path
+    s3c.datastreams["rightsMetadata"].permissions({:group=>"archivist"}, "edit")
+    s3c.datastreams["rightsMetadata"].permissions({:group=>"admin"}, "edit")
+    return s3c
+  end
+  
 end

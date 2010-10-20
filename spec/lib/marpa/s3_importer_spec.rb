@@ -19,6 +19,8 @@ describe Marpa::S3Importer  do
       s3_ds.key_values.should == [@file1.key]
       s3_ds.bucket_values.should == [@test_importer.bucket_name]
       s3_ds.account_id_values.should == [@test_importer.account_id]
+      
+      s3c.datastreams["descMetadata"].import_id_values.should == ["51.mental.factors-bouddha-1988-psc-t-1c-1"]
     end
     it "should set permissions on the resulting S3Content object" do
       s3c = @test_importer.fobject_from_s3object(@file1)
