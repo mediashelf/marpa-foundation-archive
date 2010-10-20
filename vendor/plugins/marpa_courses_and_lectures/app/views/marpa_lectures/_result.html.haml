@@ -2,32 +2,12 @@
   %td
     -name = result.has_key?("title_field") && !result["title_field"].empty? ? result["title_field"] : result["id"]
     -safe_pid = result['id'].gsub(":", "_")
-    -detail_url = lecture_url(result["id"], "layout"=>"false")
-    .link{:id => "#{safe_pid}_more_link"}=h name
-    %div{:id=>"lecture_detail_#{safe_pid}"}
-    :javascript
-      jQuery('##{safe_pid}_more_link').click(function() {
-        jQuery.ajax({
-          url: "#{detail_url}",
-          success: function(data) {
-            jQuery('#lecture_detail_#{safe_pid}').html(data);
-            alert('Load was performed.');
-          }
-        });
-      });
-    / = link_to_function(name, nil, :id => "#{result['id']}_more_link") do |page|
-    /   - page.visual_effect :toggle_blind, "lecture_detail_#{result['id']}"
-    /   - page.call "async_load", detail_url, "lecture_detail_#{result["id"]}"
-    /   -# page["#{result['id']}_more_link"].replace_html "(show less)"
+    -detail_url = catalog_url(result["id"])
+    = link_to(name, detail_url)
   %td
-    =result["date_field"]
+    =result["date_t"]
   %td
-    =render :partial=>"shared/solr_result_field_value", :collection => result["subject_field"]
+    =render :partial=>"shared/solr_result_field_value", :collection => result["subject_t"]
   %td
-    =result["run_time_field"]
-    
-%tr
-  %td{:colspan=>"4"}
-    %div{:id=>"lecture_detail_#{result["id"]}", :style=>"display:none"}
-      =image_tag('ajax-loader.gif')
+    =result["digital_master_duration_t"]
     
