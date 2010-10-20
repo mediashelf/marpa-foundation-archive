@@ -37,8 +37,8 @@
       = render :partial => 'marpa_courses/edit_description'
 
     %div.accordion-section
-      %h2.section-title Files
-      %div#uploads{'data-pid' => params[:id]}
+      %h2.section-title Talks in this Course
+      = render :partial => 'marpa_courses/talks'
 
     %div.accordion-section#permissions
       %h2.section-title Set permissions
