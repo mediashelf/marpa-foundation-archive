@@ -37,7 +37,8 @@ class UserSessionsController < ApplicationController
          user = User.find_or_create_by_login(request.env['REMOTE_USER']) if user.nil?
        else
          # Create the temp/demo user if the above methods didn't work
-         user = User.create(:login=>'demo_' + User.count.to_s) if user.nil?
+         @user_session = UserSession.new
+         return
        end
        # store the user_id in the session
        session[:login] = user.login
