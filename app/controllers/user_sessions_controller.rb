@@ -30,34 +30,34 @@ class UserSessionsController < ApplicationController
    
    def new
      # if the session is already set, use the session login
-       if session[:login]
-         user = User.find_by_login(session[:login])
+     if session[:login]
+       user = User.find_by_login(session[:login])
        # request coming from PubCookie... get login from REMOTE_USER
-       elsif request.env['REMOTE_USER']
-         user = User.find_or_create_by_login(request.env['REMOTE_USER']) if user.nil?
-       else
-         # Create the temp/demo user if the above methods didn't work
-         @user_session = UserSession.new
-         return
-       end
-       # store the user_id in the session
-       session[:login] = user.login
-       @user_session = UserSession.create(user, true)
+     elsif request.env['REMOTE_USER']
+       user = User.find_or_create_by_login(request.env['REMOTE_USER']) if user.nil?
+     else
+       # Login the way you normally would in the blacklight plugin
+       @user_session = UserSession.new
+       return
+     end
+     # store the user_id in the session
+     session[:login] = user.login
+     @user_session = UserSession.create(user, true)
 
-       # redirect to the catalog with http protocol
-       # make sure there is a session[:search] hash, if not just use an empty hash
-       # and merge in the :protocol key
-       redirect_params = (session[:search] || {}).merge(:protocol=>'http')
-       redirect_to root_url(redirect_params)
+     # redirect to the catalog with http protocol
+     # make sure there is a session[:search] hash, if not just use an empty hash
+     # and merge in the :protocol key
+     redirect_params = (session[:search] || {}).merge(:protocol=>'http')
+     redirect_to root_url(redirect_params)
    end
    
    def destroy
-      reset_session
-      session[:login] = nil
-      current_user_session.destroy if current_user_session
-      redirect_params = (session[:search] || {}).merge(:protocol=>'http')
-      redirect_to logged_out_url(redirect_params)
-    end
+     reset_session
+     session[:login] = nil
+     current_user_session.destroy if current_user_session
+     redirect_params = (session[:search] || {}).merge(:protocol=>'http')
+     redirect_to logged_out_url(redirect_params)
+   end
     
   def logged_out
   end
