@@ -22,7 +22,7 @@ Hydrangea.FileUploader = function() {
     setUp: function() {
       $("a#toggle-uploader").live('click', Hydrangea.FileUploader.toggle);
       pid = $("div#uploads").attr("data-pid");
-
+      async_load("/assets/" + pid + "/file_assets/new", "div#uploader");
     },
     toggle: function() {
       if ($("a#toggle-uploader").html().trim() === "Upload files") {
