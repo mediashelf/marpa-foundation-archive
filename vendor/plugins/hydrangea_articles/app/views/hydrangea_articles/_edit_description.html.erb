@@ -56,6 +56,53 @@
     </dl>
 
 
+<h2 class="section-title">Release Your Work</h2>
+ <dl>
+      <dt>
+        <%= fedora_field_label("properties", [:license_uva], "UVA Preservation License") %>
+      </dt>
+      <dd id="license" class="license">
+        <%= fedora_checkbox(@document_fedora, "properties", [:license_uva], :checked => 'checked') %>
+		  <label for="license">
+	       I grant UVA rights to this work under the UVA Preservation License
+	      </label>
+			To properly administer this repository and preserve the contents for future use,
+			the University of Virginia (UVA) requires certain permissions from you, the
+			author(s) or copyright owner. By accepting this license, you still retain copyright
+			to your work. You do not give up the right to submit the work to publishers or
+			other repositories.
+			<%= link_to "Read complete license agreement", "#" %>
+      </dd>
+    </dl>
+
+ <dl>
+      <dt>
+        <%= fedora_field_label("properties", [:license_cc_by], "Creative Commons Attribution License") %>
+      </dt>
+      <dd id="license" class="license">
+        	
+		 <%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by], :checked => 'checked') %>
+		  <label for="license creative commons attribution">
+	        Creative Commons Attribution License
+	      </label>
+		  <%= link_to "Read complete license agreement", "#" %>
+
+		<ol>		
+		 <li><%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by_sa]) %>
+		  <label for="license creative commons attribution sharealink">
+	        Derivative Works Must Be Released Under This License As Well
+	      </label>
+		</li>
+
+		 <li><%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by_nc]) %>
+		  <label for="license creative commons non-commercial">
+	        Non-Commercial Use Only
+	      </label>
+		</li>		
+		</ol>
+      </dd>
+    </dl>
+
     <dl>
       <dt>
         <%= fedora_field_label("rightsMetadata", [:permissions], "Availability") %>
@@ -76,32 +123,15 @@
       </dd>
     </dl>
 
- <dl>
-      <dt>
-        <%= fedora_field_label("properties", [:license], "License") %>
-      </dt>
-      <dd id="license" class="license">
-        <%= fedora_checkbox(@document_fedora, "properties", [:license], :checked => 'checked') %>
-		  <label for="license">
-	       I grant UVA rights to this work under the UVA Preservation License
-	      </label>
-			To properly administer this repository and preserve the contents for future use,
-			the University of Virginia (UVA) requires certain permissions from you, the
-			author(s) or copyright owner. By accepting this license, you still retain copyright
-			to your work. You do not give up the right to submit the work to publishers or
-			other repositories.
-			<%= link_to "Read complete license agreement", "#" %>
-      </dd>
-    </dl>
 
  <dl>
       <dt>
-	   <%= delete_asset_link(params[:id], "article") %>
       </dt>
       <dd id="release" class="release">
 		  <label for="release">
-		 	<%= submit_tag 'Release this work for UVA Library Circulation' %>
+		 	<%= button_to 'Release this work for UVA Library Circulation' %>
 	      </label>
       </dd>
     </dl>
 </form>
+<dl><dt></dt><dd><%= delete_asset_link(params[:id], "article") %></dd></dl>
