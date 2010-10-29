@@ -1,14 +1,8 @@
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
-    <dl>
-      <dt>
-        <%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %>
-      </dt>
-      <dd class="title">
-        <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
-      </dd>
-    </dl>
+
+	<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], {:multiple=>false, :label => "Title"}) %>
 
 	<dl>
       <dt>
@@ -40,29 +34,25 @@
     </dl>
 
  
-    <dl>
-      <dt>
-        <%= fedora_field_label("descMetadata", [:subject, :topic], "Keywords") %>
-
-      </dt>
-      <dd id="topic_tag" class="topic_tag">
-        <%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
-      </dd>
-    </dl>
-
+	<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], {:multiple=>true, :label => "Keywords"}) %>
 
     <dl>
       <dt>
         <%= fedora_field_label("rightsMetadata", [:permissions], "Availability") %>
       </dt>
       <dd id="permissions" class="permissions">
-	    <% ["General Public", "UVA Community"] .each do |role| %>
+	    <ul>
+		  <% ["UVA Community", "General Public"] .each do |role| %>
 	      <% role_permissions = @document_fedora.datastreams_in_memory["rightsMetadata"].permissions({"group"=>role}) %>
-	      <input type="checkbox" id="<%= role %>" name="permission[group][<%=h role %>]">		
+	      <li><input type="checkbox" id="<%= role.downcase.gsub(/\s/, '-') %>" name="permission[group][<%=h role %>]">		
 		  <label for="<%= role %>">
-	        <%= role.capitalize %>
-	      </label>
+	        <%= role %>
+	      </label></li>
 		<% end %>
+		</ul>
+		<script type="text/javascript">
+		$('#uva-community').attr('checked', 'checked').attr('disabled', true);
+		</script>
       </dd>
     </dl>
 
@@ -71,7 +61,7 @@
         <%= fedora_field_label("properties", [:license], "License") %>
       </dt>
       <dd id="license" class="license">
-        <%= fedora_checkbox(@document_fedora, "properties", [:license]) %>
+        <%= fedora_checkbox(@document_fedora, "properties", [:license], :checked => "checked") %>
 		  <label for="license">
 	       I grant UVA rights to this work under the UVA Preservation License
 	      </label>
@@ -85,8 +75,7 @@
     </dl>
 
  <dl>
-      <dt>
-      </dt>
+      <dt><%= delete_asset_link(params[:id], "article") %></dt>
       <dd id="release" class="release">
         <%= fedora_submit(@document_fedora, "properties", [:release]) %>
       </dd>
