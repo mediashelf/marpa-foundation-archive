@@ -99,6 +99,8 @@
          $(".editable-container", $inserted).hydraTextField();
          $("a.destructive", $inserted).hydraContributorDeleteButton();
        });
+
+			return false;
      },
      
      addPersonPermission: function(responseText, statusText, xhr, $form)  { 

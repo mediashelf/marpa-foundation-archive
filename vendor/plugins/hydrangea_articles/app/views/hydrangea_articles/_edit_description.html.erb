@@ -1,8 +1,14 @@
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
-
-	<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], {:multiple=>false, :label => "Title"}) %>
+    <dl>
+      <dt>
+        <%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %>
+      </dt>
+      <dd class="title">
+        <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
+      </dd>
+    </dl>
 
 	<dl>
       <dt>
@@ -17,7 +23,12 @@
 	<dl>
       <dt>
         <%= fedora_field_label("descMetadata", [:person], "Contributors") %>
-        <%= fedora_text_field_insert_link "descMetadata", [:person], "Add Another Contributor" %>
+	    <% if params[:action] == "edit" %>
+	      <% format = document_partial_name(@document) %>
+	      <div id="add-contributor-box">
+	        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
+	      </div>
+	    <% end %>
       </dt>
       <dd class="contributors" id="contributors"> 
 		<%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>			
@@ -34,7 +45,16 @@
     </dl>
 
  
-	<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], {:multiple=>true, :label => "Keywords"}) %>
+    <dl>
+      <dt>
+        <%= fedora_field_label("descMetadata", [:subject, :topic], "Keywords") %>
+
+      </dt>
+      <dd id="topic_tag" class="topic_tag">
+        <%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
+      </dd>
+    </dl>
+
 
     <dl>
       <dt>
@@ -61,7 +81,7 @@
         <%= fedora_field_label("properties", [:license], "License") %>
       </dt>
       <dd id="license" class="license">
-        <%= fedora_checkbox(@document_fedora, "properties", [:license], :checked => "checked") %>
+        <%= fedora_checkbox(@document_fedora, "properties", [:license], :checked => 'checked') %>
 		  <label for="license">
 	       I grant UVA rights to this work under the UVA Preservation License
 	      </label>
@@ -75,9 +95,13 @@
     </dl>
 
  <dl>
-      <dt><%= delete_asset_link(params[:id], "article") %></dt>
+      <dt>
+	   <%= delete_asset_link(params[:id], "article") %>
+      </dt>
       <dd id="release" class="release">
-        <%= fedora_submit(@document_fedora, "properties", [:release]) %>
+		  <label for="release">
+		 	<%= submit_tag 'Release this work for UVA Library Circulation' %>
+	      </label>
       </dd>
     </dl>
 </form>
