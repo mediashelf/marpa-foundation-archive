@@ -24,7 +24,7 @@ Hydrangea.FileUploader = function() {
       $("a#toggle-uploader").live('click', Hydrangea.FileUploader.toggle);
       $("a#toggle-uploader-generic").live('click', Hydrangea.FileUploader.toggleGeneric);
       pid = $("div#uploads").attr("data-pid");
-
+      async_load("/assets/" + pid + "/file_assets/new", "div#uploader");
     },
     toggle: function() {
       if ($("a#toggle-uploader").html().trim() === "Upload files") {
@@ -49,7 +49,7 @@ Hydrangea.FileUploader = function() {
   };
 }();
 
-
+// Document Ready
 jQuery(document).ready(function($) {
 	// Accordion Behavior
 	$("#accordion").accordion({

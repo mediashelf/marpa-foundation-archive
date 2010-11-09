@@ -1,19 +1,22 @@
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
-  <fieldset id="title_fields">
-    <legend>Title</legend>
+
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
     <dl>
       <dt>
-        <%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title:") %>
+        <%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %>
       </dt>
       <dd class="title">
         <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
       </dd>
+    </dl>
+
+	<dl>
       <dt>
-        <%= fedora_field_label("descMetadata", [:title_info, :language], "Language:") %>
+        <%= fedora_field_label("descMetadata", [:journal], "Publication Details") %>
       </dt>
-      <dd class="language">
-        <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :language], :multiple=>false) %>
+      <dd class="publication_details">
+       	 <%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
+	
       </dd>
     </dl>
   </fieldset>
@@ -41,6 +44,22 @@
 
   <fieldset id="abstract_fields">
     <legend>Abstract</legend>
+
+	<dl>
+      <dt>
+        <%= fedora_field_label("descMetadata", [:person], "Contributors") %>
+	    <% if params[:action] == "edit" %>
+	      <% format = document_partial_name(@document) %>
+	      <div id="add-contributor-box">
+	        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
+	      </div>
+	    <% end %>
+      </dt>
+      <dd class="contributors" id="contributors"> 
+		<%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>			
+	</dd>
+ </dl>
+
     <dl>
       <dt>
         <%= fedora_field_label("descMetadata", [:abstract], "Abstract:") %>
@@ -49,21 +68,95 @@
         <%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %>
       </dd>
     </dl>
-  </fieldset>
-  <fieldset id="citation_fields">
-    <legend>Journal Citation</legend>
-    <%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
-  </fieldset>
-  <fieldset id="topic_fields">
-    <legend>Topics</legend>
+
+ 
     <dl>
       <dt>
-        <%= fedora_field_label("descMetadata", [:subject, :topic], "Topic(s):") %>
-        <%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
+        <%= fedora_field_label("descMetadata", [:subject, :topic], "Keywords") %>
+
       </dt>
       <dd id="topic_tag" class="topic_tag">
         <%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
       </dd>
     </dl>
-  </fieldset>
+
+
+<h2 class="section-title">Release Your Work</h2>
+ <dl>
+      <dt>
+        <%= fedora_field_label("properties", [:license_uva], "UVA Preservation License") %>
+      </dt>
+      <dd id="license" class="license">
+        <%= fedora_checkbox(@document_fedora, "properties", [:license_uva], :checked => 'checked') %>
+		  <label for="license">
+	       I grant UVA rights to this work under the UVA Preservation License
+	      </label>
+			To properly administer this repository and preserve the contents for future use,
+			the University of Virginia (UVA) requires certain permissions from you, the
+			author(s) or copyright owner. By accepting this license, you still retain copyright
+			to your work. You do not give up the right to submit the work to publishers or
+			other repositories.
+			<%= link_to "Read complete license agreement", "#" %>
+      </dd>
+    </dl>
+
+ <dl>
+      <dt>
+        <%= fedora_field_label("properties", [:license_cc_by], "Creative Commons Attribution License") %>
+      </dt>
+      <dd id="license" class="license">
+        	
+		 <%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by], :checked => 'checked') %>
+		  <label for="license creative commons attribution">
+	        Creative Commons Attribution License
+	      </label>
+		  <%= link_to "Read complete license agreement", "#" %>
+
+		<ol>		
+		 <li><%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by_sa]) %>
+		  <label for="license creative commons attribution sharealink">
+	        Derivative Works Must Be Released Under This License As Well
+	      </label>
+		</li>
+
+		 <li><%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by_nc]) %>
+		  <label for="license creative commons non-commercial">
+	        Non-Commercial Use Only
+	      </label>
+		</li>		
+		</ol>
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>
+        <%= fedora_field_label("rightsMetadata", [:permissions], "Availability") %>
+      </dt>
+      <dd id="permissions" class="permissions">
+	    <ul>
+		  <% ["UVA Community", "General Public"] .each do |role| %>
+	      <% role_permissions = @document_fedora.datastreams_in_memory["rightsMetadata"].permissions({"group"=>role}) %>
+	      <li><input type="checkbox" id="<%= role.downcase.gsub(/\s/, '-') %>" name="permission[group][<%=h role %>]">		
+		  <label for="<%= role %>">
+	        <%= role %>
+	      </label></li>
+		<% end %>
+		</ul>
+		<script type="text/javascript">
+		$('#uva-community').attr('checked', 'checked').attr('disabled', true);
+		</script>
+      </dd>
+    </dl>
+
+
+ <dl>
+      <dt>
+      </dt>
+      <dd id="release" class="release">
+		  <label for="release">
+		 	<%= button_to 'Release this work for UVA Library Circulation' %>
+	      </label>
+      </dd>
+    </dl>
 </form>
+<dl><dt></dt><dd><%= delete_asset_link(params[:id], "article") %></dd></dl>

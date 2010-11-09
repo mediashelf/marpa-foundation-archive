@@ -16,6 +16,11 @@ class HydrangeaArticle < ActiveFedora::Base
   has_metadata :name => "properties", :type => ActiveFedora::MetadataDatastream do |m|
     m.field 'collection', :string
     m.field 'depositor', :string
+    m.field 'license_uva', :string    
+    m.field 'license_cc_by', :string        
+    m.field 'license_cc_by_nc', :string            
+    m.field 'license_cc_by_sa', :string            
+    m.field 'released', :string
   end
   
 end

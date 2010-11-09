@@ -99,6 +99,8 @@
          $("a.destructive", $inserted).hydraContributorDeleteButton();
 				$("#re-run-add-contributor-action").val("Add a " + type);
        });
+
+			return false;
      },
      
      addPersonPermission: function(responseText, statusText, xhr, $form)  { 
