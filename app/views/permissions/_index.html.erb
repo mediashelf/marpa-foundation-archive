@@ -3,9 +3,8 @@
 <% end %>
 <form id="document_metadata" action="<%= url_for(:asset_id=>@document_fedora.pid,:action=>"update", :controller=>"permissions") %>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
   <fieldset class="slider">
-    <legend>Group Permissions</legend>
     <% choices = [{"No Access"=>"none"},{"Discover" => "discover"}, {"Read & Download" => "read"}, {"Edit & Upload" => "edit"}] %>
-    <% roles = ["uva"] %>
+    <% roles = RoleMapper.role_names %>
     <%# This next line should be conditional upon a person having Publish permissions on the object's collection %>
     <% roles << "public" %>
     <% roles.each do |role| %>
