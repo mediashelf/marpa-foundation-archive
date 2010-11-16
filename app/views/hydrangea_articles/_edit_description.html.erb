@@ -113,19 +113,19 @@
 		</ol>
       </dd>
     </dl>
+</form>
 
 	<h2 class="section-title">Permissions</h2>
     <%= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
 
-
  <dl>
-      <dt>
-      </dt>
-      <dd id="release" class="release">
-		  <label for="release">
-		 	<%= button_to 'Release this work for UVA Library Circulation' %>
-	      </label>
-      </dd>
-    </dl>
-</form>
+   <dt>
+   </dt>
+   <dd id="release" class="release">
+ 	<label for="release">
+	<%= button_to 'Release this work for UVA Library Circulation' %>
+    </label>
+   </dd>
+ </dl>
+
 <dl><dt></dt><dd><%= delete_asset_link(params[:id], "article") %></dd></dl>

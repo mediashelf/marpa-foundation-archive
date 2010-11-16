@@ -12,7 +12,7 @@ describe HydrangeaArticle do
   describe "apply default permissions" do
     it "should have UVA and public access set to read" do
       rights_ds = @article.datastreams_in_memory["rightsMetadata"]
-      rights_ds.get_values([:read_access, :group]).should == ["uva", "public"]       
+      rights_ds.get_values([:read_access, :group]).should == ["uva-only", "public"]       
     end
   end
   
