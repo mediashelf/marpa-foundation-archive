@@ -8,6 +8,13 @@ describe HydrangeaArticle do
     Fedora::Repository.stubs(:instance).returns(stub_everything())
     @article = HydrangeaArticle.new
   end
+
+  describe "apply default permissions" do
+    it "should have UVA and public access set to read" do
+      rights_ds = @article.datastreams_in_memory["rightsMetadata"]
+      rights_ds.get_values([:read_access, :group]).should == ["uva", "public"]       
+    end
+  end
   
   describe "insert_contributor" do
     it "should generate a new contributor of type (type) into the current xml, treating strings and symbols equally to indicate type, and then mark the datastream as dirty" do
