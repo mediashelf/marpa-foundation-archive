@@ -8,21 +8,24 @@ class ModsArticle < ActiveFedora::NokogiriDatastream
 
     t.title_info(:path=>"titleInfo") {
       t.main_title(:path=>"title", :label=>"title")
-      t.language(:path=>{:attribute=>"lang"})
+      t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
     } 
+    
+    t.language{
+      t.lang_code(:index_as=>[:facetable], :path=>"languageTerm", :attributes=>{:type=>"code"})
+    }
     t.abstract   
     t.subject {
       t.topic
     }      
-    t.topic_tag(:path=>"subject", :default_content_path=>"topic")           
+    t.topic_tag(:index_as=>[:facetable],:path=>"subject", :default_content_path=>"topic")
     # This is a mods:name.  The underscore is purely to avoid namespace conflicts.
     t.name_ {
       # this is a namepart
-      t.namePart(:index_as=>[:searchable, :displayable, :facetable, :sortable], :required=>:true, :type=>:string, :label=>"generic name")
-      
+      t.namePart(:type=>:string, :label=>"generic name")
       # affiliations are great
       t.affiliation
-      t.institution(:path=>"affiliation")
+      t.institution(:path=>"affiliation", :index_as=>[:facetable], :label=>"organization")
       t.displayForm
       t.role(:ref=>[:role])
       t.description
@@ -33,16 +36,15 @@ class ModsArticle < ActiveFedora::NokogiriDatastream
       t.computing_id
     }
     # lookup :person, :first_name        
-    t.person(:ref=>:name, :attributes=>{:type=>"personal"})
-    t.organization(:ref=>:name, :attributes=>{:type=>"corporate"})
-    t.conference(:ref=>:name, :attributes=>{:type=>"conference"})
-
+    t.person(:ref=>:name, :attributes=>{:type=>"personal"}, :index_as=>[:facetable])
+    t.organization(:ref=>:name, :attributes=>{:type=>"corporate"}, :index_as=>[:facetable])
+    t.conference(:ref=>:name, :attributes=>{:type=>"conference"}, :index_as=>[:facetable])
     t.role {
       t.text(:path=>"roleTerm",:attributes=>{:type=>"text"})
       t.code(:path=>"roleTerm",:attributes=>{:type=>"code"})
     }
     t.journal(:path=>'relatedItem', :attributes=>{:type=>"host"}) {
-      t.title_info(:ref=>[:title_info])
+      t.title_info(:index_as=>[:facetable],:ref=>[:title_info])
       t.origin_info(:path=>"originInfo") {
         t.publisher
         t.date_issued(:path=>"dateIssued")
