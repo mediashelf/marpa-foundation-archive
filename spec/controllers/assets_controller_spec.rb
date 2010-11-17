@@ -21,6 +21,7 @@ describe AssetsController do
   describe "update" do
     it "should update the object with the attributes provided" do
       mock_document = mock("document")
+      mock_document.stubs(:update_from_computing_id).returns(nil)
       HydrangeaArticle.expects(:find).with("_PID_").returns(mock_document)
       
       simple_request_params = {"asset"=>{
@@ -38,6 +39,7 @@ describe AssetsController do
     
     it "should support updating OM::XML datastreams" do
       mock_document = mock("document")
+      mock_document.stubs(:update_from_computing_id).returns(nil)
       # content_type is specified as hydrangea_dataset.  If not specified, it defaults to HydrangeaArticle
       HydrangeaDataset.expects(:find).with("_PID_").returns(mock_document)
       

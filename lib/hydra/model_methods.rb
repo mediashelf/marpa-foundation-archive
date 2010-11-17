@@ -40,6 +40,7 @@ module Hydra::ModelMethods
   def apply_ldap_values(computing_id, person_number)
     person = Ldap::Person.new(computing_id)
     desc_ds = self.datastreams_in_memory["descMetadata"]
+    return if desc_ds.nil?
     desc_ds.find_by_terms(:person, :computing_id)[person_number].content = person.computing_id
     desc_ds.find_by_terms(:person, :first_name)[person_number].content = person.first_name
     desc_ds.find_by_terms(:person, :last_name)[person_number].content = person.last_name
