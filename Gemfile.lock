@@ -153,6 +153,3 @@ DEPENDENCIES
   webrat
   will_paginate
   xml-simple
-
-METADATA
-  version: 1.0.6

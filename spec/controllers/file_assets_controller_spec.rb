@@ -86,6 +86,7 @@ describe FileAssetsController do
     it "should redirect to index view if current_user does not have read or edit permissions" do
       mock_user = mock("User")
       mock_user.stubs(:login).returns("fake_user")
+      mock_user.stubs(:is_being_superuser?).returns(false)
       controller.stubs(:current_user).returns(mock_user)
       get(:show, :id=>"hydrangea:fixture_file_asset1")
       response.should redirect_to(:action => 'index')
@@ -103,7 +104,8 @@ describe FileAssetsController do
       filename = "Foo File"
       mock_fa = mock("FileAsset", :save)
       FileAsset.expects(:new).returns(mock_fa)
-      mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename)
+      mime_type = "application/octet-stream"
+      mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename, :mimeType=>mime_type)
       mock_fa.expects(:label=).with(filename)
       mock_fa.stubs(:pid).returns("foo:pid")
       xhr :post, :create, :Filedata=>mock_file, :Filename=>filename
@@ -114,7 +116,9 @@ describe FileAssetsController do
       mock_fa = mock("FileAsset", :save)
       mock_fa.stubs(:pid).returns("foo:pid")
       FileAsset.expects(:new).returns(mock_fa)
-      mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename)
+      mime_type = "application/octet-stream"
+      mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename, :mimeType=>mime_type)
+#mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename)
       mock_fa.expects(:label=).with(filename)
       
       mock_container = mock("container")

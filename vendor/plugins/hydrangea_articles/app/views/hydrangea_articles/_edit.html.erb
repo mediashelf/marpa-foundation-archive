@@ -1,3 +1,10 @@
+<% if files = params[:files] %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#accordion").accordion({active: 1});
+    });
+  </script>
+<% end %>
 <% stylesheet_links << "../javascripts/date-picker/css/datepicker" %>
 <% javascript_includes << infusion_javascripts(:default_no_jquery, :extras=>[:inline_editor_integrations], :debug=>true, :render_html=>false) %>
 <% javascript_includes << "jquery.jeditable.mini" %>
@@ -33,8 +40,12 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-    
-	<h2 class="section-title">Select Your Work</h2>
+
+  <div id="accordion"  style="height:600px;">
+    <h2 class="section-title"><a href="#">Description</a></h2>
+    <%= render :partial => 'hydrangea_articles/edit_description' %>
+
+    <h2 class="section-title"><a href="#">Upload Files</a></h2>
     <div id="uploads" data-pid=<%= params[:id] %>></div>
 
     <%= render :partial => 'hydrangea_articles/edit_description' %>

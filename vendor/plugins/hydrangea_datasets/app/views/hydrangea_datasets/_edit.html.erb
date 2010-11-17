@@ -1,3 +1,10 @@
+<% if params[:files] %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#accordion").accordion({active: 2});
+    });
+  </script>
+<% end %>
 <% stylesheet_links << "../javascripts/date-picker/css/datepicker" %>
 <% javascript_includes << infusion_javascripts(:default_no_jquery, :extras=>[:inline_editor_integrations], :debug=>true, :render_html=>false) %>
 <% javascript_includes << "jquery.jeditable.mini" %>
@@ -36,7 +43,7 @@
       </div>
     <% end %>
 
-  <div id="accordion">
+  <div id="accordion"  style="height:600px;">
 
      <h2 class="section-title"><a href="#">Describe the Dataset</a></h2>
      <%= render :partial => 'hydrangea_datasets/edit_description' %>
