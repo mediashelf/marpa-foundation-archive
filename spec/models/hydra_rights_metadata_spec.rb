@@ -80,7 +80,8 @@ describe Hydra::RightsMetadata do
       @sample.permissions({"group"=>"group_zzz"}, "edit")
       @sample.permissions({"group"=>"public"}, "discover")
 
-      @sample.groups.should == {"group_zzz"=>"edit", "public"=>"discover"}
+      #@sample.groups.should == {"group_zzz"=>"edit", "public"=>"discover"}
+      @sample.groups.should == {"public"=>"discover", "uva-only"=>"read", "group_zzz"=>"edit"}
     end
   end
   describe "individuals" do

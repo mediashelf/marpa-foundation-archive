@@ -2,5 +2,11 @@ archivist:
   - archivist1
   - archivist2
   - leland_himself
-uva-only:
-  - uva-only
+donor:
+  - donor1
+  - leland_himself
+researcher:
+  - researcher1
+patron:
+  - patron1
+  - leland_himself
