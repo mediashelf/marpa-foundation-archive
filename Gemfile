@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '>=2.3.5', '<3.0.0'
 
-gem 'active-fedora', '1.2.6'  
+gem 'active-fedora', '1.2.7'  
 gem 'authlogic', '>=0.1.0'
 gem 'builder'
 gem 'columnize'
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rspec', '<2.0.0'  
   gem 'rspec-rails', '<2.0.0' # rspec-rails 2.0.0 requires Rails 3.
   gem 'mocha'
-  gem 'cucumber'
+  gem 'cucumber', '>=0.8.5'
   gem 'cucumber-rails'
   gem 'gherkin'
 end
