@@ -60,6 +60,8 @@ jQuery(document).ready(function($) {
 	    icons: false
 	});	
 	
+	//$("input[type=checkbox]").hydraCheckbox();
+	//$("input[type=radio]").hydraRadioButton();	
 	
 	// FORM BEHAVIOR	
 	if ( $("input:radio").filter("[value=completed]").attr("checked", false) && $("input:radio").filter("[value=ongoing]").attr("checked",false)) {

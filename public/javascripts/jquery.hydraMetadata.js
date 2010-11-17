@@ -226,7 +226,7 @@
      *  Save the values from a Hydra editable field (fedora_textfield, fedora_textarea, fedora_textile, fedora_select, fedora_date)
      *
      */
-     saveEdit: function(editNode) {
+    saveEdit: function(editNode) {
        $editNode = $(editNode);
        var $closestForm = $editNode.closest("form");
        var url = $closestForm.attr("action");
@@ -418,7 +418,38 @@
      return this;
    };
    
-   
+   $.fn.hydraRadioButton = function(settings) {
+     var config = {};
+ 
+     if (settings) $.extend(config, settings);
+ 
+     this.each(function() {
+       $(this).unbind('change.hydra').bind('change.hydra', function(e) {
+           $.fn.hydraMetadata.saveSelect(this, e);
+           e.preventDefault();
+         });
+     });
+ 
+     return this;
+ 
+   };
+
+   $.fn.hydraCheckbox = function(settings) {
+     var config = {};
+ 
+     if (settings) $.extend(config, settings);
+ 
+     this.each(function() {
+       $(this).unbind('change.hydra').bind('change.hydra', function(e) {
+           $.fn.hydraMetadata.saveEdit(this, e);
+           e.preventDefault();
+         });
+     });
+ 
+     return this;
+ 
+   };
+  
    // 
    // This method relies on some options being saved in the dom element's data, which is populated by a little script inserted by the fedora_date_select helper.  
    // For example:

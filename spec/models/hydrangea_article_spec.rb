@@ -16,6 +16,14 @@ describe HydrangeaArticle do
     end
   end
   
+  describe "apply default license" do
+    it "should have UVA and CC license set" do
+      rights_ds = @article.datastreams_in_memory["rightsMetadata"]
+      rights_ds.get_values([:copyright, :uvalicense]).should == ["yes"]       
+      rights_ds.get_values([:copyright, :cclicense]).should == ["yes"]             
+    end
+  end  
+  
   describe "insert_contributor" do
     it "should generate a new contributor of type (type) into the current xml, treating strings and symbols equally to indicate type, and then mark the datastream as dirty" do
       mods_ds = @article.datastreams_in_memory["descMetadata"]

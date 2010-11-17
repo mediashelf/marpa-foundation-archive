@@ -70,11 +70,11 @@
 <h2 class="section-title">Release Your Work</h2>
  <dl>
       <dt>
-        <%= fedora_field_label("properties", [:license_uva], "UVA Preservation License") %>
+        <%= fedora_field_label("rightsMetadata", [:copyright, :uvalicense], "UVA Preservation License") %>
       </dt>
       <dd id="license" class="license">
-        <%= fedora_checkbox(@document_fedora, "properties", [:license_uva], :checked => 'checked') %>
-		  <label for="license">
+		<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :uvalicense], :choices => %w(yes no))   %>    
+		  <br /><label for="license">
 	       I grant UVA rights to this work under the UVA Preservation License
 	      </label>
 			To properly administer this repository and preserve the contents for future use,
@@ -88,29 +88,14 @@
 
  <dl>
       <dt>
-        <%= fedora_field_label("properties", [:license_cc_by], "Creative Commons Attribution License") %>
+        <%= fedora_field_label("rightsMetadata", [:copyright, :cclicense], "Creative Commons Attribution License") %>
       </dt>
-      <dd id="license" class="license">
-        	
-		 <%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by], :checked => 'checked') %>
-		  <label for="license creative commons attribution">
+      <dd id="license" class="license">	
+		<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :cclicense], :choices => %w(yes no))   %>    
+		  <br /><label for="license creative commons attribution">
 	        Creative Commons Attribution License
 	      </label>
 		  <%= link_to "Read complete license agreement", "#" %>
-
-		<ol>		
-		 <li><%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by_sa]) %>
-		  <label for="license creative commons attribution sharealink">
-	        Derivative Works Must Be Released Under This License As Well
-	      </label>
-		</li>
-
-		 <li><%= fedora_checkbox(@document_fedora, "properties", [:license_cc_by_nc]) %>
-		  <label for="license creative commons non-commercial">
-	        Non-Commercial Use Only
-	      </label>
-		</li>		
-		</ol>
       </dd>
     </dl>
 </form>
