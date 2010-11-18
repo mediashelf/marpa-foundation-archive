@@ -13,4 +13,5 @@ ActionController::Routing::Routes.draw do |map|
   map.login "login", :controller => "webauth_sessions", :action => "new"
   map.logout "logout", :controller => "webauth_sessions", :action => "destroy"
   map.logged_out 'logged_out', :controller => 'user_sessions', :action => 'logged_out'
+  map.superuser 'superuser', :controller => 'user_sessions', :action => 'superuser'
 end
