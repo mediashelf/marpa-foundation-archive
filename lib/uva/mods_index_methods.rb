@@ -7,7 +7,10 @@ module Uva::ModsIndexMethods
         hash["computing_id"] = child.text if child.name == 'computing_id'
         hash
       end
-      names << Solr::Field.new({"person_full_name_cid_facet".to_sym=>[name_parts["family"], name_parts["given"], name_parts["computing_id"]].join("##")}) if name_parts.length == 3
+      if name_parts.length == 3
+        value = "#{name_parts["family"]}, #{name_parts["given"]} (#{name_parts["computing_id"]})"
+        names << Solr::Field.new({"person_full_name_cid_facet".to_sym=>value}) if name_parts.length == 3
+      end
       names
     end
   end

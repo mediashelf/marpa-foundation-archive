@@ -25,11 +25,14 @@ module ApplicationHelper
   end
 
   def extract_computing_id val
-    val.split("##")[-1]
+    cid = val.split(" ")[-1]
+    cid[1..cid.length-2]
   end
 
   def format_item_value val
-    first, last = val.split("##")[0..1]
-    [first, "#{last[0..0]}."].join(", ")
+    last, f_c = val.split(", ")
+    first = f_c.split(" (")[0]
+#first, last = val.split("##")[0..1]
+    [last, "#{first[0..0]}."].join(", ")
   end
 end
