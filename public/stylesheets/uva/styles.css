@@ -13,6 +13,14 @@ body {
 	width: 100%;
 }
 
+#bd {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
 #uva_lib_banner {
 	width: 100%;
 	height: 31px;
@@ -82,7 +90,7 @@ body {
 
 #side_bar, #facets {
 /*	height: 680px;*/
-	width: 203px;
+	width: 189px;
 	border: thin solid #8F95A3;
 }
 
@@ -119,6 +127,13 @@ body {
 
 .side_bar_content, #facets div ul {
 	background-color: #E5EBFD;
+	padding: 0;
+}
+
+.side_bar_content, #facets div ul li {
+	padding: 0 10px;	
+	line-height: 20px;
+	display: block;
 }
 
 #search {
