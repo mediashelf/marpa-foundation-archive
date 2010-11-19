@@ -4,7 +4,7 @@
   <div id="authors" class="facets">
       <div>
         <% display_facet = @response.facets.detect {|f| f.name == 'person_full_name_cid_facet'} -%>
-        <% if display_facet.items.length > 0 %>
+        <% if display_facet &&  display_facet.items.length > 0 %>
           <div>
             <%-
               get_randomized_display_items(display_facet.items).each_with_index do |item,index| 
