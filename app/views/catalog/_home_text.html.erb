@@ -1,27 +1,23 @@
 <div class="document">
 	<h1>Welcome to LIBRA</h1>
   <% # container for author facets -%>
-  <div id="authors" class="facets">
-      <div>
-        <% display_facet = @response.facets.detect {|f| f.name == 'person_full_name_cid_facet'} -%>
-        <% if display_facet &&  display_facet.items.length > 0 %>
-          <div>
-            <%-
-              get_randomized_display_items(display_facet.items).each_with_index do |item,index| 
-            -%>
-              <% if index % 4 == 0 %>
-              <div class="author_browse_row">
-              <% end %>
-              <div class="author_browse_image">
-                  <%= render_complex_facet_image('person_full_name_cid_facet', item) %><br/>
-                  <%= render_complex_facet_value('person_full_name_cid_facet', item) %>
-              </div>
-              <% if index % 4 == 3 %>
-              </div>
-              <% end %>
-            <% end %>
-          </div>
+    <% display_facet = @response.facets.detect {|f| f.name == 'person_full_name_cid_facet'} -%>
+    <% if display_facet &&  display_facet.items.length > 0 %>
+      <div id="authors" >
+        <%-
+          get_randomized_display_items(display_facet.items).each_with_index do |item,index| 
+        -%>
+          <% if index % 4 == 0 %>
+            <div class="author_browse_row">
+          <% end %>
+            <div class="author_browse_image">
+                <%= render_complex_facet_image('person_full_name_cid_facet', item) %><br/>
+                <%= render_complex_facet_value('person_full_name_cid_facet', item) %>
+            </div>
+          <% if index % 4 == 3 %>
+            </div>
+          <% end %>
         <% end %>
       </div>
-  </div>
-</div>
+    <% end %>
+</div></div>
