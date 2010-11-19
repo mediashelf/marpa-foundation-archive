@@ -1,0 +1,63 @@
+<!-- 
+This is an exact copy of the Blacklight application.html.erb with one modification: the footer includes "Powered by Hydra"
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title><%= h(@page_title || application_name) %></title>
+    <link href="<%= url_for :controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
+    
+    <%= render_head_content %>
+    
+    <%= stylesheet_link_tag('uva/styles') %>
+  </head>
+  
+    <body <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %> onload="$('input#q').focus();"<% end %>>
+
+		<div id="uva_lib_banner">
+		  <div id="container1">
+			<%= link_to(image_tag('uva/uva_lib.jpg', :width => 186, :height => 18, :alt => "University of Virginia Library"), "http://library.uva.edu") %>
+			</div>
+		</div>
+
+	  <div id="doc4" class="yui-t2">
+	    
+	    <div id="hd">
+        <div class="yui-g">
+		  <div id="container2">
+			<%= link_to image_tag('uva/libra_logo.jpg', :width => 127, :height => 78, :alt => "LIBRA"), root_path %>
+			<%= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>" : "" %>
+		  </div>
+	
+          <div class="yui-u">
+            <%= render :partial=>'/user_util_links' %>
+          </div>
+        </div>
+      </div>
+	    
+	    <div id="bd">
+      	
+      	<div id="yui-main">
+          <div class="yui-b">
+            <%= render :partial=>'/flash_msg' %>
+            <%= yield %>
+          </div>
+        </div>
+        
+        <div class="yui-b sidebar"><%= sidebar_items.join('') %></div>
+        
+	    </div>
+	    
+	  </div>
+		<div id="footer">
+			<div id="container3">© 2009 by the Rector and Visitors of the University of Virginia<br />
+			Federal Library Depository logo This library is a Congressionally designated depository for U.S. Government documents. Public access to the Government documents is guaranteed by public law.<%= image_tag('uva/federal_lib_logo.png', :width => 37, :height => 34, :alt => "Federal Library Depository logo") %></div>
+		</div>	
+  </body>
+  
+</html>
