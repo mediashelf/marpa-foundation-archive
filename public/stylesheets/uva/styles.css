@@ -1,0 +1,207 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background: white;
+}
+
+#hd, #doc4 {
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+#uva_lib_banner {
+	width: 100%;
+	height: 31px;
+	background-color: #0F1C38;
+}
+
+#uva_lib_banner img {
+	margin-top: 8px;
+	margin-left: 765px;
+}
+
+#uva_lib_banner #container1 {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#container1 a {
+	border: none;
+}
+
+.yui-u {
+	margin-top: -78px;
+	margin-right: 20px;
+}
+
+.yui-u a, .yui-u a:active, .yui-u a:visited {
+	color: white;
+	border: none;
+}
+
+#libra_banner, .yui-g {
+	height: 78px;
+	width: 100%;
+	background-image: url(../../images/uva/libra_banner_bg.jpg);
+	background-repeat: repeat-x;
+	color: #F3A729;
+}
+
+
+#libra_banner {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 38px;
+}
+
+#libra_banner {
+}
+
+#libra_banner #container2, #container2 {
+	width: 300px;
+	text-align: left;
+	margin-left: 20px;
+}
+
+#container2 a {
+	margin: 10px;
+	border: none;	
+}
+
+#frame {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+#side_bar, #facets {
+/*	height: 680px;*/
+	width: 203px;
+	border: thin solid #8F95A3;
+}
+
+.side_bar_heading, #facets div h3 {
+	background-color: #CCD9F2;
+	height: 50px;
+}
+
+#facets {
+	padding-left: 0;
+}
+
+#facets h2 {
+	color: #617DA6;
+	font: normal normal normal 10px/20px helvetica, arial, verdana, sans-serif;
+	margin: 0.625em 0px 0.625em 10px;
+	text-transform: uppercase;
+}
+
+#facets div {
+
+}
+
+#facets div h3 {
+	margin-top: 0;
+	margin-left: 0;
+	color: #4079A0;	
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 20px;
+	padding: 1.2em 10px;	
+	height: 20px;	
+}
+
+.side_bar_content, #facets div ul {
+	background-color: #E5EBFD;
+}
+
+#search {
+	width: 760px;
+	float: right;
+	background-image: url(../../images/uva/search_bg.jpg);
+	background-repeat: repeat-x;
+	height: 42px;
+	position: static;
+}
+
+
+#search #form1 {
+	height: 25px;
+	width: 615px;
+	margin-left: 12px;
+	background-color: #FFF;
+	margin-top: 7px;
+	border: thin solid #0F1C38;
+}
+
+#search form {
+	width: 700px;
+	height: 25px;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+
+#search form #q {
+	width: 600px;
+	margin-
+}
+
+#search form input[type=image] {
+	padding: 0 6px;
+	float: right;
+}
+
+.yui-t2 #yui-main .yui-b {
+	border: none;
+	margin-left:100px;
+	padding:0;
+}
+
+#content {
+	width: 723px;	
+	float: right;
+	margin-top: -640px;
+}
+
+#content, .document {
+	min-height: 638px;	
+	background-color: #F1F1F1;
+	border: thin solid #C8C8C8;	
+}
+
+.document {
+	padding: 10px;
+	margin-left: 15px;	
+}
+
+#footer {
+	height: 74px;
+	width: 100%;
+	background-image: url(../../images/uva/footer_bg.jpg);
+	background-repeat: repeat-x;
+}
+
+#footer #container3 { 
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 56px;
+	text-align: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	line-height: 21px;
+	padding-top: 17px;
+}
+
+#footer #container3 img {
+	float: left;
+	margin-top: -15px;
+}
+
