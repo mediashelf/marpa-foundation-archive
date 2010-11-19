@@ -184,14 +184,40 @@ body {
 	margin-top: -640px;
 }
 
-#content, .document {
+#content, .document, #results {
 	min-height: 638px;	
 	background-color: #F1F1F1;
 	border: thin solid #C8C8C8;	
 }
 
+#appliedParams {
+	width: 700px;
+	background-color: #F1F1F1;
+	margin-top: 50px;
+}
+
+#appliedParams div, .pagination, #sortAndPerPage {
+	background-color: #F1F1F1;
+}
+
+.pagination, #sortAndPerPage {
+	width: 700px;
+}
+
+#documents {
+	background-color: #F1F1F1;
+	width: 700px;
+	margin-right: 0;	
+	padding: 10px;
+}
+
 .document {
 	padding: 10px;
+	margin-left: 15px;	
+}
+
+#results {
+	padding-left: 10px;
 	margin-left: 15px;	
 }
 
