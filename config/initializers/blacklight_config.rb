@@ -76,7 +76,8 @@ Blacklight.configure(:shared) do |config|
       "gps_facet",
       "region_facet",
       "site_facet",
-      "ecosystem_facet"
+      "ecosystem_facet",
+      "person_full_name_cid_facet"
       ],
     :labels => {
       "object_type_facet"=>"Type",
@@ -88,7 +89,8 @@ Blacklight.configure(:shared) do |config|
       "gps_facet"=>"GPS Coordinates",
       "region_facet"=>"Region",
       "site_facet"=>"Site",
-      "ecosystem_facet"=>"Ecosystem"
+      "ecosystem_facet"=>"Ecosystem",
+      "person_full_name_cid_facet"=>"PFC"
     },
     :limits=> {nil=>10}
   }
