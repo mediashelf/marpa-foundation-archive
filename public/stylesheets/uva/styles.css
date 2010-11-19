@@ -220,3 +220,22 @@ body {
 	margin-top: -15px;
 }
 
+div .author_browse_row {
+  display: block;
+  margin-bottom: 1.54em;
+  margin: 0px auto 1.54em;
+  padding: 0;
+  height:150px;
+}
+
+div .author_browse_image {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  margin-left: 3.2em;
+  vertical_align: baseline;
+  margin-top: -5px;
+  padding: 9px;
+  width: auto;"
+}
