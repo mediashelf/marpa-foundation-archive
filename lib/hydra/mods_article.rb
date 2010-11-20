@@ -83,7 +83,7 @@ module Hydra
                xml.affiliation
                xml.computing_id
                xml.role {
-                 xml.roleTerm(:authority=>"marcrelator", :type=>"text")
+                 xml.roleTerm("Author", :authority=>"marcrelator", :type=>"text")
                }
              }
              xml.typeOfResource
@@ -135,7 +135,7 @@ module Hydra
           xml.affiliation
           xml.computing_id
           xml.role {
-            xml.roleTerm(:type=>"text")
+            xml.roleTerm("Author", :type=>"text")
           }
         }
       end
