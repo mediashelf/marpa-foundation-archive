@@ -411,7 +411,11 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px 3px 25px;border:1px 
 
 .fl-uploader a.fl-uploader-browse:focus,.fl-uploader a.fl-uploader-browse.focus{outline:2px solid #142B8C;background-color:#FFF;}
 
-.fl-uploader-browse-overlay{width:25%;position:absolute;bottom:45px;right:5px;z-index:7;}
+.fl-uploader-browse-overlay{position:absolute;bottom:45px;right:5px;z-index:7;}
+
+.swfupload {
+/*	border:1px solid red;*/
+}
 
 .fl-uploader-flash10-wrapper { 
 	width: 100%;
