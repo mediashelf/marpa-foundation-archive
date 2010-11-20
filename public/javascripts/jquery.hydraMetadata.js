@@ -233,11 +233,97 @@
        var field_param = $editNode.fieldSerialize();
        var content_type_param = $("input#content_type", $closestForm).fieldSerialize();
        var field_selectors = $("input.fieldselector[rel="+$editNode.attr("rel")+"]").fieldSerialize();
+       var params = field_param + "&" + content_type_param + "&" + field_selectors + "&_method=put";
+       
+       // FOR UVA
+       var field_id = field_param.match(/person_._computing_id/);
+       if (field_id) { 
+         ix = field_id[0].match(/\d+/);
+         field = field_id[0];
+       }
+       
+       $.ajax({
+         type: "PUT",
+         url: url,
+         dataType : "json",
+         data: params,
+         success: function(msg){
+          // if this is computing id field, need to update the first_name, last_name and institution
+          if (field_id) {
+            $.fn.hydraMetadata.getPersonInformation(url,ix);
+          }
+     			$.noticeAdd({
+             inEffect:               {opacity: 'show'},      // in effect
+             inEffectDuration:       600,                    // in effect duration in miliseconds
+             stayTime:               6000,                   // time in miliseconds before the item has to disappear
+             text:                   "Your edit to "+ msg.updated[0].field_name +" has been saved as "+msg.updated[0].value+" at index "+msg.updated[0].index,   // content of the item
+             stay:                   false,                  // should the notice item stay or not?
+             type:                   'notice'                // could also be error, succes
+            });
+         },
+         error: function(xhr, textStatus, errorThrown){
+     			$.noticeAdd({
+             inEffect:               {opacity: 'show'},      // in effect
+             inEffectDuration:       600,                    // in effect duration in miliseconds
+             stayTime:               6000,                   // time in miliseconds before the item has to disappear
+             text:                   'Your changes to' + $editNode.attr("rel") + ' could not be saved because of '+ xhr.statusText + ': '+ xhr.responseText,   // content of the item
+             stay:                   true,                  // should the notice item stay or not?
+             type:                   'error'                // could also be error, succes
+            });
+         }
+       });
+     },
+    
+    /*
+    *  Update the values of first_name, last_name and institution - called upon successful completion of computing_id field
+    *
+    */
+    getPersonInformation: function(url,ix) {
+      $.ajax({
+        type: "GET",
+        url: url+"&field=person_"+ix+"_first_name",
+        success: function(msg){
+          $("#person_"+ix+"_first_name").val(msg);
+          $("#person_"+ix+"_first_name-text").text(msg);
+          $("#person_"+ix+"_first_name-text").removeClass("fl-inlineEdit-invitation-text");
+        }
+      });
+      $.ajax({
+        type: "GET",
+        url: url+"&field=person_"+ix+"_last_name",
+        success: function(msg){
+          $("#person_"+ix+"_last_name").val(msg);
+          $("#person_"+ix+"_last_name-text").text(msg);
+          $("#person_"+ix+"_last_name-text").removeClass("fl-inlineEdit-invitation-text");
+        }
+      });
+      $.ajax({
+        type: "GET",
+        url: url+"&field=person_"+ix+"_institution",
+        success: function(msg){
+          $("#person_"+ix+"_institution").val(msg);
+          $("#person_"+ix+"_institution-text").text(msg);
+          $("#person_"+ix+"_institution-text").removeClass("fl-inlineEdit-invitation-text");
+        }
+      });
+    },
+
+     /*
+     *  Save the values from a Hydra editable field (fedora_textfield, fedora_textarea, fedora_textile, fedora_select, fedora_date)
+     *
+     */
+    updateNode: function(refreshNode) {
+       $refreshNode = $(refreshNode);
+       var $closestForm = $editNode.closest("form");
+       var url = $closestForm.attr("action");
+       var field_param = $editNode.fieldSerialize();
+       var content_type_param = $("input#content_type", $closestForm).fieldSerialize();
+       var field_selectors = $("input.fieldselector[rel="+$editNode.attr("rel")+"]").fieldSerialize();
 
        var params = field_param + "&" + content_type_param + "&" + field_selectors + "&_method=put";
        
        $.ajax({
-         type: "PUT",
+         type: "GET",
          url: url,
          dataType : "json",
          data: params,
@@ -323,7 +409,7 @@
    */
    $.fn.hydraTextField = function(settings) {
      var config = {
-        selectors : {
+      selectors : {
           text  : ".editable-text",
           edit  : ".editable-edit"           
         },
@@ -680,3 +766,5 @@
    };
    
  })(jQuery);
+
+
