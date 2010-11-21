@@ -7,12 +7,13 @@ describe HydrangeaArticle do
   before(:each) do
     Fedora::Repository.stubs(:instance).returns(stub_everything())
     @article = HydrangeaArticle.new
+    @file_asset = FileAsset.new
   end
 
   describe "apply default permissions" do
     it "should have UVA and public access set to read" do
       rights_ds = @article.datastreams_in_memory["rightsMetadata"]
-      rights_ds.get_values([:read_access, :group]).should == ["uva-only", "public"]       
+      rights_ds.get_values([:read_access, :group]).should == []       
     end
   end
   
@@ -58,6 +59,39 @@ describe HydrangeaArticle do
       solr_doc = @article.to_solr
       solr_doc[:person_institution_t].should == "my org"        
       solr_doc[:person_institution_facet].should == "my org"        
+    end
+    describe "placeholder release workflow" do
+      before(:each) do
+        @ready_to_release = HydrangeaArticle.new
+        @ready_to_release.datastreams["properties"].released_values = "true"
+        @ready_to_release.datastreams["descMetadata"].update_indexed_attributes({[:title_info, :main_title]=>"my title", [{:person=>0}, :last_name]=>"author_last_name", [{:person=>0}, :role, :text]=>"Author"})
+        @ready_to_release.stubs(:parts).returns([@file_asset])
+      end
+      it "should not grant public access until released" do
+        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
+        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"uva-only")
+      end
+      it "should not release until a file is uploaded and author & title are set" do
+        @article.datastreams["properties"].released_values = "true"
+        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
+        @article.datastreams["properties"].released_values = "true"
+        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
+        @article.datastreams["descMetadata"].update_indexed_attributes({[:title_info, :main_title]=>"my title", [{:person=>0}, :last_name]=>"author_last_name", [{:person=>0}, :role, :text]=>"Author"})
+        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
+        @article.stubs(:parts).returns([@file_asset])
+        @article.to_solr.should have_solr_fields(:read_access_group_t=>"public")
+      end
+      it "should support releasing for the general public" do
+        @ready_to_release.datastreams["properties"].release_to_values = "public"
+        @ready_to_release.datastreams["properties"].released_values = "true"
+        @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"public")
+      end
+      it "should support releasing for UVA commmunity" do
+        @ready_to_release.datastreams["properties"].release_to_values = "uva-only"
+        @ready_to_release.datastreams["properties"].released_values = "true"
+        @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"uva-only")
+        @ready_to_release.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
+      end
     end
   end
 end
