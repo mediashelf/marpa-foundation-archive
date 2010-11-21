@@ -5,7 +5,9 @@ Spec::Matchers.define :have_solr_fields do |expected|
     expected.each_pair do |field_name, field_value|
       /<Solr::Field.*@name=\"#{field_name.to_s}\".*, @value=\"#{field_value}\".*>/
       result = inspected.include?("@name=\"#{field_name.to_s}\", @boost=nil, @value=\"#{field_value}\"") || \
+              inspected.include?("@name=\"#{field_name.to_s}\", @value=\"#{field_value}\", @boost=nil") || \
               inspected.include?("@value=\"#{field_value}\", @boost=nil, @name=\"#{field_name.to_s}\"") || \
+              inspected.include?("@value=\"#{field_value}\", @name=\"#{field_name.to_s}\", @boost=nil") || \
               inspected.include?("@boost=nil, @value=\"#{field_value}\", @name=\"#{field_name.to_s}\"") || \
               inspected.include?("@boost=nil, @name=\"#{field_name.to_s}\", @value=\"#{field_value}\"")      
     end
