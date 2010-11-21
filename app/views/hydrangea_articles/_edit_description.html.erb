@@ -3,12 +3,14 @@
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
     <h3><%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %></h3>
-    <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
+    <div class="uvafield">
+		<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
+	</div>
 
 	<h3><%= fedora_field_label("descMetadata", [:journal], "Publication Details") %>
 	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
 	
-	<h3>Contributors</h3>
+	<h3><label label_for="Contributors">Contributors</label></h3>
     <ol>
       <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
       <%= render :partial=>"contributors/edit_organization", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:organization) %>
@@ -28,46 +30,61 @@
       </div>
     <% end %>
 
-  <h3>Abstract</h3>
-  <%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %>
+  <h3><label label_for="Abstract">Abstract</label></h3>
+  <div class="uvafield"><%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %></div>
 
-  <h3><%= fedora_field_label("descMetadata", [:subject, :topic], "Keywords") %></h3>
-  <div id="topic_tag" class="topic_tag">
-        <%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
-   </div>
-
-
-<h3 class="section-title">Release the Article</h3>
-<h4>
-	<%= fedora_field_label("rightsMetadata", [:copyright, :uvalicense], "UVA Preservation License") %>
-</h4>
-<div id="uvalicense" class="license">
-	<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :uvalicense], :choices => %w(yes no))   %>    
- 	<br /><label for="license">
-     I grant UVA rights to this work under the UVA Preservation License
-    </label>
-	To properly administer this repository and preserve the contents for future use,
-the University of Virginia (UVA) requires certain permissions from you, the
-author(s) or copyright owner. By accepting this license, you still retain copyright
-to your work. You do not give up the right to submit the work to publishers or
-other repositories.
-<%= link_to "Read complete license agreement", "#" %>
+<h3><label label_for="Keywords">Keywords</label></h3>
+<div id="keywords" class="keywords">
+	<dl>
+		<dt>
+			<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
+  		</dt>
+  		<dd id="topic_tag" class="topic_tag">
+    		<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
+  		</dd>
+	</dl>
 </div>
 
- <h4>
-	<%= fedora_field_label("rightsMetadata", [:copyright, :cclicense], "Creative Commons Attribution License") %>
-</h4>
-<div id="cclicense" class="license">	
-	<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :cclicense], :choices => %w(yes no))   %>    
-	<br />
-	<label for="license creative commons attribution">
+<h3 class="section-title"><label label_for="Release the Article">Release the Article</label></h3>
+
+<div id="uvalicense" class="license">
+	<dl>
+	  <dt>
+		<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :uvalicense], :choices => %w(yes no)) %>
+	  </dt>
+	  <dd class="uvalicense">
+		 	<label for="license">
+		     I grant UVA rights to this work under the UVA Preservation License
+		    </label>
+			<br />
+			To properly administer this repository and preserve the contents for future use,
+		the University of Virginia (UVA) requires certain permissions from you, the
+		author(s) or copyright owner. By accepting this license, you still retain copyright
+		to your work. You do not give up the right to submit the work to publishers or
+		other repositories.
+		<%= link_to "Read complete license agreement", "#" %>
+	  </dd>
+    </dl>	
+</div>
+
+<div id="cclicense" class="license">
+	<dl>
+	  <dt>
+		<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :cclicense], :choices => %w(yes no)) %> 
+	  </dt>
+	  <dd class="cclicense">
+		<label for="license creative commons attribution">
 		Creative Commons Attribution License
 	</label>
-	<%= link_to "Read complete license agreement", "#" %>
+	<br />
+	<%= link_to "Read complete license agreement", "#" %>		
+	  </dd>
+    </dl>	
 </div>
+
 </form>
 
-<h3 class="section-title">Permissions</h3>
+<h3 class="section-title"><label label_for="Permissions">Permissions</label></h3>
 <%= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
 
 <div id="actions">
