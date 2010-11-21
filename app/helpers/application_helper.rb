@@ -1,6 +1,13 @@
 
 module ApplicationHelper
 
+  def render_facet_value(facet_solr_field, item, options ={})
+    if item.is_a? Array
+      link_to_unless(options[:suppress_link], item[0], add_facet_params_and_redirect(facet_solr_field, item[0]), :class=>"facet_select") + " (" + format_num(item[1]) + ")" 
+    else
+      link_to_unless(options[:suppress_link], item.value, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") + " (" + format_num(item.hits) + ")" 
+    end
+  end
 
   def render_complex_facet_value(facet_solr_field, item, options ={})    
     link_to_unless(options[:suppress_link], format_item_value(item.value), add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") + " (" + format_num(item.hits) + ")" 
@@ -30,9 +37,13 @@ module ApplicationHelper
   end
 
   def format_item_value val
-    last, f_c = val.split(", ")
-    first = f_c.split(" (")[0]
+    begin
+      last, f_c = val.split(", ")
+      first = f_c.split(" (")[0]
 #first, last = val.split("##")[0..1]
+    rescue
+      return val.nil? ? "" : val
+    end
     [last, "#{first[0..0]}."].join(", ")
   end
 end

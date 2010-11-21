@@ -17,7 +17,11 @@
             <% if facet_in_params?( solr_fname, item.value ) %>              
                 <%= render_selected_facet_value(solr_fname, item) %>              
               <% else %>              
-                <%= render_facet_value(solr_fname, item) %>              
+                <% if item.value.blank? %>
+                  <%#= render_facet_value(solr_fname, ["Unknown",item.hits]) %>
+                <% else %>
+                  <%= render_facet_value(solr_fname, item) %>
+                <% end %>
             <% end -%>
             </li>
           <% end %>
