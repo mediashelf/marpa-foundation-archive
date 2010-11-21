@@ -24,9 +24,9 @@ class HydrangeaArticle < ActiveFedora::Base
     m.field 'release_to', :string
   end
   
-  def to_solr(solr_doc=Solr::Document.new)
-    super(solr_doc)
-    apply_release(solr_doc)
+  def to_solr(solr_doc=Solr::Document.new,opts={})
+    super(solr_doc, opts)
+    solr_doc = apply_release(solr_doc)
     solr_doc
   end
   
