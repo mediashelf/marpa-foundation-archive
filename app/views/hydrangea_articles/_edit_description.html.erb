@@ -47,6 +47,8 @@
 
 <h3 class="section-title"><label label_for="Release the Article">Release the Article</label></h3>
 
+<ol>
+	<li>
 <div id="uvalicense" class="license">
 	<dl>
 	  <dt>
@@ -54,11 +56,11 @@
 	  </dt>
 	  <dd class="uvalicense">
 		 	<label for="license">
-		     I grant UVA rights to this work under the UVA Preservation License
+		     I grant UVa rights to this work under the UVa Preservation License
 		    </label>
 			<br />
 			To properly administer this repository and preserve the contents for future use,
-		the University of Virginia (UVA) requires certain permissions from you, the
+		the University of Virginia (UVa) requires certain permissions from you, the
 		author(s) or copyright owner. By accepting this license, you still retain copyright
 		to your work. You do not give up the right to submit the work to publishers or
 		other repositories.
@@ -66,7 +68,8 @@
 	  </dd>
     </dl>	
 </div>
-
+</li>
+<li>
 <div id="cclicense" class="license">
 	<dl>
 	  <dt>
@@ -81,7 +84,8 @@
 	  </dd>
     </dl>	
 </div>
-
+</li>
+</ol>
 </form>
 
 <h3 class="section-title"><label label_for="Permissions">Permissions</label></h3>
@@ -89,7 +93,7 @@
 
 <div id="actions">
 	<div id="primary_action">
-		<%= button_to 'Release this work for UVA Library Circulation' %>
+		<%= button_to 'Release this work for UVa Library Circulation' %>
 	</div>
 	<div id="secondary_action">
 		<%= delete_asset_link(params[:id], "article") %>
