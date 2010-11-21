@@ -69,7 +69,7 @@ describe HydrangeaArticle do
       end
       it "should not grant public access until released" do
         @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
-        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"uva-only")
+        @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"registered")
       end
       it "should not release until a file is uploaded and author & title are set" do
         @article.datastreams["properties"].released_values = "true"
@@ -86,10 +86,10 @@ describe HydrangeaArticle do
         @ready_to_release.datastreams["properties"].released_values = "true"
         @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"public")
       end
-      it "should support releasing for UVA commmunity" do
-        @ready_to_release.datastreams["properties"].release_to_values = "uva-only"
+      it "should support releasing for logged in (registered) users" do
+        @ready_to_release.datastreams["properties"].release_to_values = "registered"
         @ready_to_release.datastreams["properties"].released_values = "true"
-        @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"uva-only")
+        @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"registered")
         @ready_to_release.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
       end
     end
