@@ -92,6 +92,11 @@ jQuery(document).ready(function($) {
 	}
 		
 
+	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
+	//	<input type="text" class="datepicker" size="30" name="d1" value="" placeholder="YYYY-MM-DD"/>
+	//$('input[name*=_date]').addClass('datepicker');
+	
+
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
 	$('input#title_info_main_title').css('min-width', '300px');	

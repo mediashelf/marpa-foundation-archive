@@ -6,6 +6,12 @@ body {
 	background: white;
 }
 
+#cover_container h1 {
+	font-size: 24px;
+	text-transform: capitalize;
+	padding-bottom: 5px;
+}
+
 .error, .notice, .errorExplanation {
 	margin-bottom:0;
 	margin-left: 15px;
@@ -404,6 +410,23 @@ div #tertiary_action {
 
 #uvalicense dl {
 	margin-top: -15px;
+}
+
+#contributors_list ol {
+	margin: 0 0 10px 5px;
+}
+
+#contributors_list ol li {
+	line-height: 20px;
+}
+
+#contributor_role {
+	font-weight: bold;
+}
+
+.browse_value {
+	margin: 0 30px 10px 10px;	
+	line-height: 18px;
 }
 
 /*Fluid Uploader CSS*/
