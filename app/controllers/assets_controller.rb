@@ -42,9 +42,10 @@ class AssetsController < ApplicationController
     end
   
     respond_to do |want| 
-      want.js {
-        render :json=> response
+      want.html { 
+        redirect_to(edit_catalog_url) 
       }
+      want.js   { render :json=> response }
       want.textile {
         if response.kind_of?(Hash)
           response = response.values.first

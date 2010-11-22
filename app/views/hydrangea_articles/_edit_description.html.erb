@@ -68,13 +68,22 @@ other repositories.
 </form>
 
 <h3 class="section-title">Permissions</h3>
-<%= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
+<%#= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
 
+<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
+  <input name="_method" type="hidden" value="put" />
+  <%= fedora_field_label("properties", [:release_to], "Release to") %>
+	
+  <%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVA Only"=>"registered"})   %>    
+	
 <div id="actions">
 	<div id="primary_action">
+	  <!-- Careful! Submitting this hidden input will release the article.  -->
+	  <%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
 		<%= button_to 'Release this work for UVA Library Circulation' %>
 	</div>
 	<div id="secondary_action">
 		<%= delete_asset_link(params[:id], "article") %>
 	</div>
 </div>
+</form>
