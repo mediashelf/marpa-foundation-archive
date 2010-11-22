@@ -77,13 +77,13 @@ class HydrangeaArticle < ActiveFedora::Base
     response = {:failures=>[]}
 
     if title_values.first.empty?
-      response[:failures] << "You must provide a title."
+      response[:failures] << "Please provide a title."
     end  
     if author_entries.empty?
-      response[:failures] << "You must provide an author (first name and last name)."
+      response[:failures] << "Please provide an author (first name and last name)."
     end  
     if parts(:response_format=>:id_array).empty?
-      response[:failures] << "You must attach at least one file."
+      response[:failures] << "Please attach at least one file."
     end
     
     if response[:failures].empty? 
