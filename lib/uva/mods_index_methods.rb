@@ -8,7 +8,11 @@ module Uva::ModsIndexMethods
         hash
       end
       if name_parts.length == 3
-        value = "#{name_parts["family"]}, #{name_parts["given"]} (#{name_parts["computing_id"]})"
+        if name_parts["family"].blank? && name_parts["given"].blank? && name_parts["computing_id"].blank?
+          value = "Unknown Author"
+        else
+          value = "#{name_parts["family"]}, #{name_parts["given"]} (#{name_parts["computing_id"]})"
+        end
         names << Solr::Field.new({"person_full_name_cid_facet".to_sym=>value}) if name_parts.length == 3
       end
       names
