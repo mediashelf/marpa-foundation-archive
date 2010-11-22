@@ -94,5 +94,8 @@ jQuery(document).ready(function($) {
 		
 	// MAKE FLUIDINFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
 	$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
+	
+	// REDUCE MARGIN-TOP FOR FIRST <h2>
+	$('h2:first').css('margin-top', '0');		
 	 	
 });

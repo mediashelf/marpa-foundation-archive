@@ -44,9 +44,7 @@
   		</dd>
 	</dl>
 </div>
-<br />
-<hr />
-<h2>Release the Article</h2>
+<h2>License the Article</h2>
 <ol>
 	<li>
 <div id="uvalicense" class="license">
@@ -85,10 +83,11 @@
 </ol>
 </form>
 
-<h3 class="section-title"><label label_for="Permissions">Permissions</label></h3>
+<h2>Set Article Permissions</h2>
 <%= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
 
 <div id="actions">
+	<h2>Release the Article</h2>
 	<div id="primary_action">
 		<%= button_to 'Release this work for UVa Library Circulation' %>
 		<small>Once you release this article, the attached files will be frozen.
