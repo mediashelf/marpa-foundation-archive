@@ -93,7 +93,6 @@ jQuery(document).ready(function($) {
 		
 		
 	// MAKE FLUIDINFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
-	$('#abstract-text').addClass('editable-text');
 	$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
 	 	
 });
