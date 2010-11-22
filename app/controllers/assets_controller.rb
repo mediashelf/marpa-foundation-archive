@@ -1,4 +1,6 @@
 class AssetsController < ApplicationController
+  #helper :libra
+  include LibraHelper
   
   # Uses the update_indexed_attributes method provided by ActiveFedora::Base
   # This should behave pretty much like the ActiveRecord update_indexed_attributes method
@@ -42,9 +44,13 @@ class AssetsController < ApplicationController
     end
   
     respond_to do |want| 
-      want.js {
-        render :json=> response
+      want.html { 
+        if @document.class == HydrangeaArticle
+          display_release_status_notice(@document)
+        end
+        redirect_to(edit_catalog_url) 
       }
+      want.js   { render :json=> response }
       want.textile {
         if response.kind_of?(Hash)
           response = response.values.first

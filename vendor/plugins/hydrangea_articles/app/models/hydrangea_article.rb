@@ -26,7 +26,9 @@ class HydrangeaArticle < ActiveFedora::Base
   
   def to_solr(solr_doc=Solr::Document.new,opts={})
     super(solr_doc, opts)
-    solr_doc = apply_release(solr_doc)
+    if submitted_for_release?
+      solr_doc = apply_release(solr_doc)
+    end
     solr_doc
   end
   
@@ -40,9 +42,7 @@ class HydrangeaArticle < ActiveFedora::Base
   # * at least one file has been uploaded
   #
   def apply_release(solr_doc)
-    author_entries = datastreams["descMetadata"].find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]')    
-    title_values = datastreams["descMetadata"].term_values(:title_info, :main_title)
-    if( datastreams["properties"].released_values == ["true"] && !title_values.first.empty? && !author_entries.empty? && !parts(:response_format=>:id_array).empty?)
+    if ready_to_release?
       release_to = datastreams["properties"].release_to_values.first
       if release_to.nil?
         release_to = "public"
@@ -50,5 +50,46 @@ class HydrangeaArticle < ActiveFedora::Base
       solr_doc << Solr::Field.new(:read_access_group_t => release_to)
     end
     solr_doc
+  end
+  
+  # Tests whether the object has been submitted for release yet.
+  # @return [Boolean]
+  def submitted_for_release?
+    datastreams["properties"].released_values == ["true"]
+  end
+  
+  # Returns true/false based on the results of test_release_readiness
+  # @return [Boolean]
+  def ready_to_release?
+    if test_release_readiness == true
+      return true
+    else
+      return false
+    end
+  end
+  
+  # Tests whether the object is ready to release
+  # @return true if ready, otherwise a Hash where response[:failures] is an array of failure messages
+  def test_release_readiness
+    author_entries = datastreams["descMetadata"].find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]')    
+    title_values = datastreams["descMetadata"].term_values(:title_info, :main_title)
+    
+    response = {:failures=>[]}
+
+    if title_values.first.empty?
+      response[:failures] << "You must provide a title."
+    end  
+    if author_entries.empty?
+      response[:failures] << "You must provide an author (first name and last name)."
+    end  
+    if parts(:response_format=>:id_array).empty?
+      response[:failures] << "You must attach at least one file."
+    end
+    
+    if response[:failures].empty? 
+      return true
+    else
+      return response
+    end
   end
 end
