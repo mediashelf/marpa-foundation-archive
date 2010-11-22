@@ -33,6 +33,7 @@ describe AssetsController do
       
       mock_document.expects(:update_indexed_attributes).with({"subject"=>{"0"=>"subject1", "1"=>"subject2", "2"=>"subject3"}}, {:datastreams=>"descMetadata"}).returns({"subject"=>{"2"=>"My Topic"}})
       mock_document.expects(:save)
+      controller.stubs(:display_release_status_notice)
       # put :update, :id=>"_PID_", "asset"=>{"subject"=>{"-1"=>"My Topic"}}
       put :update, {:id=>"_PID_"}.merge(simple_request_params)
     end
@@ -62,6 +63,7 @@ describe AssetsController do
           }
         }
       }
+      controller.stubs(:display_release_status_notice)
       put :update, nokogiri_request_params
       # put :update, :id=>"_PID_", "content_type"=>"hydrangea_article", "datastream"=>"descMetadata", "field_name"=>"person_0_last_name","parent_select"=>[{":person"=>"0"}, ":last_name"], "child_index"=>"0", "value"=>"Sample New Value"
     end
