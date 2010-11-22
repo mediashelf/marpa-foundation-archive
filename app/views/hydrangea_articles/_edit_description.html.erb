@@ -44,9 +44,9 @@
   		</dd>
 	</dl>
 </div>
-
-<h3 class="section-title"><label label_for="Release the Article">Release the Article</label></h3>
-
+<br />
+<hr />
+<h2>Release the Article</h2>
 <ol>
 	<li>
 <div id="uvalicense" class="license">
@@ -64,7 +64,6 @@
 		author(s) or copyright owner. By accepting this license, you still retain copyright
 		to your work. You do not give up the right to submit the work to publishers or
 		other repositories.
-		<%= link_to "Read complete license agreement", "#" %>
 	  </dd>
     </dl>	
 </div>
@@ -79,8 +78,6 @@
 		<label for="license creative commons attribution">
 		Creative Commons Attribution License
 	</label>
-	<br />
-	<%= link_to "Read complete license agreement", "#" %>		
 	  </dd>
     </dl>	
 </div>
@@ -94,6 +91,8 @@
 <div id="actions">
 	<div id="primary_action">
 		<%= button_to 'Release this work for UVa Library Circulation' %>
+		<small>Once you release this article, the attached files will be frozen.
+			<br />You will be able to continue to update the metadata.</small> 		
 	</div>
 	<div id="secondary_action">
 		<%= delete_asset_link(params[:id], "article") %>
