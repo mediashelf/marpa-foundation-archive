@@ -92,8 +92,8 @@ jQuery(document).ready(function($) {
 	}
 		
 		
-	// MAKE FLUID INFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
-	$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
+	// THIS IS COMMENTED OUT BECAUSE IT ISN'T WORKING AS MAKE FLUID INFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
+	//$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
 	
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');

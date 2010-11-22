@@ -8,7 +8,7 @@
 
 
 	<% unless @document_fedora.file_objects(:response_format=>:solr).hits.empty? %>
-    	<h2>Download Files</h2>
+    	<h2>Download</h2>
 	    <div id="uploads" data-pid=<%= params[:id] %>>	
 		  <table id="file_assets" class="multipleEdit">
 		    <tr>
