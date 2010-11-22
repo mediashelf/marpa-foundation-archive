@@ -28,11 +28,6 @@
       <img src="/images/ajax-loader.gif" width="32" height="32" alt="Saving...">
       </img>
     </div>
-    <% if flash[:notice] %>
-      <div class="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
     
 	<h2>Attach the Article</h2>
     <div id="uploads" data-pid=<%= params[:id] %>></div>
