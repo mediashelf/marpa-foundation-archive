@@ -11,6 +11,20 @@ body {
 	margin-left: 15px;
 }
 
+#abstract-text {
+	color: #CCC;
+	font-style: italic;	
+}
+
+#abstract-text:hover {
+	color: #090;
+}
+
+#abstract-text p {
+	padding-top: 0;
+	color: #333;
+	font-style: normal;	
+}
 
 a.destructive {
 	background-image: none;

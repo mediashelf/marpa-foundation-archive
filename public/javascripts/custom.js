@@ -91,10 +91,7 @@ jQuery(document).ready(function($) {
 		$("input:radio").filter("[value=publicdomain]").attr("checked","checked");
 	}
 		
-		
-	// THIS IS COMMENTED OUT BECAUSE IT ISN'T WORKING AS MAKE FLUID INFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
-	//$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
-	
+
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
 	$('input#title_info_main_title').css('min-width', '300px');	
