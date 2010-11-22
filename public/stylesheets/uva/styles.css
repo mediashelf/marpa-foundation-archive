@@ -6,7 +6,18 @@ body {
 	background: white;
 }
 
+.error, .notice, .errorExplanation {
+	margin-bottom:0;
+	margin-left: 15px;
+}
+
+
 a.destructive {
+	background-image: none;
+	width: 40px;
+}
+
+a.destructive:hover {
 	background-image: none;
 	width: 40px;
 }
@@ -14,6 +25,7 @@ a.destructive {
 h2 {
 	font-weight: bold;
 	text-transform: uppercase;
+	margin-top: 30px;
 }
 
 th {
@@ -353,17 +365,23 @@ div .author_browse_image {
 div #actions {
 	margin-top: 20px;
 	width: 100%;
-	height: 25px;
+	height: 80px;
 }
 
 div #primary_action {
-	width: 50%;
+	width: 25%;
 	margin: auto;
 	float: left;
 }
 
 div #secondary_action {
-	width: 30%;
+	width: 40%;
+	margin: auto;
+	float: left;
+}
+
+div #tertiary_action {
+	width: 25%;
 	margin: auto;
 	text-align: right;
 	padding: 2px 20px;

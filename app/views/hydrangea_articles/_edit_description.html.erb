@@ -44,9 +44,7 @@
   		</dd>
 	</dl>
 </div>
-
-<h3 class="section-title"><label label_for="Release the Article">Release the Article</label></h3>
-
+<h2>License the Article</h2>
 <ol>
 	<li>
 <div id="uvalicense" class="license">
@@ -64,7 +62,6 @@
 		author(s) or copyright owner. By accepting this license, you still retain copyright
 		to your work. You do not give up the right to submit the work to publishers or
 		other repositories.
-		<%= link_to "Read complete license agreement", "#" %>
 	  </dd>
     </dl>	
 </div>
@@ -79,8 +76,6 @@
 		<label for="license creative commons attribution">
 		Creative Commons Attribution License
 	</label>
-	<br />
-	<%= link_to "Read complete license agreement", "#" %>		
 	  </dd>
     </dl>	
 </div>
@@ -88,23 +83,24 @@
 </ol>
 </form>
 
-<h3 class="section-title"><label label_for="Permissions">Permissions</label></h3>
+<div id="actions">
+	<h2>Release the Article</h2>
 <%#= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
 
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
   <input name="_method" type="hidden" value="put" />
-  <%= fedora_field_label("properties", [:release_to], "Release to") %>
-	
-  <%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
-	
-  <div id="actions">
-  	<div id="primary_action">
-  	  <!-- Careful! Submitting this hidden input will release the article.  -->
-  	  <%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
-  		<%= button_to 'Release this work for UVa Library Circulation' %>
-  	</div>
-  	<div id="secondary_action">
-  		<%= delete_asset_link(params[:id], "article") %>
-  	</div>
-  </div>
+	<div id="primary_action">  
+  			<%= fedora_field_label("properties", [:release_to], "Release to") %>
+  			<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
+			<!-- Careful! Submitting this hidden input will release the article.  -->
+  			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
+  </div>	
+	<div id="secondary_action">  	
+			<%= button_to 'Release this work for UVa Library Circulation', {:id => "release_button"} %>		
+	</div>
 </form>
+	<div id="tertiary_action">
+		<%= delete_asset_link(params[:id], "article") %>
+	</div>
+</div>
+
