@@ -3,12 +3,18 @@
 
 <div class="document_viewer" id="cover_container">
 
-    <h2>Description</h2>
+	<h1>
+		<% unless get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? %>
+	      <%= get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first %>
+		<% else %>
+			<%= params[:id] %>
+		 <% end %>
+	</h1>
+
     <%= render :partial => 'hydrangea_articles/show_description' %>
 
 
 	<% unless @document_fedora.file_objects(:response_format=>:solr).hits.empty? %>
-    	<h2>Download</h2>
 	    <div id="uploads" data-pid=<%= params[:id] %>>	
 		  <table id="file_assets" class="multipleEdit">
 		    <tr>
