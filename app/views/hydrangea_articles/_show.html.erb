@@ -3,12 +3,12 @@
 
 <div class="document_viewer" id="cover_container">
 
-    <h1>Description</h1>
+    <h2>Description</h2>
     <%= render :partial => 'hydrangea_articles/show_description' %>
 
 
 	<% unless @document_fedora.file_objects(:response_format=>:solr).hits.empty? %>
-    	<h1>Download Files</h1>
+    	<h2>Download Files</h2>
 	    <div id="uploads" data-pid=<%= params[:id] %>>	
 		  <table id="file_assets" class="multipleEdit">
 		    <tr>

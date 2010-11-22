@@ -69,6 +69,8 @@ jQuery(document).ready(function($) {
 			});
 		});
 	
+	$("#keywords dl dt a").text('Add Keyword');
+	
 	//$("input[type=checkbox]").hydraCheckbox();
 	//$("input[type=radio]").hydraRadioButton();	
 	
