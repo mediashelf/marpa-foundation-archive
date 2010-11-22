@@ -92,8 +92,13 @@ jQuery(document).ready(function($) {
 	}
 		
 		
-	// MAKE FLUIDINFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
+	// MAKE FLUID INFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
 	$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
+	
+	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
+	$('input.editable-edit').css('min-width', '150px');
+	$('input#title_info_main_title').css('min-width', '300px');	
+	
 	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');		

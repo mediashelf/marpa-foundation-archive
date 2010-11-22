@@ -363,13 +363,19 @@ div #actions {
 }
 
 div #primary_action {
-	width: 50%;
+	width: 25%;
 	margin: auto;
 	float: left;
 }
 
 div #secondary_action {
-	width: 30%;
+	width: 40%;
+	margin: auto;
+	float: left;
+}
+
+div #tertiary_action {
+	width: 25%;
 	margin: auto;
 	text-align: right;
 	padding: 2px 20px;
