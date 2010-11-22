@@ -26,7 +26,7 @@ class HydrangeaArticle < ActiveFedora::Base
   
   def to_solr(solr_doc=Solr::Document.new,opts={})
     super(solr_doc, opts)
-    if datastreams["properties"].released_values == ["true"] 
+    if submitted_for_release?
       solr_doc = apply_release(solr_doc)
     end
     solr_doc
@@ -52,6 +52,14 @@ class HydrangeaArticle < ActiveFedora::Base
     solr_doc
   end
   
+  # Tests whether the object has been submitted for release yet.
+  # @return [Boolean]
+  def submitted_for_release?
+    datastreams["properties"].released_values == ["true"]
+  end
+  
+  # Returns true/false based on the results of test_release_readiness
+  # @return [Boolean]
   def ready_to_release?
     if test_release_readiness == true
       return true
