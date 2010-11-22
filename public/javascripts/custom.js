@@ -91,4 +91,9 @@ jQuery(document).ready(function($) {
 		$("input:radio").filter("[value=publicdomain]").attr("checked","checked");
 	}
 		
+		
+	// MAKE FLUIDINFUSION TEXT AREAS PLACEHOLDER TEXT THE SAME AS THE TEXTFIELDS
+	$('#abstract-text').addClass('editable-text');
+	$('#abstract-text').addClass('fl-inlineEdit-invitation-text');	
+	 	
 });
