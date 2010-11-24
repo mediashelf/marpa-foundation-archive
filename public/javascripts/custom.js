@@ -125,5 +125,12 @@ jQuery(document).ready(function($) {
 	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');		
-	 	
+
+  $('a#delete_asset_link').click(
+      function () {
+        $("div#delete_dialog").parent().show();
+      }
+  );
+
+
 });

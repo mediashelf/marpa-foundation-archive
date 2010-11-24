@@ -612,3 +612,23 @@ button span.fl-uploader-button-text-hidden{display:none;}
 .fl-uploader-total-progress-errored{background-image:url('../images/gradient-total-yellow.png');border-right:1px solid #E8C81C;background-color:#F6ECA0;}
 .fl-uploader-flash9-container{overflow:hidden;width:1px;height:1px;}
 .hideUploaderForOpera{visibility:hidden;overflow:hidden;height:0;width:0;padding:0;}
+
+div#delete_dialog_container {
+  border: thin solid #DD4747;
+  height: 40px;
+  background-image: url('../../images/uva/delete-dialog-bg.png');
+}
+
+div#delete_dialog {
+  position: relative;
+  top: 50%;
+  margin-top: -10px;
+  text-align: center;
+}
+
+div#delete_dialog div {
+  display: inline;
+  margin-left: 15px;
+}
+
+
