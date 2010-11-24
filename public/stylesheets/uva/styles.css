@@ -9,6 +9,21 @@ body {
 	color: #121212;	
 }
 
+.select-edit {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;	
+}
+
+#re-run-action, #re-run-add-contributor-action {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #0F3E83;	
+}
+
+.edit-browse .active {
+	font-weight: bold;
+	color: #999;	
+}
+
 #cover_container h1 {
 	font-size: 20px;
 	padding-bottom: 5px;
@@ -43,6 +58,10 @@ a:link, a:visited, a:active, #uvalicense_read_all {
 
 .editable-text:hover, .textile-text .text:hover {
 	color: #E7C584 !important;
+}
+
+.yui-t2 .yui-b p {
+	padding-top: 0;
 }
 
 a:hover, a:hover.addval, #uvalicense_read_all:hover {
@@ -105,6 +124,27 @@ h3 {
 
 dl {
 	margin-left: 30px;
+}
+
+
+div#create-asset-box {
+	margin-top: 0;
+}
+
+li.computing_id {
+	display: block;
+	width: 100%;
+}
+
+.organization label {
+	font-weight: normal;
+	font-size: 11px;
+	color: #999;
+	display: block;
+}
+
+.topic_tag li {
+	line-height: 160%;
 }
 
 .uvafield {
@@ -500,8 +540,18 @@ div #tertiary_action {
 }
 
 /*Fluid Uploader CSS*/
+.flc-uploader-total-progress-text {
+	font-size: 11px;
+	text-transform: uppercase;
+	color: #999;
+}
+
 #uploader, .fl-uploader-queue-wrapper {
 	width: 100%;
+}
+
+.fl-scroller-inner td {
+	border-bottom: 1px solid white;
 }
 
 .fl-uploader { 
@@ -573,9 +623,13 @@ div #tertiary_action {
 	padding:4px 7px 4px 26px;
 	border:none;
 	white-space:nowrap;
-	color:#427ABE;
+	color: #0F3E83;
 	font-weight:normal;
 	cursor:pointer;
+}
+
+.fl-uploader a.fl-uploader-browse:hover {
+	color:#427ABE;	
 }
 
 html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px 3px 25px;border:1px solid transparent;}
@@ -664,7 +718,8 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px 3px 25px;border:1px 
 	background-color: white;
 	color: #666;
 	text-align: center;
-	padding: 6px;
+/*	padding: 6px;*/
+	padding: 0;
 }
 
 .fl-uploader-btns{margin-top:1em;text-align:right;}
