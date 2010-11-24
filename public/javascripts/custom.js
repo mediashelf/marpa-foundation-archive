@@ -94,8 +94,7 @@ jQuery(document).ready(function($) {
 
 	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
 	//	<input type="text" class="datepicker" size="30" name="d1" value="" placeholder="YYYY-MM-DD"/>
-	//$('input[name*=_date]').addClass('datepicker');
-	
+	$('input[name*=_date]').addClass('datepicker');
 
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
@@ -105,4 +104,11 @@ jQuery(document).ready(function($) {
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');		
 	 	
+	// HIDE ALL BUT THE FIRST PARAGRAPH OF THE LICENSES
+	$('#uvalicense p:not(:first)').hide();
+	
+	$('#uvalicense_read_all').click(function() {
+		$('#uvalicense p:not(:first)').slideDown('slow');
+		$('#uvalicense_read_all').hide();
+	});
 });

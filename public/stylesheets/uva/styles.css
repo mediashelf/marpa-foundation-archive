@@ -75,11 +75,12 @@ div #add-contributor-box {
 	margin-bottom: 20px;
 }
 
-a:link, a:visited, a:active {
-	border-bottom-color: #2E4F81;
-	border-bottom-style: dotted;
-	border-bottom-width: 1px;
-	color: #2E4F81;
+#uvalicense_read_all {
+	cursor: pointer;
+}
+
+a:link, a:visited, a:active, #uvalicense_read_all {
+	color: #4079A0;
 	text-decoration: none;
 }
 
