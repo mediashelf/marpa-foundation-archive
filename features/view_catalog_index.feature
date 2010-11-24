@@ -6,7 +6,7 @@ Feature: Catalog Index
 
   Scenario: Viewing search results
     Given I am on the catalog index page
-    Then I should see "search"
+    Then I should see "Search"
 
   Scenario: Executing a search
     Given I am on the catalog index page
@@ -15,4 +15,4 @@ Feature: Catalog Index
     Then I should see "Title"
     And I should see "Author"
     And I should see "Journal"
-    And I should see "files"
+    And I should see "Files"
