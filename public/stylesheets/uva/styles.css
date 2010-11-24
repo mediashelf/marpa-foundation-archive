@@ -395,6 +395,44 @@ table#file_assets {
 	background-color: #F1F1F1;
 }
 
+.pagination {
+	width: 671px;
+	height: 20px;
+}
+
+.prev_next_links {
+	width: 671px;	
+	text-align: center;
+}
+
+.prev_next_links .disabled {
+	display: none;
+}
+
+.prev_next_links .current {
+	background-color: black;
+	color: white;
+}
+
+.prev_next_links a {
+	border-right: 1px solid #666;	
+	padding: 0 7px;
+	margin: 0;
+}
+
+.prev_next_links .next_page, .prev_next_links .prev_page {
+	font-weight: bold;
+}
+
+.prev_next_links .next_page {
+	border-right: none;	
+}
+
+
+.prev_next_links a:hover {
+	background-color:#D1DFFD;
+}
+
 .appliedFilter {
 	background-color: #E2EDFE;
 	border: 1px solid #C4DAFE;
