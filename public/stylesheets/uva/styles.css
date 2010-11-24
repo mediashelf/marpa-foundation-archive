@@ -4,12 +4,15 @@ body {
 	height: 100%;
 	width: 100%;
 	background: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #121212;	
 }
 
 #cover_container h1 {
-	font-size: 24px;
-	text-transform: capitalize;
+	font-size: 20px;
 	padding-bottom: 5px;
+	color: #5B4418;
 }
 
 .error, .notice, .errorExplanation {
@@ -32,6 +35,20 @@ body {
 	font-style: normal;	
 }
 
+a:link, a:visited, a:active, #uvalicense_read_all {
+	color: #0F3E83;
+	text-decoration: none;
+	border: none;
+}
+
+.editable-text:hover, .textile-text .text:hover {
+	color: #E7C584 !important;
+}
+
+a:hover, a:hover.addval, #uvalicense_read_all:hover {
+	color: #4079A0;
+}
+
 a.destructive {
 	background-image: none;
 	width: 40px;
@@ -42,6 +59,36 @@ a.destructive:hover {
 	width: 40px;
 }
 
+.yui-u a, .yui-u a:active, .yui-u a:visited {
+	font-size: 11px;
+	color: #EDAF3D;
+	
+}
+
+.yui-u a:hover {
+	color: #E7C584;
+}
+
+#uvalicense_read_all {
+	cursor: pointer;
+}
+
+button {
+	min-height: 10px;	
+	font-family: 'Lucida Grande';
+	font-size: 11px;
+	height: 26px;
+	width: 60px;
+	right: 5px;	
+}
+
+#appliedParams a#startOverLink{
+	font-size: 13px;
+	height: 22px;
+	margin-top: -12px;	
+	padding-top: 0 10px 1px 10px;	
+}
+
 h2 {
 	font-weight: bold;
 	text-transform: uppercase;
@@ -50,7 +97,6 @@ h2 {
 
 th {
 	font-weight: normal;
-	padding-left: 10px;
 }
 
 h3 {
@@ -73,15 +119,6 @@ dl {
 
 div #add-contributor-box {
 	margin-bottom: 20px;
-}
-
-#uvalicense_read_all {
-	cursor: pointer;
-}
-
-a:link, a:visited, a:active, #uvalicense_read_all {
-	color: #4079A0;
-	text-decoration: none;
 }
 
 table#file_assets {
@@ -133,13 +170,8 @@ table#file_assets {
 }
 
 .yui-u {
-	margin-top: -78px;
+	margin-top: -65px;
 	margin-right: 20px;
-}
-
-.yui-u a, .yui-u a:active, .yui-u a:visited {
-	color: white;
-	border: none;
 }
 
 #libra_banner, .yui-g {
@@ -208,11 +240,16 @@ table#file_assets {
 	margin-top: 0;
 	margin-left: 0;
 	color: #4079A0;	
+	color: #0F3E83;
 	font-size: 13px;
 	font-weight: bold;
 	line-height: 20px;
 	padding: 1.2em 10px;	
 	height: 20px;	
+}
+
+#facets div h3:hover {
+	color: #4079A0;	
 }
 
 .side_bar_content, #facets div ul {
@@ -287,20 +324,50 @@ table#file_assets {
 }
 
 #appliedParams h3 {
-	background-color: #F1F1F1;
+	background-image: url("../../plugin_assets/blacklight/images/magnifying_glass.gif");
+	background-position:5px 5px;
+	background-repeat: no-repeat;	
+	background-color: #FFF7E5;
+	border: 1px solid #E0D9CA;
+	color: #333;
+	display: block;
+	font-size: 15px;
+	height: 27px;
+	padding-left: 30px;
+	margin: 0 0 3px 0;
+	width: 671px;	
 }
 
 #appliedParams div {
-	padding: 0;
+	padding: 6px;
+	background-color: #C9D484;
+	height: 20px;
+	margin: 0;
+	width: 671px;
 }
 
-#appliedParams div, .pagination, #sortAndPerPage {
+.pagination, #sortAndPerPage {
 	background-color: #F1F1F1;
+}
+
+.appliedFilter {
+	background-color: #E2EDFE;
+	border: 1px solid #C4DAFE;
+	display: block;
+	height: 20px;
+	margin: 0 0 3px 0;
+	padding: 5px 5px 5px 25px;
+	width: 671px;	
 }
 
 .appliedFilter .first {
 	background-color: #F1F1F1;
 	font-style: italic;
+}
+
+.filterName, .filterValue {
+	font-style: normal;
+	background-color: none;
 }
 
 .pagination, #sortAndPerPage {
@@ -313,7 +380,8 @@ table#file_assets {
 }
 
 #sortAndPerPage label {
-	font-weight: normal;
+	font-weight: bold;
+	color: #999;	
 }
 
 #documents {
@@ -330,6 +398,7 @@ table#file_assets {
 .document {
 	padding: 10px;
 	margin-left: 15px;	
+	font-size: 14px;
 }
 
 #results {
@@ -543,7 +612,10 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px 3px 25px;border:1px 
 	color:#666;
 }
 
-.fl-uploader-footer-buttons{text-align:right;}
+.fl-uploader-footer-buttons {
+	background-color: #EDF4FE;
+	text-align:right;
+}
 
 .fl-scroller {
 	display: block;

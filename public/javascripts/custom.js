@@ -96,28 +96,6 @@ jQuery(document).ready(function($) {
 	//	<input type="text" class="datepicker" size="30" name="d1" value="" placeholder="YYYY-MM-DD"/>
 	$('input[name*=_date]').addClass('datepicker');
 
-	fluid.defaults('inlineEdit').blurHandlerBinder = function(that) {
-		// This is just fluid's normal default handling of a blur event:
-		that.editField.blur(
-			function (evt) {
-				if (that.isEditing())
-					that.finish();
-				return false;
-			}
-		);
-		
-		// InlineEdit doesn't watch for change events on the input field, which means that it doesn't
-		// pick up a new date from the datepicker. We fix this by adding a change observer which fires
-		// the same update of the Fluid model that a blur event does.
-		that.editField.change(
-			function (evt) {
-				if (!that.isEditing() && that.editView.value != that.model.value)
-					that.finish();
-				return true;
-			}
-		)
-	}
-
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
 	$('input#title_info_main_title').css('min-width', '300px');	
@@ -133,14 +111,4 @@ jQuery(document).ready(function($) {
 		$('#uvalicense p:not(:first)').slideDown('slow');
 		$('#uvalicense_read_all').hide();
 	});
-=======
-
-  $('a#delete_asset_link').click(
-      function () {
-        $("div#delete_dialog").parent().show();
-      }
-  );
-
-
->>>>>>> bc46b277e25607639b63d4bcc3b0e107f9c63522
 });
