@@ -98,7 +98,7 @@
   			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
   </div>	
 	<div id="secondary_action">  	
-			<%= button_to 'Release this work for UVa Library Circulation', {:id => "release_button"} %>		
+			<%= button_to 'Release for UVa Library Circulation', {:id => "release_button"} %>		
 	</div>
 </form>
 	<div id="tertiary_action">
@@ -106,5 +106,5 @@
 	</div>
 </div>
 
-<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id] } %>
+<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this article" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
 

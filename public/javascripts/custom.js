@@ -139,11 +139,9 @@ jQuery(document).ready(function($) {
 		)
 	}
 	
-  $('a#delete_asset_link').click(
-      function () {
-        $("div#delete_dialog").parent().show();
-      }
-  );
+  $('a#delete_asset_link').click(function () {
+  	$("div#delete_dialog").parent().show();
+  });
 
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
@@ -161,6 +159,5 @@ jQuery(document).ready(function($) {
 		$('#uvalicense_read_all').hide();
 	});
 	//
-
 
 });
