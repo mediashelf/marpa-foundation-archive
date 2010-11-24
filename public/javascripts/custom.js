@@ -128,7 +128,17 @@ jQuery(document).ready(function($) {
 
   $('a#delete_asset_link').click(
       function () {
-        $("div#delete_dialog").parent().show();
+        pid = $("div#uploads").attr("data-pid");
+        url = '/assets/'+pid+'/file_assets?deletable=true&layout=false';
+        $.ajax({
+          type: "GET",
+          url: url,
+          dataType: "html",
+          success: function(data){
+                  $('div#deletable_assets').html(data);
+                  $("div#delete_dialog").parent().show();
+                }
+        });
       }
   );
 
