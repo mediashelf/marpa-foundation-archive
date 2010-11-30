@@ -13,3 +13,10 @@ Feature: Edit a document
     Given I am logged in as "archivist1" 
     And I am on the edit document page for hydrangea:fixture_mods_article1
     Then I should see a "span" tag with a "class" attribute of "edit-browse"
+  
+  Scenario: Delete Confirmation on Edit Page
+    Given I am logged in as "archivist1" 
+    And I am on the edit document page for hydrangea:fixture_mods_article1 
+    Then I should see a "div" tag with an "id" attribute of "delete_dialog_container"
+    And I should see "Permanently delete"
+

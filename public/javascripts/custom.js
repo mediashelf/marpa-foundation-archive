@@ -90,6 +90,28 @@ jQuery(document).ready(function($) {
 	if ( $("input:radio").filter("[value=publicdomain]").attr("checked", false) && $("input:radio").filter("[value=odc-by]").attr("checked",false) && $("input:radio").filter("[value=odc-odbl]").attr("checked",false)) {
 		$("input:radio").filter("[value=publicdomain]").attr("checked","checked");
 	}
+	
+	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
+	$('input.editable-edit').css('min-width', '150px');
+	$('input#title_info_main_title').css('min-width', '300px');	
+	
+	
+	// REDUCE MARGIN-TOP FOR FIRST <h2>
+	$('h2:first').css('margin-top', '0');
+	 	
+	// HIDE ALL BUT THE FIRST PARAGRAPH OF THE LICENSES
+	$('#uvalicense p:not(:first)').hide();
+	
+	$('#uvalicense_read_all').click(function() {
+		$('#uvalicense p:not(:first)').slideDown('slow');
+		$('#uvalicense_read_all').hide();
+	});
+	//
+	
+	
+	// REDUCE MARGIN-TOP FOR FIRST <h2>
+	$('h2:first').css('margin-top', '0');		
+	
 		
 
 	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
@@ -117,6 +139,9 @@ jQuery(document).ready(function($) {
 		)
 	}
 	
+  $('a#delete_asset_link').click(function () {
+  	$("div#delete_dialog").parent().show();
+  });
 
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
@@ -124,6 +149,15 @@ jQuery(document).ready(function($) {
 	
 	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
-	$('h2:first').css('margin-top', '0');		
+	$('h2:first').css('margin-top', '0');
 	 	
+	// HIDE ALL BUT THE FIRST PARAGRAPH OF THE LICENSES
+	$('#uvalicense p:not(:first)').hide();
+	
+	$('#uvalicense_read_all').click(function() {
+		$('#uvalicense p:not(:first)').slideDown('slow');
+		$('#uvalicense_read_all').hide();
+	});
+	//
+
 });

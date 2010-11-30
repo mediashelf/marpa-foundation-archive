@@ -373,7 +373,8 @@
                     listeners : {
                       onFinishEdit : hydraFinishEditListener,
                       modelChanged : hydraModelChangedListener
-                    }
+                    }	,
+					          defaultViewText: "click to edit"
                   });
                   newVal.edit();
     };

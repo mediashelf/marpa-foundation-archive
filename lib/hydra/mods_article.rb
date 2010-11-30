@@ -9,10 +9,9 @@ module Hydra
       t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/standards/mods/v3/mods-3-2.xsd")
 
       t.title_info(:path=>"titleInfo") {
-        t.main_title(:path=>"title", :label=>"title")
+        t.main_title(:index_as=>[:facetable],:path=>"title", :label=>"title")
         t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
       } 
-      
       t.language{
         t.lang_code(:index_as=>[:facetable], :path=>"languageTerm", :attributes=>{:type=>"code"})
       }
