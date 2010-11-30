@@ -23,5 +23,17 @@
   $(document).ready(function() {
     $('.datepicker').datepicker(datePickerOpts).change(validateDate).keyup(validateDate)
   })
+
+
+	// Monkey patch for fluidinfusion: There is a conflict between fluid.setCaretToEnd's attempt to move cursor
+	// into view in Firefox by generating junk keystrokes, and datepicker's filtering of keystrokes. This fixes it
+	// by disabling that behavior when a text field has a datepicker.
+	var setCaretToEnd_unpatched = fluid.setCaretToEnd;
+  fluid.setCaretToEnd = function (control, value) {
+		if(!$.data(control, 'datepicker'))
+			setCaretToEnd_unpatched(control, value)
+		else
+    	control.focus()
+  }
   
 })(jQuery)
