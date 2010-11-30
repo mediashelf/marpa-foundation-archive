@@ -1,4 +1,7 @@
-<% @page_title = "#{document_show_html_title} - #{application_name}" %>
+<%-
+  doc_title = document_show_html_title.empty? ? @document[:id] : document_show_html_title.first
+  @page_title = "#{doc_title} - #{application_name}" 
+-%>
 <div id="showHead">
   <div id="showUtils">
   <div class="tools"><%= render :partial => 'show_tools' %></div>
