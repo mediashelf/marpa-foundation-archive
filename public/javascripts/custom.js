@@ -139,9 +139,6 @@ jQuery(document).ready(function($) {
 		)
 	}
 	
-  $('a#delete_asset_link').click(function () {
-  	$("div#delete_dialog").parent().show();
-  });
 
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
@@ -159,5 +156,22 @@ jQuery(document).ready(function($) {
 		$('#uvalicense_read_all').hide();
 	});
 	//
+
+  $('a#delete_asset_link').click(
+      function () {
+        pid = $("div#uploads").attr("data-pid");
+        url = '/assets/'+pid+'/file_assets?deletable=true&layout=false';
+        $.ajax({
+          type: "GET",
+          url: url,
+          dataType: "html",
+          success: function(data){
+                  $('div#deletable_assets').html(data);
+                  $("div#delete_dialog").parent().show();
+                }
+        });
+      }
+  );
+
 
 });
