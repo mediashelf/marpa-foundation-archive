@@ -13,9 +13,14 @@
              },
       
       listeners: {
-                  onFileSuccess: function (file, serverData){
-                  },
-      
+	
+				onFileStart: function(file){	
+					myUploader.uploadManager.swfUploader.addPostParam("asset[descMetadata][type][0]", $('#asset_descMetadata_type').val());
+					myUploader.uploadManager.swfUploader.addPostParam("asset[descMetadata][description][0]", $('#asset_descMetadata_description').val());					
+		},
+
+                  onFileSuccess: function (file, serverData){},
+      			 
                   afterUploadComplete: function () {
                       // first check to see if the file queue is empty and there haven't been any errors
                       if (myUploader.uploadManager.queue.getReadyFiles().length === 0 && myUploader.uploadManager.queue.getErroredFiles().length === 0) {

@@ -12,6 +12,7 @@ class ApplicationController
   
   helper :all
   helper :hydra_access_controls, :hydra_djatoka, :downloads, :metadata, :hydra, :custom_metadata, :hydra_fedora_metadata, :hydra_assets
+  helper :generic_content_objects, :personalization, :hydrangea_datasets
   
   # helper_method [:request_is_for_user_resource?]#, :user_logged_in?]
   before_filter [:store_bounce]
@@ -32,9 +33,15 @@ class ApplicationController
     
     stylesheet_links << ['yui', 'jquery/ui-lightness/jquery-ui-1.8.1.custom.css', 'application', {:plugin=>:blacklight, :media=>'all'}]
     stylesheet_links << ['redmond/jquery-ui-1.8.5.custom.css', {:media=>'all'}]      
-    stylesheet_links << ['styles', 'hydrangea', {:media=>'all'}]
+    stylesheet_links << ['styles', 'hydrangea', "hydrangea-split-button.css", {:media=>'all'}]
     stylesheet_links << ['marpa-foundation', 'layout', 'navigation', 'application', 'marpa-foundation-styles',  {:media=>'all'}]      
   end 
+      
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+    @current_user.extend(Hydra::SuperuserAttributes)
+  end
       
   protected
   def store_bounce 

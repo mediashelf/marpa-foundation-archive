@@ -11,7 +11,11 @@ module Hydra::AccessControlsEnforcement
     elsif session[:viewing_context] == "edit"
       if editor?
         logger.debug("enforce_viewing_context_for_show_requests redirecting to edit")
-        redirect_to :action=>:edit
+        if params[:files]
+          redirect_to :action=>:edit, :files=>true
+        else
+          redirect_to :action=>:edit
+        end
       else
         session[:viewing_context] = "browse"
       end
@@ -71,6 +75,11 @@ module Hydra::AccessControlsEnforcement
         # for individual person access
         permission_types.each do |type|
           field_queries << "_query_:\"#{type}_access_person_t:#{current_user.login}\""
+        end
+        if current_user.is_being_superuser?(session)
+          permission_types.each do |type|
+            field_queries << "_query_:\"#{type}_access_person_t:[* TO *]\""
+          end
         end
       end
       q << " AND (#{field_queries.join(" OR ")})"
