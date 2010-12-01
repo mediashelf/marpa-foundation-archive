@@ -13,12 +13,14 @@ coverage.data
 coverage/*
 
 public/plugin_assets
-public/plugin_assets/**/*
+public/plugin_assets/
 
 tmp/**/*
 tmp/performance 
 
 rerun.txt
+
+db/schema.rb
 
 .project
 .buildpath

@@ -8,7 +8,7 @@
      *  Insert a Hydra editable text field
      */
      insertTextField: function(element, event) {
-       $element = $(element)
+       $element = $(element);
        var fieldName = $element.attr("rel");
        var datastreamName = $element.attr('data-datastream-name');
 
@@ -77,18 +77,27 @@
        $editNode.attr("value", "");
        $.fn.hydraMetadata.saveEdit($editNode, "");
      },
+
+     addGrant: function() {
+       var content_type = $("formr > input#content_type").first().attr("value");
+       var url = $("form#document_metadata").attr("action").split('?')[0];
+
+       $.post(url, {content_type: content_type},function(data) {
+         $("a.destructive", $inserted).hydraContributorDeleteButton();
+       });
+     },
           
      addContributor: function(type) {
        var content_type = $("form#new_contributor > input#content_type").first().attr("value");
        var contributors_group_selector = "."+type+".contributor";
-       
        var url = $("form#new_contributor").attr("action");
 
        $.post(url, {contributor_type: type, content_type: content_type},function(data) {
          $(contributors_group_selector).last().after(data);
-         $inserted = $(contributors_group_selector).last()
+         $inserted = $(contributors_group_selector).last();
          $(".editable-container", $inserted).hydraTextField();
          $("a.destructive", $inserted).hydraContributorDeleteButton();
+				$("#re-run-add-contributor-action").val("Add a " + type);
        });
      },
      
@@ -127,11 +136,31 @@
        // Must submit to permissions controller.  (can't submit as regular metadata update to assets controller update method)
        // because we need to trigger the RightsMetadata update_permissions methods.
      },
+
+     deleteGrant: function(element) {
+       var content_type = $("form#document_metadata > input#content_type").first().attr("value");
+       var url = $(element).attr("href");
+			 var $grantNode = $(element).closest(".grant");
+       $.ajax({
+         type: "DELETE",
+         url: url,
+         dataType: "html",
+         beforeSend: function() {
+   				$grantNode.animate({'backgroundColor':'#fb6c6c'},300);
+         },
+   			 success: function() {
+           $grantNode.slideUp(300,function() {
+             $grantNode.remove();
+   				});
+         }        
+       });
+       
+     },
      
      deleteContributor: function(element) {
        var content_type = $("form#new_contributor > input#content_type").first().attr("value");
        var url = $(element).attr("href");
-       var $contributorNode = $(element).closest(".contributor")
+       var $contributorNode = $(element).closest(".contributor");
 
        $.ajax({
          type: "DELETE",
@@ -170,7 +199,7 @@
      fluidFinishEditListener: function(newValue, oldValue, editNode, viewNode) {
        // Only submit if the value has actually changed.
        if (newValue != oldValue) {
-         var result = $.fn.hydraMetadata.saveEdit(editNode, newValue)
+         var result = $.fn.hydraMetadata.saveEdit(editNode, newValue);
        }
 			
        return result;
@@ -196,14 +225,15 @@
      *
      */
      saveEdit: function(editNode) {
-       $editNode = $(editNode)
+       $editNode = $(editNode);
        var $closestForm = $editNode.closest("form");
        var url = $closestForm.attr("action");
        var field_param = $editNode.fieldSerialize();
        var content_type_param = $("input#content_type", $closestForm).fieldSerialize();
-       var field_selectors = $("input.fieldselector[rel="+$editNode.attr("rel")+"]").fieldSerialize()
+       var field_selectors = $("input.fieldselector[rel="+$editNode.attr("rel")+"]").fieldSerialize();
 
-       var params = field_param + "&" + content_type_param + "&" + field_selectors + "&_method=put"
+       var params = field_param + "&" + content_type_param + "&" + field_selectors + "&_method=put";
+       
        $.ajax({
          type: "PUT",
          url: url,
@@ -329,7 +359,7 @@
        tooltip   : "Click to edit ...",
        onblur    : "ignore",
        id        : "field_id",
-       height    : "100",
+       height    : "100"
      };
  
      if (settings) $.extend(config, settings);
@@ -338,31 +368,30 @@
       var $this = $(this);
       var $editNode = $(".textile-edit", this).first();  
       var $textNode = $(".textile-text", this).first();  
-      var $closestForm =  $editNode.closest("form")
+      var $closestForm =  $editNode.closest("form");
       var name = $editNode.attr("name");      
       
       // collect submit parameters.  These should probably be shoved into a data hash instead of a url string...
       // var field_param = $editNode.fieldSerialize();
-      var content_type_param = $("input#content_type", $closestForm).fieldSerialize();
       var field_selectors = $("input.fieldselector[rel="+$editNode.attr("rel")+"]").fieldSerialize();
-      var update_params = content_type_param + "&" + field_selectors
       
-      var assetUrl = $closestForm.attr("action") + "?" + update_params;
-      var submitUrl = $.fn.hydraMetadata.appendFormat(assetUrl, {format: "textile"}) 
-      
+      //Field Selectors are the only update params to be passed in the url
+      var assetUrl = $closestForm.attr("action") + "&" + field_selectors;
+      var submitUrl = $.fn.hydraMetadata.appendFormat(assetUrl, {format: "textile"});
+
       // These params are all you need to load the value from AssetsController.show
       // Note: the field value must match the field name in solr (minus the solr suffix)
       var load_params = {
         datastream  : $editNode.attr('data-datastream-name'),
         field       : $editNode.attr("rel"),
         field_index : $this.index()
-      }
+      };
       
       var nodeSpecificSettings = {
         tooltip   : "Click to edit "+$this.attr("id")+" ...",
         name      : name,
         loadurl  : assetUrl + "?" + $.param(load_params)
-      }
+      };
 
       $textNode.editable(submitUrl, $.extend(nodeSpecificSettings, config));
       $editNode.hide();
@@ -385,7 +414,7 @@
      });
  
      return this;
-   }
+   };
    
    
    // 
@@ -431,11 +460,11 @@
        labelSrc   : 'text',
        sliderOpts : {
 		    change: function(event, ui) { 
-          var associatedSelect = $(ui.handle).parent().prev()
+          var associatedSelect = $(ui.handle).parent().prev();
           $.fn.hydraMetadata.updatePermission(associatedSelect);
           }
         }
-		  }
+		  };
  
      if (settings) $.extend(config, settings);
  
@@ -466,6 +495,25 @@
      return this;
  
    };
+
+   /*
+   *  Initialize the form for inserting new Grant
+   */
+   $.fn.hydraNewGrantForm = function(settings) {
+     var config = {};
+ 
+     if (settings) $.extend(config, settings);
+ 
+     this.each(function() {
+       $("#.addval.grant").click(function(e) {
+				$.fn.hydraMetadata.addGrant(this, e);
+         e.preventDefault();
+       });
+     });
+ 
+     return this;
+ 
+   };
    
    
    /*
@@ -479,7 +527,10 @@
  
      this.each(function() {
        $("#re-run-add-contributor-action", this).click(function() {
-         $.fn.hydraMetadata.addContributor("person");
+				 contributor_label = $(this).val().split(' ');
+				 contributor_type = contributor_label[contributor_label.length-1];
+				 if (contributor_type == "researcher") {contributor_type = "person";};
+         $.fn.hydraMetadata.addContributor(contributor_type);
        });
        $("#add_person", this).click(function() {
          $.fn.hydraMetadata.addContributor("person");
@@ -505,7 +556,7 @@
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
            $.fn.hydraMetadata.insertTextField(this, e);
            e.preventDefault();
-       })     
+       });
       });
  
      return this;
@@ -522,7 +573,7 @@
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
          $.fn.hydraMetadata.insertTextileField(this, e);
          e.preventDefault();
-       })
+       });
      });
  
      return this;
@@ -538,12 +589,30 @@
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
          $.fn.hydraMetadata.deleteFieldValue(this, e);
          e.preventDefault();
-       })     
+       });
       });
  
      return this;
  
    };
+
+   $.fn.hydraGrantDeleteButton = function(settings) {
+     var config = {};
+ 
+     if (settings) $.extend(config, settings);
+ 
+     this.each(function() {
+       $(this).unbind('click.hydra').bind('click.hydra', function(e) {
+          $.fn.hydraMetadata.deleteGrant(this, e);
+          e.preventDefault();
+        });
+     });
+ 
+     return this;
+ 
+   };
+
+
    
    $.fn.hydraContributorDeleteButton = function(settings) {
      var config = {};
@@ -554,7 +623,7 @@
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
           $.fn.hydraMetadata.deleteContributor(this, e);
           e.preventDefault();
-        })
+        });
      });
  
      return this;
@@ -570,7 +639,7 @@
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
            $.fn.hydraMetadata.deleteFileAsset(this, e);
            e.preventDefault();
-         })
+         });
      });
  
      return this;

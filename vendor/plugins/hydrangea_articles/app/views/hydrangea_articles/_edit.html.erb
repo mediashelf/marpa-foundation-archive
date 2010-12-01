@@ -1,11 +1,18 @@
+<% if files = params[:files] %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#accordion").accordion({active: 1});
+    });
+  </script>
+<% end %>
 <% stylesheet_links << "../javascripts/date-picker/css/datepicker" %>
 <% javascript_includes << infusion_javascripts(:default_no_jquery, :extras=>[:inline_editor_integrations], :debug=>true, :render_html=>false) %>
 <% javascript_includes << "jquery.jeditable.mini" %>
 <% javascript_includes << "date-picker/js/datepicker" %>
 <% javascript_includes << "jquery.form.js" %>
-<% javascript_includes << "jquery.hydraMetadata.js" %>
 <% javascript_includes << 'custom' %>
 <% javascript_includes << "catalog/edit" %>
+<% javascript_includes << "jquery.hydraMetadata.js" %>
 <% javascript_includes << "/plugin_assets/fluid-infusion/infusion/components/undo/js/Undo.js" %>
 <% javascript_includes << "jquery.notice.js" %>
 <%# For Fancybox> %>
@@ -34,8 +41,7 @@
       </div>
     <% end %>
 
-  <div id="accordion">
-
+  <div id="accordion"  style="height:600px;">
     <h2 class="section-title"><a href="#">Description</a></h2>
     <%= render :partial => 'hydrangea_articles/edit_description' %>
 
