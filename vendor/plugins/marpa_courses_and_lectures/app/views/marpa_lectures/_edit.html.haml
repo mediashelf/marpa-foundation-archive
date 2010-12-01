@@ -44,6 +44,9 @@
     / %div.accordion-section
     /   %h2.section-title Upload Supplemental Files
     /   = render :partial => 'marpa_courses/talks'
+    %div.accordion-section
+      %h2.section-title Upload Files
+      #uploads{"data-pid"=>params[:id]}
 
     %div.accordion-section#permissions
       %h2.section-title Set permissions

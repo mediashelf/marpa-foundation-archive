@@ -44,7 +44,7 @@
     %dl
       %dt
         = fedora_field_label("descMetadata", :subject, "Topic:")
-        = fedora_text_field_insert_link "descMetadata", :subject
+        = fedora_text_field_insert_link "descMetadata", [:subject]
         -#(ie. Text, Song, Topic) (ex. “dbu ma la ‘jug pa” "Progressive Stages of Meditation on Emptiness")   
       %dd.topic
         = fedora_text_field(@document_fedora,"descMetadata", :subject, :multiple=>true)
@@ -55,12 +55,12 @@
     %dl
       %dt
         = fedora_field_label("descMetadata", :language, "Language(s)") 
-        = fedora_text_field_insert_link "descMetadata", :language       
+        = fedora_text_field_insert_link "descMetadata", [:language]       
       %dd.language        
         = fedora_text_field(@document_fedora,"descMetadata", :languages, :multiple=>true)        
       %dt
         = fedora_field_label("descMetadata", :contributor, "Translator(s)")
-        = fedora_text_field_insert_link "descMetadata", :contributor               
+        = fedora_text_field_insert_link "descMetadata", [:contributor]               
       %dd.translator        
         = fedora_text_field(@document_fedora,"descMetadata", :contributor, :multiple=>true)     
         
