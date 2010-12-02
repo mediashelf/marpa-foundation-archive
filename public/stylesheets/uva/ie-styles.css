@@ -2,7 +2,11 @@
 	width: 926px;
 }
 
-.document {
+#results {
   width: 703px;	
 	margin: -1px 0 0 -4px;
+}
+
+#appliedParams div {
+	width: 680px;
 }
