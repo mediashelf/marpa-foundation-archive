@@ -1,12 +1,15 @@
-body {
+html {
+	background-color:white;
+}
+
+body {	
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	width: 100%;
 	background: white;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #121212;	
+	text-align: center; /* for IE */	
 }
 
 button.ui-button-icon-only {
@@ -37,7 +40,7 @@ button.ui-button-icon-only {
 
 .error, .notice, .errorExplanation {
 	margin-bottom:0;
-	margin-left: 0px;
+	margin-left: 15px;
 }
 
 #abstract-text {
@@ -183,25 +186,25 @@ table#file_assets {
 	padding: 0;
 	margin: 0;
 	width: 100%;
+	min-width: 1000px;
+	text-align: center;
 }
 
 #bd {
 	width: 950px;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 35px;
-	margin-bottom: 35px;
+	margin: 35px auto;
 }
 
 #uva_lib_banner {
 	width: 100%;
 	height: 31px;
 	background-color: #0F1C38;
+	text-align: right;
 }
 
 #uva_lib_banner img {
 	margin-top: 8px;
-	margin-left: 765px;
+	margin-right: 10px;
 }
 
 #uva_lib_banner #container1 {
@@ -215,39 +218,46 @@ table#file_assets {
 }
 
 .yui-u {
-	margin-top: -80px;
+	margin-top: 5px;
 	margin-right: 20px;
+	display: inline;
 }
 
-#libra_banner, .yui-g {
+.yui-g {
 	height: 78px;
 	width: 100%;
 	background-image: url(../../images/uva/libra_banner_bg.jpg);
 	background-repeat: repeat-x;
 	color: #F3A729;
+	text-align: left;
 }
 
+#hd .yui-g {
+ text-align: left;
+}
+
+#hd .yui-g .yui-u {
+ text-align: right;
+}
 
 #libra_banner {
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	font-size: 38px;
 }
 
-#libra_banner {
-}
-
-#libra_banner #container2, #container2 {
+#libra_banner, #container2 {
 	width: 300px;
-	text-align: left;
 	margin-left: 20px;
+	float: left;
 }
 
 #container2 a {
 	margin: 10px;
 	border: none;	
+	text-align: left;
 }
 
-#frame {
+#frame, .yui-t2 #yui-main {
 	width: 950px;
 	margin-right: auto;
 	margin-left: auto;
@@ -255,10 +265,17 @@ table#file_assets {
 	margin-bottom: 35px;
 }
 
-#side_bar, #facets {
+div.sidebar {
+	margin: 0;
+	text-align: right;	
+}
+
+#facets {
 /*	height: 680px;*/
-	width: 189px;
-	border: thin solid #8F95A3;
+/*	width: 189px;*/
+	width: 224px;	
+	border: 1px solid #8F95A3;
+	text-align: left;	
 }
 
 .side_bar_heading, #facets div h3 {
@@ -299,25 +316,25 @@ table#file_assets {
 
 .side_bar_content, #facets div ul {
 	background-color: #E5EBFD;
-	padding-left: 0;
+	padding: 0;
 }
 
 .side_bar_content, #facets div ul li {
 	padding: 0 10px;	
 	line-height: 20px;
 	display: block;
-  width: 185px;
 }
 
 #search {
-	width: 760px;
+	width: 725px;
 	float: right;
 	background-image: url(../../images/uva/search_bg.jpg);
 	background-repeat: repeat-x;
 	height: 42px;
 	position: static;
+	margin-top: 13px;
+	display:none;
 }
-
 
 #search #form1 {
 	height: 25px;
@@ -325,34 +342,33 @@ table#file_assets {
 	margin-left: 12px;
 	background-color: #FFF;
 	margin-top: 7px;
-	border: thin solid #0F1C38;
+	border: 1px solid #0F1C38;
 }
 
 #search form {
-	width: 700px;
-	height: 25px;
-	margin-left: 10px;
-	margin-top: 8px;
+	margin-top: 6px; 
+	padding-left: 5px; 
+	padding-right: 5px;	
 }
 
 #search form #q {
-	width: 600px;
-	margin-
+	width: 80%;
 }
 
 #search form input[type=image] {
 	padding: 0 6px;
 	float: right;
-}
-
-.yui-t2 #yui-main {
-  width: 760px;
+ 	width: 77px;
+  height: 30px;
 }
 
 .yui-t2 #yui-main .yui-b {
 	border: none;
-	margin-left:0px;
 	padding:0;
+	margin-left: -15px; 
+	left: 115px; 
+	top: 0px;	
+	width: 90%;	
 }
 
 #content {
@@ -364,7 +380,7 @@ table#file_assets {
 #content, .document, #results {
 	min-height: 638px;	
 	background-color: #F1F1F1;
-	border: thin solid #C8C8C8;	
+	border: 1px solid #C8C8C8;	
 }
 
 #appliedParams {
@@ -484,14 +500,17 @@ table#file_assets {
 }
 
 .document {
+  float: right;
+  min-height: 638px;
+  width: 705px;	
 	padding: 10px;
-	font-size: 14px;
-	margin-left: 0px;	
+	text-align: left;
+	margin-left: -4px;
 }
 
 #results {
 	padding-left: 10px;
-	margin-left: 0px;	
+	margin-left: 15px;	
 }
 
 #footer {
@@ -791,32 +810,35 @@ button span.fl-uploader-button-text-hidden{display:none;}
 
 div#delete_dialog_container {
   border: thin solid #DD4747;
-  height: auto; 
-  background-color: #FFE0E8;
+  height: 40px;
+  background-image: url('../../images/uva/delete-dialog-bg.png');
 }
 
 div#delete_dialog {
   position: relative;
-  top: 90%;
+  top: 50%;
+  margin-top: -10px;
   text-align: center;
-  margin: 10px 15px;
 }
 
 div#delete_dialog div {
-  display: block;
-}
-
-div#deletable_assets ul li{
-  list-style-type: none;
-}
-
-div#delete_dialog div span {
-  font-size: 12px;
-  font-weight: bold;
-}
-
-div#delete_dialog div.button {
   display: inline;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.primary_button {
+	background-image: url('../../plugin_assets/blacklight/images/start_over.gif');
+	border: none;
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-family: 'Lucida Grande';
+	font-size: 11px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	height: 24px;
+	line-height: 32px;
+	padding: 3px;
+	text-align: center;
 }
