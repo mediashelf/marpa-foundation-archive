@@ -15,6 +15,9 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
     <%= render_head_content %>
     
     <%= stylesheet_link_tag('uva/styles') %>
+	<!--[if IE]>
+    <%= stylesheet_link_tag('uva/ie-styles') %>
+	<![endif]-->
   </head>
   
     <body <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %> onload="$('input#q').focus();"<% end %>>
@@ -43,9 +46,9 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
 	    <div id="bd">
 
       	<div id="yui-main">
+		   <div class="sidebar"><%= sidebar_items.join('') %></div>	
            <%= render :partial=>'/flash_msg' %>
            <%= yield %>
-			<div class="sidebar"><%= sidebar_items.join('') %></div>
         </div>
          
 	    </div>
