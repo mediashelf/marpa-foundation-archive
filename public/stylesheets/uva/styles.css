@@ -335,16 +335,24 @@ div.sidebar {
 }
 
 #search {
-	text-align: right;
-  width: 702px;	
 	background-image: url(../../images/uva/search_bg.jpg);
 	background-repeat: repeat-x;
 	height: 42px;
-	margin: 0;
-	padding: 0 10px;	
-	top: 0;
+	left: 0px;
+	margin: -11px 0px 0px -10px;
 	position: static;
-	float: right;
+	top: 0px;
+	width: 722px;	
+	text-align: right;
+/*  width: 695px;	
+	background-image: url(../../images/uva/search_bg.jpg);
+	background-repeat: repeat-x;
+	height: 42px;
+	margin: -11px -11px 0 0;
+	top: 0;
+	left: ;
+	position: static;
+	float: right;*/
 }
 
 #search #form1 {
@@ -397,7 +405,7 @@ div.sidebar {
 #appliedParams {
 	width: 100%;
 	background-color: #F1F1F1;
-	margin-top: 50px;
+	margin-top: 10px;
 }
 
 #appliedParams h3 {

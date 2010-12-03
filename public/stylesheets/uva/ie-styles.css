@@ -5,8 +5,14 @@
 #results {
   width: 703px;	
 	margin: -1px 0 0 -4px;
+	padding-right: 0px;
 }
 
 #appliedParams div {
 	width: 680px;
+}
+
+#search {
+	width: 694px;
+	float: right;
 }
