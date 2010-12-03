@@ -9,7 +9,7 @@ function async_load(url, divid) {
             $("#file_assets  a.destroy_file_asset").hydraFileAssetDeleteButton();
           }
   });
-  // $(divid).load(url);
+  //$(divid).load(url);
   return null;
 }
 
@@ -52,44 +52,41 @@ Hydrangea.FileUploader = function() {
 // Document Ready
 jQuery(document).ready(function($) {
 	// Accordion Behavior
-	$("#accordion").accordion({
-	    autoHeight: false,
-	    clearStyle: false,
-	    collapsible: false,
-	    active: 0,
-	    icons: false,
-			fillSpace: true	
-	});	
-	$(function() {
-			$("#accordion").resizable({
-				minHeight: 140,
-				resize: function() {
-					$( "#accordion" ).accordion( "resize" );
-				}
-			});
-		});
-	
+	// $("#accordion").accordion({
+	//     autoHeight: false,
+	//     clearStyle: false,
+	//     collapsible: false,
+	//     active: 0,
+	//     icons: false,
+	// 		fillSpace: true	
+	// });	
+	// $(function() {
+	// 		$("#accordion").resizable({
+	// 			minHeight: 140,
+	// 			resize: function() {
+	// 				$( "#accordion" ).accordion( "resize" );
+	// 			}
+	// 		});
+	// 	});
+	// 
+
 	$("#keywords dl dt a").text('Add Keyword');
 	
 	//$("input[type=checkbox]").hydraCheckbox();
 	//$("input[type=radio]").hydraRadioButton();	
 	
-	// FORM BEHAVIOR	
-	if ( $("input:radio").filter("[value=completed]").attr("checked", false) && $("input:radio").filter("[value=ongoing]").attr("checked",false)) {
-		$("input:radio").filter("[value=completed]").attr("checked","checked");
-	}
-	
-	$("input:radio").change(function() {
-		if ($(this + ':checked').val() == "ongoing" ) {
-			$(".timespan_end label").text('Latest Date/Time');
-		} else {
-			$(".timespan_end label").text('End Date/Time');
-		}
-	});
-	
-	if ( $("input:radio").filter("[value=publicdomain]").attr("checked", false) && $("input:radio").filter("[value=odc-by]").attr("checked",false) && $("input:radio").filter("[value=odc-odbl]").attr("checked",false)) {
-		$("input:radio").filter("[value=publicdomain]").attr("checked","checked");
-	}
+	// // FORM BEHAVIOR	
+	// if ( $("input:radio").filter("[value=completed]").attr("checked", false) && $("input:radio").filter("[value=ongoing]").attr("checked",false)) {
+	// 	$("input:radio").filter("[value=completed]").attr("checked","checked");
+	// }
+	// 
+	// $("input:radio").change(function() {
+	// 	if ($(this + ':checked').val() == "ongoing" ) {
+	// 		$(".timespan_end label").text('Latest Date/Time');
+	// 	} else {
+	// 		$(".timespan_end label").text('End Date/Time');
+	// 	}
+	// });
 	
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
@@ -107,12 +104,6 @@ jQuery(document).ready(function($) {
 		$('#uvalicense_read_all').hide();
 	});
 	//
-	
-	
-	// REDUCE MARGIN-TOP FOR FIRST <h2>
-	$('h2:first').css('margin-top', '0');		
-	
-		
 
 	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
 	//	<input type="text" class="datepicker" size="30" name="d1" value="" placeholder="YYYY-MM-DD"/>
@@ -139,39 +130,22 @@ jQuery(document).ready(function($) {
 		)
 	}
 	
-
-	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
-	$('input.editable-edit').css('min-width', '150px');
-	$('input#title_info_main_title').css('min-width', '300px');	
 	
-	
-	// REDUCE MARGIN-TOP FOR FIRST <h2>
-	$('h2:first').css('margin-top', '0');
-	 	
-	// HIDE ALL BUT THE FIRST PARAGRAPH OF THE LICENSES
-	$('#uvalicense p:not(:first)').hide();
-	
-	$('#uvalicense_read_all').click(function() {
-		$('#uvalicense p:not(:first)').slideDown('slow');
-		$('#uvalicense_read_all').hide();
-	});
-	//
-
-  $('a#delete_asset_link').click(
-      function () {
-        pid = $("div#uploads").attr("data-pid");
-        url = '/assets/'+pid+'/file_assets?deletable=true&layout=false';
-        $.ajax({
-          type: "GET",
-          url: url,
-          dataType: "html",
-          success: function(data){
-                  $('div#deletable_assets').html(data);
-                  $("div#delete_dialog").parent().show();
-                }
-        });
-      }
-  );
+	  $('a#delete_asset_link').click(
+	      function () {
+	        pid = $("div#uploads").attr("data-pid");
+	        url = '/assets/'+pid+'/file_assets?deletable=true&layout=false';
+	        $.ajax({
+	          type: "GET",
+	          url: url,
+	          dataType: "html",
+	          success: function(data){
+	                  $('div#deletable_assets').html(data);
+	                  $("div#delete_dialog").parent().show();
+	                }
+	        });
+	      }
+	  );
 
 
 });

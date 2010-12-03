@@ -2,16 +2,17 @@
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
-    <h3><%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %></h3>
+
+   <h3><%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %></h3>
     <div class="uvafield">
 		<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
 	</div>
 
-	<h3><%= fedora_field_label("descMetadata", [:journal], "Publication Details") %>
+	<h3><%= fedora_field_label("descMetadata", [:journal], "Publication Details") %></h3>
 	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
-	
+
 	<h3><label label_for="Contributors">Contributors</label></h3>
-    <ol id="contributors">
+    <ol id="contributors" style="width:100%;">
       <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
       <%= render :partial=>"contributors/edit_organization", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:organization) %>
       <%= render :partial=>"contributors/edit_conference", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:conference) %>
@@ -34,7 +35,7 @@
   <div class="uvafield"><%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %></div>
 
 <h3><label label_for="Keywords">Keywords</label></h3>
-<div id="keywords" class="keywords">
+<div id="keywords" class="keywords" style="width:100%;">
 	<dl>
 		<dt>
 			<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
@@ -44,6 +45,7 @@
   		</dd>
 	</dl>
 </div>
+
 <h2>License the Article</h2>
 <ol>
 	<li>
@@ -56,7 +58,7 @@
 		 	<label for="license">
 		     I license this work under UVa's Libra Contributor’s License.
 		    </label>
-			<p><!-- <strong>Non-exclusive Distribution License</strong><br /> -->
+			<p>
 			To properly administer this repository and preserve the contents for future use, the University of Virginia (UVA) requires certain permissions from you, the author(s) or copyright owner. By accepting this license, you still retain copyright to your work. You do not give up the right to submit the work to publishers or other repositories.</p>
 			<p>By clicking through this license, you grant to the University of Virginia the non-exclusive right to reproduce, translate (as defined below), and/or distribute your submission (including the metadata and abstract) worldwide, in any format or medium for non-commercial, academic purposes only.  UVA will clearly identify your name(s) as the author(s) or owner(s) of the submission, including a statement of your copyright, and will not make any alteration, other than as allowed by this license, to your submission.</p>
 			<p>You agree that UVA may translate the submission to any medium or format and keep more than one copy for the purposes of security, back up and preservation.</p>
@@ -69,7 +71,7 @@
 </div>
 </li>
 <li>
-<div id="cclicense" class="license">
+<div id="cclicense" class="license" style="width:100%;">
 	<dl>
 	  <dt>
 		<%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :cclicense], :choices => %w(yes no)) %> 
@@ -83,10 +85,11 @@
 </div>
 </li>
 </ol>
+
 </form>
 
+<h2>Release the Article</h2>
 <div id="actions">
-	<h2>Release the Article</h2>
 <%#= render :partial => "permissions/index", :locals => {:document => @document_fedora, :asset_id=>params[:id]} %>
 
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">

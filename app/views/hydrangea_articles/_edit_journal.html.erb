@@ -1,7 +1,7 @@
 <% journal = edit_journal %>
 <% journal_counter = edit_journal_counter %>
 <% base_id = "journal_#{journal_counter}" %>
-<dl>
+<dl style="width:100%;">
   <dt>
     <%= fedora_field_label("descMetadata", [{:journal => journal_counter}, :title_info, :main_title], "Journal Title:") %>
   </dt>
