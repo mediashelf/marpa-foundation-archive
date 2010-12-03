@@ -1,0 +1,5 @@
+- result = managed_content
+%li
+  =link_to result[solr_name("title", :text)], file_asset_path(result["id"])
+  &nbsp;
+  = "(#{result[solr_name("extent", :text)]})"
