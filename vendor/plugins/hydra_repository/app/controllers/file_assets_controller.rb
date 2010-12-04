@@ -20,10 +20,9 @@ class FileAssetsController < ApplicationController
       escaped_uri = container_uri.gsub(/(:)/, '\\:')
       extra_controller_params =  {:q=>"is_part_of_s:#{escaped_uri}"}
       @response, @document_list = get_search_results( extra_controller_params )      
-      # solr_result = SolrService.instance.conn.query("#{predicate}_s:\#{escaped_uri}")
-      # @response, @document_list = get_solr_response_for_doc_id(params[:container_id])
-      # @container =  ActiveFedora::Base.load_instance(params[:container_id])
-      # @solr_result = @container.file_objects(:response_format=>:solr)
+      
+      # Including this line so permissions tests can be run against the container
+      @container_response, @document = get_solr_response_for_doc_id(params[:container_id])
     else
       # @solr_result = ActiveFedora::SolrService.instance.conn.query('has_model_field:info\:fedora/afmodel\:FileAsset', @search_params)
       @solr_result = FileAsset.find_by_solr(:all)
