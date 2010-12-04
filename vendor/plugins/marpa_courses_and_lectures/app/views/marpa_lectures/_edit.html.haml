@@ -32,22 +32,15 @@
     - if flash[:notice]
       .notice
         = flash[:notice]
-        
+    
     %div.accordion-section
-      %h2.section-title Recordings
-      = render :partial => 'marpa_lectures/recordings'
-      
+      %h2.section-title Upload Files
+      #uploads{"data-pid"=>params[:id]}
+           
     %div.accordion-section
       %h2.section-title Describe the Talk
       = render :partial => 'marpa_lectures/edit_description'
         
-    / %div.accordion-section
-    /   %h2.section-title Upload Supplemental Files
-    /   = render :partial => 'marpa_courses/talks'
-    %div.accordion-section
-      %h2.section-title Upload Files
-      #uploads{"data-pid"=>params[:id]}
-
     %div.accordion-section#permissions
       %h2.section-title Set permissions
       %span#permissions
