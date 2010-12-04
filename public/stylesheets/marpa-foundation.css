@@ -1,3 +1,17 @@
+#file_assets th.filename {
+  width: 40%;
+}
+#file_assets th.description {
+  width: 40%;
+}
+#file_assets th.file_size {
+  width: 10%;
+}
+#file_assets th.delete {
+  width: 2em;
+}
+
+
 dl dd {
   float: none;
   margin-bottom:20px;
