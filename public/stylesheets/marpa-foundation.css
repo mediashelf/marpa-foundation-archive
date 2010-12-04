@@ -10,6 +10,13 @@
 #file_assets th.delete {
   width: 2em;
 }
+#file_assets td {
+  padding: 10px 10px 10px 10px;
+}
+
+.flc-uploader {
+  width: 100%;
+}
 
 
 dl dd {
