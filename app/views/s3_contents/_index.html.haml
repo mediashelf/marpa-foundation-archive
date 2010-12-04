@@ -1,11 +1,10 @@
 - s3_object = S3Content.load_instance(document["id"])
+- javascript_includes << "/plugin_assets/html5media/html5media.min.js" 
+
 %tr.file_asset.document{:id=>document["id"], :class=>cycle("even","odd")}
   %td
-    - if document[solr_name("title", :text)].nil?
-      - title = "listen / watch"
-    - else
-      - title = document[solr_name("title", :text)]
-    =link_to title, s3_object.s3_url
+    %audio{:controls=>"controls"}
+      %source{:src=>s3_object.s3_url}
     
   %td
     %form#document_metadata{:action=>url_for(:id=>document["id"], :controller=>"assets", :action=>"update"), :method=>"post"}
@@ -14,6 +13,11 @@
     
   %td
     =document[solr_name("extent", :text)]
+    - if document[solr_name("title", :text)].nil?
+      - title = "download"
+    - else
+      - title = document[solr_name("title", :text)]
+    =link_to title, s3_object.s3_url
     
   %td
     // no delete button because the content is in S3

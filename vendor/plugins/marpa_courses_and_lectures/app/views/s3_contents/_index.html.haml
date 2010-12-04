@@ -2,11 +2,8 @@
 %tr.file_asset.document{:id=>document["id"], :class=>cycle("even","odd")}
   %td
   %td
-    - if document[solr_name("title", :text)].nil?
-      - title = "listen / watch"
-    - else
-      - title = document[solr_name("title", :text)]
-    =link_to title, s3_object.s3_url
+    %audio{:controls=>"controls"}
+      %source{:src=>s3_object.s3_url}
 
   %td
     %form#document_metadata{:action=>url_for(:id=>document["id"], :controller=>"assets", :action=>"update"), :method=>"post"}
@@ -20,6 +17,11 @@
     / =document[solr_name("description", :text)]
   %td
     =document[solr_name("extent", :text)]
+    - if document[solr_name("title", :text)].nil?
+      - title = "download"
+    - else
+      - title = document[solr_name("title", :text)]
+    =link_to title, s3_object.s3_url
   %td
     - dt = DateTime.parse(document[ solr_name("system_create", :date)] )
     = dt.strftime("%Y-%m-%d %I:%M%p UTC")
