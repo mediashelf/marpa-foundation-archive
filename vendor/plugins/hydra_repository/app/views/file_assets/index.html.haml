@@ -38,7 +38,8 @@
     %th Uploaded
     %th
   
-  =render :partial=>'result', :collection=>@solr_result.hits
+  - @document_list.each_with_index do |document,counter|
+    = render_document_partial document, 'index', :counter => counter
 
 - if !@document.nil? && editor?
   %h2
