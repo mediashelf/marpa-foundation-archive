@@ -10,10 +10,10 @@
 .document_viewer#cover_container
 
   %div.accordion-section
-    %h2.section-title Description
-    = render :partial => 'marpa_courses/edit_description'
-
-  %div.accordion-section
     %h2.section-title Talks in this Course
     = render :partial => 'marpa_courses/talks'
+  
+  %div.accordion-section
+    %h2.section-title Description
+    = render :partial => 'marpa_courses/edit_description'
 

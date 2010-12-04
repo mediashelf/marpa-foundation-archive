@@ -32,13 +32,14 @@
     - if flash[:notice]
       .notice
         = flash[:notice]
-    %div.accordion-section
-      %h2.section-title Describe the Course
-      = render :partial => 'marpa_courses/edit_description'
-
+    
     %div.accordion-section
       %h2.section-title Talks in this Course
       = render :partial => 'marpa_courses/talks'
+          
+    %div.accordion-section
+      %h2.section-title Describe the Course
+      = render :partial => 'marpa_courses/edit_description'
 
     %div.accordion-section#permissions
       %h2.section-title Set permissions
