@@ -33,8 +33,11 @@
       .notice
         = flash[:notice]
     
+    - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
+    = link_to "Return to course", catalog_path(course_pid)
+    
     %div.accordion-section
-      %h2.section-title Upload Files
+      %h2.section-title Files
       #uploads{"data-pid"=>params[:id]}
            
     %div.accordion-section
