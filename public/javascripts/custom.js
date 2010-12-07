@@ -112,6 +112,12 @@ jQuery(document).ready(function($) {
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');		
 	
+	
+	// INPLACE EDIT FIELDS
+	$('cover_container').children('form').children('input').blur(function(){ 
+		//put the original background color in 
+		$(this).css('background', 'blue');
+	});
 		
 
 	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
