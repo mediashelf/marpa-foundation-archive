@@ -82,7 +82,7 @@ html>body .fl-uploader-queue{width:100%;}
 .fl-uploader-queue .fl-uploader-file-error td{background-color:#FCFBE6;border-left:4px solid #F5E392;background-image:url(../images/error.png);background-position:8px 2px;background-repeat:no-repeat;padding-bottom:8px;padding-left:32px;}
 .fl-uploader-queue-wrapper td.fl-uploader-file-actions,.fl-uploader-queue-wrapper th.fl-uploader-file-actions{white-space:nowrap;text-align:center;}
 .fl-uploader-queue td.fileStatus{white-space:nowrap;}
-/*.fl-uploader-queue-wrapper .fl-uploader-browse-instructions{background-color:#F0F9FF;color:#666;text-align:center;border-left:1px solid #999;border-right:1px solid #999;padding:6px;}*/
+
 .fl-uploader-btns{margin-top:1em;text-align:right;}
 .fl-uploader-btns .fl-uploader-upload,.fl-uploader-btns .fl-uploader-resume,.fl-uploader-btns .fl-uploader-pause{width:8.4em;}
 .fl-uploader-btns .fl-uploader-done,.fl-uploader-btns .fl-uploader-cancel{width:7.6em;}
