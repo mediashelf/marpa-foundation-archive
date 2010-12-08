@@ -397,14 +397,16 @@ div.sidebar {
 
 #content, .document, #results {
 	min-height: 638px;	
-	background-color: #F1F1F1;
+/*	background-color: #F1F1F1;*/
+	background-color: white;
 	border: 1px solid #C8C8C8;	
 	text-align: left;
 }
 
 #appliedParams {
 	width: 100%;
-	background-color: #F1F1F1;
+	background-color: white;	
+/*	background-color: #F1F1F1;*/
 	margin-top: 10px;
 }
 
@@ -432,7 +434,8 @@ div.sidebar {
 }
 
 .pagination, #sortAndPerPage {
-	background-color: #F1F1F1;
+/*	background-color: #F1F1F1;*/
+	background-color: white;	
 }
 
 .pagination {
