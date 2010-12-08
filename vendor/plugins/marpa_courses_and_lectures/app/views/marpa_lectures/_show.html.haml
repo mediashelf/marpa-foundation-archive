@@ -8,9 +8,11 @@
   </style>
 
 .document_viewer#cover_container
-  
-  - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
-  = link_to "Return to course", catalog_path(course_pid)
+
+  - course_pid_array = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"])
+  - unless   course_pid_array.empty?
+    - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
+    = link_to "Return to course", catalog_path(course_pid)
   
   %div.accordion-section
     %h2.section-title Recordings
