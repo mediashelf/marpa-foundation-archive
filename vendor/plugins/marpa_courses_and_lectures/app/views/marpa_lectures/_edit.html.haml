@@ -34,7 +34,7 @@
         = flash[:notice]
     
     - course_pid_array = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"])
-    - unless   course_pid_array.empty?
+    - unless course_pid_array.nil? || course_pid_array.empty?
       - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
       = link_to "Return to course", catalog_path(course_pid)
     
