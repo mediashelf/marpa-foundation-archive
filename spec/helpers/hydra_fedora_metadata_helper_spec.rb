@@ -37,7 +37,7 @@ describe HydraFedoraMetadataHelper do
       generated_html = helper.fedora_text_field(@resource,"simple_ds","subject")
       generated_html.should have_tag "ol[rel=subject]" do
         with_tag "li#subject_0-container.editable-container.field" do
-          without_tag "a.destructive.field"
+          with_tag "a.destructive.field"
           with_tag "span#subject_0-text.editable-text.text", "topic1"
           with_tag "input#subject_0.editable-edit.edit" do
             with_tag "[value=?]", "topic1"
