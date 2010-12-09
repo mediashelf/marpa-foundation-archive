@@ -147,6 +147,7 @@ module Hydra
       extract_person_organizations.each {|org| solr_doc << org }
       extract_person_full_names_and_computing_ids.each {|pfc| solr_doc << pfc }
       solr_doc << {:object_type_facet => "Article"}
+      solr_doc << {:mods_journal_title_info_facet => "Unknown" } if solr_doc["mods_journal_title_info_facet"].nil? || solr_doc["mods_journal_title_info_facet"].blank?
       solr_doc
     end
   end

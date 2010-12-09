@@ -12,6 +12,12 @@ module ApplicationHelper
   def render_complex_facet_value(facet_solr_field, item, options ={})    
     link_to_unless(options[:suppress_link], format_item_value(item.value), add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") + " (" + format_num(item.hits) + ")" 
   end
+  
+  def render_journal_facet_value(facet_solr_field, item, options ={})
+    
+    val = item.value.strip.length > 12 ? item.value.strip[0..12].concat("...") : item.value.strip
+    link_to_unless(options[:suppress_link], val, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") + " (" + format_num(item.hits) + ")" 
+  end
 
   def render_complex_facet_image(facet_solr_field, item, options = {})
     if File.exists?("#{Rails.root}/public/images/faculty_images/#{extract_computing_id(item.value)}.jpg")
@@ -23,11 +29,27 @@ module ApplicationHelper
     link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") 
   end
 
+  def render_journal_image(facet_solr_field, item, options = {})
+    if File.exists?("#{Rails.root}/public/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg")
+      img = "<img src=\"/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg\" width=\"100\" >"
+    else
+      img = "<img src=\"/images/default_thumbnail.gif\" width=\"90\" >"
+    end
+
+    link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") 
+  end
+
   def get_randomized_display_items items
-    if items.length < 9 
-      items.sort_by {|item| item.value }
+#items = disp_items.map {|m| m unless m.nil? || m.value.strip.blank? }
+    clean_items = items.each.inject([]) do |array, item|
+      array << item unless item.value.strip.blank?
+      array
+    end
+
+    if clean_items.length < 9 
+      clean_items.sort_by {|item| item.value }
     else 
-      rdi = items.sort_by {rand}
+      rdi = clean_items.sort_by {rand}
       return rdi[0..7].sort_by {|item| item.value}
     end
     
