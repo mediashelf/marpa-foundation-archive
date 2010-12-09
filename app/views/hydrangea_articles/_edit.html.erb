@@ -42,6 +42,17 @@
     <%= render :partial => 'hydrangea_articles/edit_description' %>
 
 </div>
+
+<div id="progressBox">
+  <div id="progressBoxHeader">
+    <h2>Progress</h2>
+  </div>
+  <div id="progressBoxContent">
+    <%= render :partial => 'hydrangea_articles/progress_box' %>
+  </div>
+  <div id="progressBoxFooter"></div>
+</div>
+
 <%= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads') %>
 <%#
 // This hidden form really belongs elsewhere, but putting it inside of an 
