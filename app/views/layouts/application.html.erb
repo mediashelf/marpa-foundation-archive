@@ -46,7 +46,8 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
 	    <div id="bd">
 
       	<div id="yui-main">
-		   <div class="sidebar"><%= sidebar_items.join('') %></div>	
+        <!-- <div id="uva-tabs"><%= (params[:controller] == "catalog" and !params[:id]) ? render(:partial => 'catalog/uva_tabs') : ""  %></div>  -->
+        <div class="sidebar"><%= sidebar_items.join('') %></div>	
            <%= render :partial=>'/flash_msg' %>
            <%= yield %>
         </div>

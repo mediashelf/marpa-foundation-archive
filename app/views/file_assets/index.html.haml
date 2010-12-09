@@ -22,13 +22,17 @@
         });
 
 - unless @solr_result.hits.empty?
-  %table#file_assets.multipleEdit
-    %tr
-      %th File
-      %th Size
-      %th Uploaded
-      %th   
-    =render :partial=>'result', :collection=>@solr_result.hits
+  -if params[:deletable] == "true"
+    %ul
+      =render :partial=>'deletable_result', :collection=>@solr_result.hits
+  -else
+    %table#file_assets.multipleEdit
+      %tr
+        %th File
+        %th Size
+        %th Uploaded
+        %th   
+      =render :partial=>'result', :collection=>@solr_result.hits
 
 - if !@document.nil? && editor?
   %div#uploader
