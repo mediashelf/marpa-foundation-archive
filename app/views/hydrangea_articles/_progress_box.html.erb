@@ -37,8 +37,8 @@
 <% if @document_fedora.submitted_for_release? %>
   <li id="submitToRegistrarDiv" class="noIndent"> 
     <hr size="1" />
-    <p class="progressItem progressItemChecked bold">Submitted</p>
-    <div class="progressInfoBox"><%= formatTimestamp(@ds_properties.submit_date_values.first) %></div>
+    <p class="progressItem progressItemChecked bold">Released</p>
+    <!-- <div class="progressInfoBox"><%#= formatTimestamp(@ds_properties.submit_date_values.first) %></div> -->
     <hr size="1" />
   </li>
 <% else %>
