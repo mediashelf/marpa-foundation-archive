@@ -724,13 +724,18 @@ li div .license {
 	color:#427ABE;	
 }
 
-html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px 3px 25px;border:1px solid transparent;}
+html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px;border:1px solid transparent;}
 
 .fl-uploader a.fl-uploader-browse:hover{border:1px solid #CCC;background-color:#FFF;}
 
 .fl-uploader a.fl-uploader-browse:focus,.fl-uploader a.fl-uploader-browse.focus{outline:2px solid #142B8C;background-color:#FFF;}
 
-.fl-uploader-browse-overlay{position:absolute;bottom:45px;right:5px;z-index:7;}
+.fl-uploader-browse-overlay{
+	bottom: 43px;
+	position: absolute;
+	right: 57px;
+	z-index: 7;
+}
 
 .swfupload {
 /*	border:1px solid red;*/
