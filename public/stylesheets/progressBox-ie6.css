@@ -1,0 +1,29 @@
+#progressBox {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 10px;
+  zoom: 1;
+}
+
+#progressBoxContent {
+  width: 220px;
+  padding: 20px 5px 20px 15px;
+}
+
+#progressBoxContentChecked {
+  background-image: url('chkbox_checked_ie6.png');
+}
+
+.progressItemChecked {
+  background-image: url('/images/chkbox_checked_ie6.png');
+}
+
+.progressItemRejected {
+  background-image: url('/images/chkbox_cross_ie6.png');
+}
+
+.progressBoxInvisibleStatus {
+  height: 1px;
+  width: 1px;
+  color: #fff;
+}

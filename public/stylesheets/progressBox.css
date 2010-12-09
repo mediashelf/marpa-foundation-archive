@@ -1,0 +1,99 @@
+#submissionSteps {
+  float:left;
+  width:75%;
+}
+
+#progressBox {
+  position:fixed;
+  left:75%;
+  top:56px;
+  overflow:auto;
+  width:240px;
+}
+
+#progressBoxHeader {
+  background:transparent url('/images/progressBoxHeader.png') no-repeat top center;
+  height:35px;
+  width:240px;
+  text-indent:20px;
+}
+
+#progressBoxHeader h2 {
+  color:#fff;
+  padding-top:5px;
+}
+
+#progressBoxContent {
+  background:#fff url('/images/progressBoxContent.png') repeat-y top center;
+  color:#333;
+  padding:20px 17px 20px 17px;
+  width:206px;
+}
+
+#progressBoxContent li, #progressBoxContent p {
+  padding:2px 0 2px 20px;
+  margin:0;
+}
+
+#progressBoxContent li.noIndent, #progressBoxContent p.noIndent {
+  padding-left:0;
+}
+
+.progressBoxInvisibleStatus {
+  font-size:0;
+  color:#fff;
+  height:1px;
+  width:1px;
+}
+
+.progressItem {
+  background:#fff url('/images/chkbox_empty.png') no-repeat center left;
+}
+
+#progressBoxContentChecked {
+  background:#fff url('/images/chkbox_checked.png') no-repeat center left;
+  padding:2px 0 2px 20px;
+}
+
+#progressBoxFooter {
+  background:transparent url('/images/progressBoxFooter.png') no-repeat top center;
+  height:25px;
+  width:240px;
+}
+
+.progressBoxSubmit input {
+  margin:1px 0 0 12px;
+}
+
+.progressItemChecked {
+  background-image:url('/images/chkbox_checked.png');
+}
+
+.progressItemRejected {
+  background-image:url('/images/chkbox_cross.png');
+}
+
+.progressItemUnChecked {
+  background-image:url('/images/chkbox_empty.png');
+}
+
+.chkbox_readonly {
+  background:transparent url('/images/checked_readonly.png') no-repeat left center;
+  padding:0 0 0 20px;
+}
+
+.progressInfoBox {
+  clear:both;
+  padding:0 0 5px 20px;
+  color:#555;
+  width:170px;
+}
+
+.progressCommentBox {
+  clear:both;
+  padding:5px 0 0 20px;
+  color:#666;
+  font-style:italic;
+  line-height:normal;
+  width:170px;
+}
