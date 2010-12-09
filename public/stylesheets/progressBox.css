@@ -3,7 +3,12 @@
   width:75%;
 }
 
+li p.bold {
+	font-weight: bold;
+}
+
 #progressBox {
+	text-align: left;
   position:fixed;
 	height: 186px;
 	right: -1px;
