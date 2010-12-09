@@ -43,8 +43,13 @@ button.ui-button-icon-only {
 }
 
 .error, .notice, .errorExplanation {
-	margin-bottom:0;
+	/*
+  margin-bottom:0;
 	margin-left: 15px;
+  */
+  margin: 0 0 0 -3px;
+  float: right;
+  width: 682px;
 }
 
 #abstract-text {
@@ -833,24 +838,6 @@ button span.fl-uploader-button-text-hidden{display:none;}
 .fl-uploader-flash9-container{overflow:hidden;width:1px;height:1px;}
 .hideUploaderForOpera{visibility:hidden;overflow:hidden;height:0;width:0;padding:0;}
 
-div#delete_dialog_container {
-  border: thin solid #DD4747;
-  height: 40px;
-  background-image: url('../../images/uva/delete-dialog-bg.png');
-}
-
-div#delete_dialog {
-  position: relative;
-  top: 50%;
-  margin-top: -10px;
-  text-align: center;
-}
-
-div#delete_dialog div {
-  display: inline;
-  margin-left: 15px;
-}
-
 .primary_button {
 	background-image: url('../../plugin_assets/blacklight/images/start_over.gif');
 	border: none;
@@ -866,4 +853,68 @@ div#delete_dialog div {
 	line-height: 32px;
 	padding: 3px;
 	text-align: center;
+}
+
+div#uva-tabs {
+  float:left;
+  width:780px;
+  padding-left: 224px;
+}
+
+div#uva-tabs ul li {
+  list-style: none;
+  float: left;
+  position: relative;
+  top: 1px;
+  margin: 0 .2em 1px 0;
+  border-bottom: 0 !important;
+  padding: 0;
+  white-space: nowrap;
+}
+
+div#uva-tabs ul li a {
+  display:block;
+  font-size:13px;
+  font-weight:normal;
+  padding:4px 10px 2px; 
+  border:1px solid #AFD0F0; 
+  color: #585C65;
+}
+
+div#uva-tabs ul li a.selected {
+  background-color: #AFD0F0;
+  border: 1px solid #8ABDE3;
+  color: black;
+}
+
+div#delete_dialog_container {
+  border: thin solid #DD4747;
+  height: auto; 
+  background-color: #FFE0E8;
+}
+
+div#delete_dialog {
+  position: relative;
+  top: 90%;
+  text-align: center;
+  margin: 10px 15px;
+}
+
+div#delete_dialog div {
+  display: block;
+}
+
+div#deletable_assets ul li{
+  list-style-type: none;
+}
+
+div#delete_dialog div span {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div#delete_dialog div.button {
+  display: inline;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }

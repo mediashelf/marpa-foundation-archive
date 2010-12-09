@@ -6,8 +6,18 @@
     UVa community. By depositing your work in LIBRA, you can
     help transform the landscape of scholarly publishing.</p>
 
-  <% # container for author facets -%>
-    <% display_facet = @response.facets.detect {|f| f.name == 'person_full_name_cid_facet'} -%>
+  <% # container for facets -%>
+  <%-
+    case params[:home_context]
+    when "authors"
+      facet_name = 'person_full_name_cid_facet'
+    when "journals"
+      facet_name = 'mods_journal_title_info_facet'
+    else
+      facet_name = 'person_full_name_cid_facet'
+    end
+    -%>
+    <% display_facet = @response.facets.detect {|f| f.name == facet_name } -%>
     <% if display_facet &&  display_facet.items.length > 0 %>
       <div id="authors" >
         <%-
@@ -17,8 +27,13 @@
             <div class="author_browse_row">
           <% end %>
             <div class="author_browse_image">
-                <%= render_complex_facet_image('person_full_name_cid_facet', item) %><br/>
-                <%= render_complex_facet_value('person_full_name_cid_facet', item) %>
+              <% if facet_name == 'person_full_name_cid_facet' %>
+                <%= render_complex_facet_image(facet_name, item) %><br/>
+                <%= render_complex_facet_value(facet_name, item) %>
+              <% else %>
+                <%= render_journal_image(facet_name, item) %><br/>
+                <%= render_journal_facet_value(facet_name, item) %>
+              <% end %>
             </div>
           <% if index % 4 == 3 %>
             </div>
