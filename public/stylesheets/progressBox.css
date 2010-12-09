@@ -5,29 +5,47 @@
 
 #progressBox {
   position:fixed;
-  left:75%;
-  top:56px;
-  overflow:auto;
-  width:240px;
+	height: 186px;
+	right: -1px;
+  top:210px;
+  overflow:hidden;
+  width:225px;
+	background-color: #EEF5FB;
+	border-width: 1px 0 1px 1px;
+	border-color: #79B7E7;
+	border-style: solid;
+	border-radius: 5px 0 0 5px;
+	-moz-border-radius:	5px 0 0 5px;
+	-moz-box-shadow: -3px 3px 5px #0F1C38;
+	-webkit-box-shadow: -3px 3px 5px #0F1C38;
+	box-shadow: -3px 3px 5px #0F1C38;	
 }
 
 #progressBoxHeader {
-  background:transparent url('/images/progressBoxHeader.png') no-repeat top center;
-  height:35px;
+/*  background:transparent url('/images/progressBoxHeader.png') no-repeat top center;*/
+/*  height:35px;*/
   width:240px;
-  text-indent:20px;
+/*  text-indent:20px;*/
 }
 
 #progressBoxHeader h2 {
-  color:#fff;
-  padding-top:5px;
+ 	margin: 8px;
 }
 
 #progressBoxContent {
-  background:#fff url('/images/progressBoxContent.png') repeat-y top center;
+/*  background:#fff url('/images/progressBoxContent.png') repeat-y top center;*/
   color:#333;
-  padding:20px 17px 20px 17px;
+  padding:0 17px 20px 17px;
   width:206px;
+}
+
+#progressBoxContent ol {
+	margin-left: 0;
+	margin-top: 0;
+}
+
+#progressBoxContent ol li {
+	height: 1.3em;
 }
 
 #progressBoxContent li, #progressBoxContent p {
@@ -47,16 +65,16 @@
 }
 
 .progressItem {
-  background:#fff url('/images/chkbox_empty.png') no-repeat center left;
+  background:	#EEF5FB url('/images/chkbox_empty.png') no-repeat center left;
 }
 
 #progressBoxContentChecked {
-  background:#fff url('/images/chkbox_checked.png') no-repeat center left;
+  background: #EEF5FB url('/images/chkbox_checked.png') no-repeat center left;
   padding:2px 0 2px 20px;
 }
 
 #progressBoxFooter {
-  background:transparent url('/images/progressBoxFooter.png') no-repeat top center;
+/*  background:transparent url('/images/progressBoxFooter.png') no-repeat top center;*/
   height:25px;
   width:240px;
 }

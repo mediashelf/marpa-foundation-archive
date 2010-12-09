@@ -26,13 +26,13 @@ GEM
       activesupport
     block_helpers (0.3.3)
       activesupport (>= 2.0)
-    builder (2.1.2)
+    builder (3.0.0)
     columnize (0.3.2)
     crack (0.1.8)
-    cucumber (0.9.4)
-      builder (~> 2.1.2)
+    cucumber (0.10.0)
+      builder (>= 2.1.2)
       diff-lcs (~> 1.1.2)
-      gherkin (~> 2.2.9)
+      gherkin (~> 2.3.2)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     cucumber-rails (0.3.2)
@@ -41,7 +41,7 @@ GEM
     database_cleaner (0.6.0)
     diff-lcs (1.1.2)
     facets (2.8.4)
-    gherkin (2.2.9)
+    gherkin (2.3.2)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     haml (3.0.24)
@@ -53,12 +53,14 @@ GEM
     marc (0.4.1)
     mediashelf-loggable (0.4.0)
     mime-types (1.16)
-    mocha (0.9.9)
+    mocha (0.9.10)
       rake
     multipart-post (1.0.1)
     nokogiri (1.4.3.1)
-    om (1.0.0)
+    om (1.0.1)
       facets
+      facets
+      nokogiri
       nokogiri (>= 1.4.2)
     rack (1.1.0)
     rack-test (0.5.6)

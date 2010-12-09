@@ -17,8 +17,23 @@
 	float: right;
 }
 
+#submitForRelease {
+	width: 220px;
+	margin-left: 2px;
+}
+
+#deleteAsset {
+	font-size: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+table#file_assets {
+	width: 660px;
+}
+
 #uploader, .fl-uploader-queue-wrapper {
-	width: 875px;
+	width: 660px;
 }
 
 .fl-uploader-btns {
@@ -50,11 +65,21 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px 3px 25px;border:1px 
 .fl-uploader a.fl-uploader-browse:hover{border:1px solid #CCC;background-color:#FFF;}
 .fl-uploader a.fl-uploader-browse:focus,.fl-uploader a.fl-uploader-browse.focus{outline:2px solid #142B8C;background-color:#FFF;}
 
-.fl-uploader-browse-overlay{position:absolute;bottom:50px;right:10px;z-index:7;}
+.fl-uploader-browse-overlay{
+	position: absolute;
+	bottom: 50px;
+	right: 30px;
+	z-index: 7;
+}
 
 .fl-uploader-flash10-wrapper{position:relative;float:left;}
 
-.fl-uploader-queue-footer table{width:100%;position:relative;z-index:6;}
+.fl-uploader-queue-footer table {
+	width: 630px;
+	position:relative;
+	z-index:6;
+}
+
 .fl-uploader-queue-footer td{padding:8px 6px;vertical-align:middle;font-size:1.07em;font-weight:bolder;color:#666;}
 .fl-uploader-footer-buttons{text-align:right;}
 

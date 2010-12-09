@@ -44,16 +44,13 @@
 <% else %>
   <li class="progressBoxSubmit noIndent" id="submitToRegistrarDiv">
     <hr size="1" />
-    <p class="sectionHeader section6 height_25">
       <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
         <input name="_method" type="hidden" value="put" />
-      	<div id="primary_action">  
+      	<div>  
         			<%= fedora_field_label("properties", [:release_to], "Release to") %>
         			<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
       			<!-- Careful! Submitting this hidden input will release the article.  -->
         			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
-        </div>	
-      	<div id="secondary_action">  	
       	  <% if @document_fedora.ready_to_release? %>
             <input type="button" id="submitForRelease" value="Release for UVa Library Circulation" />
           <% else %>
@@ -61,11 +58,10 @@
           <% end %>
       	</div>
       </form>
-    </p>
-    <div id="tertiary_action">
+
+    <div id="deleteAsset">
   		<%= delete_asset_link(params[:id], "article") %>
   	</div>
-    <hr size="1" />
   </li> 
 <% end %>
 
