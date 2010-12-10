@@ -76,7 +76,7 @@ class HydrangeaArticle < ActiveFedora::Base
     
     response = {:failures=>[]}
 
-    if title_values.first.empty?
+    if title_values.empty? || title_values.first.empty?
       response[:failures] << "Please provide a title."
     end  
     if author_entries.empty?
