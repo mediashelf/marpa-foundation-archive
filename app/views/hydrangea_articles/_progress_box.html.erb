@@ -38,8 +38,19 @@
 <% if @document_fedora.submitted_for_release? %>
   <li id="submitToRegistrarDiv" class="noIndent"> 
     <hr size="1" />
-    <p class="progressItem progressItemChecked bold">Released</p>
+    <!-- <p class="progressItem progressItemChecked bold">Released</p> -->
     <!-- <div class="progressInfoBox"><%#= formatTimestamp(@ds_properties.submit_date_values.first) %></div> -->
+      <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
+        <input name="_method" type="hidden" value="put" />
+      	<div>  
+            <p class="progressItem progressItemChecked bold">
+        			<%= fedora_field_label("properties", [:release_to], "Released to") %>
+        			<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
+      			<!-- Careful! Submitting this hidden input will release the article.  -->
+        			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
+            </p>
+      	</div>
+      </form>
     <hr size="1" />
     <div id="deleteAsset">
   		<%= delete_asset_link(params[:id], "article") %>
