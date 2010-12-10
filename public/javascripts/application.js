@@ -52,10 +52,3 @@ function createAssetNavigateTo(elem, link) {
 
   location.href = link;
 }
-
-
-// CHANGE LABELS TO BE CONSISTENT FOR UVA
-jQuery(document).ready(function($) {
-	$('h3#facet_person').text('Author');
-	$('h3#facet_topic').text('Keyword');
-});
