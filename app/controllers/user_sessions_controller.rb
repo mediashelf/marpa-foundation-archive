@@ -60,7 +60,6 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Welcome #{@user_session.login}!"
       if params[:redirect_action] && params[:redirect_controller] && params[:redirect_content_type]
         redirect_to url_for(:action => params[:redirect_action], :controller=>params[:redirect_controller], :content_type => params[:redirect_content_type])
       else
