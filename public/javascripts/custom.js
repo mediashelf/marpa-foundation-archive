@@ -7,6 +7,8 @@ function async_load(url, divid) {
             $(divid).html(data);
             $("#file_assets  .editable-container").hydraTextField();
             $("#file_assets  a.destroy_file_asset").hydraFileAssetDeleteButton();
+            // Custom for Libra -- update progress box when necessary
+            $.fn.hydraProgressBox.testReleaseReadiness();
           }
   });
   // $(divid).load(url);

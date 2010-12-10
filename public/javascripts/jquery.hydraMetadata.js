@@ -246,6 +246,19 @@
          field = field_id[0];
        }
        
+       // Show processing in Progress
+       switch($editNode.attr("id")) {
+       case "title_info_main_title":
+         var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
+         $.fn.hydraProgressBox.showProcessingInProgress('pbTitleProvided')
+         break;
+       case "person_0_last_name":
+         var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
+         $.fn.hydraProgressBox.showProcessingInProgress('pbAuthorProvided');
+         break;
+       default:
+       }
+       
        $.ajax({
          type: "PUT",
          url: url,
@@ -257,6 +270,10 @@
             $.fn.hydraMetadata.getPersonInformation(url,ix);
           }
           
+          // var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
+          // $.fn.hydraProgressBox.checkUncheckProgress('pbFileUploaded', fileUploaded)
+          
+          // Update progress box
           switch($editNode.attr("id")) {
           case "title_info_main_title":
             var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
@@ -385,7 +402,10 @@
    			success: function() {
    				$fileAssetNode.slideUp(300,function() {
    					$fileAssetNode.remove();
-   				});
+   					// UVA Libra -- update progress box if files deleted.
+     				var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
+     				$.fn.hydraProgressBox.checkUncheckProgress('pbFileUploaded', fileUploaded);
+   				});         
  				}
        });
      },
