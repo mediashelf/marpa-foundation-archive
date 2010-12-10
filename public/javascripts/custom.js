@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
 		});
 	
 	// CHANGE LABELS TO BE CONSISTENT FOR UVA
-	$("#keywords dl dt a").text('Add Keyword');
+	$("#keywords dl dt a").text('Add Tag');
 
 	//$("input[type=checkbox]").hydraCheckbox();
 	//$("input[type=radio]").hydraRadioButton();	
