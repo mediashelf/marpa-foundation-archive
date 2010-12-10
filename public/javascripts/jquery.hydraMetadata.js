@@ -256,6 +256,23 @@
           if (field_id) {
             $.fn.hydraMetadata.getPersonInformation(url,ix);
           }
+          
+          switch($editNode.attr("id")) {
+          case "title_info_main_title":
+            var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
+            $.fn.hydraProgressBox.checkUncheckProgress('pbTitleProvided', titleProvided)
+            break;
+          case "person_0_last_name":
+            var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
+            $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
+            break;
+          case "person_0_first_name":
+            var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
+            $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
+            break;
+          default:
+          }
+          
      			$.noticeAdd({
              inEffect:               {opacity: 'show'},      // in effect
              inEffectDuration:       600,                    // in effect duration in miliseconds
