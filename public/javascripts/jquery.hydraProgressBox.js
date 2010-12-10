@@ -21,7 +21,6 @@
     },
     
     testReleaseReadiness: function() {
-      console.log("check release readiness.")
       // if (citationVerified && abstractProvided && dissertationUploaded && rightsSelected && ccLicenseSelected && copyrightMaterialChecked) {
       //     $("submitToRegistrar").enable()
       // } else {
