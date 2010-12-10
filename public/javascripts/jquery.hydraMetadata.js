@@ -321,6 +321,8 @@
           $("#person_"+ix+"_first_name").val(msg);
           $("#person_"+ix+"_first_name-text").text(msg);
           $("#person_"+ix+"_first_name-text").removeClass("fl-inlineEdit-invitation-text");
+          var authorProvided = (msg.length > 0);
+          $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
         }
       });
       $.ajax({
@@ -330,6 +332,8 @@
           $("#person_"+ix+"_last_name").val(msg);
           $("#person_"+ix+"_last_name-text").text(msg);
           $("#person_"+ix+"_last_name-text").removeClass("fl-inlineEdit-invitation-text");
+          var authorProvided = (msg.length > 0);
+          $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
         }
       });
       $.ajax({
