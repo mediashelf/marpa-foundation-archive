@@ -366,9 +366,6 @@
                       text : ".editable-text",
                       edit: ".editable-edit"
                     },
-                    componentDecorators: {
-                      type: "fluid.undoDecorator"
-                    },
                     listeners : {
                       onFinishEdit : hydraFinishEditListener,
                       modelChanged : hydraModelChangedListener
