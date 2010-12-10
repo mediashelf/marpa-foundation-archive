@@ -68,13 +68,13 @@ Blacklight.configure(:shared) do |config|
   config[:facet] = {
     :field_names => [
       "person_full_name_cid_facet",
-      "topic_tag_facet",
-      "mods_journal_title_info_facet"
+      "mods_journal_title_info_facet",
+      "topic_tag_facet"
       ],
     :labels => {
-      "person_full_name_cid_facet"=>"Person",
-      "topic_tag_facet"=>"Topic",
-      "mods_journal_title_info_facet"=>"Journal"
+      "person_full_name_cid_facet"=>"Author",
+      "mods_journal_title_info_facet"=>"Journal",
+      "topic_tag_facet"=>"Tag"
     },
     :limits=> {nil=>10}
   }

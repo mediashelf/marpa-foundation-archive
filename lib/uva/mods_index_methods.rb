@@ -7,7 +7,7 @@ module Uva::ModsIndexMethods
         hash["computing_id"] = child.text if child.name == 'computing_id'
         hash
       end
-      if name_parts.length == 3
+      if name_parts.length == 3 and person.search(:roleTerm).children.text.include?("Author")
         if name_parts["family"].blank? && name_parts["given"].blank? && name_parts["computing_id"].blank?
           value = "Unknown Author"
         else
