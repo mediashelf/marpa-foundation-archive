@@ -43,13 +43,8 @@ button.ui-button-icon-only {
 }
 
 .error, .notice, .errorExplanation {
-	/*
-  margin-bottom:0;
-	margin-left: 15px;
-  */
-  margin: 0 0 0 -3px;
-  float: right;
-  width: 682px;
+  margin: 0;
+  width: 907px;
 }
 
 #abstract-text {
@@ -632,11 +627,8 @@ div #secondary_action {
 }
 
 div #tertiary_action {
-	width: 25%;
-	margin: auto;
-	text-align: right;
+	text-align: left;
 	padding: 2px 20px;
-	float: right;
 }
 
 li div .license {

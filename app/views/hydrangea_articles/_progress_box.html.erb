@@ -39,6 +39,10 @@
     <hr size="1" />
     <p class="progressItem progressItemChecked bold">Released</p>
     <!-- <div class="progressInfoBox"><%#= formatTimestamp(@ds_properties.submit_date_values.first) %></div> -->
+    <hr size="1" />
+    <div id="deleteAsset">
+  		<%= delete_asset_link(params[:id], "article") %>
+  	</div>
   </li>
 <% else %>
   <li class="progressBoxSubmit noIndent" id="submitToRegistrarDiv">
@@ -51,13 +55,13 @@
       			<!-- Careful! Submitting this hidden input will release the article.  -->
         			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>
       	  <% if @document_fedora.ready_to_release? %>
-            	<%= button_to 'Release for UVa Library Circulation', {:id => "submitForRelease"} %>		
+            	<%= button_to 'Release for UVa Library Circulation', {},{:id => "submitForRelease"} %>		
           <% else %>
-            	<%= button_to 'Release for UVa Library Circulation', {:id => "submitForRelease", :disabled => "disabled"} %>		
+            	<%= button_to 'Release for UVa Library Circulation', {},{:id => "submitForRelease", :disabled => "disabled"} %>		
           <% end %>
       	</div>
       </form>
-
+	  <hr size="1" />
     <div id="deleteAsset">
   		<%= delete_asset_link(params[:id], "article") %>
   	</div>

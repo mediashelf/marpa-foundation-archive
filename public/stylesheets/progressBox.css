@@ -10,7 +10,7 @@ li p.bold {
 #progressBox {
 	text-align: left;
   position:fixed;
-	height: 186px;
+	height: 198px;
 	right: -1px;
   top:210px;
   overflow:hidden;
@@ -24,6 +24,7 @@ li p.bold {
 	-moz-box-shadow: -3px 3px 5px #0F1C38;
 	-webkit-box-shadow: -3px 3px 5px #0F1C38;
 	box-shadow: -3px 3px 5px #0F1C38;	
+	z-index: 15;
 }
 
 #progressBoxHeader {
