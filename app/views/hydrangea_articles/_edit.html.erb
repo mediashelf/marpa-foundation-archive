@@ -34,9 +34,6 @@
       <img src="/images/ajax-loader.gif" width="32" height="32" alt="Saving...">
       </img>
     </div>
-    
-	<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this article" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
-
 
 	<h2>Attach the Article</h2>
     <div id="uploads" data-pid=<%= params[:id] %>></div>
@@ -47,6 +44,7 @@
 </div>
 
 <div id="progressBox">
+	<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this article" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
   <div id="progressBoxHeader">
     <h2>Progress</h2>
   </div>

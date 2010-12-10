@@ -924,13 +924,12 @@ div#uva-tabs ul li a.selected {
 
 div#delete_dialog_container {
   border: thin solid #DD4747;
-  height: auto; 
   background-color: #FFE0E8;
+	margin: 10px;
+	height: 175px;
 }
 
 div#delete_dialog {
-  position: relative;
-  top: 90%;
   text-align: center;
   margin: 10px 15px;
 }
