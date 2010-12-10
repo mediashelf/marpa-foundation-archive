@@ -24,9 +24,6 @@
                        text : ".editable-text",
                        edit: ".editable-edit"
                      },
-                     componentDecorators: {
-                       type: "fluid.undoDecorator"
-                     },
                      listeners : {
                        onFinishEdit : jQuery.fn.hydraMetadata.fluidFinishEditListener,
                        modelChanged : jQuery.fn.hydraMetadata.fluidModelChangedListener
@@ -454,9 +451,7 @@
           text  : ".editable-text",
           edit  : ".editable-edit"           
         },
-        componentDecorators: {
-          type  : "fluid.undoDecorator"
-        },
+
         listeners : {
           onFinishEdit : jQuery.fn.hydraMetadata.fluidFinishEditListener,
           modelChanged : jQuery.fn.hydraMetadata.fluidModelChangedListener

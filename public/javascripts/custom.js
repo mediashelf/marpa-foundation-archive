@@ -71,8 +71,9 @@ jQuery(document).ready(function($) {
 			});
 		});
 	
+	// CHANGE LABELS TO BE CONSISTENT FOR UVA
 	$("#keywords dl dt a").text('Add Keyword');
-	
+
 	//$("input[type=checkbox]").hydraCheckbox();
 	//$("input[type=radio]").hydraRadioButton();	
 	
