@@ -32,9 +32,9 @@
 
   	function bindDomEvents () {
   	  $metaDataForm.delegate("a.addval.textfield", "click", function(e) {
-        insertValue(this, e);
-        e.preventDefault();
-      });
+        $.fn.hydraMetadata.insertTextField(this, e);
+        e.preventDefault();
+      });
   	  $metaDataForm.delegate("a.addval.grant", "click", function(e) {
 				addGrant(this, e);
         e.preventDefault();
