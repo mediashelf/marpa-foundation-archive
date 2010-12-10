@@ -38,6 +38,7 @@ class UserSessionsController < ApplicationController
     else
       # Login the way you normally would in the blacklight plugin
       @user_session = UserSession.new
+      @redirect_params = params[:redirect_params]
       return
     end
     # store the user_id in the session
@@ -47,8 +48,28 @@ class UserSessionsController < ApplicationController
     # redirect to the catalog with http protocol
     # make sure there is a session[:search] hash, if not just use an empty hash
     # and merge in the :protocol key
-    redirect_params = (session[:search] || {}).merge(:protocol=>'http')
-    redirect_to root_url(redirect_params)
+
+    if @redirect_params
+      redirect_to url_for params[:redirect_params]
+    else
+      redirect_params = (session[:search] || {}).merge(:protocol=>'http')
+      redirect_to root_url(redirect_params)
+    end
+  end
+  
+  def create
+    @user_session = UserSession.new(params[:user_session])
+    if @user_session.save
+      flash[:notice] = "Welcome #{@user_session.login}!"
+      if params[:redirect_action] && params[:redirect_controller] && params[:redirect_content_type]
+        redirect_to url_for(:action => params[:redirect_action], :controller=>params[:redirect_controller], :content_type => params[:redirect_content_type])
+      else
+        redirect_to root_path
+      end
+    else
+      flash.now[:error] =  "Couldn't locate a user with those credentials"
+      render :action => :new
+    end
   end
    
   def destroy
