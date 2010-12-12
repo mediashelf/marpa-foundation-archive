@@ -1,4 +1,8 @@
 -#=stylesheet_link_tag 'lectures.css', :cache=>true
+%span 
+  Total: 
+  = @document_fedora.parts(:response_format=>:solr, :rows=>1000).hits.length
+
 %table#talks.column
   %col{:width=>"25%"}/
   %col{:width=>"15%"}/
