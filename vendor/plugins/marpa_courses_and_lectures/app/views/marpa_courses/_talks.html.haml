@@ -13,4 +13,4 @@
   %th Date recorded           
   %th Topics                                                                    
   %th Run Time
-  =render :partial=>'marpa_lectures/result', :collection=>@document_fedora.parts(:response_format=>:solr).hits    
+  =render :partial=>'marpa_lectures/result', :collection=>@document_fedora.parts(:response_format=>:solr, :rows=>1000).hits    
