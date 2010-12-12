@@ -8,7 +8,7 @@ GEM
     actionpack (2.3.5)
       activesupport (= 2.3.5)
       rack (~> 1.0.0)
-    active-fedora (1.2.7)
+    active-fedora (1.2.8)
       activeresource (< 3.0.0)
       mime-types (>= 1.16)
       multipart-post
@@ -113,7 +113,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
-  active-fedora (= 1.2.7)
+  active-fedora (= 1.2.8)
   authlogic (>= 0.1.0)
   aws-s3
   block_helpers
