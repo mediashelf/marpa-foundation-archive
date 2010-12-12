@@ -57,7 +57,7 @@ module Hydra::AccessControlsEnforcement
 
     # Append the exclusion of FileAssets
       q << " AND NOT _query_:\"info\\\\:fedora/afmodel\\\\:FileAsset\""
-
+      q << " AND NOT _query_:\"info\\\\:fedora/afmodel\\\\:S3Content\""
     # Append the query responsible for adding the users discovery level
       permission_types = ["edit","discover","read"]
       field_queries = []
