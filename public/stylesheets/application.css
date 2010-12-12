@@ -1,0 +1,6 @@
+#talks td {
+  padding: 10px 10px 10px 10px;
+}
+#talks td.title {
+  width: 50%;
+}

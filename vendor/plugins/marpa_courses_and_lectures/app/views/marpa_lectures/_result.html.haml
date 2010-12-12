@@ -1,13 +1,13 @@
 %tr.result
-  %td
+  %td.title
     -name = result.has_key?("title_t") && !result["title_t"].empty? ? result["title_t"] : result["id"]
     -safe_pid = result['id'].gsub(":", "_")
     -detail_url = catalog_url(result["id"])
     = link_to(name, detail_url)
-  %td
+  %td.date
     =result["date_t"]
-  %td
+  %td.keywords
     =render :partial=>"shared/solr_result_field_value", :collection => result["subject_t"]
-  %td
+  %td.duration
     =result["digital_master_duration_t"]
     
