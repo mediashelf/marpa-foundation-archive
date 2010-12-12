@@ -1,6 +1,6 @@
 %tr.result
   %td
-    -name = result.has_key?("title_field") && !result["title_field"].empty? ? result["title_field"] : result["id"]
+    -name = result.has_key?("title_t") && !result["title_t"].empty? ? result["title_t"] : result["id"]
     -safe_pid = result['id'].gsub(":", "_")
     -detail_url = catalog_url(result["id"])
     = link_to(name, detail_url)
