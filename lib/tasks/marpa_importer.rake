@@ -19,4 +19,11 @@ namespace :marpa_importer do
     matcher = Marpa::TalkMatcher.new
     matcher.match
   end
+  
+  desc "Update Talk titles based on Course title" 
+  task :populate_titles => [:environment] do
+    populator = Marpa::TitlePopulator.new
+    populator.populate_titles
+  end
+  
 end
