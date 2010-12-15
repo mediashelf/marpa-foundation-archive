@@ -11,3 +11,7 @@ Libra OA is an extension and customization of Hydrangea, the reference implement
 For a more thorough overview of the Hydra framework, see "HYDRA_OVERVIEW.textile":http://github.com/projecthydra/hydrangea/blob/master/HYDRA_OVERVIEW.textile
 
 For instructions on how to build and run Libra OA, please refer to the "Hydrangea project":http://github.com/projecthydra/hydrangea
+
+To pre-populate Libra OA with a set of fixture objects, run the following rake task:
+rake libra_oa:default_fixtures:load
+
