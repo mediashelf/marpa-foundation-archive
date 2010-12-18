@@ -1,5 +1,16 @@
 !http://github.com/projecthydra/hydrangea/raw/master/public/images/hydrangea_logo_h50_white_bg.png(Hydrangea)!
 
+h1. Marpa Foundation Archive
+
+h2. Loading Content from Spreadsheet & S3
+
+To load a rough replica of the content in the live site, run these rake tasks.
+
+rake marpa_importer:import_csv csv="lib/marpa/KTGR MP3.csv"
+rake marpa_importer:import_s3
+rake marpa_importer:match_talks
+rake marpa_importer:populate_titles
+
 h1. Hydrangea & the Hydra Framework
 
 h2. Introduction and Installation Instructions
