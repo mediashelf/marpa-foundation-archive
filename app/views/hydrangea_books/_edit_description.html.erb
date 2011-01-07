@@ -1,0 +1,75 @@
+
+<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_book")%>" method="post" data-resourceType="hydrangea_book" accept-charset="utf-8">
+
+    <input id="content_type" type="hidden" name="content_type" value="hydrangea_book" />
+
+   <h3><%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %></h3>
+    <div class="uvafield">
+		<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
+	</div>
+
+	<h3><%= fedora_field_label("descMetadata", [:book], "Publication Details") %></h3>
+	<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>
+
+	<h3><label label_for="Contributors">Contributors</label></h3>
+    <ol id="contributors" style="width:100%;">
+      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
+      <%= render :partial=>"contributors/edit_organization", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:organization) %>
+      <%= render :partial=>"contributors/edit_conference", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:conference) %>
+    </ol>    
+    <%# Button for adding person/conference/organization %>
+    <% if params[:action] == "edit" %>
+      <% format = document_partial_name(@document) %>
+      <div id="add-contributor-box">
+        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
+        <button id="select-contributor-type" type="button">Select type of contributor to add</button>
+        <ul id="add-contributor-menu">
+          <li id="add_person">Add a person</li>
+          <li id="add_organization">Add an organization</li>
+          <li id="add_conference">Add a conference</li>
+        </ul>
+      </div>
+    <% end %>
+
+  <h3><label label_for="Abstract">Abstract</label></h3>
+  <div class="uvafield"><%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %></div>
+
+<h3><label label_for="Tags">Tags</label></h3>
+<div id="keywords" class="keywords" style="width:100%;">
+	<dl>
+		<dt>
+			<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
+  		</dt>
+  		<dd id="topic_tag" class="topic_tag">
+    		<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
+  		</dd>
+	</dl>
+</div>
+
+<h2>License the book</h2>
+<ol>
+	<li>
+        <div id="uvalicense" class="license">
+        <dl>
+          <dt>
+            <%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :uvalicense], :choices => %w(yes no)) %>
+          </dt>
+          <dd class="uvalicense">
+                <label for="license">
+                 I license this work under UVa's Libra Contributor’s License.
+                </label>
+                <p>
+                To properly administer this repository and preserve the contents for future use, the University of Virginia (UVA) requires certain permissions from you, the author(s) or copyright owner. By accepting this license, you still retain copyright to your work. You do not give up the right to submit the work to publishers or other repositories.</p>
+                <p>By clicking through this license, you grant to the University of Virginia the non-exclusive right to reproduce, translate (as defined below), and/or distribute your submission (including the metadata and abstract) worldwide, in any format or medium for non-commercial, academic purposes only.  UVA will clearly identify your name(s) as the author(s) or owner(s) of the submission, including a statement of your copyright, and will not make any alteration, other than as allowed by this license, to your submission.</p>
+                <p>You agree that UVA may translate the submission to any medium or format and keep more than one copy for the purposes of security, back up and preservation.</p>
+                <p>You represent that the submission is your original work, and/or that you have the right to grant the rights contained in this license. You also represent that your submission does not, to the best of your knowledge, infringe upon anyone's copyright.  You also represent and warrant that the submission contains no libelous or other unlawful matter and makes no improper invasion of the privacy of any other person.</p>
+                <p>If the submission contains material for which you do not hold copyright and that exceeds fair use, you represent that you have obtained the unrestricted permission of the copyright owner to grant UVA the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
+                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
+                <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
+          </dd>
+        </dl>
+        </div>
+    </li>
+</ol>
+
+</form>

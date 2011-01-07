@@ -1,0 +1,42 @@
+<% book = show_book %>
+<% book_counter = show_book_counter %>
+<% base_id = "book_#{book_counter}" %>
+
+  <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter}, :title_info, :main_title]).first.empty? %>
+
+    <div class="book">
+      <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter}, :title_info, :main_title]).first.strip %><% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date]).first.empty? -%>, <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date]) %>
+	<% end %>
+   </div>
+  <% end %>
+
+  <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher]).first.empty? %>
+    <div class="publisher">
+      <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher]) %>
+    </div>
+  <% end %>
+
+  <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter}, :isbn]).first.empty? %>
+    <div class="isbn">
+	  <%= fedora_field_label("descMetadata", [{:book => book_counter}, :isbn], "ISBN:") %>
+      <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter}, :isbn]) %>
+    </div>
+  <% end %>
+
+    <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:start_page]).first.empty? %>
+	<div class="citation">
+        <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:start_page], "Pages:") %>
+        <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:start_page]) %>
+	    <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:end_page]).first.empty? %>
+	        - <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:end_page]) %>
+	    <% end %>
+	</div>
+    <% end %>
+
+    <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:level]).first.empty? %>
+	<div class="issue">
+        <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:level], "Issue:") %>
+        <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:level]) %>
+	</div>
+    <% end %>
+

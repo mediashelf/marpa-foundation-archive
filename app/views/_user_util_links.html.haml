@@ -29,10 +29,12 @@
     %button#select-asset{:type => "button"} Select type of content to create
     %ul#create-asset-menu
       %li{:onclick => "javascript:createAssetNavigateTo(this, '#{url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article")}');"} Add an article
+      %li{:onclick => "javascript:createAssetNavigateTo(this, '#{url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book")}');"} Add a book
+          
 - else
   %div#create-asset-box
     %input#re-run-action{:type => "button", :value => "Add an article", :onclick => "javascript:location.href = '#{url_for(:action => "new", :controller=>"user_sessions", :redirect_params => {:action => "new", :controller => "assets", :content_type => "hydrangea_article" })}'"}
     %button#select-asset{:type => "button"} Select type of content to create
     %ul#create-asset-menu
-      %li{:onclick => "javascript:location.href = '#{url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article" })}'" }
-
+      %li{:onclick => "javascript:location.href = '#{url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article" })}'" } Add an article
+      %li{:onclick => "javascript:location.href = '#{url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book" })}'" } Add a book
