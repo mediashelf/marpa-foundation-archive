@@ -61,7 +61,7 @@
       
       $fileAssetsList.delegate("a.destructive", "click", function(e) {
         url = $(this).attr("href");
-        deleteFileAsset(this, url) 
+        deleteFileAsset(this, url);
         e.preventDefault();
       });
       

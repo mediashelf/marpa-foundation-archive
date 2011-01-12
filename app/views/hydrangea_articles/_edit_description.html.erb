@@ -6,8 +6,6 @@
 	<h3><label label_for="Contributors">Contributors</label></h3>
     <ol id="contributors" style="width:100%;">
       <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
-      <%= render :partial=>"contributors/edit_organization", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:organization) %>
-      <%= render :partial=>"contributors/edit_conference", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:conference) %>
     </ol>    
     <%# Button for adding person/conference/organization %>
     <% if params[:action] == "edit" %>
@@ -27,10 +25,8 @@
 		<li>
 	        <div id="uvalicense" class="license">
 	        <dl>
-	          <dt>
-	            <%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :uvalicense], :choices => %w(yes no)) %>
-	          </dt>
 	          <dd class="uvalicense">
+	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
 	                <label for="license">
 	                 I license this work under UVa's Libra Contributor’s License.
 	                </label>
@@ -48,7 +44,6 @@
 	    </li>
 	</ol>
 
-	<h3><%= fedora_field_label("descMetadata", [:journal], "Journal URL") %></h3>
 	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
 
 	<h2>Attach the Article</h2>
