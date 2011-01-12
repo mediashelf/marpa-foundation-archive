@@ -65,6 +65,7 @@ module Hydra
           t.publication_date(:path=>"date")
         }
       }
+      t.note
     end
     
     # Generates an empty Mods Article (used when you call ModsArticle.new without passing in existing xml)
