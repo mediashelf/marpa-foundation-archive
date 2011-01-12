@@ -66,6 +66,10 @@ module Hydra
         }
       }
       t.note
+      t.location(:path=>"location") {
+        t.url (:path=>"url")
+      }
+      t.publication_url(:proxy=>[:location,:url])
     end
     
     # Generates an empty Mods Article (used when you call ModsArticle.new without passing in existing xml)
