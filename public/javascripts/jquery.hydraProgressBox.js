@@ -32,8 +32,9 @@
       var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
       var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
       var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
+      var licenseAgreedTo = ($("#uvalicense input[type='checkbox']:first").attr("checked").length > 0);
 
-      if (fileUploaded && titleProvided && authorProvided) {
+      if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
           $("#submitForRelease").enable();
       } else {
           $("#submitForRelease").attr("disabled", "disabled");

@@ -1,31 +1,40 @@
+<%- stylesheet_links << "progressBox" %>
+<%- javascript_includes << "jquery.hydraProgressBox.js" %>
+<%- @ds_desc_metadata = @document_fedora.datastreams["descMetadata"] %>
+<%- @ds_rights_metadata = @document_fedora.datastreams["rightsMetadata"] %>
+<%- author_entries = @ds_desc_metadata.find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]') %>
+<%- title_values = @ds_desc_metadata.term_values(:title_info, :main_title) %>
+<%- license_values = @ds_rights_metadata.term_values(:copyright, :uvalicense) %>
 
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
-	<h3><label label_for="Contributors">Contributors</label></h3>
-    <ol id="contributors" style="width:100%;">
-      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
-    </ol>    
-    <%# Button for adding person/conference/organization %>
-    <% if params[:action] == "edit" %>
-      <% format = document_partial_name(@document) %>
-      <div id="add-contributor-box">
-        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
-      </div>
-    <% end %>
-
-   <h3><%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %></h3>
-    <div class="uvafield">
+	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
+		<h3><label label_for="Contributors">Contributors</label></h3>
+	    <ol id="contributors" style="width:100%;">
+	      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
+	    </ol>    
+	    <%# Button for adding person/conference/organization %>
+	    <% if params[:action] == "edit" %>
+	      <% format = document_partial_name(@document) %>
+	      <div id="add-contributor-box">
+	        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
+	      </div>
+	    <% end %>	   
+	  </li> 
+	
+	  <li id="pbTitleProvided" class="progressItem <% if !title_values.empty? && !title_values.first.empty? %>progressItemChecked<% end %>">
+	 	<%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %>
 		<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
-	</div>
+	  </li> 
 
+  
+<li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? %>progressItemChecked<% end %>">
 	<h2>License the Article</h2>
 	<ol>
 		<li>
 	        <div id="uvalicense" class="license">
-	        <dl>
-	          <dd class="uvalicense">
 	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
 	                <label for="license">
 	                 I license this work under UVa's Libra Contributor’s License.
@@ -38,17 +47,22 @@
 	                <p>If the submission contains material for which you do not hold copyright and that exceeds fair use, you represent that you have obtained the unrestricted permission of the copyright owner to grant UVA the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
 	                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
 	                <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
-	          </dd>
-	        </dl>
 	        </div>
 	    </li>
 	</ol>
+</li>
+
 
 	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
 
-	<h2>Attach the Article</h2>
-    <div id="uploads" data-pid=<%= params[:id] %>></div>
+	
+	  <li id="pbFileUploaded" class="progressItem <% if !@document_fedora.parts(:response_format=>:id_array).empty? %>progressItemChecked<% end %>">
+		<h2>Attach the Article</h2>
+    	<div id="uploads" data-pid=<%= params[:id] %>></div>
+	  </li> 
+	
 
+	
   <h3><label label_for="Abstract">Notes</label></h3>
   <div class="uvafield"><%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %></div>
 
@@ -64,4 +78,20 @@
 	</dl>
 </div>
 
+<input name="_method" type="hidden" value="put" />
+	<%= fedora_field_label("properties", [:release_to], "Release to") %>
+	<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
+<!-- Careful! Submitting this hidden input will release the article.  -->
+	<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>			
+			
+  <% if @document_fedora.ready_to_release? %>
+    	<%= button_to 'Submit', {},{:id => "submitForRelease"} %>		
+  <% else %>
+    	<%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>		
+  <% end %>
+
 </form>
+
+<div id="deleteAsset">
+		<%= delete_asset_link(params[:id], "article") %>
+	</div>
