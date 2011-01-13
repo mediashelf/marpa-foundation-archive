@@ -15,9 +15,9 @@
 	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
 		<fieldset id="contributors_fieldset">
 		<legend>Enter the Article's Author<small>Required</small></legend>	
-	    <ol id="contributors" style="width:100%;">
+	    <div id="contributors" style="width:100%;">
 	      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
-	    </ol>    
+	    </div>    
 	    <%# Button for adding person/conference/organization %>
 	    <% if params[:action] == "edit" %>
 	      <% format = document_partial_name(@document) %>

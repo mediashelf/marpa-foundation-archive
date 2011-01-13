@@ -1044,11 +1044,8 @@ li fieldset a {
 	display: block;
 }
 
-input.full_width, 
-input#subject_topic_0,
 input#title_info_main_title,
-input#embargo_embargo_release_date,
-input#editable-edit.edit {
+ul#optional input.editable-edit.edit {
 	width: 340px;
 }
 
@@ -1097,7 +1094,7 @@ fieldset#notes_fieldset label {
 }
 
 fieldset#embargo_fieldset label,
-fieldset#journal_fieldset label {
+fieldset#publication_fieldset label {
 	display: block;
 }
 

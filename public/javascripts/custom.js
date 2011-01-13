@@ -100,12 +100,12 @@ jQuery(document).ready(function($) {
 	
 	
 	// INPLACE EDIT FIELDS
-	$('cover_container').children('form').children('input').blur(function(){ 
-		//put the original background color in 
-		$(this).css('background', 'blue');
-	});
-		
-
+	// $('cover_container').children('form').children('input').blur(function(){ 
+	// 	//put the original background color in 
+	// 	$(this).css('background', 'blue');
+	// });
+	$('span.editable-text.text').hide();
+	
 	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
 	//	<input type="text" class="datepicker" size="30" name="d1" value="" placeholder="YYYY-MM-DD"/>
 	$('input[name*=_date]').addClass('datepicker');

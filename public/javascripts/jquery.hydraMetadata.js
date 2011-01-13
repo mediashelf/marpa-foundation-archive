@@ -454,7 +454,7 @@
      var config = {
       selectors : {
           text  : ".editable-text",
-          edit  : ".editable-edit"           
+          edit  : ".editable-edit1111"           
         },
 
         listeners : {

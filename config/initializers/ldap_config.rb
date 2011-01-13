@@ -6,7 +6,7 @@ LDAP_BASE = "o=University of Virginia,c=US"
 LDAP_INSTITUTION = "University of Virginia"
 
 # specific ldap field names
-LDAP_USER_ID = "userid"
-LDAP_FIRST_NAME = "givenname"
-LDAP_LAST_NAME = "sn"
-LDAP_COMPUTING_ID = "uid"
+LDAP_USER_ID = "gv9n"
+LDAP_FIRST_NAME = "Garrick"
+LDAP_LAST_NAME = "Van Buren"
+LDAP_COMPUTING_ID = "gv9n"
