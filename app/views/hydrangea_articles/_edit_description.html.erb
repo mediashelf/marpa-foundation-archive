@@ -67,8 +67,11 @@
 	<ul id="optional">
 	
 	<li id="pbJournal">
-		<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
-	</li>
+		<fieldset id="publication_fieldset">
+		<legend>Publication URL</legend>
+		<label>The full URL to any published version of the work</label>		
+    	<%= fedora_text_field(@document_fedora,"descMetadata", [:location, :url], :multiple=>false) %>
+		</fieldset>	</li>
 	
 	<li id="pbPeerReviewed">
 		<fieldset id="peer_reviewed_fieldset">

@@ -20,8 +20,8 @@
           <%= fedora_text_field(@document_fedora,"descMetadata", [{:person=>person_counter}, :last_name], :multiple=>false) %>
         </li>
         <li class="department">
-          <%= fedora_field_label("descMetadata", [{:person=>person_counter}, :institution], "Department") %>
-          <%= fedora_text_field(@document_fedora,"descMetadata", [{:person=>person_counter}, :role], :multiple=>false) %>
+          <%= fedora_field_label("descMetadata", [{:person=>person_counter}, :description], "Department") %>
+          <%= fedora_text_field(@document_fedora,"descMetadata", [{:person=>person_counter}, :description], :multiple=>false) %>
         </li>
         <li class="affiliation">
           <%= fedora_field_label("descMetadata", [{:person=>person_counter}, :institution], "Institution") %>
