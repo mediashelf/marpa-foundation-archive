@@ -11,7 +11,8 @@
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
 	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
-		<h3><label label_for="Contributors">Contributors</label></h3>
+		<fieldset id="contributors_fieldset">
+		<legend>Enter the Article's Author</legend>	
 	    <ol id="contributors" style="width:100%;">
 	      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
 	    </ol>    
@@ -22,19 +23,21 @@
 	        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
 	      </div>
 	    <% end %>	   
-	  </li> 
+		</fieldset>
+	</li> 
 	
-	  <li id="pbTitleProvided" class="progressItem <% if !title_values.empty? && !title_values.first.empty? %>progressItemChecked<% end %>">
-	 	<%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %>
-		<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
-	  </li> 
+ <li id="pbTitleProvided" class="progressItem <% if !title_values.empty? && !title_values.first.empty? %>progressItemChecked<% end %>">
+	<fieldset id="title_fieldset">
+	<legend>Enter the Article's Title</legend>	
+<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
+	</fieldset>
+ </li> 
 
   
 <li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? %>progressItemChecked<% end %>">
-	<h2>License the Article</h2>
-	<ol>
-		<li>
-	        <div id="uvalicense" class="license">
+	<fieldset id="license_fieldset">
+	<legend>Agree to Submission Terms</legend>
+	<div id="uvalicense" class="license">
 	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
 	                <label for="license">
 	                 I license this work under UVa's Libra Contributor’s License.
@@ -48,42 +51,62 @@
 	                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
 	                <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
 	        </div>
-	    </li>
-	</ol>
+	    </fieldset>
 </li>
 
-
-	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
-
 	
-	  <li id="pbFileUploaded" class="progressItem <% if !@document_fedora.parts(:response_format=>:id_array).empty? %>progressItemChecked<% end %>">
-		<h2>Attach the Article</h2>
+	<li id="pbFileUploaded" class="progressItem <% if !@document_fedora.parts(:response_format=>:id_array).empty? %>progressItemChecked<% end %>">
+		<fieldset id="uploaded_files">
+		<legend>Upload the Article</legend>	
     	<div id="uploads" data-pid=<%= params[:id] %>></div>
-	  </li> 
+		</fieldset>
+	</li> 
 	
-
+	<li id="pbJournal">
+		<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
+	</li>
 	
-  <h3><label label_for="Abstract">Notes</label></h3>
-  <div class="uvafield"><%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %></div>
+	<li id="pbPeerReviewed">
+		<fieldset id="peer_reviewed_fieldset">
+		<legend>Peer Reviewed</legend>
+		  <%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
+		 <label>This work has undergone a peer review process</label>	
+	</li>
+	
+	<li id="pbNotes">
+		<fieldset id="notes_fieldset">
+		<legend>Notes</legend>	
+	  <%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %>
+		</fieldset>
+	</li>
 
-<h3><label label_for="Tags">Keywords</label></h3>
-<div id="keywords" class="keywords" style="width:100%;">
-	<dl>
-		<dt>
-			<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
-  		</dt>
-  		<dd id="topic_tag" class="topic_tag">
-    		<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
-  		</dd>
-	</dl>
-</div>
+	<li id="pbKeywords">
+		<fieldset id="keywords_fieldset">
+		<legend>Keywords</legend>		
+    	<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
+		<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
+		</fieldset>
+	</li>
 
-<input name="_method" type="hidden" value="put" />
-	<%= fedora_field_label("properties", [:release_to], "Release to") %>
-	<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
+	<li id="pbEmbargo">
+		<fieldset id="embargo">
+			<legend>Embargo Until</legend>
+		  	<%= fedora_field_label("rightsMetadata", [:embargo, :embargo_release_date], "Some info text about embargo") %>
+		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
+		</fieldset>
+	</li>
+
+
+	<li id="pbAvailability">
+		<fieldset id="availability">
+		<legend>Availablity</legend>
+		<%= fedora_field_label("properties", [:release_to], "Release to") %>
+		<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
+		</fieldset>
+	</li>
 <!-- Careful! Submitting this hidden input will release the article.  -->
-	<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>			
-			
+	<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>				
+	<input name="_method" type="hidden" value="put" />
   <% if @document_fedora.ready_to_release? %>
     	<%= button_to 'Submit', {},{:id => "submitForRelease"} %>		
   <% else %>
