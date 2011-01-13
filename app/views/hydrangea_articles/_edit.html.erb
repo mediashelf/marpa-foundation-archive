@@ -6,7 +6,6 @@
 <% javascript_includes << 'custom' %>
 <% javascript_includes << "catalog/edit" %>
 <% javascript_includes << "jquery.hydraMetadata.js" %>
-<% javascript_includes << "/plugin_assets/fluid-infusion/infusion/components/undo/js/Undo.js" %>
 <% javascript_includes << "jquery.notice.js" %>
 <%# For Fancybox> %>
 <% javascript_includes << "fancybox/jquery.fancybox-1.3.1.pack.js" %>
@@ -38,17 +37,6 @@
 	<h1>Add Your Article</h1>
     <%= render :partial => 'hydrangea_articles/edit_description' %>
 
-</div>
-
-<div id="progressBox">
-	<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this article" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
-  <div id="progressBoxHeader">
-    <h2>Progress</h2>
-  </div>
-  <div id="progressBoxContent">
-    <%= render :partial => 'hydrangea_articles/progress_box' %>
-  </div>
-  <div id="progressBoxFooter"></div>
 </div>
 
 <%= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads') %>

@@ -23,6 +23,9 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
     <body <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %> onload="$('input#q').focus();"<% end %>>
 
 		<div id="uva_lib_banner">
+		  	<ul>
+		  		<li><%= link_to 'About Libra', '/open_access_self_deposit_policies.html' %></li>
+		  	</ul>			
 		  <div id="container1">
 			<%= link_to(image_tag('uva/uva_lib.jpg', :width => 186, :height => 18, :alt => "University of Virginia Library"), "http://library.uva.edu") %>
 			</div>

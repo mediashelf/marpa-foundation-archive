@@ -31,6 +31,12 @@ button.ui-button-icon-only {
 	color: #0F3E83;	
 }
 
+#re-run-add-contributor-action {
+	font-style: italic;
+	text-transform: underline;
+	cursor: pointer;
+}
+
 .edit-browse .active {
 	font-weight: bold;
 	color: #999;	
@@ -794,7 +800,7 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px;border:1px solid tra
 	width: 350px;
 }
 
-#SWFUpload_0 {
+#SWFUpload_0, #SWFUpload_1, #SWFUpload_2 {
 	width: 350px;
 }
 
@@ -817,7 +823,11 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px;border:1px solid tra
 		background-color: #F6F6F6;
 }
 	
-.fl-uploader-queue-footer table{width:100%;position:relative;z-index:6;}
+.fl-uploader-queue-footer table, #uploads table {
+	width:100%;
+	position:relative;
+	z-index:6;
+}
 
 .fl-uploader-queue-footer td{
 	margin: auto;
@@ -1098,5 +1108,3 @@ fieldset#journal_fieldset label {
 .fl-uploader-footer-buttons {
 	width: 200px;
 }
-
-

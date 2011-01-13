@@ -22,7 +22,7 @@
 	    <% if params[:action] == "edit" %>
 	      <% format = document_partial_name(@document) %>
 	      <div id="add-contributor-box">
-	        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
+	        <input id="re-run-add-contributor-action" type="button" label="Add another author..." value="Add a person" />
 	      </div>
 	    <% end %>	   
 		</fieldset>
@@ -93,7 +93,7 @@
 	</li>
 
 	<li id="pbEmbargo">
-		<fieldset id="embargo">
+		<fieldset id="embargo_fieldset">
 			<legend>Embargo Until</legend>
 		  	<%= fedora_field_label("rightsMetadata", [:embargo, :embargo_release_date], "Some info text about embargo") %>
 		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
@@ -102,7 +102,7 @@
 
 
 	<li id="pbAvailability">
-		<fieldset id="availability">
+		<fieldset id="availability_fieldset">
 		<legend>Availablity</legend>
 		<%= fedora_field_label("properties", [:release_to], "Release to") %>
 		<%= fedora_select(@document_fedora, "properties", [:release_to], :choices => {"Public" => "public", "UVa Only"=>"registered"})   %>    
@@ -120,7 +120,7 @@
 </ul><!-- END OPTIONAL FIELDS -->
 
 </form>
-
+<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this article" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
 <div id="deleteAsset">
 		<%= delete_asset_link(params[:id], "article") %>
 	</div>

@@ -219,8 +219,8 @@ a.destructive {
 	overflow:hidden;
 	border-bottom: none;
   position: absolute;
-	top: 1px;
-	right: -25px;	
+	top: 0px;
+	right: 0px;	
 	width: 20px;
 } 
 
