@@ -72,27 +72,11 @@ jQuery(document).ready(function($) {
 		});
 	
 	// CHANGE LABELS TO BE CONSISTENT FOR UVA
-	$("#keywords dl dt a").text('Add Keyword');
+	$("#keywords_fieldset a").text('Add Keyword');
 
 	//$("input[type=checkbox]").hydraCheckbox();
 	//$("input[type=radio]").hydraRadioButton();	
 	
-	// FORM BEHAVIOR	
-	if ( $("input:radio").filter("[value=completed]").attr("checked", false) && $("input:radio").filter("[value=ongoing]").attr("checked",false)) {
-		$("input:radio").filter("[value=completed]").attr("checked","checked");
-	}
-	
-	$("input:radio").change(function() {
-		if ($(this + ':checked').val() == "ongoing" ) {
-			$(".timespan_end label").text('Latest Date/Time');
-		} else {
-			$(".timespan_end label").text('End Date/Time');
-		}
-	});
-	
-	if ( $("input:radio").filter("[value=publicdomain]").attr("checked", false) && $("input:radio").filter("[value=odc-by]").attr("checked",false) && $("input:radio").filter("[value=odc-odbl]").attr("checked",false)) {
-		$("input:radio").filter("[value=publicdomain]").attr("checked","checked");
-	}
 	
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
@@ -102,12 +86,11 @@ jQuery(document).ready(function($) {
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');
 	 	
-	// HIDE ALL BUT THE FIRST PARAGRAPH OF THE LICENSES
-	$('#uvalicense p:not(:first)').hide();
+	// HIDE THE LICENSE
+	$('#uvalicense p').hide();
 	
 	$('#uvalicense_read_all').click(function() {
-		$('#uvalicense p:not(:first)').slideDown('slow');
-		$('#uvalicense_read_all').hide();
+		$('#uvalicense p').toggle('slow');
 	});
 	//
 	

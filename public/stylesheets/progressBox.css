@@ -71,7 +71,8 @@ li p.bold {
 }
 
 .progressItem {
-  background:	#EEF5FB url('/images/chkbox_empty.png') no-repeat center left;
+  list-style-image:url('/images/chkbox_empty.png');		
+/*  background:	#EEF5FB url('/images/chkbox_empty.png') no-repeat center left;*/
 }
 
 #progressBoxContentChecked {
@@ -90,15 +91,18 @@ li p.bold {
 }
 
 .progressItemChecked {
-  background-image:url('/images/chkbox_checked.png');
+  list-style-image:url('/images/chkbox_checked.png');
+/*  background-image:url('/images/chkbox_checked.png');*/
 }
 
 .progressItemRejected {
-  background-image:url('/images/chkbox_cross.png');
+  list-style-image:url('/images/chkbox_cross.png');	
+/*  background-image:url('/images/chkbox_cross.png');*/
 }
 
 .progressItemUnChecked {
-  background-image:url('/images/chkbox_empty.png');
+  list-style-image:url('/images/chkbox_empty.png');	
+/*  background-image:url('/images/chkbox_empty.png');*/
 }
 
 .chkbox_readonly {

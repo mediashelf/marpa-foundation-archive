@@ -13,18 +13,18 @@
         el = $("#"+elementId);
         if (bool) {
           el.addClass("progressItemChecked") 
-          el.css("background-image",'url(/images/chkbox_checked.png)')
+          el.css("list-style-image",'url(/images/chkbox_checked.png)')
           // el.show();
         } else {
           el.removeClass("progressItemChecked")    
-          el.css("background-image",'url(/images/chkbox_empty.png)')      
+          el.css("list-style-image",'url(/images/chkbox_empty.png)')      
         };
         $.fn.hydraProgressBox.testReleaseReadiness();
     },
     
     showProcessingInProgress: function(elementId) {
       el = $("#"+elementId);
-      el.css("background-image", 'url(/images/processing.gif)');
+      el.css("list-style-image", 'url(/images/processing.gif)');
       // el.show();
     },
     

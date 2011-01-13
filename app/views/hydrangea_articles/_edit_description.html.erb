@@ -10,6 +10,8 @@
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
+	<ul id="required">
+
 	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
 		<fieldset id="contributors_fieldset">
 		<legend>Enter the Article's Author</legend>	
@@ -40,8 +42,9 @@
 	<div id="uvalicense" class="license">
 	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
 	                <label for="license">
-	                 I license this work under UVa's Libra Contributor’s License.
+	                 I agree to the UVa Libra Submission Agreement
 	                </label>
+		            <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
 	                <p>
 	                To properly administer this repository and preserve the contents for future use, the University of Virginia (UVA) requires certain permissions from you, the author(s) or copyright owner. By accepting this license, you still retain copyright to your work. You do not give up the right to submit the work to publishers or other repositories.</p>
 	                <p>By clicking through this license, you grant to the University of Virginia the non-exclusive right to reproduce, translate (as defined below), and/or distribute your submission (including the metadata and abstract) worldwide, in any format or medium for non-commercial, academic purposes only.  UVA will clearly identify your name(s) as the author(s) or owner(s) of the submission, including a statement of your copyright, and will not make any alteration, other than as allowed by this license, to your submission.</p>
@@ -49,7 +52,6 @@
 	                <p>You represent that the submission is your original work, and/or that you have the right to grant the rights contained in this license. You also represent that your submission does not, to the best of your knowledge, infringe upon anyone's copyright.  You also represent and warrant that the submission contains no libelous or other unlawful matter and makes no improper invasion of the privacy of any other person.</p>
 	                <p>If the submission contains material for which you do not hold copyright and that exceeds fair use, you represent that you have obtained the unrestricted permission of the copyright owner to grant UVA the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
 	                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
-	                <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
 	        </div>
 	    </fieldset>
 </li>
@@ -61,6 +63,8 @@
     	<div id="uploads" data-pid=<%= params[:id] %>></div>
 		</fieldset>
 	</li> 
+	</ul><!-- END REQUIRED FIELDS -->
+	<ul id="optional">
 	
 	<li id="pbJournal">
 		<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
@@ -112,6 +116,8 @@
   <% else %>
     	<%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>		
   <% end %>
+
+</ul><!-- END OPTIONAL FIELDS -->
 
 </form>
 

@@ -2,7 +2,7 @@
 <% journal_counter = edit_journal_counter %>
 <% base_id = "journal_#{journal_counter}" %>
 
-<fieldset id="journal">
+<fieldset id="journal_fieldset">
 <legend>Publication URL</legend>
 <%= fedora_field_label("descMetadata", [{:journal => journal_counter},:origin_info, :publisher], "The full URL to any published version of the work") %>
 <%= fedora_text_field(@document_fedora,"descMetadata", [{:journal => journal_counter},:origin_info, :publisher], :multiple=>false) %>

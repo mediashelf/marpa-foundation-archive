@@ -2,6 +2,10 @@ html {
 	background-color:white;
 }
 
+#document h1 {
+	display:none;
+}
+
 body {	
 	margin: 0;
 	padding: 0;
@@ -37,9 +41,10 @@ button.ui-button-icon-only {
 }
 
 #cover_container h1 {
-	font-size: 20px;
-	padding-bottom: 5px;
+	font-size: 24px;
+	margin-bottom: 8px;
 	color: #5B4418;
+	display: block;
 }
 
 .error, .notice, .errorExplanation {
@@ -78,6 +83,10 @@ a:link, a:visited, a:active, #uvalicense_read_all {
 
 a:hover, a:hover.addval, #uvalicense_read_all:hover {
 	color: #4079A0;
+}
+
+a.addval {
+	margin-top: 0px;
 }
 
 a.destructive {
@@ -179,7 +188,7 @@ table#file_assets {
 }
 
 #keywords {
-	margin-top: -20px;
+/*	margin-top: -20px;*/
 }
 
 #keywords dt {
@@ -211,6 +220,18 @@ table#file_assets {
 	margin-top: 8px;
 	margin-right: 10px;
 }
+
+#uva_lib_banner ul {
+	margin-top: 8px;
+	float: left;
+	text-transform: uppercase;
+}
+
+#uva_lib_banner ul a, #uva_lib_banner ul a:hover {
+	font-size: 11px;
+	color: #A2BCD0;
+}
+
 
 #uva_lib_banner #container1 {
 	width: 950px;
@@ -281,7 +302,8 @@ table#file_assets {
 	width: 948px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 35px;
+/*	margin-top: 35px;*/
+	margin-top: 0;
 	margin-bottom: 35px;	
 }
 
@@ -410,9 +432,7 @@ div.sidebar {
 
 #content, .document, #results {
 	min-height: 638px;	
-/*	background-color: #F1F1F1;*/
 	background-color: white;
-	border: 1px solid #C8C8C8;	
 	text-align: left;
 }
 
@@ -661,6 +681,7 @@ li div .license {
 	font-size: 11px;
 	text-transform: uppercase;
 	color: #999;
+	width: 200px;
 }
 
 #uploader, .fl-uploader-queue-wrapper {
@@ -672,7 +693,7 @@ li div .license {
 }
 
 .fl-uploader { 
-	width:735px;
+	width: 350px;
 	position: relative;
 	display: block;
 	clear: both;
@@ -766,10 +787,15 @@ html>body .fl-uploader a.fl-uploader-browse{padding:3px 6px;border:1px solid tra
 .fl-uploader a.fl-uploader-browse:focus,.fl-uploader a.fl-uploader-browse.focus{outline:2px solid #142B8C;background-color:#FFF;}
 
 .fl-uploader-browse-overlay{
-	bottom: 43px;
+	bottom: 47px;
 	position: absolute;
-	right: 197px;
+	left: 0px;
 	z-index: 7;
+	width: 350px;
+}
+
+#SWFUpload_0 {
+	width: 350px;
 }
 
 .swfupload {
@@ -952,3 +978,125 @@ div#delete_dialog div.button {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+#cover_container ul {
+	margin-top: 5px;
+	margin-left: 10px;
+	width: 450px;
+}
+
+ul.required li {
+	list-style-image: url('/images/chkbox_empty.png');
+}
+
+li fieldset {
+	margin: 0 0 15px 5px;
+	padding-left: 0;
+	border: none;
+	width: 450px;
+}
+
+li fieldset legend {
+	font-weight: bold;
+	font-size: 16px;
+	color: black;
+	line-height: 18px;
+	width: 340px;
+}
+
+legend > small {
+	color: red;
+	font-size: x-small;
+	font-weight: normal;
+	margin-top: 2px;
+	margin-left: 10px;
+	float: right;
+}
+
+li fieldset label {
+	font-weight: normal;
+	font-size: 11px;
+	line
+}
+li fieldset .field_wrapper label {
+	display: block;
+}
+
+li fieldset .field_wrapper {
+	width: 175px;
+	float: left;
+	margin-bottom: 5px;
+}
+
+li fieldset a {
+	margin-top: 5px;
+	font-style: italic;
+	display: block;
+}
+
+input.full_width, 
+input#subject_topic_0,
+input#title_info_main_title,
+input#embargo_embargo_release_date,
+input#editable-edit.edit {
+	width: 340px;
+}
+
+input[type="text"] {
+	display: block;
+}
+
+input[type="submit"] {
+	font-size: 18px;
+}
+
+input.textile-edit {
+	width: 350px;
+	height: 220px;
+}
+
+li.editable-container.field { 
+	width: 90%;
+}
+
+#showHead {
+	display: none;
+}
+
+ul#optional {
+	background: #CECECE;
+	margin-left: -10px;
+	padding: 20px;
+}
+
+ul#optional li {
+	list-style-image: none;
+	list-style: none;
+}
+
+ul.fulfilled {
+	background: white;
+	margin-left: inherit;
+	padding: 0;
+}
+
+fieldset#title_fieldset label, 
+fieldset#keywords_fieldset label, 
+fieldset#notes_fieldset label {
+	display: none;
+}
+
+fieldset#embargo_fieldset label,
+fieldset#journal_fieldset label {
+	display: block;
+}
+
+#uvalicense_read_all {
+	font-size: 11px;
+}
+
+.fl-uploader-footer-buttons {
+	width: 200px;
+}
+
+
