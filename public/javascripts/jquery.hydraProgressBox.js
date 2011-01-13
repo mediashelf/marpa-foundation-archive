@@ -35,10 +35,12 @@
       var licenseAgreedTo = true //($("#uvalicense input[type='checkbox']:first").attr("checked").length > 0);
 
       if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
-          $('ul#optional').css('background', 'white');
+					$('ul#optional').css('background', 'white');
+          $('ul#optional input').enable();
 					$("#submitForRelease").enable();
       } else {
-          $("#submitForRelease").attr("disabled", "disabled");
+          $('ul#optional input').attr("disabled", "disabled");
+          $('#submitForRelease').attr("disabled", "disabled");
       }
     }
   };
