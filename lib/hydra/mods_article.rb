@@ -87,6 +87,7 @@ module Hydra
                xml.namePart(:type=>"family")
                xml.affiliation
                xml.computing_id
+               xml.description
                xml.role {
                  xml.roleTerm("Author", :authority=>"marcrelator", :type=>"text")
                }
