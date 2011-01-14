@@ -106,10 +106,7 @@
 	<li id="pbAvailability">
 		<fieldset id="availability_fieldset">
 			<legend>Availability</legend>
-			<%= radio_button_tag "availability", "everyone", "checked" %>
-			<label>Everyone</label>
-			<%= radio_button_tag "availability", "uva" %>				
-			<label>UVa Only</label>	  
+      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"everyone"=>"Everyone","uva"=>"UVa Only"}}) %>
 		</fieldset>
 	</li>
 <!-- Careful! Submitting this hidden input will release the article.  -->
