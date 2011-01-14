@@ -35,23 +35,9 @@
       </img>
     </div>
 
-	<h2>Attach the book</h2>
-    <div id="uploads" data-pid=<%= params[:id] %>></div>
-
-	<h2>Describe the book</h2>
+	<h1>Add Your Book</h1>
     <%= render :partial => 'hydrangea_books/edit_description' %>
 
-</div>
-
-<div id="progressBox">
-	<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this book" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
-  <div id="progressBoxHeader">
-    <h2>Progress</h2>
-  </div>
-  <div id="progressBoxContent">
-    <%= render :partial => 'hydrangea_books/progress_box' %>
-  </div>
-  <div id="progressBoxFooter"></div>
 </div>
 
 <%= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads') %>

@@ -1,75 +1,127 @@
-
+<%- stylesheet_links << "progressBox" %>
+<%- javascript_includes << "jquery.hydraProgressBox.js" %>
+<%- @ds_desc_metadata = @document_fedora.datastreams["descMetadata"] %>
+<%- @ds_rights_metadata = @document_fedora.datastreams["rightsMetadata"] %>
+<%- author_entries = @ds_desc_metadata.find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]') %>
+<%- title_values = @ds_desc_metadata.term_values(:title_info, :main_title) %>
+<%- license_values = @ds_rights_metadata.term_values(:copyright, :uvalicense) %>
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_book")%>" method="post" data-resourceType="hydrangea_book" accept-charset="utf-8">
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_book" />
 
-   <h3><%= fedora_field_label("descMetadata", [:title_info, :main_title], "Title") %></h3>
-    <div class="uvafield">
-		<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
-	</div>
+	<ul id="required">
 
-	<h3><%= fedora_field_label("descMetadata", [:book], "Publication Details") %></h3>
-	<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>
+	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
+		<fieldset id="contributors_fieldset">
+		<legend>Enter the Book's Author<small>Required</small></legend>	
+	    <div id="contributors" style="width:100%;">
+	      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
+	    </div>    
+	    <%# Button for adding person/conference/organization %>
+	    <% if params[:action] == "edit" %>
+	      <% format = document_partial_name(@document) %>
+	      <div id="add-contributor-box">
+	        <input id="re-run-add-contributor-action" type="button" label="Add another author..." value="Add a person" />
+	      </div>
+	    <% end %>	   
+		</fieldset>
+	</li> 
+	
+ <li id="pbTitleProvided" class="progressItem <% if !title_values.empty? && !title_values.first.empty? %>progressItemChecked<% end %>">
+	<fieldset id="title_fieldset">
+	<legend>Enter the Book's Title<small>Required</small></legend>	
+<%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
+	</fieldset>
+ </li> 
 
-	<h3><label label_for="Contributors">Contributors</label></h3>
-    <ol id="contributors" style="width:100%;">
-      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
-      <%= render :partial=>"contributors/edit_organization", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:organization) %>
-      <%= render :partial=>"contributors/edit_conference", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:conference) %>
-    </ol>    
-    <%# Button for adding person/conference/organization %>
-    <% if params[:action] == "edit" %>
-      <% format = document_partial_name(@document) %>
-      <div id="add-contributor-box">
-        <input id="re-run-add-contributor-action" type="button" value="Add a person" />
-        <button id="select-contributor-type" type="button">Select type of contributor to add</button>
-        <ul id="add-contributor-menu">
-          <li id="add_person">Add a person</li>
-          <li id="add_organization">Add an organization</li>
-          <li id="add_conference">Add a conference</li>
-        </ul>
-      </div>
-    <% end %>
+  
+<li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? && license_values.first.downcase == "yes" %>progressItemChecked<% end %>">
+	<fieldset id="license_fieldset">
+	<legend>Agree to Submission Terms<small>Required</small></legend>
+	<div id="uvalicense" class="license">
+	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
+	                <label for="license">
+	                 I agree to the UVa Libra Submission Agreement
+	                </label>
+		            <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
+	                <p>
+	                To properly administer this repository and preserve the contents for future use, the University of Virginia (UVA) requires certain permissions from you, the author(s) or copyright owner. By accepting this license, you still retain copyright to your work. You do not give up the right to submit the work to publishers or other repositories.</p>
+	                <p>By clicking through this license, you grant to the University of Virginia the non-exclusive right to reproduce, translate (as defined below), and/or distribute your submission (including the metadata and abstract) worldwide, in any format or medium for non-commercial, academic purposes only.  UVA will clearly identify your name(s) as the author(s) or owner(s) of the submission, including a statement of your copyright, and will not make any alteration, other than as allowed by this license, to your submission.</p>
+	                <p>You agree that UVA may translate the submission to any medium or format and keep more than one copy for the purposes of security, back up and preservation.</p>
+	                <p>You represent that the submission is your original work, and/or that you have the right to grant the rights contained in this license. You also represent that your submission does not, to the best of your knowledge, infringe upon anyone's copyright.  You also represent and warrant that the submission contains no libelous or other unlawful matter and makes no improper invasion of the privacy of any other person.</p>
+	                <p>If the submission contains material for which you do not hold copyright and that exceeds fair use, you represent that you have obtained the unrestricted permission of the copyright owner to grant UVA the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
+	                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
+	        </div>
+	    </fieldset>
+</li>
 
-  <h3><label label_for="Abstract">Abstract</label></h3>
-  <div class="uvafield"><%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %></div>
+	
+	<li id="pbFileUploaded" class="progressItem <% if !@document_fedora.parts(:response_format=>:id_array).empty? %>progressItemChecked<% end %>">
+		<fieldset id="uploaded_files">
+		<legend>Upload the Book<small>Required</small></legend>	
+    	<div id="uploads" data-pid=<%= params[:id] %>></div>
+		</fieldset>
+	</li> 
+	</ul><!-- END REQUIRED FIELDS -->
+	<ul id="optional">
+	
+	<li id="pbJournal">
+		<fieldset id="publication_fieldset">
+		<legend>Publication URL</legend>
+		<label>The full URL to any published version of the work</label>		
+    	<%= fedora_text_field(@document_fedora,"descMetadata", [:location, :url], :multiple=>false) %>
+		</fieldset>	</li>
+	
+	<li id="pbPeerReviewed">
+		<fieldset id="peer_reviewed_fieldset">
+		<legend>Peer Reviewed</legend>
+		  <%= fedora_checkbox(@document_fedora, "properties", [:peer_reviewed]) %>
+		 <label>This work has undergone a peer review process</label>	
+	</li>
+	
+	<li id="pbNotes">
+		<fieldset id="notes_fieldset">
+		<legend>Notes</legend>	
+	  <%= fedora_text_field(@document_fedora,"descMetadata", [:note], :multiple=>false) %>
+		</fieldset>
+	</li>
 
-<h3><label label_for="Tags">Tags</label></h3>
-<div id="keywords" class="keywords" style="width:100%;">
-	<dl>
-		<dt>
-			<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
-  		</dt>
-  		<dd id="topic_tag" class="topic_tag">
-    		<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
-  		</dd>
-	</dl>
-</div>
+	<li id="pbKeywords">
+		<fieldset id="keywords_fieldset">
+		<legend>Keywords</legend>		
+    	<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
+		<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
+		</fieldset>
+	</li>
 
-<h2>License the book</h2>
-<ol>
-	<li>
-        <div id="uvalicense" class="license">
-        <dl>
-          <dt>
-            <%= fedora_select(@document_fedora, "rightsMetadata", [:copyright, :uvalicense], :choices => %w(yes no)) %>
-          </dt>
-          <dd class="uvalicense">
-                <label for="license">
-                 I license this work under UVa's Libra Contributor’s License.
-                </label>
-                <p>
-                To properly administer this repository and preserve the contents for future use, the University of Virginia (UVA) requires certain permissions from you, the author(s) or copyright owner. By accepting this license, you still retain copyright to your work. You do not give up the right to submit the work to publishers or other repositories.</p>
-                <p>By clicking through this license, you grant to the University of Virginia the non-exclusive right to reproduce, translate (as defined below), and/or distribute your submission (including the metadata and abstract) worldwide, in any format or medium for non-commercial, academic purposes only.  UVA will clearly identify your name(s) as the author(s) or owner(s) of the submission, including a statement of your copyright, and will not make any alteration, other than as allowed by this license, to your submission.</p>
-                <p>You agree that UVA may translate the submission to any medium or format and keep more than one copy for the purposes of security, back up and preservation.</p>
-                <p>You represent that the submission is your original work, and/or that you have the right to grant the rights contained in this license. You also represent that your submission does not, to the best of your knowledge, infringe upon anyone's copyright.  You also represent and warrant that the submission contains no libelous or other unlawful matter and makes no improper invasion of the privacy of any other person.</p>
-                <p>If the submission contains material for which you do not hold copyright and that exceeds fair use, you represent that you have obtained the unrestricted permission of the copyright owner to grant UVA the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
-                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
-                <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
-          </dd>
-        </dl>
-        </div>
-    </li>
-</ol>
+	<li id="pbEmbargo">
+		<fieldset id="embargo_fieldset">
+			<legend>Embargo Until</legend>
+		  	<%= fedora_field_label("rightsMetadata", [:embargo, :embargo_release_date], "Some info text about embargo") %>
+		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
+		</fieldset>
+	</li>
+
+
+	<li id="pbAvailability">
+		<fieldset id="availability_fieldset">
+			<legend>Availability</legend>
+      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"everyone"=>"Everyone","uva"=>"UVa Only"}}) %>
+		</fieldset>
+	</li>
+<!-- Careful! Submitting this hidden input will release the Book.  -->
+	<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>				
+	<input name="_method" type="hidden" value="put" />
+  <% if @document_fedora.ready_to_release? %>
+    	<%= button_to 'Submit', {},{:id => "submitForRelease"} %>		
+  <% else %>
+    	<%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>		
+  <% end %>
+
+</ul><!-- END OPTIONAL FIELDS -->
 
 </form>
+<%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this Book" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
+<div id="deleteAsset">
+		<%= delete_asset_link(params[:id], "Book") %>
+	</div>
