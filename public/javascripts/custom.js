@@ -73,38 +73,30 @@ jQuery(document).ready(function($) {
 	
 	// CHANGE LABELS TO BE CONSISTENT FOR UVA
 	$("#keywords_fieldset a").text('Add Keyword');
-
-	//$("input[type=checkbox]").hydraCheckbox();
-	//$("input[type=radio]").hydraRadioButton();	
-	
 	
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
-	$('input#title_info_main_title').css('min-width', '300px');	
+	// $('input#title_info_main_title').css('min-width', '300px');	
 	
 	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');
 	 	
-	// HIDE THE LICENSE
+	// HIDE & TOGGLE THE LICENSE
 	$('#uvalicense p').hide();
-	
 	$('#uvalicense_read_all').click(function() {
 		$('#uvalicense p').toggle('slow');
 	});
 	//
 	
-	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');		
 	
-	
-	// INPLACE EDIT FIELDS
-	// $('cover_container').children('form').children('input').blur(function(){ 
-	// 	//put the original background color in 
-	// 	$(this).css('background', 'blue');
-	// });
+	// HIDE THE INPLACE EDIT FIELDS
 	$('span.editable-text.text').hide();
+	
+	// SHOW THE INPLACE TEXTILE FIELDS
+	$('input.textile-edit.edit').css('display', 'block');
 	
 	// ADD THE DATEPICKER CLASS TO _DATE FIELDS
 	//	<input type="text" class="datepicker" size="30" name="d1" value="" placeholder="YYYY-MM-DD"/>

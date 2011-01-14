@@ -17,13 +17,13 @@
        var unique_id = fieldName + "_" + new_value_index;
 
        //var $item = $('<li class=\"editable-container field\" id="'+unique_id+'-container"><a href="" class="destructive field" title="Delete \'[NAME OF THING] in hydraMetadata.insertTextField\'">Delete</a><span class="editable-text text" id="'+unique_id+'-text"></span><input class="editable-edit edit" id="'+unique_id+'" data-datastream-name="'+datastreamName+'" rel="'+fieldName+'" name="asset['+datastreamName+'][' + fieldName + '][' + new_value_index + ']"/></li>');
-       var $item = $('<li class=\"editable-container field\" id="'+unique_id+'-container"><a href="" class="destructive field" title="Delete">Delete</a><span class="editable-text text" id="'+unique_id+'-text"></span><input class="editable-edit edit" id="'+unique_id+'" data-datastream-name="'+datastreamName+'" rel="'+fieldName+'" name="asset['+datastreamName+'][' + fieldName + '][' + new_value_index + ']"/></li>');
+       var $item = $('<li id="'+unique_id+'-container"><a href="" class="destructive field" title="Delete">Delete</a><span class="editable-text text" id="'+unique_id+'-text"></span><input class="editable-edit edit" id="'+unique_id+'" data-datastream-name="'+datastreamName+'" rel="'+fieldName+'" name="asset['+datastreamName+'][' + fieldName + '][' + new_value_index + ']"/></li>');
 			$item.appendTo(values_list);
        var newVal = fluid.inlineEdit($item, {
                      selectors: {
-                       editables : ".editable-container",
+                       editables : ".editable-container1111",
                        text : ".editable-text",
-                       edit: ".editable-edit"
+                       edit: ".editable-edit1111"
                      },
                      listeners : {
                        onFinishEdit : jQuery.fn.hydraMetadata.fluidFinishEditListener,
@@ -46,7 +46,7 @@
 
        var assetUrl = $values_list.closest("form").attr("action");
 
-       var $item = jQuery('<li class=\"field_value textile_value\" name="asset[' + fieldName + '][' + new_value_index + ']"><a href="" class="destructive"><img src="/images/delete.png" border="0" /></a><div class="textile" id="'+fieldName+'_'+new_value_index+'">click to edit</div></li>');
+       var $item = jQuery('<li class=\"field_value textile_value\" name="asset[' + fieldName + '][' + new_value_index + ']"><a href="" class="destructive"><img src="/images/delete.png" border="0" /></a><div class="textile" id="'+fieldName+'_'+new_value_index+'" style="display:none;"></div></li>');
        $item.appendTo(values_list);
 
        $("div.textile", $item).editable(assetUrl+"&format=textile", {
@@ -56,8 +56,7 @@
            type      : "textarea",
            submit    : "OK",
            cancel    : "Cancel",
-           // tooltip   : "Click to edit #{field_name.gsub(/_/, ' ')}...",
-           placeholder : "click to edit",
+           placeholder : "",
            onblur    : "ignore",
            name      : "asset["+fieldName+"]["+new_value_index+"]",
            id        : "field_id",
@@ -477,7 +476,7 @@
           onFinishEdit : jQuery.fn.hydraMetadata.fluidFinishEditListener,
           modelChanged : jQuery.fn.hydraMetadata.fluidModelChangedListener
         },
-        defaultViewText: "click to edit"
+        defaultViewText: ""
       };
  
      if (settings) $.extend(config, settings);
@@ -500,8 +499,8 @@
        type      : "textarea",
        submit    : "OK",
        cancel    : "Cancel",
-       placeholder : "click to edit",
-       tooltip   : "Click to edit ...",
+       placeholder : "",
+       tooltip   : "",
        onblur    : "ignore",
        id        : "field_id",
        height    : "100"
@@ -533,7 +532,7 @@
       };
       
       var nodeSpecificSettings = {
-        tooltip   : "Click to edit "+$this.attr("id")+" ...",
+        tooltip   : "",
         name      : name,
         loadurl  : assetUrl + "?" + $.param(load_params)
       };

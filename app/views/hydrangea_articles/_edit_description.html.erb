@@ -5,7 +5,6 @@
 <%- author_entries = @ds_desc_metadata.find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]') %>
 <%- title_values = @ds_desc_metadata.term_values(:title_info, :main_title) %>
 <%- license_values = @ds_rights_metadata.term_values(:copyright, :uvalicense) %>
-
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />

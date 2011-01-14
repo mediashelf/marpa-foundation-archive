@@ -149,10 +149,13 @@ h3 {
 	margin-left: 20px;
 }
 
-dl {
-	margin-left: 30px;
+dl dd {
+	margin-left: 0;
 }
 
+.multi_inline label {
+	top: -1.5em;
+}
 
 div#create-asset-box {
 	margin-top: 0;
@@ -991,7 +994,6 @@ div#delete_dialog div.button {
 
 #cover_container ul {
 	margin-top: 5px;
-	margin-left: 10px;
 	width: 450px;
 }
 
@@ -1042,6 +1044,28 @@ li fieldset a {
 	margin-top: 5px;
 	font-style: italic;
 	display: block;
+}
+
+.person li {
+	min-width: 170px;	
+}
+
+.multi_inline ul li, .multi_inline ol li {
+	height: 40px;
+}
+
+div#add-contributor-box {
+	margin-top: -10px;
+	margin-left: 0px;
+}
+
+#uploads table {
+	position: relative;
+	width: 349px;
+}
+
+.fl-inlineEdit-invitation-text {
+	display: none;
 }
 
 input#title_info_main_title,

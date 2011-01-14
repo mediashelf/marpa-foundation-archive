@@ -32,7 +32,7 @@
       var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
       var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
       var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
-      var licenseAgreedTo = true //($("#uvalicense input[type='checkbox']:first").attr("checked").length > 0);
+      var licenseAgreedTo = $("#copyright_uvalicense").is(':checked');
 
       if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
 					$('ul#optional').css('background', 'white');
