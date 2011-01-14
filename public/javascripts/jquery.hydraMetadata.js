@@ -187,6 +187,10 @@
          $.fn.hydraMetadata.saveEdit(element);
        }
      },
+
+     saveCheckbox: function(element) {
+         $.fn.hydraMetadata.saveEdit(element);
+     },
      
      saveDateWidgetEdit: function(callback) {
          name = $("#"+callback["id"]).parent().attr("name");
@@ -254,11 +258,15 @@
          var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
          $.fn.hydraProgressBox.showProcessingInProgress('pbAuthorProvided');
          break;
+       case "copyright_uvalicense":
+         var licenseAgreedTo = ($("#copyright_uvalicense").val() == "yes");
+         $.fn.hydraProgressBox.showProcessingInProgress('pbLicenseAgreedTo');
        default:
        }
-       
+
        $.ajax({
          type: "PUT",
+         async: false,
          url: url,
          dataType : "json",
          data: params,
@@ -281,13 +289,12 @@
             var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
             $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
             break;
-          case "person_0_first_name":
-            var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
-            $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
+          case "copyright_uvalicense":
+            var licenseAgreedTo = ($("#copyright_uvalicense").attr("value")=="yes");
+            $.fn.hydraProgressBox.checkUncheckProgress('pbLicenseAgreedto', licenseAgreedTo);
             break;
           default:
           }
-          
      			$.noticeAdd({
              inEffect:               {opacity: 'show'},      // in effect
              inEffectDuration:       600,                    // in effect duration in miliseconds
@@ -344,6 +351,15 @@
           $("#person_"+ix+"_institution").val(msg);
           $("#person_"+ix+"_institution-text").text(msg);
           $("#person_"+ix+"_institution-text").removeClass("fl-inlineEdit-invitation-text");
+        }
+      });
+      $.ajax({
+        type: "GET",
+        url: url+"&field=person_"+ix+"_description",
+        success: function(msg){
+          $("#person_"+ix+"_description").val(msg);
+          $("#person_"+ix+"_description-text").text(msg);
+          $("#person_"+ix+"_description-text").removeClass("fl-inlineEdit-invitation-text");
         }
       });
     },
@@ -567,9 +583,28 @@
      if (settings) $.extend(config, settings);
  
      this.each(function() {
-       $(this).unbind('change.hydra').bind('change.hydra', function(e) {
-           $.fn.hydraMetadata.saveEdit(this, e);
-           e.preventDefault();
+       $(this).unbind('click.hydra').bind('click.hydra', function(e) {
+           var checked = $(this).attr("checked");
+           if(!checked) {
+             $(this).attr("checked",true);
+          }
+          //TODO: move to saveEdit
+//           if ($(this).closest("li").hasClass("progressItemChecked")) {
+//             $(this).closest("li").removeClass("progressItemChecked");
+//           } else {
+//             $(this).closest("li").addClass("progressItemChecked");
+//           }
+           if ($(this).val() == "yes") {
+             $(this).val("no");
+             
+          } else {
+             $(this).val("yes");
+          }
+          $.fn.hydraMetadata.saveCheckbox(this,e);
+          if (!checked) {
+            $(this).attr("checked",false);
+          }
+          //e.preventDefault();
          });
      });
  

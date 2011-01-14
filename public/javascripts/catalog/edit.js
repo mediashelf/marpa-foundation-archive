@@ -20,6 +20,7 @@
       bindDomEvents();
       $(".editable-container").hydraTextField();
       $(".textile-container").hydraTextileField();
+      $(".fedora-checkbox").hydraCheckbox();
       setUpDatePicker();
       setUpSliders();
       setUpNewPermissionsForm();
