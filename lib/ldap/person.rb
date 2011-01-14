@@ -34,7 +34,10 @@ module Ldap
     def institution
       LDAP_INSTITUTION
     end
-      
+    
+    def department
+      @vals[:uvadisplaydepartment].first rescue ""
+    end
   end
   
 
