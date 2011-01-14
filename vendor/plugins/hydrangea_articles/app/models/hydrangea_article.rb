@@ -22,6 +22,7 @@ class HydrangeaArticle < ActiveFedora::Base
     m.field 'license_cc_by_sa', :string            
     m.field 'released', :string
     m.field 'release_to', :string
+    m.field 'peer_reviewed', :string
   end
   
   def to_solr(solr_doc=Solr::Document.new,opts={})

@@ -36,7 +36,7 @@
  </li> 
 
   
-<li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? %>progressItemChecked<% end %>">
+<li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? && license_values.first.downcase == "yes" %>progressItemChecked<% end %>">
 	<fieldset id="license_fieldset">
 	<legend>Agree to Submission Terms<small>Required</small></legend>
 	<div id="uvalicense" class="license">
@@ -76,7 +76,7 @@
 	<li id="pbPeerReviewed">
 		<fieldset id="peer_reviewed_fieldset">
 		<legend>Peer Reviewed</legend>
-		  <%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
+		  <%= fedora_checkbox(@document_fedora, "properties", [:peer_reviewed]) %>
 		 <label>This work has undergone a peer review process</label>	
 	</li>
 	
