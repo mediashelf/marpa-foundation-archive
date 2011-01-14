@@ -67,22 +67,14 @@
 	
 	<li id="pbJournal">
 		<fieldset id="publication_fieldset">
-		<legend>Publication URL</legend>
-		<label>The full URL to any published version of the work</label>		
-    	<%= fedora_text_field(@document_fedora,"descMetadata", [:location, :url], :multiple=>false) %>
-		</fieldset>	</li>
-	
-	<li id="pbPeerReviewed">
-		<fieldset id="peer_reviewed_fieldset">
-		<legend>Peer Reviewed</legend>
-		  <%= fedora_checkbox(@document_fedora, "properties", [:peer_reviewed]) %>
-		 <label>This work has undergone a peer review process</label>	
+		<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>	
+		</fieldset>	
 	</li>
-	
+		
 	<li id="pbNotes">
 		<fieldset id="notes_fieldset">
-		<legend>Notes</legend>	
-	  <%= fedora_text_field(@document_fedora,"descMetadata", [:note], :multiple=>false) %>
+		<legend>Abstract</legend>	
+	  <%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %>
 		</fieldset>
 	</li>
 
@@ -93,15 +85,6 @@
 		<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
 		</fieldset>
 	</li>
-
-	<li id="pbEmbargo">
-		<fieldset id="embargo_fieldset">
-			<legend>Embargo Until</legend>
-		  	<%= fedora_field_label("rightsMetadata", [:embargo, :embargo_release_date], "Some info text about embargo") %>
-		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
-		</fieldset>
-	</li>
-
 
 	<li id="pbAvailability">
 		<fieldset id="availability_fieldset">

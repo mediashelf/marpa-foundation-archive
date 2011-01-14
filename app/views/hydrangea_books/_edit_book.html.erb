@@ -1,28 +1,32 @@
 <% book = edit_book %>
 <% book_counter = edit_book_counter %>
 <% base_id = "book_#{book_counter}" %>
-<dl style="width:100%;">
-  <dt>
-    <%= fedora_field_label("descMetadata", [{:book => book_counter},:origin_info, :publisher], "Publisher:") %>
-  </dt>
-  <dd class="publisher">
-    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher], :multiple=>false) %>
-  </dd>
-  <dt>
-    <%= fedora_field_label("descMetadata", [{:book => book_counter}, :isbn], "ISBN:") %>
-  </dt>
-  <dd class="issn">
-    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter}, :issn], :multiple=>false) %>
-  </dd>
-  <dt>
-    <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:publication_date], "Publication Date:") %>
-  </dt>
-  <dd class="publication_date">
-    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date], :multiple=>false) %>
-  </dd>
-  <dt>    
-	<%= fedora_field_label("descMetadata", [{:book => book_counter},:issue, :citation], "Citation:") %>
-  </dt>
+
+<li id="pbPublisher">
+	<fieldset id="publisher_fieldset">
+  <legend>Publisher</legend>
+  <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher], :multiple=>false) %>
+</fieldset>
+</li>
+
+<li id="pbISBN">
+	<fieldset id="isbn_fieldset">
+  <legend>ISBN</legend>
+  <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter}, :issn], :multiple=>false) %>
+</fieldset>
+</li>
+
+<li id="pbPublicationDate">
+	<fieldset id="publication_date_fieldset">
+  <legend>Publication Date</legend>
+  <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date], :multiple=>false) %>
+</fieldset>
+</li>      
+
+<li id="pbCitation">
+	<fieldset id="citation_fieldset">	
+  <legend>Citation</legend>
+<dl class="book citation" id="<%= base_id %>">
   <dd class="multi_inline citation">
     <ul>
       <li class="citation_volume">
@@ -44,3 +48,5 @@
     </ul>
   </dd>
 </dl>
+</fieldset>
+</li>
