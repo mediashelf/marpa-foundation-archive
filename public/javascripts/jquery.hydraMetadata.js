@@ -567,9 +567,9 @@
      if (settings) $.extend(config, settings);
  
      this.each(function() {
-       $(this).unbind('change.hydra').bind('change.hydra', function(e) {
+       $(this).unbind('click.hydra').bind('click.hydra', function(e) {
            $.fn.hydraMetadata.saveSelect(this, e);
-           e.preventDefault();
+           //e.preventDefault();
          });
      });
  
@@ -584,28 +584,21 @@
  
      this.each(function() {
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
-           var checked = $(this).attr("checked");
-           if(!checked) {
-             $(this).attr("checked",true);
-          }
-          //TODO: move to saveEdit
-//           if ($(this).closest("li").hasClass("progressItemChecked")) {
-//             $(this).closest("li").removeClass("progressItemChecked");
-//           } else {
-//             $(this).closest("li").addClass("progressItemChecked");
-//           }
-           if ($(this).val() == "yes") {
-             $(this).val("no");
-             
-          } else {
-             $(this).val("yes");
-          }
-          $.fn.hydraMetadata.saveCheckbox(this,e);
-          if (!checked) {
-            $(this).attr("checked",false);
-          }
-          //e.preventDefault();
-         });
+         var checked = $(this).attr("checked");
+         if(!checked) {
+           $(this).attr("checked",true);
+         }
+         if ($(this).val() == "yes") {
+           $(this).val("no");
+         } else {
+           $(this).val("yes");
+         }
+         $.fn.hydraMetadata.saveCheckbox(this,e);
+         if (!checked) {
+           $(this).attr("checked",false);
+         }
+         //e.preventDefault();
+       });
      });
  
      return this;

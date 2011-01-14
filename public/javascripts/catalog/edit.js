@@ -21,6 +21,7 @@
       $(".editable-container").hydraTextField();
       $(".textile-container").hydraTextileField();
       $(".fedora-checkbox").hydraCheckbox();
+      $(".fedora-radio-button").hydraRadioButton();
       setUpDatePicker();
       setUpSliders();
       setUpNewPermissionsForm();
