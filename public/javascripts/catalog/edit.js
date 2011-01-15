@@ -18,13 +18,15 @@
   	  $metaDataForm = $("form#document_metadata", $el);
   	  $fileAssetsList = $("#file_assets", $el);
       bindDomEvents();
-      $(".editable-container").hydraTextField();
+      //$(".editable-container").hydraTextField();
       $(".textile-container").hydraTextileField();
+      // Non-fluid inline edit fields
       $(".fedora-checkbox").hydraCheckbox();
       $(".fedora-radio-button").hydraRadioButton();
       setUpDatePicker();
       setUpSliders();
       setUpNewPermissionsForm();
+      $("input.editable-edit").hydraTextField();
       $("#add-contributor-box").hydraNewContributorForm();
       $("a.inline").fancybox({
       		'hideOnContentClick': true,
