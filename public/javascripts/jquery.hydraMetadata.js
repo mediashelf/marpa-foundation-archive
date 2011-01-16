@@ -501,6 +501,7 @@
       var $editNode = $(".textile-edit", this).first();  
       var $textNode = $(".textile-text", this).first();  
       var $closestForm =  $editNode.closest("form");
+      var $closestForm = $("form").first();
       var name = $editNode.attr("name");      
       
       // collect submit parameters.  These should probably be shoved into a data hash instead of a url string...
@@ -515,8 +516,8 @@
       // Note: the field value must match the field name in solr (minus the solr suffix)
       var load_params = {
         datastream  : $editNode.attr('data-datastream-name'),
-        field       : $editNode.attr("rel"),
-        field_index : $this.index()
+        field       : $editNode.attr("rel")//,
+        //field_index : $this.index()
       };
       
       var nodeSpecificSettings = {

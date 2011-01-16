@@ -20,6 +20,7 @@
       bindDomEvents();
       //$(".editable-container").hydraTextField();
       $(".textile-container").hydraTextileField();
+      $(".textile-text").show();
       // Non-fluid inline edit fields
       $(".fedora-checkbox").hydraCheckbox();
       $(".fedora-radio-button").hydraRadioButton();
