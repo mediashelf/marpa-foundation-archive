@@ -20,8 +20,8 @@ describe HydrangeaArticle do
   describe "apply default license" do
     it "should have UVA and CC license set" do
       rights_ds = @article.datastreams_in_memory["rightsMetadata"]
-      rights_ds.get_values([:copyright, :uvalicense]).should == ["yes"]       
-      rights_ds.get_values([:copyright, :cclicense]).should == ["yes"]             
+      rights_ds.get_values([:copyright, :uvalicense]).should == ["no"]       
+      #rights_ds.get_values([:copyright, :cclicense]).should == ["yes"]             
     end
   end  
   
