@@ -134,4 +134,30 @@ describe Hydra::RightsMetadata do
       solr_doc[:discover_access_group_t].should == "public"
     end
   end
+  describe "embargo_release_date=" do
+    it "should update the appropriate node with the value passed" do
+      @sample.embargo_release_date=("2010-12-01")
+      @sample.embargo_release_date.should == "2010-12-01"
+    end
+    it "should only accept valid date values" do
+      
+    end
+  end
+  describe "embargo_release_date" do
+    it "should return the value as specified in the appropriate node" do
+    end
+  end
+  describe "under_embargo?" do
+    it "should return true if the current date is before the embargo release date" do
+      @sample.embargo_release_date=Date.today+1.month
+      @sample.under_embargo?.should be_true
+    end
+    it "should return false if the current date is after the embargo release date" do
+      @sample.embargo_release_date=Date.today-1.month
+      @sample.under_embargo?.should be_false
+    end
+    it "should return false if there is no embargo date" do
+      @sample.under_embargo?.should be_false
+    end
+  end
 end
