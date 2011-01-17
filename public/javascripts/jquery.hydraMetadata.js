@@ -709,6 +709,10 @@
 				 if (contributor_type == "researcher") {contributor_type = "person";};
          $.fn.hydraMetadata.addContributor(contributor_type);
        });
+       $("#add_author", this).click(function() {
+					alert('author!');
+         $.fn.hydraMetadata.addContributor("person");
+       });
        $("#add_person", this).click(function() {
          $.fn.hydraMetadata.addContributor("person");
        });

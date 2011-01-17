@@ -31,12 +31,6 @@ button.ui-button-icon-only {
 	color: #0F3E83;	
 }
 
-#re-run-add-contributor-action {
-	font-style: italic;
-	text-transform: underline;
-	cursor: pointer;
-}
-
 .edit-browse .active {
 	font-weight: bold;
 	color: #999;	
@@ -85,6 +79,10 @@ a:link, a:visited, a:active, #uvalicense_read_all {
 
 .yui-t2 .yui-b p {
 	padding-top: 0;
+}
+
+a#add_author {
+	margin-top: -10px;
 }
 
 a:hover, a:hover.addval, #uvalicense_read_all:hover {

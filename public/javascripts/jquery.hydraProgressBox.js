@@ -39,7 +39,7 @@
           $('ul.optional input').enable();
 					$("#submitForRelease").enable();
 					$("#keywords_fieldset a.addval").show();
-					$("#note-text").css('border', '#C3C3C3');
+					$("#note-text").css('border', '1px solid #C3C3C3');
       } else {
 					$('ul.optional').css('background', '#CECECE');
           $('ul.optional input').attr("disabled", "disabled");

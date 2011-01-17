@@ -21,9 +21,7 @@
 	    <%# Button for adding person/conference/organization %>
 	    <% if params[:action] == "edit" %>
 	      <% format = document_partial_name(@document) %>
-	      <div id="add-contributor-box">
-	        <input id="re-run-add-contributor-action" type="button" label="Add another author..." value="Add a person" />
-	      </div>
+		  <a id="add_author" href="#" onclick="javascript:$.fn.hydraMetadata.addContributor('person');return false;">Add an author...</a>
 	    <% end %>	   
 		</fieldset>
 	</li> 
