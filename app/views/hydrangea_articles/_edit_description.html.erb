@@ -102,20 +102,22 @@
 		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
 		</fieldset>
 	</li>
+</ul>
 
+</form>
 
-	<li id="pbAvailability">
+	<form action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
+	<ul id="optional">
+  <li id="pbAvailability">
 		<fieldset id="availability_fieldset">
 			<legend>Availability</legend>
-      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"everyone"=>"Everyone","uva"=>"UVa Only"}}) %>
+      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"everyone"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"everyone"}) %>
 		</fieldset>
 	</li>
 </ul><!-- END OPTIONAL FIELDS -->
 
-	</form>
 	
-	<form action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
-	<input name="_method" type="hidden" value="put" />
+<input name="_method" type="hidden" value="put" />
 <!-- Careful! Submitting this hidden input will release the article.  -->
 	<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>				
   <% if @document_fedora.ready_to_release? %>
