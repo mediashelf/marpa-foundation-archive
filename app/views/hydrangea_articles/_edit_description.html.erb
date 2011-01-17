@@ -66,12 +66,7 @@
 	</ul><!-- END REQUIRED FIELDS -->
 	<ul class="optional">
 	
-	<li id="pbJournal">
-		<fieldset id="publication_fieldset">
-		<legend>Publication URL</legend>
-		<label>The full URL to any published version of the work</label>		
-    	<%= fedora_text_field(@document_fedora,"descMetadata", [:location, :url], :multiple=>false) %>
-		</fieldset>	</li>
+		<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
 	
 	<li id="pbPeerReviewed">
 		<fieldset id="peer_reviewed_fieldset">
@@ -118,7 +113,7 @@
 	<li>
 		<input name="_method" type="hidden" value="put" />
 		<!-- Careful! Submitting this hidden input will release the article.  -->
-			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>				
+			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>			
 		  <% if @document_fedora.ready_to_release? %>
 		    	<%= button_to 'Submit', {},{:id => "submitForRelease"} %>		
 		  <% else %>
