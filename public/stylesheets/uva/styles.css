@@ -1122,8 +1122,10 @@ form#release_and_submit {
 	padding: 4px;
 }
 
-#note-text > form > textarea {
+#note-text > form > textarea, #note-text > textarea {
 	border: none;
+	height: 200px;
+	width: 340px;
 }
 
 fieldset#title_fieldset label, 
