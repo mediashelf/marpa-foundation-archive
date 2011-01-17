@@ -1024,12 +1024,15 @@ li fieldset legend {
 }
 
 legend > small {
+	position: absolute;
+	left: 340px;
 	color: red;
 	font-size: x-small;
 	font-weight: normal;
-	margin-top: 0;
-	margin-left: 10px;
+	margin-top: 3px;
+	padding-top: 0;
 	display: inline;
+	text-align: right;
 }
 
 li fieldset label {
