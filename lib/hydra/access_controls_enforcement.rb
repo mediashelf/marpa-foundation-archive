@@ -54,7 +54,8 @@ module Hydra::AccessControlsEnforcement
       end
       
       # remove anything with an embargo release date in the future  
-      embargo_query = " AND NOT _query_:\"embargo_release_date_dt:[NOW TO *]\"" if embargo_query.blank?
+#embargo_query = " AND NOT _query_:\"embargo_release_date_dt:[NOW TO *]\"" if embargo_query.blank?
+      field_queries << " NOT _query_:\"embargo_release_date_dt:[NOW TO *]\"" if embargo_query.blank?
       
       q << " AND (#{field_queries.join(" OR ")})"
       q << embargo_query 
