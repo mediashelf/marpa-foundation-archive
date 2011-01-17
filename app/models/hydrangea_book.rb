@@ -44,10 +44,12 @@ class HydrangeaBook < ActiveFedora::Base
   def apply_release(solr_doc)
     if ready_to_release?
       release_to = datastreams["properties"].release_to_values.first
-      if release_to.nil?
-        release_to = "public"
+      raise "Nil release_to value." if release_to.nil? 
+      solr_doc << Solr::Field.new(:edit_access_group_t => 'uva')
+
+      if release_to == "everyone"
+        solr_doc << Solr::Field.new(:read_access_group_t => release_to)
       end
-      solr_doc << Solr::Field.new(:read_access_group_t => release_to)
     end
     solr_doc
   end
