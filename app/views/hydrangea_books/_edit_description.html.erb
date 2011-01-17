@@ -97,7 +97,7 @@
 	  <li id="pbAvailability">
 			<fieldset id="availability_fieldset">
 				<legend>Availability</legend>
-	      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"everyone"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"everyone"}) %>
+	      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"public"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"public"}) %>
 			</fieldset>
 		</li>		
 		<li>
