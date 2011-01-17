@@ -488,11 +488,11 @@
        method    : "PUT",
        indicator : "<img src='/images/ajax-loader.gif'>",
        type      : "textarea",
-       submit    : "OK",
-       cancel    : "Cancel",
-       placeholder : "click to edit",
+       //submit    : "OK",
+       //cancel    : "Cancel",
+       placeholder : "<textarea></textarea>",
        tooltip   : "Click to edit ...",
-       onblur    : "ignore",
+       onblur    : "submit",
        id        : "field_id",
        height    : "100"
      };
