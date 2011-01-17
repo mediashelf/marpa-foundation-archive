@@ -269,7 +269,6 @@
        }
        $.ajax({
          type: "PUT",
-         async: false,
          url: url,
          dataType : "json",
          data: params,
