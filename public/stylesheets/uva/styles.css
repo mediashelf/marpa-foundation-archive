@@ -1069,7 +1069,7 @@ div#add-contributor-box {
 }
 
 input#title_info_main_title,
-ul#optional input.editable-edit.edit {
+ul.optional input.editable-edit.edit {
 	width: 340px;
 }
 
@@ -1094,13 +1094,13 @@ li.editable-container.field {
 	display: none;
 }
 
-ul#optional {
+ul.optional {
 	background: #CECECE;
 	margin-left: -10px;
 	padding: 20px;
 }
 
-ul#optional li {
+ul.optional li {
 	list-style-image: none;
 	list-style: none;
 }
@@ -1109,6 +1109,10 @@ ul.fulfilled {
 	background: white;
 	margin-left: inherit;
 	padding: 0;
+}
+
+form#release_and_submit {
+	margin-top: -40px;
 }
 
 fieldset#title_fieldset label, 

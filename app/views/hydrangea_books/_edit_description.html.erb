@@ -64,7 +64,7 @@
 		</fieldset>
 	</li> 
 	</ul><!-- END REQUIRED FIELDS -->
-	<ul id="optional">
+	<ul class="optional">
 	
 	<li id="pbJournal">
 		<fieldset id="publication_fieldset">
@@ -97,9 +97,17 @@
 
 	</form>
 	
-	<form action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
-	<input name="_method" type="hidden" value="put" />
+	<form id="release_and_submit" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
+		<ul class="optional">
+	  <li id="pbAvailability">
+			<fieldset id="availability_fieldset">
+				<legend>Availability</legend>
+	      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"everyone"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"everyone"}) %>
+			</fieldset>
+		</li>		
+		<li>
+			<input name="_method" type="hidden" value="put" />
 <!-- Careful! Submitting this hidden input will release the Book.  -->
 	<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>				
   <% if @document_fedora.ready_to_release? %>
@@ -107,7 +115,8 @@
   <% else %>
     	<%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>		
   <% end %>
-
+	</li>
+	</ul>
 </form>
 <%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this Book" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>
 <div id="deleteAsset">
