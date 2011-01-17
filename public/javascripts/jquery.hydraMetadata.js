@@ -710,7 +710,6 @@
          $.fn.hydraMetadata.addContributor(contributor_type);
        });
        $("#add_author", this).click(function() {
-					alert('author!');
          $.fn.hydraMetadata.addContributor("person");
        });
        $("#add_person", this).click(function() {
