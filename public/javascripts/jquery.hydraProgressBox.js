@@ -38,9 +38,11 @@
 					$('ul#optional').css('background', 'white');
           $('ul#optional input').enable();
 					$("#submitForRelease").enable();
+					$("#keywords_fieldset a.addval").show();					
       } else {
           $('ul#optional input').attr("disabled", "disabled");
           $('#submitForRelease').attr("disabled", "disabled");
+					$("#keywords_fieldset a.addval").hide();
       }
     }
   };

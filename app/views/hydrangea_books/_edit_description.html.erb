@@ -97,7 +97,7 @@
 
 	</form>
 	
-	<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
+	<form action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 	<input name="_method" type="hidden" value="put" />
 
 <!-- Careful! Submitting this hidden input will release the Book.  -->

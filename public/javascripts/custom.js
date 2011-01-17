@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
 		});
 	
 	// CHANGE LABELS TO BE CONSISTENT FOR UVA
-	$("#keywords_fieldset a").text('Add Keyword');
+	$("#keywords_fieldset a.addval").text('Add Keyword');
 	
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
