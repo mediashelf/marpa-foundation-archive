@@ -28,6 +28,7 @@
       setUpSliders();
       setUpNewPermissionsForm();
       $("input.editable-edit").hydraTextField();
+      $("textarea.editable-edit").hydraTextField();
       $("#add-contributor-box").hydraNewContributorForm();
       $("a.inline").fancybox({
       		'hideOnContentClick': true,

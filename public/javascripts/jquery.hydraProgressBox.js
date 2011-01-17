@@ -37,15 +37,15 @@
       if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
 					$('ul.optional').css('background', 'white');
           $('ul.optional input').enable();
+          $('ul.optional textarea').enable();
 					$("#submitForRelease").enable();
 					$("#keywords_fieldset a.addval").show();
-					$("#note-text").css('border', '1px solid #C3C3C3');
       } else {
 					$('ul.optional').css('background', '#CECECE');
           $('ul.optional input').attr("disabled", "disabled");
+          $('ul.optional textarea').attr("disabled", "disabled");
           $('#submitForRelease').attr("disabled", "disabled");
-					$("#keywords_fieldset a.addval").hide();
-					$("#note-text").css('border', 'none');					
+					$("#keywords_fieldset a.addval").hide();					
       }
     }
   };

@@ -1130,22 +1130,17 @@ form#release_and_submit {
 	margin-top: -40px;
 }
 
-#note-text {
+#note-text > form > textarea, #note-text > textarea,
+#abstract-text > form > textarea, #abstract-text > textarea {
 	height: 200px;
 	width: 340px;
-	background: white;
-	padding: 4px;
-}
-
-#note-text > form > textarea, #note-text > textarea {
-	border: none;
-	height: 200px;
-	width: 340px;
+	padding: 0.1em;
 }
 
 fieldset#title_fieldset label, 
 fieldset#keywords_fieldset label, 
-fieldset#notes_fieldset label {
+fieldset#notes_fieldset label,
+fieldset#abstract_fieldset label {	
 	display: none;
 }
 
