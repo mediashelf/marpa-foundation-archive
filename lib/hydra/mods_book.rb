@@ -83,6 +83,7 @@ class ModsBook < ActiveFedora::NokogiriDatastream
                xml.namePart(:type=>"family")
                xml.affiliation
                xml.computing_id
+               xml.description
                xml.role {
                  xml.roleTerm(:authority=>"marcrelator", :type=>"text")
                }
