@@ -19,6 +19,7 @@
        //var $item = $('<li class=\"editable-container field\" id="'+unique_id+'-container"><a href="" class="destructive field" title="Delete \'[NAME OF THING] in hydraMetadata.insertTextField\'">Delete</a><span class="editable-text text" id="'+unique_id+'-text"></span><input class="editable-edit edit" id="'+unique_id+'" data-datastream-name="'+datastreamName+'" rel="'+fieldName+'" name="asset['+datastreamName+'][' + fieldName + '][' + new_value_index + ']"/></li>');
        var $item = $('<li class=\"editable-container field\" id="'+unique_id+'-container"><a href="" class="destructive field" title="Delete">Delete</a><span class="editable-text text" id="'+unique_id+'-text"></span><input class="editable-edit edit" id="'+unique_id+'" data-datastream-name="'+datastreamName+'" rel="'+fieldName+'" name="asset['+datastreamName+'][' + fieldName + '][' + new_value_index + ']"/></li>');
 			$item.appendTo(values_list);
+
        var newVal = fluid.inlineEdit($item, {
                      selectors: {
                        editables : ".editable-container_PPP",
@@ -30,7 +31,10 @@
                        modelChanged : jQuery.fn.hydraMetadata.fluidModelChangedListener
                      }
                    });
-                   newVal.edit();
+                  // added the following for completion of neutering the inlineEdit functionality
+                  $(".editable-text").hide();
+                  $("#"+unique_id).hydraTextField();
+                   //newVal.edit();
      },
      
      /*
@@ -234,8 +238,7 @@
      */
     saveEdit: function(editNode) {
        $editNode = $(editNode);
-       //var $closestForm = $editNode.closest("form");
-       var $closestForm = $("form").first();
+       var $closestForm = $editNode.closest("form");
        var url = $closestForm.attr("action");
        var field_param = $editNode.fieldSerialize();
        var content_type_param = $("input#content_type", $closestForm).fieldSerialize();
@@ -501,7 +504,6 @@
       var $editNode = $(".textile-edit", this).first();  
       var $textNode = $(".textile-text", this).first();  
       var $closestForm =  $editNode.closest("form");
-      var $closestForm = $("form").first();
       var name = $editNode.attr("name");      
       
       // collect submit parameters.  These should probably be shoved into a data hash instead of a url string...
