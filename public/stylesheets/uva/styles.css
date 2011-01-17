@@ -1115,6 +1115,17 @@ form#release_and_submit {
 	margin-top: -40px;
 }
 
+#note-text {
+	height: 200px;
+	width: 340px;
+	background: white;
+	padding: 4px;
+}
+
+#note-text > form > textarea {
+	border: none;
+}
+
 fieldset#title_fieldset label, 
 fieldset#keywords_fieldset label, 
 fieldset#notes_fieldset label {
