@@ -297,6 +297,7 @@
             break;
           default:
           }
+          $editNode.css("background-color","white");
      			$.noticeAdd({
              inEffect:               {opacity: 'show'},      // in effect
              inEffectDuration:       600,                    // in effect duration in miliseconds
@@ -307,6 +308,8 @@
             });
          },
          error: function(xhr, textStatus, errorThrown){
+
+          $editNode.css("background-color","#fb6c6c");
      			$.noticeAdd({
              inEffect:               {opacity: 'show'},      // in effect
              inEffectDuration:       600,                    // in effect duration in miliseconds

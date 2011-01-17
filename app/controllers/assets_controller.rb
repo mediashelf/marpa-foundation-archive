@@ -25,7 +25,18 @@ class AssetsController < ApplicationController
     logger.debug("attributes submitted: #{updater_method_args.inspect}")
     # this will only work if there is only one datastream being updated.
     # once ActiveFedora::MetadataDatastream supports .update_datastream_attributes, use that method instead (will also be able to pass through params["asset"] as-is without usin prep_updater_method_args!)
-    result = @document.update_indexed_attributes(updater_method_args[:params], updater_method_args[:opts])
+    if updater_method_args[:params].keys.include? [:embargo, :embargo_release_date]
+      em_date = updater_method_args[:params][[:embargo, :embargo_release_date]]["0"]
+      unless em_date.blank?
+        begin 
+          !Date.parse(em_date)
+        rescue
+          updater_method_args[:params][[:embargo,:embargo_release_date]]["0"] = ""
+          raise "Unacceptable date format"
+        end
+      end
+    end
+      result = @document.update_indexed_attributes(updater_method_args[:params], updater_method_args[:opts])
     @document.save
     #response = attrs.keys.map{|x| escape_keys({x=>attrs[x].values})}
     response = Hash["updated"=>[]]
@@ -42,7 +53,7 @@ class AssetsController < ApplicationController
     if params.has_key?(:field_id)
       response = last_result_value
     end
-  
+    
     respond_to do |want| 
       want.html { 
         if @document.class == HydrangeaArticle
