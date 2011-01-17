@@ -678,6 +678,15 @@ li div .license {
 	font-weight: bold;
 }
 
+a.destroy_contributor {
+	top: 2px;
+	right: -15px;
+}
+
+a.destroy_file_asset {
+	text-align: right;
+}
+
 .browse_value {
 	margin: 0 30px 10px 10px;	
 	line-height: 18px;
@@ -1018,9 +1027,9 @@ legend > small {
 	color: red;
 	font-size: x-small;
 	font-weight: normal;
-	margin-top: 2px;
+	margin-top: 0;
 	margin-left: 10px;
-	float: right;
+	display: inline;
 }
 
 li fieldset label {
