@@ -1073,6 +1073,11 @@ ul.optional input.editable-edit.edit {
 	width: 340px;
 }
 
+dd.citation ul input.editable-edit.edit {
+	width: 160px;
+}
+
+
 input[type="text"] {
 	display: block;
 }

@@ -32,17 +32,20 @@
       var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
       var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
       var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
-      var licenseAgreedTo = $("#copyright_uvalicense").is(':checked');
+      var licenseAgreedTo = ($("#copyright_uvalicense").attr("value") == "yes");
 
       if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
 					$('ul.optional').css('background', 'white');
           $('ul.optional input').enable();
 					$("#submitForRelease").enable();
-					$("#keywords_fieldset a.addval").show();					
+					$("#keywords_fieldset a.addval").show();
+					$("#note-text").css('border', '#C3C3C3');
       } else {
+					$('ul.optional').css('background', '#CECECE');
           $('ul.optional input').attr("disabled", "disabled");
           $('#submitForRelease').attr("disabled", "disabled");
 					$("#keywords_fieldset a.addval").hide();
+					$("#note-text").css('border', 'none');					
       }
     }
   };
