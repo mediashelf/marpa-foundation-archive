@@ -10,7 +10,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: white;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:  Helvetica, Arial, "Armino", "Nimbus Sans L", "Droid Sans", sans-serif;
 	font-size: 13px;
 	color: #121212;	
 	text-align: center; /* for IE */	
@@ -22,12 +22,12 @@ button.ui-button-icon-only {
 }
 
 .select-edit {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:  Helvetica, Arial, "Armino", "Nimbus Sans L", "Droid Sans", sans-serif;
 	font-size: 11px;	
 }
 
 #re-run-action, #re-run-add-contributor-action {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:  Helvetica, Arial, "Armino", "Nimbus Sans L", "Droid Sans", sans-serif;
 	color: #0F3E83;	
 }
 
@@ -45,6 +45,8 @@ button.ui-button-icon-only {
 	margin-bottom: 8px;
 	color: #5B4418;
 	display: block;
+	font-family: "Times New Roman", Times, "Timo", "Droid Serif", serif;
+	font-weight: normal;
 }
 
 .error, .notice, .errorExplanation {
@@ -117,6 +119,11 @@ a.destructive:hover {
 	cursor: pointer;
 }
 
+#uvalicense_read_all,
+#uvalicense p {
+	margin-left: 16px;
+}
+
 button {
 	min-height: 10px;	
 	font-family: Arial, Helvetica, sans-serif;
@@ -153,6 +160,9 @@ dl dd {
 
 .multi_inline label {
 	top: -1.5em;
+	color: black;
+	background-color: white;	
+	padding-top: 0;	
 }
 
 div#create-asset-box {
@@ -1004,12 +1014,36 @@ div#delete_dialog div.button {
 	width: 450px;
 }
 
-ul.required li {
-	list-style-image: url('/images/chkbox_empty.png');
+ul.step {
+	margin-left: 20px;
+}
+
+ul.step > li {
+	list-style: none;
+	margin-left: 60px;
+}
+
+ul .progressItem {
+	margin-left: -20px;
+	padding-left: 20px;
+	display: block;	
+	float: left;
+	color: #576BA1;
+	font-size: 14px;
+	font-family: "Times New Roman", Times, "Timo", "Droid Serif", serif;
+	background-image: url('/images/chkbox_empty.png');
+	background-repeat: no-repeat;	
+}
+
+ul .progressItem small {
+	display: block;
+	color: #999;
+	font-family:  Helvetica, Arial, "Armino", "Nimbus Sans L", "Droid Sans", sans-serif;	
+	font-size: 11px;
 }
 
 li fieldset {
-	margin: 0 0 15px 5px;
+	margin: 0 0 15px 0;
 	padding-left: 0;
 	border: none;
 	width: 450px;
@@ -1020,26 +1054,50 @@ li fieldset legend {
 	font-size: 16px;
 	color: black;
 	line-height: 18px;
-	width: 340px;
+	width: 400px;
+	background-color: #F4F6FE;
+	border-top: 2px solid #627BB0;
+	padding: 4px;
+}
+
+fieldset#citation_fieldset > ul > li > fieldset > legend {
+	color: black;
+	font-size: 10px;
+	line-height: 8px;	
+	font-weight: normal;
+	border-top: none;
+	background-color: white;
+	padding: 3px 0 0 0;
+	display: block;
 }
 
 legend > small {
 	position: absolute;
-	left: 340px;
+	left: 450px;
 	color: red;
 	font-size: x-small;
 	font-weight: normal;
-	margin-top: 3px;
+	margin-top: 1px;
 	padding-top: 0;
 	display: inline;
 	text-align: right;
+	background-color: #F4F6FE;
+}
+
+fieldset#citation_fieldset legend > small {
+	background-color: white;
+}
+
+legend > label {
+	display: block;
 }
 
 li fieldset label {
+	padding-top: 4px;
 	font-weight: normal;
-	font-size: 11px;
-	line
+	font-size: 13px;
 }
+
 li fieldset .field_wrapper label {
 	display: block;
 }
@@ -1079,14 +1137,47 @@ div#add-contributor-box {
 }
 
 input#title_info_main_title,
-ul.optional input.editable-edit.edit {
+ul.step input.editable-edit.edit {
 	width: 340px;
 }
 
+dd.citation li {
+	min-width: 50px;
+	width: 60px;
+}
+
 dd.citation ul input.editable-edit.edit {
+	width: 40px;	
+}
+
+dd.person ul input.editable-edit.edit {
 	width: 160px;
 }
 
+#citation_fieldset > ul {
+	margin-left: 0;
+}
+
+#citation_fieldset > ul > li {
+	list-style: none;
+}
+
+dl dd.citation {
+	margin-top: 1em;
+	margin-bottom: -1em;
+}
+
+#citation_fieldset > ul > li > fieldset {
+	margin-bottom: 0px;
+}
+
+#citation_fieldset > ul > li > fieldset > label {
+	color: #999;
+	font-size: 0.8em;
+	font-weight: normal;
+	white-space: nowrap;
+	background-color: white;
+}
 
 input[type="text"] {
 	display: block;
@@ -1126,9 +1217,6 @@ ul.fulfilled {
 	padding: 0;
 }
 
-form#release_and_submit {
-	margin-top: -40px;
-}
 
 #note-text > form > textarea, #note-text > textarea,
 #abstract-text > form > textarea, #abstract-text > textarea {
@@ -1150,7 +1238,7 @@ fieldset#publication_fieldset label {
 }
 
 #uvalicense_read_all {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .fl-uploader-footer-buttons {

@@ -76,8 +76,8 @@ jQuery(document).ready(function($) {
 	
 	// FORCE FLUID INFUSION TEXT FIELDS TO A MINIMUM LENGTH
 	$('input.editable-edit').css('min-width', '150px');
-	// $('input#title_info_main_title').css('min-width', '300px');	
-	
+	$('dd.citation ul input.editable-edit.edit').css('min-width', '40px');
+
 	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');

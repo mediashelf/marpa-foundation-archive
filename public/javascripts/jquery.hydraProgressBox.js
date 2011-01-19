@@ -13,18 +13,18 @@
         el = $("#"+elementId);
         if (bool) {
           el.addClass("progressItemChecked") 
-          el.css("list-style-image",'url(/images/chkbox_checked.png)')
+          el.css("background-image",'url(/images/chkbox_checked.png)')
           // el.show();
         } else {
           el.removeClass("progressItemChecked")    
-          el.css("list-style-image",'url(/images/chkbox_empty.png)')      
+          el.css("background-image",'url(/images/chkbox_empty.png)')      
         };
         $.fn.hydraProgressBox.testReleaseReadiness();
     },
     
     showProcessingInProgress: function(elementId) {
       el = $("#"+elementId);
-      el.css("list-style-image", 'url(/images/processing.gif)');
+      el.css("background-image", 'url(/images/processing.gif)');
       // el.show();
     },
     
@@ -35,17 +35,9 @@
       var licenseAgreedTo = ($("#copyright_uvalicense").attr("value") == "yes");
 
       if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
-					$('ul.optional').css('background', 'white');
-          $('ul.optional input').enable();
-          $('ul.optional textarea').enable();
 					$("#submitForRelease").enable();
-					$("#keywords_fieldset a.addval").show();
       } else {
-					$('ul.optional').css('background', '#CECECE');
-          $('ul.optional input').attr("disabled", "disabled");
-          $('ul.optional textarea').attr("disabled", "disabled");
-          $('#submitForRelease').attr("disabled", "disabled");
-					$("#keywords_fieldset a.addval").hide();					
+          $('#submitForRelease').attr("disabled", "disabled");			
       }
     }
   };

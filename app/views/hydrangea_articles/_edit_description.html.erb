@@ -10,12 +10,16 @@
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
-	<ul id="required">
+	<ul id="step_1" class="step">
+			<div  class="progressItem <% unless author_entries.empty? && (title_values.empty? && title_values.first.empty?) && (license_values.empty? && license_values.first.empty? && license_values.first.downcase == "yes") %>progressItemChecked<% end %>" id="step_1_label">Add<small>Step 1 of 3</small></div>
 
-	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
+	  <li id="pbAuthorProvided">
 		<fieldset id="contributors_fieldset">
-		<legend>Enter the Article's Author<small>Required</small></legend>	
-	    <div id="contributors" style="width:100%;">
+		<legend>Enter the Article's Author
+			<small>Required</small>
+	    	<label>An individual or organizational author of work.</label>			
+		</legend>	
+		<div id="contributors" style="width:100%;">
 	      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
 	    </div>    
 	    <%# Button for adding person/conference/organization %>
@@ -26,7 +30,7 @@
 		</fieldset>
 	</li> 
 	
- <li id="pbTitleProvided" class="progressItem <% if !title_values.empty? && !title_values.first.empty? %>progressItemChecked<% end %>">
+ <li id="pbTitleProvided">
 	<fieldset id="title_fieldset">
 	<legend>Enter the Article's Title<small>Required</small></legend>	
 <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
@@ -34,9 +38,12 @@
  </li> 
 
   
-<li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? && license_values.first.downcase == "yes" %>progressItemChecked<% end %>">
+<li id="pbLicenseAgreedto">
 	<fieldset id="license_fieldset">
-	<legend>Agree to Submission Terms<small>Required</small></legend>
+	<legend>License
+		<small>Required</small>
+		<label>The license outlines the Library's use of your work while acknowledging that you, or the current copyright owner, will continue to be the rights holder.</label>
+	</legend>
 	<div id="uvalicense" class="license">
 	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
 	                <label for="license">
@@ -55,23 +62,21 @@
 </li>
 
 	
-	<li id="pbFileUploaded" class="progressItem <% if !@document_fedora.parts(:response_format=>:id_array).empty? %>progressItemChecked<% end %>">
+	<li id="pbFileUploaded">
 		<fieldset id="uploaded_files">
-		<legend>Upload the Article<small>Required</small></legend>	
-    	<div id="uploads" data-pid=<%= params[:id] %>></div>
+		<legend>Upload the Article
+			<small>Required</small>
+			<label>Upload a PDF any supplemental files for the work</label>			
+		</legend>	
+		<div id="uploads" data-pid=<%= params[:id] %>></div>
 		</fieldset>
 	</li> 
-	</ul><!-- END REQUIRED FIELDS -->
-	<ul class="optional">
+	</ul><!-- END STEP 1 -->
+	
+	<ul id="step_2" class="step">
+		<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
 	
 		<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
-	
-	<li id="pbPeerReviewed">
-		<fieldset id="peer_reviewed_fieldset">
-		<legend>Peer Reviewed</legend>
-		  <%= fedora_checkbox(@document_fedora, "properties", [:peer_reviewed]) %>
-		 <label>This work has undergone a peer review process</label>	
-	</li>
 	
 	<li id="pbAbstract">
 		<fieldset id="abstract_fieldset">
@@ -80,38 +85,56 @@
 		</fieldset>
 	</li>
 	
+	<li id="pbPeerReviewed">
+		<fieldset id="peer_reviewed_fieldset">
+		<legend>Peer Reviewed</legend>
+		  <%= fedora_checkbox(@document_fedora, "properties", [:peer_reviewed]) %>
+		 <label>This work has undergone a peer review process</label>	
+	</li>	
+	
 	<li id="pbNotes">
 		<fieldset id="notes_fieldset">
-		<legend>Notes</legend>	
+		<legend>Notes
+			<label>Any additional notes or comments about the work.</label>	
+		</legend>
+		
 	  <%= fedora_text_area(@document_fedora,"descMetadata", [:note], :multiple=>false) %>
 		</fieldset>
 	</li>
 
 	<li id="pbKeywords">
 		<fieldset id="keywords_fieldset">
-		<legend>Keywords</legend>		
+		<legend>Keywords
+			<label>Add keywords to describe the work.</label>				
+		</legend>
     	<%= fedora_text_field(@document_fedora,"descMetadata", [:subject, :topic], :multiple=>true) %>
 		<%= fedora_text_field_insert_link "descMetadata", [:subject, :topic] %>
-		</fieldset>
-	</li>
-
-	<li id="pbEmbargo">
-		<fieldset id="embargo_fieldset">
-			<legend>Embargo Until</legend>
-		  	<%= fedora_field_label("rightsMetadata", [:embargo, :embargo_release_date], "Some info text about embargo") %>
-		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
 		</fieldset>
 	</li>
 </ul>
 
 </form>
-<!-- END OPTIONAL FIELDS -->
+<!-- END STEP 2 -->
 
-	<form id="release_and_submit" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
-	<ul class="optional">
+<form id="release_and_submit" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
+
+<ul id="step_3" class="step">
+		<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_3_label">Release<small>Step 3 of 3</small></div>
+
+	<li id="pbEmbargo">
+		<fieldset id="embargo_fieldset">
+			<legend>Release Date
+				<label>The work's files will not be visible in Libra until the date selected.</label>
+			</legend>
+		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
+		</fieldset>
+	</li>
+	
   <li id="pbAvailability">
 		<fieldset id="availability_fieldset">
-			<legend>Availability</legend>
+		<legend>Availability
+			<label>Choose who can see and download your work.</label>
+		</legend>
       <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"public"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"public"}) %>
 		</fieldset>
 	</li>

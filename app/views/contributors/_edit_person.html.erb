@@ -10,6 +10,10 @@
   <dl class="person contributor" id="<%= base_id %>">
     <dd class="multi_inline person">
       <ul>
+        <li class="computing_id">
+          <%= fedora_field_label("descMetadata", [{:person=>person_counter}, :first_name], "Computing ID") %>
+          <%= fedora_text_field(@document_fedora,"descMetadata", [{:person=>person_counter}, :computing_id], :multiple=>false) %>
+        </li>
         <li class="name_first">
           <%= fedora_field_label("descMetadata", [{:person=>person_counter}, :first_name], "First Name") %>
           <%= fedora_text_field(@document_fedora,"descMetadata", [{:person=>person_counter}, :first_name], :multiple=>false) %>
