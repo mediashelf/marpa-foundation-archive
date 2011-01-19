@@ -4,17 +4,6 @@ module Hydra::AccessControlsEnforcement
   private
 
 
-  def enforce_read_permissions
-    unless @document['read_access_t'] && (@document['read_access_t'].first == "public" || @document['read_access_t'].first == "Public")
-    # case @document['access_t'].first
-    # when /private/
-      unless reader?
-        flash[:notice]= "You do not have sufficient access privileges to read this document, which has been marked private."
-        redirect_to(:action => 'index', :q => nil , :f => nil) and return false
-      end
-    end
-  end
-
   def build_lucene_query(user_query)
     q = ""
     # start query of with user supplied query term
