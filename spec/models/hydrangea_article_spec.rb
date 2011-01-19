@@ -83,6 +83,8 @@ describe HydrangeaArticle do
         @article.datastreams["descMetadata"].update_indexed_attributes({[:title_info, :main_title]=>"my title", [{:person=>0}, :last_name]=>"author_last_name", [{:person=>0}, :role, :text]=>"Author"})
         @article.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
         @article.stubs(:parts).returns([@file_asset])
+        # adding for UVa Libra implementation
+        @article.datastreams["properties"].release_to_values = "public"
         @article.to_solr.should have_solr_fields(:read_access_group_t=>"public")
       end
       it "should support releasing for the general public" do
@@ -91,9 +93,10 @@ describe HydrangeaArticle do
         @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"public")
       end
       it "should support releasing for logged in (registered) users" do
-        @ready_to_release.datastreams["properties"].release_to_values = "registered"
+        # replaced registered with uva for Libra OA implementation
+        @ready_to_release.datastreams["properties"].release_to_values = "uva"
         @ready_to_release.datastreams["properties"].released_values = "true"
-        @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"registered")
+        @ready_to_release.to_solr.should have_solr_fields(:read_access_group_t=>"uva")
         @ready_to_release.to_solr.should_not have_solr_fields(:read_access_group_t=>"public")
       end
     end
