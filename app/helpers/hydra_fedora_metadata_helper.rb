@@ -88,10 +88,17 @@ module HydraFedoraMetadataHelper
     
     result = field_selectors_for(datastream_name, field_key)
     
+    # adding so that customized checked and unchecked values can be passed in
+    checked_value = (opts[:default_values] && opts[:default_values][:checked]) ? opts[:default_values][:checked] : "yes"
+    unchecked_value = (opts[:default_values] && opts[:default_values][:unchecked]) ? opts[:default_values][:unchecked] : "no"
+
+    result << tag(:input, :type=>"hidden", :id=>"#{h_name}_checked_value", :value=>checked_value )
+    result << tag(:input, :type=>"hidden", :id=>"#{h_name}_unchecked_value", :value=>unchecked_value )
+    
     if field_values.first.downcase == "yes"
-      result << tag(:input, :type=>"checkbox", :id=>h_name, :class=>"fedora-checkbox", :rel=>h_name, :name=>"asset[#{datastream_name}][#{h_name}][0]", :value=>"yes", :checked=>"checked")
+      result << tag(:input, :type=>"checkbox", :id=>h_name, :class=>"fedora-checkbox", :rel=>h_name, :name=>"asset[#{datastream_name}][#{h_name}][0]", :value=>checked_value, :checked=>"checked")
     else
-      result << tag(:input, :type=>"checkbox", :id=>h_name, :class=>"fedora-checkbox", :rel=>h_name, :name=>"asset[#{datastream_name}][#{h_name}][0]", :value=>"no")
+      result << tag(:input, :type=>"checkbox", :id=>h_name, :class=>"fedora-checkbox", :rel=>h_name, :name=>"asset[#{datastream_name}][#{h_name}][0]", :value=>unchecked_value)
     end
     return result
   end

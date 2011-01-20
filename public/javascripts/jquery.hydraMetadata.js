@@ -572,13 +572,17 @@
      this.each(function() {
        $(this).unbind('click.hydra').bind('click.hydra', function(e) {
          var checked = $(this).attr("checked");
+         // temporarily uncheck it so it gets submitted
          if(!checked) {
            $(this).attr("checked",true);
          }
-         if ($(this).val() == "yes") {
-           $(this).val("no");
+         // adding checks for yes and no attributes so that other values can be passed in
+         checkbox_id = $(this).attr("id");
+
+         if ($(this).val() == $("#"+checkbox_id+"_checked_value").val() ) {
+           $(this).val($("#"+checkbox_id+"_unchecked_value").val() );
          } else {
-           $(this).val("yes");
+           $(this).val($("#"+checkbox_id+"_checked_value").val() );
          }
          $.fn.hydraMetadata.saveCheckbox(this,e);
          if (!checked) {

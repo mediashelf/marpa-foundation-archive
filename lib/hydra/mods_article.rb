@@ -50,6 +50,7 @@ module Hydra
         t.origin_info(:path=>"originInfo") {
           t.publisher
           t.date_issued(:path=>"dateIssued")
+          t.issuance
         }
         t.issn(:path=>"identifier", :attributes=>{:type=>"issn"})
         t.issue(:path=>"part") {
@@ -70,6 +71,7 @@ module Hydra
         t.url (:path=>"url")
       }
       t.publication_url(:proxy=>[:location,:url])
+      t.peer_reviewed(:proxy=>[:journal,:origin_info,:issuance])
     end
     
     # Generates an empty Mods Article (used when you call ModsArticle.new without passing in existing xml)
@@ -109,6 +111,7 @@ module Hydra
                xml.originInfo {
                  xml.publisher
                  xml.dateIssued
+                 xml.issuance
                }
                xml.part {
                  xml.detail(:type=>"volume") {
