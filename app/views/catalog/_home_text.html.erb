@@ -23,7 +23,7 @@
         <%-
           get_randomized_display_items(display_facet.items).each_with_index do |item,index| 
         -%>
-          <% if index % 4 == 0 %>
+          <% if index % 3 == 0 %>
             <div class="author_browse_row">
           <% end %>
             <div class="author_browse_image">
@@ -35,8 +35,9 @@
                 <%= render_journal_facet_value(facet_name, item) %>
               <% end %>
             </div>
-          <% if index % 4 == 3 %>
+          <% if index % 3 == 2 %>
             </div>
+            <% break if index == 5 %>
           <% end %>
         <% end %>
       </div>
