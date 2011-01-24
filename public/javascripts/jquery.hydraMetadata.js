@@ -332,7 +332,7 @@
           $("#person_"+ix+"_first_name-text").text(msg);
           $("#person_"+ix+"_first_name-text").removeClass("fl-inlineEdit-invitation-text");
           var authorProvided = (msg.length > 0);
-          $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
+          $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', authorProvided);
         }
       });
       $.ajax({
@@ -343,7 +343,7 @@
           $("#person_"+ix+"_last_name-text").text(msg);
           $("#person_"+ix+"_last_name-text").removeClass("fl-inlineEdit-invitation-text");
           var authorProvided = (msg.length > 0);
-          $.fn.hydraProgressBox.checkUncheckProgress('pbAuthorProvided', authorProvided);
+          $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', authorProvided);
         }
       });
       $.ajax({
@@ -424,7 +424,7 @@
    					$fileAssetNode.remove();
    					// UVA Libra -- update progress box if files deleted.
      				var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
-     				$.fn.hydraProgressBox.checkUncheckProgress('pbFileUploaded', fileUploaded);
+     				$.fn.hydraProgressBox.checkUncheckProgress('step_1_label', fileUploaded);
    				});         
  				}
        });
