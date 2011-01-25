@@ -67,11 +67,13 @@ Blacklight.configure(:shared) do |config|
   #   The ordering of the field names is the order of the display 
   config[:facet] = {
     :field_names => [
+      "person_full_name_cid_facet",
       "object_type_facet",
       "department_facet",
       "peer_reviewed_facet"
       ],
     :labels => {
+      "person_full_name_cid_facet"=>"Author",
       "object_type_facet"=>"Type of Work",
       "department_facet"=>"Department",
       "peer_reviewed_facet"=>"Peer Reviewed"

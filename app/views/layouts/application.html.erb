@@ -20,7 +20,7 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
 	<![endif]-->
   </head>
   
-    <body <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %> onload="$('input#q').focus();"<% end %>>
+    <body  onload="$('#facet_author').closest('div').hide();<% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>$('input#q').focus();<% end %>">
 
 		<div id="uva_lib_banner">
 		  	<ul>
