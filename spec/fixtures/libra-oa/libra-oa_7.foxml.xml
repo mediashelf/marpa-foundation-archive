@@ -7,11 +7,11 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE=""/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
-<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2010-11-22T17:16:40.783Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2010-11-22T17:21:26.992Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-01-25T20:19:15.837Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-01-25T20:22:46.796Z"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
-<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2010-11-22T17:16:40.783Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-01-25T20:19:15.837Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
 <foxml:xmlContent>
 <audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
 <audit:record ID="AUDREC1">
@@ -19,7 +19,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>addDatastream</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:16:40.923Z</audit:date>
+<audit:date>2011-01-25T20:19:16.152Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC2">
@@ -27,7 +27,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>addDatastream</audit:action>
 <audit:componentID>RELS-EXT</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:16:40.989Z</audit:date>
+<audit:date>2011-01-25T20:19:16.226Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC3">
@@ -35,7 +35,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>addDatastream</audit:action>
 <audit:componentID>rightsMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:16:41.099Z</audit:date>
+<audit:date>2011-01-25T20:19:16.287Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC4">
@@ -43,7 +43,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>addDatastream</audit:action>
 <audit:componentID>properties</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:16:41.155Z</audit:date>
+<audit:date>2011-01-25T20:19:16.364Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC5">
@@ -51,71 +51,71 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:17:44.724Z</audit:date>
+<audit:date>2011-01-25T20:19:37.521Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC6">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyObject</audit:action>
-<audit:componentID></audit:componentID>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:18:52.921Z</audit:date>
+<audit:date>2011-01-25T20:19:37.573Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC7">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>descMetadata</audit:componentID>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:18:53.224Z</audit:date>
+<audit:date>2011-01-25T20:19:42.558Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC8">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyObject</audit:action>
-<audit:componentID></audit:componentID>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:19:13.642Z</audit:date>
+<audit:date>2011-01-25T20:19:42.635Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC9">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>descMetadata</audit:componentID>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:19:13.680Z</audit:date>
+<audit:date>2011-01-25T20:19:58.384Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC10">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyObject</audit:action>
-<audit:componentID></audit:componentID>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:19:37.600Z</audit:date>
+<audit:date>2011-01-25T20:19:58.454Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC11">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>descMetadata</audit:componentID>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:19:37.678Z</audit:date>
+<audit:date>2011-01-25T20:20:10.350Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC12">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyObject</audit:action>
-<audit:componentID></audit:componentID>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:19:43.832Z</audit:date>
+<audit:date>2011-01-25T20:20:10.448Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC13">
 <audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>descMetadata</audit:componentID>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:19:43.876Z</audit:date>
+<audit:date>2011-01-25T20:20:19.942Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC14">
@@ -123,7 +123,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:00.575Z</audit:date>
+<audit:date>2011-01-25T20:20:25.965Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC15">
@@ -131,7 +131,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:00.617Z</audit:date>
+<audit:date>2011-01-25T20:20:26.063Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC16">
@@ -139,7 +139,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:27.117Z</audit:date>
+<audit:date>2011-01-25T20:20:27.734Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC17">
@@ -147,7 +147,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:27.159Z</audit:date>
+<audit:date>2011-01-25T20:20:27.797Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC18">
@@ -155,7 +155,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:45.720Z</audit:date>
+<audit:date>2011-01-25T20:20:33.030Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC19">
@@ -163,7 +163,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:45.763Z</audit:date>
+<audit:date>2011-01-25T20:20:33.108Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC20">
@@ -171,7 +171,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:48.662Z</audit:date>
+<audit:date>2011-01-25T20:20:35.112Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC21">
@@ -179,7 +179,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:48.732Z</audit:date>
+<audit:date>2011-01-25T20:20:35.158Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC22">
@@ -187,7 +187,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:50.498Z</audit:date>
+<audit:date>2011-01-25T20:20:36.882Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC23">
@@ -195,7 +195,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:50.553Z</audit:date>
+<audit:date>2011-01-25T20:20:36.943Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC24">
@@ -203,7 +203,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:53.578Z</audit:date>
+<audit:date>2011-01-25T20:20:38.745Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC25">
@@ -211,7 +211,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:53.627Z</audit:date>
+<audit:date>2011-01-25T20:20:38.811Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC26">
@@ -219,7 +219,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:55.002Z</audit:date>
+<audit:date>2011-01-25T20:20:41.312Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC27">
@@ -227,7 +227,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:20:55.076Z</audit:date>
+<audit:date>2011-01-25T20:20:41.363Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC28">
@@ -235,7 +235,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyObject</audit:action>
 <audit:componentID></audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:21:26.902Z</audit:date>
+<audit:date>2011-01-25T20:20:46.522Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 <audit:record ID="AUDREC29">
@@ -243,7 +243,199 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:action>modifyDatastreamByValue</audit:action>
 <audit:componentID>descMetadata</audit:componentID>
 <audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-22T17:21:26.992Z</audit:date>
+<audit:date>2011-01-25T20:20:46.590Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC30">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:20:48.357Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC31">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:20:48.422Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC32">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:00.898Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC33">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:00.954Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC34">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:04.038Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC35">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:04.111Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC36">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:06.762Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC37">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:06.866Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC38">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:08.886Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC39">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:08.948Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC40">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:14.856Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC41">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:14.935Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC42">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:41.364Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC43">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:41.422Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC44">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:43.263Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC45">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:43.343Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC46">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:46.332Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC47">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:21:46.400Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC48">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:22:40.562Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC49">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:22:40.656Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC50">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:22:45.118Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC51">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>properties</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:22:45.215Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC52">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:22:46.731Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC53">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>properties</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-01-25T20:22:46.796Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
 </audit:auditTrail>
@@ -251,7 +443,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2010-11-22T17:16:40.783Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="341">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2011-01-25T20:19:15.837Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="342">
 <foxml:xmlContent>
 <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:identifier>libra-oa:7</dc:identifier>
@@ -260,7 +452,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="descMetadata.0" LABEL="" CREATED="2010-11-22T17:16:40.923Z" MIMETYPE="text/xml" SIZE="1404">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="" CREATED="2011-01-25T20:19:16.152Z" MIMETYPE="text/xml" SIZE="1464">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -271,6 +463,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family"></namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id></computing_id>
+    <description></description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -292,6 +485,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <originInfo>
       <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
       <detail type="volume">
@@ -313,60 +507,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.1" LABEL="" CREATED="2010-11-22T17:18:53.224Z" MIMETYPE="text/xml" SIZE="2465">
-<foxml:xmlContent>
-<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
-  <titleInfo lang="">
-    <title></title>
-  </titleInfo>
-  <name type="personal">
-    <namePart type="given"></namePart>
-    <namePart type="family"></namePart>
-    <affiliation>University of Virginia</affiliation>
-    <computing_id></computing_id>
-    <role>
-      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
-    </role>
-  </name>
-  <typeOfResource></typeOfResource>
-  <genre authority="marcgt"></genre>
-  <language>
-    <languageTerm authority="iso639-2b" type="code"></languageTerm>
-  </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
-  <subject>
-    <topic></topic>
-  </subject>
-  <relatedItem type="host">
-    <titleInfo>
-      <title></title>
-    </titleInfo>
-    <identifier type="issn"></identifier>
-    <originInfo>
-      <publisher></publisher>
-      <dateIssued></dateIssued>
-    </originInfo>
-    <part>
-      <detail type="volume">
-        <number></number>
-      </detail>
-      <detail type="number">
-        <number></number>
-      </detail>
-      <extent unit="pages">
-        <start></start>
-        <end></end>
-      </extent>
-      <date></date>
-    </part>
-  </relatedItem>
-  <location>
-    <url></url>
-  </location>
-</mods>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.2" LABEL="" CREATED="2010-11-22T17:19:13.680Z" MIMETYPE="text/xml" SIZE="2480">
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="" CREATED="2011-01-25T20:19:37.573Z" MIMETYPE="text/xml" SIZE="1525">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -377,6 +518,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -386,7 +528,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -398,6 +540,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <originInfo>
       <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
       <detail type="volume">
@@ -419,17 +562,18 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.3" LABEL="" CREATED="2010-11-22T17:19:37.678Z" MIMETYPE="text/xml" SIZE="2508">
+<foxml:datastreamVersion ID="descMetadata.2" LABEL="" CREATED="2011-01-25T20:19:42.635Z" MIMETYPE="text/xml" SIZE="1525">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
-    <title>Khadzhi-Murat&apos;s Silence</title>
+    <title></title>
   </titleInfo>
   <name type="personal">
     <namePart type="given">David</namePart>
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -439,7 +583,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -451,6 +595,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <originInfo>
       <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
       <detail type="volume">
@@ -472,7 +617,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.4" LABEL="" CREATED="2010-11-22T17:19:43.876Z" MIMETYPE="text/xml" SIZE="2521">
+<foxml:datastreamVersion ID="descMetadata.3" LABEL="" CREATED="2011-01-25T20:19:58.454Z" MIMETYPE="text/xml" SIZE="1553">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -483,6 +628,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -492,7 +638,62 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title></title>
+    </titleInfo>
+    <identifier type="issn"></identifier>
+    <originInfo>
+      <publisher></publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="volume">
+        <number></number>
+      </detail>
+      <detail type="number">
+        <number></number>
+      </detail>
+      <extent unit="pages">
+        <start></start>
+        <end></end>
+      </extent>
+      <date></date>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.4" LABEL="" CREATED="2011-01-25T20:20:26.063Z" MIMETYPE="text/xml" SIZE="1566">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -504,6 +705,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <originInfo>
       <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
       <detail type="volume">
@@ -525,7 +727,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.5" LABEL="" CREATED="2010-11-22T17:20:00.617Z" MIMETYPE="text/xml" SIZE="2530">
+<foxml:datastreamVersion ID="descMetadata.5" LABEL="" CREATED="2011-01-25T20:20:27.797Z" MIMETYPE="text/xml" SIZE="1495">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -536,6 +738,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -545,7 +748,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -553,15 +756,13 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <titleInfo>
       <title>Slavic Review</title>
     </titleInfo>
-    <identifier type="issn">0037-6779</identifier>
+    <identifier type="issn"></identifier>
     <originInfo>
       <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
-      <detail type="volume">
-        <number></number>
-      </detail>
       <detail type="number">
         <number></number>
       </detail>
@@ -578,7 +779,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.6" LABEL="" CREATED="2010-11-22T17:20:27.159Z" MIMETYPE="text/xml" SIZE="2592">
+<foxml:datastreamVersion ID="descMetadata.6" LABEL="" CREATED="2011-01-25T20:20:33.108Z" MIMETYPE="text/xml" SIZE="1568">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -589,6 +790,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -598,7 +800,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -606,15 +808,13 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <titleInfo>
       <title>Slavic Review</title>
     </titleInfo>
-    <identifier type="issn">0037-6779</identifier>
+    <identifier type="issn"></identifier>
     <originInfo>
-      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
-      <detail type="volume">
-        <number></number>
-      </detail>
       <detail type="number">
         <number></number>
       </detail>
@@ -623,59 +823,9 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
         <end></end>
       </extent>
       <date></date>
-    </part>
-  </relatedItem>
-  <location>
-    <url></url>
-  </location>
-</mods>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.7" LABEL="" CREATED="2010-11-22T17:20:45.763Z" MIMETYPE="text/xml" SIZE="2596">
-<foxml:xmlContent>
-<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
-  <titleInfo lang="">
-    <title>Khadzhi-Murat&apos;s Silence</title>
-  </titleInfo>
-  <name type="personal">
-    <namePart type="given">David</namePart>
-    <namePart type="family">Herman</namePart>
-    <affiliation>University of Virginia</affiliation>
-    <computing_id>dh9a</computing_id>
-    <role>
-      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
-    </role>
-  </name>
-  <typeOfResource></typeOfResource>
-  <genre authority="marcgt"></genre>
-  <language>
-    <languageTerm authority="iso639-2b" type="code"></languageTerm>
-  </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
-  <subject>
-    <topic></topic>
-  </subject>
-  <relatedItem type="host">
-    <titleInfo>
-      <title>Slavic Review</title>
-    </titleInfo>
-    <identifier type="issn">0037-6779</identifier>
-    <originInfo>
-      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
-      <dateIssued></dateIssued>
-    </originInfo>
-    <part>
       <detail type="volume">
-        <number></number>
+        <number>64</number>
       </detail>
-      <detail type="number">
-        <number></number>
-      </detail>
-      <extent unit="pages">
-        <start></start>
-        <end></end>
-      </extent>
-      <date>2005</date>
     </part>
   </relatedItem>
   <location>
@@ -684,7 +834,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.8" LABEL="" CREATED="2010-11-22T17:20:48.732Z" MIMETYPE="text/xml" SIZE="2581">
+<foxml:datastreamVersion ID="descMetadata.7" LABEL="" CREATED="2011-01-25T20:20:35.158Z" MIMETYPE="text/xml" SIZE="1536">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -695,6 +845,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -704,7 +855,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -712,21 +863,22 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <titleInfo>
       <title>Slavic Review</title>
     </titleInfo>
-    <identifier type="issn">0037-6779</identifier>
+    <identifier type="issn"></identifier>
     <originInfo>
-      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
-      <detail type="volume">                64</detail>
-      <detail type="number">
-        <number></number>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start></start>
+        <end></end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
       </detail>
-      <extent unit="pages">
-        <start></start>
-        <end></end>
-      </extent>
-      <date>2005</date>
     </part>
   </relatedItem>
   <location>
@@ -735,7 +887,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.9" LABEL="" CREATED="2010-11-22T17:20:50.553Z" MIMETYPE="text/xml" SIZE="2565">
+<foxml:datastreamVersion ID="descMetadata.8" LABEL="" CREATED="2011-01-25T20:20:36.943Z" MIMETYPE="text/xml" SIZE="1537">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -746,6 +898,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -755,7 +908,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -763,68 +916,22 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <titleInfo>
       <title>Slavic Review</title>
     </titleInfo>
-    <identifier type="issn">0037-6779</identifier>
+    <identifier type="issn"></identifier>
     <originInfo>
-      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <publisher></publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
-      <detail type="volume">                64</detail>
-      <detail type="number">                1</detail>
-      <extent unit="pages">
-        <start></start>
-        <end></end>
-      </extent>
-      <date>2005</date>
-    </part>
-  </relatedItem>
-  <location>
-    <url></url>
-  </location>
-</mods>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.10" LABEL="" CREATED="2010-11-22T17:20:53.627Z" MIMETYPE="text/xml" SIZE="2566">
-<foxml:xmlContent>
-<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
-  <titleInfo lang="">
-    <title>Khadzhi-Murat&apos;s Silence</title>
-  </titleInfo>
-  <name type="personal">
-    <namePart type="given">David</namePart>
-    <namePart type="family">Herman</namePart>
-    <affiliation>University of Virginia</affiliation>
-    <computing_id>dh9a</computing_id>
-    <role>
-      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
-    </role>
-  </name>
-  <typeOfResource></typeOfResource>
-  <genre authority="marcgt"></genre>
-  <language>
-    <languageTerm authority="iso639-2b" type="code"></languageTerm>
-  </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
-  <subject>
-    <topic></topic>
-  </subject>
-  <relatedItem type="host">
-    <titleInfo>
-      <title>Slavic Review</title>
-    </titleInfo>
-    <identifier type="issn">0037-6779</identifier>
-    <originInfo>
-      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
-      <dateIssued></dateIssued>
-    </originInfo>
-    <part>
-      <detail type="volume">                64</detail>
-      <detail type="number">                1</detail>
+      <detail type="number">1</detail>
       <extent unit="pages">
         <start>1</start>
         <end></end>
       </extent>
-      <date>2005</date>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
     </part>
   </relatedItem>
   <location>
@@ -833,7 +940,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.11" LABEL="" CREATED="2010-11-22T17:20:55.076Z" MIMETYPE="text/xml" SIZE="2568">
+<foxml:datastreamVersion ID="descMetadata.9" LABEL="" CREATED="2011-01-25T20:20:38.811Z" MIMETYPE="text/xml" SIZE="1539">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -844,6 +951,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -853,7 +961,219 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn"></identifier>
+    <originInfo>
+      <publisher></publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.10" LABEL="" CREATED="2011-01-25T20:20:41.363Z" MIMETYPE="text/xml" SIZE="1539">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn"></identifier>
+    <originInfo>
+      <publisher></publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.11" LABEL="" CREATED="2011-01-25T20:20:46.590Z" MIMETYPE="text/xml" SIZE="1601">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn"></identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.12" LABEL="" CREATED="2011-01-25T20:20:48.422Z" MIMETYPE="text/xml" SIZE="1601">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn"></identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.13" LABEL="" CREATED="2011-01-25T20:21:00.954Z" MIMETYPE="text/xml" SIZE="1610">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
   <subject>
     <topic></topic>
   </subject>
@@ -865,15 +1185,124 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <originInfo>
       <publisher>The American Association for the Advancement of Slavic Studies</publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
-      <detail type="volume">                64</detail>
-      <detail type="number">                1</detail>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.14" LABEL="" CREATED="2011-01-25T20:21:04.111Z" MIMETYPE="text/xml" SIZE="1610">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date></date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.15" LABEL="" CREATED="2011-01-25T20:21:06.866Z" MIMETYPE="text/xml" SIZE="1614">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
       <extent unit="pages">
         <start>1</start>
         <end>23</end>
       </extent>
       <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
     </part>
   </relatedItem>
   <location>
@@ -882,7 +1311,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </mods>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.12" LABEL="" CREATED="2010-11-22T17:21:26.992Z" MIMETYPE="text/xml" SIZE="2581">
+<foxml:datastreamVersion ID="descMetadata.16" LABEL="" CREATED="2011-01-25T20:21:08.948Z" MIMETYPE="text/xml" SIZE="1614">
 <foxml:xmlContent>
 <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
   <titleInfo lang="">
@@ -893,6 +1322,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <namePart type="family">Herman</namePart>
     <affiliation>University of Virginia</affiliation>
     <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
     <role>
       <roleTerm authority="marcrelator" type="text">Author</roleTerm>
     </role>
@@ -902,7 +1332,272 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <language>
     <languageTerm authority="iso639-2b" type="code"></languageTerm>
   </language>
-  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer&apos;s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.&apos; This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.17" LABEL="" CREATED="2011-01-25T20:21:14.935Z" MIMETYPE="text/xml" SIZE="1614">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract></abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.18" LABEL="" CREATED="2011-01-25T20:21:41.422Z" MIMETYPE="text/xml" SIZE="2669">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer’s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.’ This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.19" LABEL="" CREATED="2011-01-25T20:21:43.343Z" MIMETYPE="text/xml" SIZE="2669">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer’s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.’ This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.20" LABEL="" CREATED="2011-01-25T20:21:46.400Z" MIMETYPE="text/xml" SIZE="2669">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer’s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.’ This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
+  <subject>
+    <topic></topic>
+  </subject>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Slavic Review</title>
+    </titleInfo>
+    <identifier type="issn">0037-6779</identifier>
+    <originInfo>
+      <publisher>The American Association for the Advancement of Slavic Studies</publisher>
+      <dateIssued></dateIssued>
+      <issuance></issuance>
+    </originInfo>
+    <part>
+      <detail type="number">1</detail>
+      <extent unit="pages">
+        <start>1</start>
+        <end>23</end>
+      </extent>
+      <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
+    </part>
+  </relatedItem>
+  <location>
+    <url></url>
+  </location>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.21" LABEL="" CREATED="2011-01-25T20:22:40.656Z" MIMETYPE="text/xml" SIZE="2682">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo lang="">
+    <title>Khadzhi-Murat&apos;s Silence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart type="given">David</namePart>
+    <namePart type="family">Herman</namePart>
+    <affiliation>University of Virginia</affiliation>
+    <computing_id>dh9a</computing_id>
+    <description>Department of Slavic Languages and Literatures</description>
+    <role>
+      <roleTerm authority="marcrelator" type="text">Author</roleTerm>
+    </role>
+  </name>
+  <typeOfResource></typeOfResource>
+  <genre authority="marcgt"></genre>
+  <language>
+    <languageTerm authority="iso639-2b" type="code"></languageTerm>
+  </language>
+  <abstract>As a fiction writer, Lev Tolstoi is most famous for strategies for the authorial domination of material, manipulative techniques like interior monologue, ostranenie (defamiliarization), absolute language, and massive particularization in the pursuit of first causes, which give a writer great leeway for a variety of interpretive and debunking projects. After his crisis, however, this invasive, totalizing fiction recedes not fully into, but very much towards, silence. Fiction is no longer the writer’s main focus; the fictions he does write are fewer in number, shorter in length, their topics treated with limited analytical depth-just enough and no more.’ This silence that besets the imaginative literature derives from a tension with ethics. Fiction writing is relativizing, self-aggrandizing, fundamentally biased towards the shallowly entertaining, pen-pushing when deeds are called for, and a host of other bad things. Late in life, however, the author undertakes a literary experiment, bold even, or rather especially, by his own standards.</abstract>
   <subject>
     <topic>Khadzhi-Murat</topic>
   </subject>
@@ -914,15 +1609,18 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <originInfo>
       <publisher>The American Association for the Advancement of Slavic Studies</publisher>
       <dateIssued></dateIssued>
+      <issuance></issuance>
     </originInfo>
     <part>
-      <detail type="volume">                64</detail>
-      <detail type="number">                1</detail>
+      <detail type="number">1</detail>
       <extent unit="pages">
         <start>1</start>
         <end>23</end>
       </extent>
       <date>2005</date>
+      <detail type="volume">
+        <number>64</number>
+      </detail>
     </part>
   </relatedItem>
   <location>
@@ -933,7 +1631,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="" CREATED="2010-11-22T17:16:40.989Z" MIMETYPE="text/xml" SIZE="279">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="" CREATED="2011-01-25T20:19:16.226Z" MIMETYPE="text/xml" SIZE="280">
 <foxml:xmlContent>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <rdf:Description rdf:about="info:fedora/libra-oa:7">
@@ -944,14 +1642,43 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="" CREATED="2010-11-22T17:16:41.099Z" MIMETYPE="text/xml" SIZE="612">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="" CREATED="2011-01-25T20:19:16.287Z" MIMETYPE="text/xml" SIZE="578">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
+  <copyright>
+    <human></human>
+    <machine>
+      <uvalicense>no</uvalicense>
+    </machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <person>archivist1</person>
+    </machine>
+  </access>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="rightsMetadata.1" LABEL="" CREATED="2011-01-25T20:20:10.448Z" MIMETYPE="text/xml" SIZE="579">
 <foxml:xmlContent>
 <rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
   <copyright>
     <human></human>
     <machine>
       <uvalicense>yes</uvalicense>
-      <cclicense>yes</cclicense>
     </machine>
   </copyright>
   <access type="discover">
@@ -977,11 +1704,30 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="" CREATED="2010-11-22T17:16:41.155Z" MIMETYPE="text/xml" SIZE="101">
+<foxml:datastreamVersion ID="properties.0" LABEL="" CREATED="2011-01-25T20:19:16.364Z" MIMETYPE="text/xml" SIZE="101">
 <foxml:xmlContent>
 <fields>
   <depositor>archivist1</depositor>
   <collection>hydrangea_article</collection>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="properties.1" LABEL="" CREATED="2011-01-25T20:22:45.215Z" MIMETYPE="text/xml" SIZE="132">
+<foxml:xmlContent>
+<fields>
+  <depositor>archivist1</depositor>
+  <collection>hydrangea_article</collection>
+  <release_to>uva</release_to>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="properties.2" LABEL="" CREATED="2011-01-25T20:22:46.796Z" MIMETYPE="text/xml" SIZE="160">
+<foxml:xmlContent>
+<fields>
+  <released>true</released>
+  <depositor>archivist1</depositor>
+  <collection>hydrangea_article</collection>
+  <release_to>uva</release_to>
 </fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
