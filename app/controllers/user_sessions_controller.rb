@@ -17,6 +17,7 @@ class UserSessionsController < ApplicationController
   # RewriteCond %{HTTPS} !=on
   # RewriteRule ^/login https://%{HTTP_HOST}/login [R=301,L]
   # RewriteRule ^/logout https://%{HTTP_HOST}/logout [R=301,L]
+  # RewriteRule ^/user_sessions/new https://%{HTTP_HOST}/login [R=301,L]
   ### Example for the :443 section
   # <Location /login>
   #   AuthType NetBadge
