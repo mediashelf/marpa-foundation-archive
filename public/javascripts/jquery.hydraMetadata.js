@@ -101,11 +101,12 @@
            $(contributors_group_selector).last().after(data);
          }
          $inserted = $(contributors_group_selector).last();
-         $(".editable-container", $inserted).hydraTextField();
+         //$(".editable-container", $inserted).hydraTextField();
+         $(".editable-edit.edit", $inserted).hydraTextField();
          $("a.destructive", $inserted).hydraContributorDeleteButton();
 				$("#re-run-add-contributor-action").val("Add a " + type);
        });
-
+      
 			return false;
      },
      
@@ -251,7 +252,6 @@
          ix = field_id[0].match(/\d+/);
          field = field_id[0];
        }
-       
        // Show processing in Progress
        switch($editNode.attr("id")) {
        case "title_info_main_title":

@@ -144,6 +144,7 @@ module Hydra
           xml.namePart(:type=>"given")
           xml.affiliation
           xml.computing_id
+          xml.description
           xml.role {
             xml.roleTerm("Author", :type=>"text")
           }
