@@ -37,9 +37,6 @@
 			<% unless get_values_from_datastream(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]).first.match('no') %>
 				<li>UVA Libra Contributor's License</lid> 
 			<% end %>	
-			<% unless get_values_from_datastream(@document_fedora, "rightsMetadata", [:copyright, :cclicense]).first.match('no') %>
-				<li><%= link_to "Creative Commons Attribution License", "http://creativecommons.org/licenses/by/3.0/" %></li> 
-			<% end %>
 		</ol>
 	</div>
 </fieldset>
