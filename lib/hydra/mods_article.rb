@@ -30,7 +30,7 @@ module Hydra
         t.institution(:path=>"affiliation", :index_as=>[:facetable], :label=>"organization")
         t.displayForm
         t.role(:ref=>[:role])
-        t.description
+        t.description(:index_as=>[:facetable])
         t.date(:path=>"namePart", :attributes=>{:type=>"date"})
         t.last_name(:path=>"namePart", :attributes=>{:type=>"family"})
         t.first_name(:path=>"namePart", :attributes=>{:type=>"given"}, :label=>"first name")
@@ -39,6 +39,7 @@ module Hydra
       }
       # lookup :person, :first_name        
       t.person(:ref=>:name, :attributes=>{:type=>"personal"}, :index_as=>[:facetable])
+      t.department(:proxy=>[:person,:description],:index_as=>[:facetable])
       t.organization(:ref=>:name, :attributes=>{:type=>"corporate"}, :index_as=>[:facetable])
       t.conference(:ref=>:name, :attributes=>{:type=>"conference"}, :index_as=>[:facetable])
       t.role {
@@ -50,7 +51,7 @@ module Hydra
         t.origin_info(:path=>"originInfo") {
           t.publisher
           t.date_issued(:path=>"dateIssued")
-          t.issuance
+          t.issuance(:index_as=>[:facetable])
         }
         t.issn(:path=>"identifier", :attributes=>{:type=>"issn"})
         t.issue(:path=>"part") {
@@ -71,7 +72,7 @@ module Hydra
         t.url (:path=>"url")
       }
       t.publication_url(:proxy=>[:location,:url])
-      t.peer_reviewed(:proxy=>[:journal,:origin_info,:issuance])
+      t.peer_reviewed(:proxy=>[:journal,:origin_info,:issuance], :index_as=>[:facetable])
     end
     
     # Generates an empty Mods Article (used when you call ModsArticle.new without passing in existing xml)

@@ -67,17 +67,30 @@ Blacklight.configure(:shared) do |config|
   #   The ordering of the field names is the order of the display 
   config[:facet] = {
     :field_names => [
-      "person_full_name_cid_facet",
-      "mods_journal_title_info_facet",
-      "topic_tag_facet"
+      "object_type_facet",
+      "department_facet",
+      "peer_reviewed_facet"
       ],
     :labels => {
-      "person_full_name_cid_facet"=>"Author",
-      "mods_journal_title_info_facet"=>"Journal",
-      "topic_tag_facet"=>"Tag"
+      "object_type_facet"=>"Type of Work",
+      "department_facet"=>"Department",
+      "peer_reviewed_facet"=>"Peer Reviewed"
     },
     :limits=> {nil=>10}
   }
+#  config[:facet] = {
+#    :field_names => [
+#      "person_full_name_cid_facet",
+#      "mods_journal_title_info_facet",
+#      "topic_tag_facet"
+#      ],
+#    :labels => {
+#      "person_full_name_cid_facet"=>"Author",
+#      "mods_journal_title_info_facet"=>"Journal",
+#      "topic_tag_facet"=>"Tag"
+#    },
+#    :limits=> {nil=>10}
+#  }
 
   # solr fields to be displayed in the index (search results) view
   #   The ordering of the field names is the order of the display 
