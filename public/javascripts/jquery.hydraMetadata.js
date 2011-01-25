@@ -255,18 +255,23 @@
        // Show processing in Progress
        switch($editNode.attr("id")) {
        case "title_info_main_title":
-         var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
-         $.fn.hydraProgressBox.showProcessingInProgress('step_1_label')
+         var titleUpdated = true;
+         $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
+         break;
+       case "person_0_first_name":
+         var personUpdated = true;
+         $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
          break;
        case "person_0_last_name":
-         var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
+         var personUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
          break;
        case "copyright_uvalicense":
-         var licenseAgreedTo = ($("#copyright_uvalicense").val() == "yes");
+         var licenseUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
        default:
        }
+
        $.ajax({
          type: "PUT",
          url: url,
@@ -278,24 +283,17 @@
             $.fn.hydraMetadata.getPersonInformation(url,ix);
           }
           
-          // var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
-          // $.fn.hydraProgressBox.checkUncheckProgress('pbFileUploaded', fileUploaded)
           
           // Update progress box
-          switch($editNode.attr("id")) {
-          case "title_info_main_title":
-            var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
-            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', titleProvided)
-            break;
-          case "person_0_last_name":
-            var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
-            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', authorProvided);
-            break;
-          case "copyright_uvalicense":
-            var licenseAgreedTo = ($("#copyright_uvalicense").attr("value")=="yes");
-            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', licenseAgreedTo);
-            break;
-          default:
+          var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
+          var authorLastProvided = ($("#person_0_last_name").attr("value").length > 0);
+          var authorFirstProvided =  ($("#person_0_first_name").attr("value").length > 0 );
+          var licenseAgreedTo = ($("#copyright_uvalicense").attr("value")=="yes");
+          var fileUploaded = ( $("a.destroy_file_asset").length > 0); 
+
+          if (titleUpdated || personUpdated || licenseUpdated) {
+            var releaseReady = $.fn.hydraProgressBox.testReleaseReadiness();
+            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', releaseReady);
           }
      			$.noticeAdd({
              inEffect:               {opacity: 'show'},      // in effect

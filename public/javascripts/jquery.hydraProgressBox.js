@@ -29,16 +29,20 @@
     },
     
     testReleaseReadiness: function() {
-      var fileUploaded = ($("#file_assets tr.file_asset").length > 0);
       var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
-      var authorProvided = ($("#person_0_last_name").attr("value").length > 0);
-      var licenseAgreedTo = ($("#copyright_uvalicense").attr("value") == "yes");
+      var authorLastProvided = ($("#person_0_last_name").attr("value").length > 0);
+      var authorFirstProvided =  ($("#person_0_first_name").attr("value").length > 0 );
+      var licenseAgreedTo = ($("#copyright_uvalicense").attr("value")=="yes");
+      var fileUploaded = ( $("a.destroy_file_asset").length > 0); 
 
-      if (fileUploaded && titleProvided && authorProvided && licenseAgreedTo) {
+      var releaseIsReady= false;
+      if (fileUploaded && titleProvided && authorLastProvided && authorFirstProvided && licenseAgreedTo) {
 					$("#submitForRelease").enable();
+          releaseIsReady=true;
       } else {
           $('#submitForRelease').attr("disabled", "disabled");			
       }
+      return releaseIsReady;
     }
   };
 })( jQuery );
