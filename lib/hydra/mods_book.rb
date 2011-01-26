@@ -85,7 +85,7 @@ class ModsBook < ActiveFedora::NokogiriDatastream
                xml.computing_id
                xml.description
                xml.role {
-                 xml.roleTerm(:authority=>"marcrelator", :type=>"text")
+                 xml.roleTerm("Author", :authority=>"marcrelator", :type=>"text")
                }
              }
              xml.typeOfResource
@@ -137,7 +137,7 @@ class ModsBook < ActiveFedora::NokogiriDatastream
           xml.affiliation
           xml.computing_id
           xml.role {
-            xml.roleTerm(:type=>"text")
+            xml.roleTerm("Author", :type=>"text")
           }
         }
       end
