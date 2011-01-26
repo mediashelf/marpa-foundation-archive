@@ -10,9 +10,10 @@
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_book" />
 
-	<ul id="required">
+	<ul id="step_1" class="step">
+<div  class="progressItem <% unless author_entries.empty? && (title_values.empty? && title_values.first.empty?) && (license_values.empty? && license_values.first.empty? && license_values.first.downcase == "yes") %>progressItemChecked<% end %>" id="step_1_label">Add<small>Step 1 of 3</small></div>
 
-	  <li id="pbAuthorProvided" class="progressItem <% unless author_entries.empty? %>progressItemChecked<% end %>">
+	  <li id="pbAuthorProvided">
 		<fieldset id="contributors_fieldset">
 		<legend>Enter the Book's Author<small>Required</small></legend>	
 	    <div id="contributors" style="width:100%;">
@@ -28,7 +29,7 @@
 		</fieldset>
 	</li> 
 	
- <li id="pbTitleProvided" class="progressItem <% if !title_values.empty? && !title_values.first.empty? %>progressItemChecked<% end %>">
+ <li id="pbTitleProvided">
 	<fieldset id="title_fieldset">
 	<legend>Enter the Book's Title<small>Required</small></legend>	
 <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
@@ -36,7 +37,7 @@
  </li> 
 
   
-<li id="pbLicenseAgreedto" class="progressItem <% if !license_values.empty? && !license_values.first.empty? && license_values.first.downcase == "yes" %>progressItemChecked<% end %>">
+<li id="pbLicenseAgreedto">
 	<fieldset id="license_fieldset">
 	<legend>Agree to Submission Terms<small>Required</small></legend>
 	<div id="uvalicense" class="license">
@@ -57,15 +58,16 @@
 </li>
 
 	
-	<li id="pbFileUploaded" class="progressItem <% if !@document_fedora.parts(:response_format=>:id_array).empty? %>progressItemChecked<% end %>">
+	<li id="pbFileUploaded">
 		<fieldset id="uploaded_files">
 		<legend>Upload the Book<small>Required</small></legend>	
     	<div id="uploads" data-pid=<%= params[:id] %>></div>
 		</fieldset>
 	</li> 
-	</ul><!-- END REQUIRED FIELDS -->
-	<ul class="optional">
-	
+	</ul><!-- END STEP 1 -->
+	<ul id="step_2" class="step">
+		<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
+			
 	<li id="pbJournal">
 		<fieldset id="publication_fieldset">
 		<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>	
@@ -87,13 +89,15 @@
 		</fieldset>
 	</li>
 
-</ul><!-- END OPTIONAL FIELDS -->
+</ul><!-- END STEP 2 -->
 
 	</form>
 	
 	<form id="release_and_submit" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
+	
+	<ul id="step_3" class="step">
+				<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_3_label">Release<small>Step 3 of 3</small></div>
 
-		<ul class="optional">
 	  <li id="pbAvailability">
 			<fieldset id="availability_fieldset">
 				<legend>Availability</legend>
