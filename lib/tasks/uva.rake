@@ -38,6 +38,10 @@ namespace :libra_oa do
         Rake::Task["solrizer:fedora:solrize"].invoke if index == 0
         Rake::Task["solrizer:fedora:solrize"].execute if index > 0
       end
+      LIBRA_OA_FIXTURES.each_with_index do |fixture,index|
+        ENV["PID"] = fixture
+        Rake::Task["solrizer:fedora:solrize"].execute
+      end
     end
 
     desc "Remove default libra-oa fixtures"
