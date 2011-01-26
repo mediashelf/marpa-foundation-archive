@@ -15,3 +15,9 @@ For instructions on how to build and run Libra OA, please refer to the "Hydrange
 To pre-populate Libra OA with a set of fixture objects, run the following rake task:
 rake libra_oa:default_fixtures:load
 
+To overwrite the pre-packaged fedora instance, make the desired changes to fedora/conf/fedora.fcfg and then run the following rake task(s):
+If you already have a jetty running:
+  rake hydra:jetty:stop 
+To load your changes (this task will automatically start your jetty):
+  rake hydra:jetty:load
+
