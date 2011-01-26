@@ -8,8 +8,9 @@ function async_load(url, divid) {
             $("#file_assets  .editable-container").hydraTextField();
             $("#file_assets  a.destroy_file_asset").hydraFileAssetDeleteButton();
             // Custom for Libra -- update progress box when necessary
-            var releaseReady = $.fn.hydraProgressBox.testReleaseReadiness();
-            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', releaseReady);
+            $.fn.hydraProgressBox.testReleaseReadiness();
+            var stepOneReady = $.fn.hydraProgressBox.testStepOneReadiness();
+            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', stepOneReady);
           }
   });
   // $(divid).load(url);
@@ -79,6 +80,8 @@ jQuery(document).ready(function($) {
 	$('input.editable-edit').css('min-width', '150px');
 	$('dd.citation ul input.editable-edit.edit').css('min-width', '40px');
 
+  //update the progress box checks
+  $("div.step_label.progressItem.progressItemChecked").css("background-image",'url(/images/chkbox_checked.png)');
 	
 	// REDUCE MARGIN-TOP FOR FIRST <h2>
 	$('h2:first').css('margin-top', '0');

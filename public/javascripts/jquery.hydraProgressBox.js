@@ -28,15 +28,30 @@
       // el.show();
     },
     
-    testReleaseReadiness: function() {
+    testStepOneReadiness: function() {
       var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
       var authorLastProvided = ($("#person_0_last_name").attr("value").length > 0);
       var authorFirstProvided =  ($("#person_0_first_name").attr("value").length > 0 );
       var licenseAgreedTo = ($("#copyright_uvalicense").attr("value")=="yes");
       var fileUploaded = ( $("a.destroy_file_asset").length > 0); 
+      var stepOneIsReady= false;
+      if (fileUploaded && titleProvided && authorLastProvided && authorFirstProvided && licenseAgreedTo) {
+          stepOneIsReady=true;
+      }
+      return stepOneIsReady;
+    },
+
+    testStepTwoReadiness: function() {
+      var journalTitleProvided = ($("#journal_0_title_info_main_title").attr("value").length > 0);
+      return journalTitleProvided;
+    },
+
+    testReleaseReadiness: function() {
+      var stepOneComplete = $.fn.hydraProgressBox.testStepOneReadiness();
+      var stepTwoComplete = $.fn.hydraProgressBox.testStepTwoReadiness();
 
       var releaseIsReady= false;
-      if (fileUploaded && titleProvided && authorLastProvided && authorFirstProvided && licenseAgreedTo) {
+      if (stepOneComplete && stepTwoComplete) {
 					$("#submitForRelease").enable();
           releaseIsReady=true;
       } else {

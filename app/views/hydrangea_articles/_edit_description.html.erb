@@ -5,6 +5,9 @@
 <%- author_entries = @ds_desc_metadata.find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]') %>
 <%- title_values = @ds_desc_metadata.term_values(:title_info, :main_title) %>
 <%- license_values = @ds_rights_metadata.term_values(:copyright, :uvalicense) %>
+<%- journal_title_values = @ds_desc_metadata.term_values(:journal,:title_info,:main_title) %>
+<%- released_values = @document_fedora.datastreams["properties"].released_values %>
+
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 <input name="_method" type="hidden" value="put" />
 
@@ -74,7 +77,7 @@
 	</ul><!-- END STEP 1 -->
 	
 	<ul id="step_2" class="step">
-		<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
+		<div class="step_label progressItem <% unless journal_title_values.empty? && journal_title_values.first.blank?  %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
 	
 	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
 	
@@ -119,7 +122,8 @@
 <form id="release_and_submit" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
 
 <ul id="step_3" class="step">
-		<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_3_label">Release<small>Step 3 of 3</small></div>
+		<div class="step_label progressItem <% unless released_values.empty? && release_values.first.downcase != "true" %>progressItemChecked<% end %>" id="step_3_label">Release<small>Step 3 of 3</small></div>
+
 
 	<li id="pbEmbargo">
 		<fieldset id="embargo_fieldset">

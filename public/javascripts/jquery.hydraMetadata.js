@@ -269,6 +269,9 @@
        case "copyright_uvalicense":
          var licenseUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
+       case "journal_0_title_info_main_title":
+         var journalTitleUpdated = true;
+         $.fn.hydraProgressBox.showProcessingInProgress('step_2_label');
        default:
        }
 
@@ -284,17 +287,19 @@
           }
           
           
-          // Update progress box
-          var titleProvided = ($("#title_info_main_title").attr("value").length > 0);
-          var authorLastProvided = ($("#person_0_last_name").attr("value").length > 0);
-          var authorFirstProvided =  ($("#person_0_first_name").attr("value").length > 0 );
-          var licenseAgreedTo = ($("#copyright_uvalicense").attr("value")=="yes");
-          var fileUploaded = ( $("a.destroy_file_asset").length > 0); 
-
+          // Update progress box for step 1
           if (titleUpdated || personUpdated || licenseUpdated) {
-            var releaseReady = $.fn.hydraProgressBox.testReleaseReadiness();
-            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', releaseReady);
+            var stepOneReady = $.fn.hydraProgressBox.testStepOneReadiness();
+            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', stepOneReady);
           }
+          
+          // Update progress box for step 2
+          if (journalTitleUpdated) {
+            var stepTwoReady = $.fn.hydraProgressBox.testStepTwoReadiness();
+            $.fn.hydraProgressBox.checkUncheckProgress('step_2_label', stepTwoReady);
+          }
+          // Check if releasable, and if so enable the submit button
+          $.fn.hydraProgressBox.testReleaseReadiness();
      			$.noticeAdd({
              inEffect:               {opacity: 'show'},      // in effect
              inEffectDuration:       600,                    // in effect duration in miliseconds
