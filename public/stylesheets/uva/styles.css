@@ -1089,7 +1089,9 @@ fieldset#citation_fieldset legend > small {
 }
 
 legend > label {
+	white-space: normal;
 	display: block;
+	width: 400px;	
 }
 
 li fieldset label {

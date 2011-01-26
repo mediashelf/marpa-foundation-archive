@@ -15,7 +15,10 @@
 
 	  <li id="pbAuthorProvided">
 		<fieldset id="contributors_fieldset">
-		<legend>Enter the Book's Author<small>Required</small></legend>	
+		<legend>Enter the Book's Author
+			<small>Required</small>
+	    	<label>An individual or organizational author of work.</label>
+		</legend>	
 	    <div id="contributors" style="width:100%;">
 	      <%= render :partial=>"contributors/edit_person", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:person) %>
 	    </div>    
@@ -23,7 +26,7 @@
 	    <% if params[:action] == "edit" %>
 	      <% format = document_partial_name(@document) %>
 	      <div id="add-contributor-box">
-	        <input id="re-run-add-contributor-action" type="button" label="Add another author..." value="Add a person" />
+		  <a id="add_author" href="#" onclick="javascript:$.fn.hydraMetadata.addContributor('person');return false;">Add an author...</a>
 	      </div>
 	    <% end %>	   
 		</fieldset>
@@ -31,7 +34,9 @@
 	
  <li id="pbTitleProvided">
 	<fieldset id="title_fieldset">
-	<legend>Enter the Book's Title<small>Required</small></legend>	
+	<legend>Enter the Book's Title
+		<small>Required</small>
+	</legend>	
 <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
 	</fieldset>
  </li> 
@@ -39,7 +44,10 @@
   
 <li id="pbLicenseAgreedto">
 	<fieldset id="license_fieldset">
-	<legend>Agree to Submission Terms<small>Required</small></legend>
+	<legend>Agree to Submission Terms
+		<small>Required</small>
+		<label>The license outlines the Library's use of your work while acknowledging that you, or the current copyright owner, will continue to be the rights holder.</label>	
+	</legend>
 	<div id="uvalicense" class="license">
 	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
 	                <label for="license">
@@ -60,19 +68,20 @@
 	
 	<li id="pbFileUploaded">
 		<fieldset id="uploaded_files">
-		<legend>Upload the Book<small>Required</small></legend>	
+		<legend>Upload the Book
+			<small>Required</small>
+			<label>Upload a PDF any supplemental files for the work</label>
+		</legend>						
     	<div id="uploads" data-pid=<%= params[:id] %>></div>
 		</fieldset>
 	</li> 
-	</ul><!-- END STEP 1 -->
-	<ul id="step_2" class="step">
-		<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
+</ul><!-- END STEP 1 -->
+	
+<ul id="step_2" class="step">
+	<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
 			
-	<li id="pbJournal">
-		<fieldset id="publication_fieldset">
-		<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>	
-		</fieldset>	
-	</li>
+	<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>	
+
 		
 	<li id="pbAbstract">
 		<fieldset id="abstract_fieldset">
@@ -100,7 +109,9 @@
 
 	  <li id="pbAvailability">
 			<fieldset id="availability_fieldset">
-				<legend>Availability</legend>
+				<legend>Availability
+					<label>Choose who can see and download your work.</label>
+				</legend>
 	      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"public"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"public"}) %>
 			</fieldset>
 		</li>		
