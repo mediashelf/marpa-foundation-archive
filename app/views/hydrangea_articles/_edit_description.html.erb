@@ -77,7 +77,7 @@
 	</ul><!-- END STEP 1 -->
 	
 	<ul id="step_2" class="step">
-		<div class="step_label progressItem <% unless journal_title_values.empty? && journal_title_values.first.blank?  %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
+		<div class="step_label progressItem <% unless journal_title_values.empty? ||  journal_title_values.first.blank?  %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
 	
 	<%= render :partial=>"hydrangea_articles/edit_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
 	
@@ -123,7 +123,7 @@
 
 <ul id="step_3" class="step">
 <%# raise released_values.inspect %>
-		<div class="step_label progressItem <% unless released_values.empty?  %>progressItemChecked<% end %>" id="step_3_label">Release<small>Step 3 of 3</small></div>
+		<div class="step_label progressItem <% unless released_values.empty? || released_values.first.blank? || released_values.first.downcase == "false" %>progressItemChecked<% end %>" id="step_3_label">Release<small>Step 3 of 3</small></div>
 
 
 	<li id="pbEmbargo">
