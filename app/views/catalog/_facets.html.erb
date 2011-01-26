@@ -2,7 +2,8 @@
 <div id="facets" class="facets">
   <h2>Browse by:</h2>
   <% facet_field_names.each do |solr_fname| %>
-    <%# next if solr_fname == 'person_full_name_cid_facet' %>
+    
+    <% next if solr_fname == 'person_full_name_cid_facet' %>
     <div>
       <% display_facet = @response.facets.detect {|f| f.name == solr_fname} -%>
       <% if display_facet.items.length > 0 %>
