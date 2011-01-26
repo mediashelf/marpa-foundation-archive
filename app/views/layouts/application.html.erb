@@ -22,12 +22,27 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
   
     <body  onload="$('#facet_author').closest('div').hide();<% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>$('input#q').focus();<% end %>">
 
-		<div id="uva_lib_banner">
-		  	<ul>
-		  		<li><%= link_to 'About Libra', '/open_access_self_deposit_policies.html' %></li>
-		  	</ul>			
-		  <div id="container1">
+		<div id="uva_lib_banner">			
+			
 			<%= link_to(image_tag('uva/uva_lib.jpg', :width => 186, :height => 18, :alt => "University of Virginia Library"), "http://www.lib.virginia.edu/") %>
+
+			<div id="container_login">
+			<% if current_user %>
+			  <% if current_user.can_be_superuser? %>
+			    <% if current_user.is_being_superuser?(session) %>
+			      <%= link_to "Stop being superuser", superuser_path %>
+			    <% else %>
+			      <%= link_to "Become superuser", superuser_path %>
+				<% end %>
+			   <% end %>
+			    |
+			  <%= link_to "Log Out", logout_path %>
+			  [
+			  <%= link_to current_user.login, user_path %>
+			  ]
+			<% else %>
+			  <%= link_to 'Login', login_path %>
+			<% end %>
 			</div>
 		</div>
 
@@ -41,7 +56,11 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
 		  </div>
 	
           <div class="yui-u">
-            <%= render :partial=>'/user_util_links' %>
+			<% unless current_page?(root_url) %>
+            	<%= link_to image_tag('learn_more_small_btn.png'), '/open_access_self_deposit_policies.html', {:class => "learn_more"} %>			
+				<%= render :partial => '/user_util_links.html' %>
+			<% end %>
+			
           </div>
         </div>
       </div>

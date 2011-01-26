@@ -1,0 +1,17 @@
+<% if current_user %>
+  <div id="create-asset-box" class="ui-buttonset">
+	<img id="add-work-image" src="/images/add_your_work_small_btn.png" />
+    <ul id="create-asset-menu" style="display:none;">
+      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
+      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>
+    </ul>
+  </div>
+<% else %>
+  <div id="create-asset-box" class="ui-buttonset">
+	<img id="add-work-image" src="/images/add_your_work_small_btn.png" />	
+    <ul id="create-asset-menu">
+      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article"}) %>)'">Add an article</li>
+      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book"}) %>)'">Add a book</li>
+    </ul>
+  </div>
+<% end %>

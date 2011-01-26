@@ -165,8 +165,40 @@ dl dd {
 	padding-top: 0;	
 }
 
-div#create-asset-box {
+div#create-asset-box img {
+	position: absolute;
+	clip: rect(0px 149px 70px 0px);
+}
+
+#results div#create-asset-box img {
+	clip: rect(0px 149px 70px 0px);
+	top: 80px;
+}
+
+#results a.learn_more img {
+	clip: rect(0px 149px 70px 0px);
+	cursor: pointer;
+	position: absolute;
+	display: inline;
+}
+
+.yui-u div#create-asset-box {
 	margin-top: 0;
+	display: inline;
+	float: right;
+	width: 140px;
+}
+
+.yui-u div#create-asset-box img {
+	right: 0px;
+	clip: rect(0px 120px 28px 0px);
+}
+
+.yui-u a.learn_more img {
+	clip: rect(0px 101px 28px 0px);
+	cursor: pointer;
+	position: absolute;
+	right: 160px;
 }
 
 li.computing_id {
@@ -227,36 +259,28 @@ table#file_assets {
 }
 
 #uva_lib_banner {
+	text-align: left;
 	width: 100%;
 	height: 31px;
 	background-color: #0F1C38;
-	text-align: right;
+}
+
+#container_login {
+	margin-top: 8px;
+ float: right;
+}
+
+#container_login a {
+	color: #E7C584;
 }
 
 #uva_lib_banner img {
 	margin-top: 8px;
-	margin-right: 10px;
-}
-
-#uva_lib_banner ul {
-	margin-top: 8px;
+	margin-left: 10px;
 	float: left;
-	text-transform: uppercase;
 }
 
-#uva_lib_banner ul a, #uva_lib_banner ul a:hover {
-	font-size: 11px;
-	color: #A2BCD0;
-}
-
-
-#uva_lib_banner #container1 {
-	width: 950px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-#container1 a {
+#uva_lib_banner a {
 	border: none;
 }
 
@@ -451,6 +475,20 @@ div.sidebar {
 	min-height: 638px;	
 	background-color: white;
 	text-align: left;
+}
+
+#results {
+/*	background-color: #F1F1F1;*/
+	border: 1px solid #C8C8C8;
+}
+
+#results p, #results h1, #authors {
+	margin-left: 10px;
+	width: 500px;
+}
+
+#authors {
+	float: left;
 }
 
 tr.document {
@@ -1245,4 +1283,47 @@ fieldset#publication_fieldset label {
 
 .fl-uploader-footer-buttons {
 	width: 200px;
+}
+
+#brown_box {
+	border-top: 4px solid #A3886C;
+	background-color: #EDEFDD;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 80px;
+	right: 70px;
+}
+
+#brown_box li {
+	margin-left: 45px;
+	padding: 15px 0;
+	font-size: 14px;
+}
+
+#brown_box a, #brown_box a:hover {
+	color: #343434;
+	text-decoration: none;
+}
+
+#brown_box #side_search {
+	border-bottom: 2px solid #A3886C;
+	background-color: #422415;
+	height: 45px;
+}
+
+#brown_box #side_search label {
+	color: #E4E4D2;
+	font-family: "Times New Roman", "Times", serif;
+	font-size: 16px;
+	padding: 10px 8px;
+	font-weight: normal;
+	display: inline;
+	float: left;
+}
+
+#brown_box #side_search #q {
+	width: 120px;
+	display: inline;
+	margin: 8px 0;
 }
