@@ -32,8 +32,8 @@
 	    <% end %>
 	</div>
     <% end %>
-
-    <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:journal => journal_counter},:issue,:level]).first.empty? %>
+    <% journal_issue_values =  get_values_from_datastream(@document_fedora,"descMetadata", [{:journal => journal_counter},:issue,:level]).inspect %>
+    <% unless journal_issue_values.empty? || journal_issue_values.first.empty? %>
 	<div class="issue">
         <%= fedora_field_label("descMetadata", [{:journal => journal_counter},:issue,:level], "Issue:") %>
         <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:journal => journal_counter},:issue,:level]) %>
