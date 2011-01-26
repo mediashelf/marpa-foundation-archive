@@ -469,7 +469,18 @@
    $.fn.hydraTextField = function(settings) {
       this.each(function() {
        $(this).unbind('blur').bind('blur', function(e) {
-         $.fn.hydraMetadata.saveEdit(this,e);
+         if ($(this).hasClass("data-changed")) {
+           $.fn.hydraMetadata.saveEdit(this,e);
+           $(this).removeClass("data-changed");
+         }
+       });
+       $(this).unbind('change').bind('change', function(e) {
+         $(this).addClass("data-changed");
+         if ($(this).attr("id") == "embargo_embargo_release_date") {
+           if ($(this).val().length == 10) {
+             $(this).blur();
+           }
+         }
        });
      });
      return this;

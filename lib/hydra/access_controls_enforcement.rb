@@ -51,4 +51,27 @@ module Hydra::AccessControlsEnforcement
     return q
   end
 
+  def enforce_read_permissions
+    unless @document['access_t'] && (@document['access_t'].first == "public" || @document['access_t'].first == "Public")
+      if @document["embargo_release_date_dt"] 
+        embargo_date = Date.parse(@document["embargo_release_date_dt"].split(/T/)[0])
+        if embargo_date > Date.parse(Time.now.to_s)
+          # check for depositor raise "#{@document["depositor_t"].first} --- #{current_user.login}"
+          unless current_user && current_user.login == @document["depositor_t"].first
+            flash[:notice] = "This item is under embargo.  You do not have sufficient access privileges to read this document."
+            redirect_to(:action=>'index', :q=>nil, :f=>nil) and return false
+          end
+        end
+      end
+      unless reader?
+        flash[:notice]= "You do not have sufficient access privileges to read this document, which has been marked private."
+        redirect_to(:action => 'index', :q => nil , :f => nil) and return false
+      end
+    end
+  end
+
+
+
+
+
 end
