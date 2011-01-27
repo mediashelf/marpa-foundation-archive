@@ -22,36 +22,44 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
   
     <body  onload="$('#facet_author').closest('div').hide();<% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>$('input#q').focus();<% end %>">
 
-		<div id="uva_lib_banner">			
-			
-			<%= link_to(image_tag('uva/uva_lib.jpg', :width => 186, :height => 18, :alt => "University of Virginia Library"), "http://www.lib.virginia.edu/") %>
-
-			<div id="container_login">
-			<% if current_user %>
-			  <% if current_user.can_be_superuser? %>
-			    <% if current_user.is_being_superuser?(session) %>
-			      <%= link_to "Stop being superuser", superuser_path %>
-			    <% else %>
-			      <%= link_to "Become superuser", superuser_path %>
-				<% end %>
-			   <% end %>
-			    |
-			  <%= link_to "Log Out", logout_path %>
-			  [
-			  <%= link_to current_user.login, user_path %>
-			  ]
-			<% else %>
-			  <%= link_to 'Login', login_path %>
-			<% end %>
-			</div>
-		</div>
+		<div id="uva_lib_banner">				
+		  <div id="container1">	
+			  <div id="container1_uva_lib_logo"><%= link_to(image_tag('uva/uva_lib.jpg', :width => 186, :height => 18, :alt => "University of Virginia Library"), "http://www.lib.virginia.edu/") %></div>
+        <div id="container1_links">
+        </div>
+    		<div id="container1_login">
+    		  <div id="globalUtilNav">
+              <div class="NetbadgeLogin">               
+                <ul class="login">
+    		          <% if current_user %>
+    		            <li class="button"><span>My Account (<%= current_user.login %>)</span></li>
+    		            <li><ul>
+    		              <% if current_user.can_be_superuser? -%>
+    		                <% if current_user.is_being_superuser?(session) -%>
+    		                  <li><%= link_to "Stop being superuser", superuser_path -%></li>
+    		                <% else -%>
+    		                  <li><%= link_to "Become superuser", superuser_path -%></li>
+    			              <% end -%>
+    		              <% end -%>
+    		              <li><%= link_to "Log Out", logout_path %></li>
+    		            </ul></li>
+    		          <% else %>
+    		            <li class="button"><span><%= link_to 'Login', login_path %></span></li>
+    		          <% end %>
+    		        </ul>
+    		    </div>
+    	    </div>
+        </div>
+      </div>
+    </div>
+    <div id="libra_banner"><%= link_to image_tag('uva/libra_logo.jpg', :width => 127, :height => 78, :alt => "LIBRA"), root_path %></div>
+		
 
 	  <div id="doc4" class="yui-t2">
 	    
 	    <div id="hd">
         <div class="yui-g">
 		  <div id="container2">
-			<%= link_to image_tag('uva/libra_logo.jpg', :width => 127, :height => 78, :alt => "LIBRA"), root_path %>
 			<%= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>" : "" %>
 		  </div>
 	
@@ -81,6 +89,19 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
 			<div id="container3">© 2009 by the Rector and Visitors of the University of Virginia<br />
 			Federal Library Depository logo This library is a Congressionally designated depository for U.S. Government documents. Public access to the Government documents is guaranteed by public law.<%= image_tag('uva/federal_lib_logo.png', :width => 37, :height => 34, :alt => "Federal Library Depository logo") %></div>
 		</div>	
+		
+		<script>
+    $(document).ready(function() {
+        $("#globalUtilNav").hover(
+        	function () {
+        		$(".login ul").stop(true, true).slideDown(100);
+        	},
+        	function () {
+        		$(".login ul").stop(true, true).slideUp(100);
+        	}
+        );
+    })
+    </script>
   </body>
   
 </html>

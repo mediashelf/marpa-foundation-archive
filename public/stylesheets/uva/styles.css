@@ -9,11 +9,75 @@ html {
 body {	
 	margin: 0;
 	padding: 0;
-	background: white;
+	background-image: url('/images/uva/body_repeat.jpg');
+	background-repeat: repeat-x;
+	background-color: white;
 	font-family:  Helvetica, Arial, "Armino", "Nimbus Sans L", "Droid Sans", sans-serif;
 	font-size: 13px;
 	color: #121212;	
 	text-align: center; /* for IE */	
+	
+}
+
+#uva_lib_banner {
+	width: 980px;
+	height: 37px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#uva_lib_banner #container1 {
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 12px;
+	color: #A8CCE8;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 36px;
+}
+
+#container1_uva_lib_logo {
+	height: 18px;
+	width: 186px;
+	float: left;
+	padding-top: 10px;
+}
+#container1_links   {
+	height: 18px;
+	margin-top: -9px;
+	width: 560px;
+	float: left;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#container1_links ul {
+	list-style-type: none;
+}
+#container1_links li {
+	float: left;
+	margin-right: 7px;
+	margin-left: 7px;
+}
+#container1_links a {
+	color: #CCDFFF;
+	text-decoration: none;
+}
+#container1_login {
+	width: 142px;
+	height: 26px;
+	float: left;
+	padding-left: 20px;
+	padding-top: 7px;
+}
+#libra_banner {
+	height: 84px;
+	width: 980px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 38px;
+	color: #F3A729;
+	margin-right: auto;
+	margin-left: auto;
+	/* [disabled]margin-bottom: 30px; */
+	clear: both;
 }
 
 button.ui-button-icon-only {
@@ -258,13 +322,6 @@ table#file_assets {
 	margin: 35px auto;
 }
 
-#uva_lib_banner {
-	text-align: left;
-	width: 100%;
-	height: 31px;
-	background-color: #0F1C38;
-}
-
 #container_login {
 	margin-top: 8px;
  float: right;
@@ -274,15 +331,6 @@ table#file_assets {
 	color: #E7C584;
 }
 
-#uva_lib_banner img {
-	margin-top: 8px;
-	margin-left: 10px;
-	float: left;
-}
-
-#uva_lib_banner a {
-	border: none;
-}
 
 .yui-g {
 	height: 78px;
@@ -1326,4 +1374,37 @@ fieldset#publication_fieldset label {
 	width: 120px;
 	display: inline;
 	margin: 8px 0;
+}
+
+#globalUtilNav{float:left;width:auto;margin:0;}
+#globalUtilNav em.small{font-size:.85em;font-weight:bold;color:#CADCF3;}
+
+#globalUtilNav * {clear:both;}
+#globalUtilNav li{overflow:hidden;}
+#globalUtilNav em.small{font-size:.85em;font-weight:bold;color:#CADCF3;}
+
+div.NetbadgeLogin {position:relative;}
+div.NetbadgeLogin .login {display:block; font-style:normal; margin:0; padding-right:6px;}
+.login .button { min-width:135px; padding:2px 10px 2px 10px; margin-bottom:2px; color:#264C84; font-weight:bold; border:1px solid #DBE8FA; background:#A5BDE4; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+		background: -webkit-gradient(linear, left bottom, left top, color-stop(1, rgb(248,250,255)), color-stop(0.5, rgb(205,226,255)), color-stop(0.49, rgb(176,209,251)), color-stop(0, rgb(185,214,255)));
+		background: -moz-linear-gradient(top, #f8faff, #cde2e1 49%, #b0d1fb 50%, #b9d6ff);
+}
+.login {overflow:hidden;}
+.login .button a,
+.login .button a:hover,
+.login .button span {display:block; min-width:135px; color:#264C84;}
+.login .button span {padding-right:30px; background:url(/images/uva/admin_dropdown.gif) no-repeat right center;}
+.login .button a:hover {color:#002B59; }
+.login ul {display:none;/*shown on hover*/ background:#132951; border:1px solid #11264C;  border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;  box-shadow: 1px 1px 2px #333; -moz-box-shadow: 1px 1px 2px #333; -webkit-box-shadow: 1px 1px 2px #333;}
+.login ul li {min-width:155px; padding:0;}
+.librar_login ul li:hover {}
+div.NetbadgeLogin .login ul a:link,
+div.NetbadgeLogin .login ul a:visited {min-width:135px; display:block; width:100%; padding:4px 10px; color:#FFF; text-decoration:none; border-bottom:1px solid #132242; border-top:1px solid #1B305C;}
+div.NetbadgeLogin .login ul a:hover {background:#24426E; border-bottom:1px solid #0C162B; border-top:1px solid #51688A;}
+.login ul li, .login li {text-align: left;}
+.login ul {margin:0;}
+
+#main_text {
+	background: #FFF;
+	padding: 1em;
 }
