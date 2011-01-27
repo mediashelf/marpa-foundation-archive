@@ -1376,6 +1376,10 @@ fieldset#publication_fieldset label {
 	margin: 8px 0;
 }
 
+#brown_box input[type="submit"] {
+	font-size: 12px;
+}
+
 #globalUtilNav{float:left;width:auto;margin:0;}
 #globalUtilNav em.small{font-size:.85em;font-weight:bold;color:#CADCF3;}
 
