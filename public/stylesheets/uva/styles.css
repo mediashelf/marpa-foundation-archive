@@ -246,23 +246,27 @@ div#create-asset-box img {
 	display: inline;
 }
 
+.yui-g .yui-u {
+	width: 230px;
+	position: absolute;
+	right: 0;
+}
+
 .yui-u div#create-asset-box {
 	margin-top: 0;
-	display: inline;
-	float: right;
 	width: 140px;
 }
 
 .yui-u div#create-asset-box img {
-	right: 0px;
 	clip: rect(0px 120px 28px 0px);
+	right: -85px;
 }
 
 .yui-u a.learn_more img {
 	clip: rect(0px 101px 28px 0px);
 	cursor: pointer;
 	position: absolute;
-	right: 160px;
+	left: 0;
 }
 
 li.computing_id {
