@@ -38,20 +38,16 @@
       - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
       = link_to "Return to course", catalog_path(course_pid)
     
-    %div.accordion-section
-      %h2.section-title Files
+      %fieldset Files
       #uploads{"data-pid"=>params[:id]}
            
-    %div.accordion-section
-      %h2.section-title Describe the Talk
+      %fieldset Describe the Talk
       = render :partial => 'marpa_lectures/edit_description'
         
-    %div.accordion-section#permissions
-      %h2.section-title Set permissions
+      %fieldset Set permissions
       %span#permissions
         = render :partial => "permissions/index", :locals => {:document => document, :asset_id=>params[:id]}
 
-- sidebar_items << capture do
-  = delete_asset_link(params[:id], "course")
+      = delete_asset_link(params[:id], "course")
 
 = async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')

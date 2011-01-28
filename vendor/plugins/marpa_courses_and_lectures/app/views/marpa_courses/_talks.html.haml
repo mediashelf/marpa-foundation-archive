@@ -8,9 +8,9 @@
   %col{:width=>"15%"}/
   %col{:width=>"55%"}/
   %col{:width=>"15%"}/
-
-  %th Talk Title              
-  %th Date recorded           
-  %th Topics                                                                    
-  %th Run Time
+  %tr
+    %th Talk Title              
+    %th Date recorded           
+    %th Topics                                                                    
+    %th Run Time
   =render :partial=>'marpa_lectures/result', :collection=>@document_fedora.parts(:response_format=>:solr, :rows=>1000).hits    

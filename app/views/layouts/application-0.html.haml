@@ -1,0 +1,39 @@
+!!!
+%html
+  %head
+    %title= h(@page_title || application_name)
+    %link{"href"=>url_for(:controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false), "title"=>application_name, "type"=>"application/opensearchdescription+xml", "rel"=>"search"}
+    - #stylesheet_links << "application"
+    - stylesheet_links << "marpa/styles.css"
+    = render_head_content
+
+  - if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:controller] == 'catalog' and params[:action] == 'index'
+    %body{:onload=>"$('input#q').focus();"}
+  - elsif params[:controller] == "collections" and params[:action] == "show"
+    %body#home
+  -else
+    %body
+
+  #doc2.yui-t2
+    
+    #hd
+      .yui-g#banner
+        = render :partial => 'shared/banner'
+      .yui-g#navigation
+        = render :partial => 'shared/nav'
+      / .yui-g#description_banner
+      /   = render :partial => 'shared/notices'
+    #bd
+  
+      #yui-main
+        / .yui-u
+        /   = render :partial=>"shared/search_util_links"
+        .yui-b
+          = render :partial=>'/flash_msg'
+          = yield 
+  
+      .yui-b.sidebar= sidebar_items.join('')
+          
+    #ft= render :partial=>'shared/footer'
+  
+#lightboxContainer{:style=>"display:none;"}
