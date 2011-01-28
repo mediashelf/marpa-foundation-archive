@@ -40,17 +40,16 @@ module ApplicationHelper
   end
 
   def get_randomized_display_items items
-#items = disp_items.map {|m| m unless m.nil? || m.value.strip.blank? }
     clean_items = items.each.inject([]) do |array, item|
       array << item unless item.value.strip.blank?
       array
     end
 
-    if clean_items.length < 9 
+    if clean_items.length < 6 
       clean_items.sort_by {|item| item.value }
     else 
-      rdi = clean_items.sort_by {rand}
-      return rdi[0..7].sort_by {|item| item.value}
+      rdi = clean_items.sort_by {rand}.slice(0..5)
+      return rdi.sort_by {|item| item.value.downcase}
     end
     
   end
