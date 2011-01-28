@@ -35,25 +35,30 @@
                 <%= render_journal_facet_value(facet_name, item) %>
               <% end %>
             </div>
-          <% if index % 3 == 2 %>
-            </div>
+          <% if index == 2 %>
+            </div><!-- end author browse row -->
             <% break if index == 5 %>
           <% end %>
         <% end %>
+        </div><!-- END author browse row -->
       </div>
     <% end %>
 
 	<%= link_to image_tag('learn_more_lrg_btn.png'), "/open_access_self_deposit_policies.html", {:class => "learn_more"} %>
 	
-	<% if current_user %>
 	  <div id="create-asset-box" class="ui-buttonset">
 		<img id="add-work-image" src="images/add_your_work_lrg_btn.png" />
 	    <ul id="create-asset-menu" style="display:none;">
-	      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
-	      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>
+	      <% if current_user %>
+	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
+	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>
+        <% else %>
+          <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article"}) %>)'">Add an article</li>
+          <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book"}) %>)'">Add a book</li>
+        <% end %>
 	    </ul>
 	  </div>
-	<% else %>
+	<% if false == true # else %>
 	  <div id="create-asset-box" class="ui-buttonset">
 		<img id="add-work-image" src="images/add_your_work_lrg_btn.png" />	
 	    <ul id="create-asset-menu">
