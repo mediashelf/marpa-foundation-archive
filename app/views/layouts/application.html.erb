@@ -64,7 +64,7 @@ This is an exact copy of the Blacklight application.html.erb with one modificati
 		  </div>
 	
           <div class="yui-u">
-			<% unless request.request_uri == ('/'||'/catalog') %>
+			<% unless request.request_uri.match(/\/$|\/catalog$/) %>
             	<%= link_to image_tag('learn_more_small_btn.png'), '/open_access_self_deposit_policies.html', {:class => "learn_more"} %>			
 				<%= render :partial => '/user_util_links.html' %>
 			<% end %>
