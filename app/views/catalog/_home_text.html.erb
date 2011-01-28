@@ -47,7 +47,7 @@
 	<%= link_to image_tag('learn_more_lrg_btn.png'), "/open_access_self_deposit_policies.html", {:class => "learn_more"} %>
 	
 	  <div id="create-asset-box" class="ui-buttonset">
-		<img id="add-work-image" src="images/add_your_work_lrg_btn.png" />
+		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add-work-image'})%>
 	    <ul id="create-asset-menu" style="display:none;">
 	      <% if current_user %>
 	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
@@ -60,7 +60,7 @@
 	  </div>
 	<% if false == true # else %>
 	  <div id="create-asset-box" class="ui-buttonset">
-		<img id="add-work-image" src="images/add_your_work_lrg_btn.png" />	
+		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add-work-image'})%>
 	    <ul id="create-asset-menu">
 	      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article"}) %>)'">Add an article</li>
 	      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book"}) %>)'">Add a book</li>
