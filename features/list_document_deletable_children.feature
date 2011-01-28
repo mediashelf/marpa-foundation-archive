@@ -5,7 +5,6 @@ Feature: List deletable files for a document
   As an editor
   I want to see a list of the current files which are only children of the current document and will get deleted with it
   
-  @wip
   Scenario: Editor views the file list
     Given I am logged in as "archivist1" 
     And I am on the deletable file list page for hydrangea:fixture_mods_article1

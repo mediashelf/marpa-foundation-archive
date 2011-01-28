@@ -9,8 +9,15 @@ Feature: Create Asset or Dataset Split Button
     Given I am on the base search page
     Then I should see "Add an article" within "div#create-asset-box"
     
-    
+  # FOR CORE
+  @overwritten
   Scenario: Non-editor views the search results page and does not see the add article button
+   Given I am on the base search page
+   Then I should not see "Add an article" 
+
+# FOR UVa
+  @local
+  Scenario: Non-editor views the search results page and does see the add article button
     Given I am on the base search page
-    Then I should not see "Add an article" 
+    Then I should see "Add an article" 
   

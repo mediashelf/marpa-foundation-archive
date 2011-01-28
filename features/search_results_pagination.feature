@@ -1,4 +1,4 @@
-@wip @catalog
+@catalog
 Feature: Search Results Pagination
   As a user
   In order to find the documents I'm searching for
