@@ -230,43 +230,37 @@ dl dd {
 }
 
 div#create-asset-box img {
-	position: absolute;
-	clip: rect(0px 149px 70px 0px);
+
 }
 
 #results div#create-asset-box img {
-	clip: rect(0px 149px 70px 0px);
-	top: 80px;
+	
 }
 
 #results a.learn_more img {
-	clip: rect(0px 149px 70px 0px);
 	cursor: pointer;
-	position: absolute;
 	display: inline;
 }
 
 .yui-g .yui-u {
-	width: 230px;
+	width: 250px;
 	position: absolute;
 	right: 0;
 }
 
 .yui-u div#create-asset-box {
-	margin-top: 0;
+	margin: 0;
 	width: 140px;
+	float: right;
+	padding: 0;
 }
 
 .yui-u div#create-asset-box img {
-	clip: rect(0px 120px 28px 0px);
-	right: -85px;
 }
 
 .yui-u a.learn_more img {
-	clip: rect(0px 101px 28px 0px);
 	cursor: pointer;
-	position: absolute;
-	left: 0;
+	float: left;
 }
 
 li.computing_id {
@@ -355,7 +349,7 @@ table#file_assets {
 	margin-right: 20px;
 	display: inline;
 	float: right;
-	z-index: 5000;
+	z-index: 0;
 }
 
 #submitForRelease {
@@ -541,6 +535,7 @@ div.sidebar {
 
 #authors {
 	float: left;
+	display: block;
 }
 
 tr.document {
