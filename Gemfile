@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.3.5'
+gem 'rails', '>=2.3.5', '<3.0.0'
 
-gem 'active-fedora', '1.2.8'  
+gem 'active-fedora', '1.2.9'  
 gem 'authlogic', '>=0.1.0'
 gem "aws-s3"
 gem 'builder'
@@ -37,6 +37,7 @@ gem 'trollop'
 gem 'webrat'
 gem 'will_paginate'
 gem 'xml-simple'
+# gem 'mysql'
 
 
 source 'http://gemcutter.org'
