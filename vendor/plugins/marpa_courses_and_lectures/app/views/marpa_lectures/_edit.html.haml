@@ -25,7 +25,6 @@
     });
 
 .document_viewer#cover_container
-
   .multipleEdit
     #loading{:style=>"display:none;"}
       %img{:src=>"/images/ajax-loader.gif", :width=>"32", :height=>"32", :alt=>"Saving..."} 
@@ -38,16 +37,16 @@
       - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
       = link_to "Return to course", catalog_path(course_pid)
     
-      %fieldset Files
-      #uploads{"data-pid"=>params[:id]}
-           
-      %fieldset Describe the Talk
-      = render :partial => 'marpa_lectures/edit_description'
-        
-      %fieldset Set permissions
-      %span#permissions
-        = render :partial => "permissions/index", :locals => {:document => document, :asset_id=>params[:id]}
+    %fieldset Files
+    #uploads{"data-pid"=>params[:id]}
+         
+    %fieldset Describe the Talk
+    = render :partial => 'marpa_lectures/edit_description'
+      
+    %fieldset Set permissions
+    %span#permissions
+      = render :partial => "permissions/index", :locals => {:document => document, :asset_id=>params[:id]}
 
-      = delete_asset_link(params[:id], "course")
+    = delete_asset_link(params[:id], "course")
 
 = async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')
