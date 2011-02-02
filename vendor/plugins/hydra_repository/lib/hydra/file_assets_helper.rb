@@ -25,8 +25,8 @@ module Hydra::FileAssetsHelper
   # Creates a File Asset and sets its label from params[:Filename]
   #
   # @return [FileAsset] the File Asset
-  def create_asset_from_params    
-    file_asset = FileAsset.new
+  def create_asset_from_params   
+    file_asset = asset_class_from_params.new
     file_asset.label = params[:Filename]
     
     return file_asset
