@@ -1,20 +1,23 @@
-%tr.file_asset.document{:id=>document["id"], :class=>cycle("even","odd")}
-  %td
-    =link_to document[solr_name("title", :text)], file_asset_path(document["id"])
+- if document["has_model_s"].include? "info:fedora/afmodel:VideoAsset"
+  = render :partial=>"video_assets/index", :locals=>{:document=>document}
+- else
+  %tr.file_asset.document{:id=>document["id"], :class=>cycle("even","odd")}
+    %td
+      =link_to document[solr_name("title", :text)], file_asset_path(document["id"])
 
-  %td
-    %form#document_metadata{:action=>url_for(:id=>document["id"], :controller=>"assets", :action=>"update"), :method=>"post"}
-      %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"file_asset"}
-      = fedora_text_field(document["id"], "descMetadata", [:description], :values=>document[solr_name("description", :text)], :multiple=>false)
-    / =document[solr_name("description", :text)]
+    %td
+      %form#document_metadata{:action=>url_for(:id=>document["id"], :controller=>"assets", :action=>"update"), :method=>"post"}
+        %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"file_asset"}
+        = fedora_text_field(document["id"], "descMetadata", [:description], :values=>document[solr_name("description", :text)], :multiple=>false)
+      / =document[solr_name("description", :text)]
     
-  %td
-    =document[solr_name("extent", :text)]
+    %td
+      =document[solr_name("extent", :text)]
     
-  %td
-    - if editor?
-      - if @container.nil?
-        - file_asset_url = file_asset_path(document["id"])
-      - else
-        - file_asset_url = asset_file_asset_path(@container.pid, document["id"])        
-      %a.destroy_file_asset{:href=>file_asset_url, :title=>"Remove file"} delete
+    %td
+      - if editor?
+        - if @container.nil?
+          - file_asset_url = file_asset_path(document["id"])
+        - else
+          - file_asset_url = asset_file_asset_path(@container.pid, document["id"])        
+        %a.destroy_file_asset{:href=>file_asset_url, :title=>"Remove file"} delete

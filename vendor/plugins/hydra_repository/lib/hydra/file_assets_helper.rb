@@ -74,7 +74,7 @@ module Hydra::FileAssetsHelper
     case extension
     when ".wav", ".mp3", ".aiff"
       AudioAsset
-    when ".mov", ".flv", ".mp4"
+    when ".mov", ".flv", ".mp4", ".m4v"
       VideoAsset
     when ".jpeg", ".jpg", ".gif", ".png"
       ImageAsset
@@ -87,9 +87,14 @@ module Hydra::FileAssetsHelper
   # Return the mimeType for a given file name
   # @param [String] file_name The filename to use to get the mimeType
   # @return [String] mimeType for filename passed in. Default: application/octet-stream if mimeType cannot be determined
-  def mime_type file_name
-    mime_types = MIME::Types.of(file_name)
-    mime_type = mime_types.empty? ? "application/octet-stream" : mime_types.first.content_type
+  def mime_type filename
+    case File.extname(filename) 
+    when ".m4v"
+      mime_type = "video/x-m4v"
+    else
+      mime_types = MIME::Types.of(filename)
+      mime_type = mime_types.empty? ? "application/octet-stream" : mime_types.first.content_type
+    end
   end
   
 end
