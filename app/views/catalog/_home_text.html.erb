@@ -58,15 +58,6 @@
         <% end %>
 	    </ul>
 	  </div>
-	<% if false == true # else %>
-	  <div id="create-asset-box" class="ui-buttonset">
-		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add-work-image'})%>
-	    <ul id="create-asset-menu">
-	      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article"}) %>)'">Add an article</li>
-	      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book"}) %>)'">Add a book</li>
-	    </ul>
-	  </div>
-	<% end %>
 	
 
 </div>

@@ -21,9 +21,9 @@ module ApplicationHelper
 
   def render_complex_facet_image(facet_solr_field, item, options = {})
     if File.exists?("#{Rails.root}/public/images/faculty_images/#{extract_computing_id(item.value)}.jpg")
-      img = "<img src=\"/images/faculty_images/#{extract_computing_id(item.value)}.jpg\" width=\"100\" >"
+      img = image_tag "/images/faculty_images/#{extract_computing_id(item.value)}.jpg", :width=> "100", :alt=>"#{item.value}"
     else
-      img = "<img src=\"/images/default_thumbnail.gif\" width=\"90\" >"
+      img = image_tag "default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
     end
 
     link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") 
@@ -31,9 +31,9 @@ module ApplicationHelper
 
   def render_journal_image(facet_solr_field, item, options = {})
     if File.exists?("#{Rails.root}/public/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg")
-      img = "<img src=\"/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg\" width=\"100\" >"
+      img = image_tag "/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg", :width => "100"
     else
-      img = "<img src=\"/images/default_thumbnail.gif\" width=\"90\" >"
+      img = image_tag "default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
     end
 
     link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") 
@@ -63,7 +63,6 @@ module ApplicationHelper
     begin
       last, f_c = val.split(", ")
       first = f_c.split(" (")[0]
-#first, last = val.split("##")[0..1]
     rescue
       return val.nil? ? "" : val
     end
