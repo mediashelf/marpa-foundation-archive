@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '2.3.5'
 
-gem 'active-fedora', '1.2.8'  
+gem 'active-fedora', '1.2.9'  
 gem 'authlogic', '>=0.1.0'
 gem "aws-s3"
 gem 'builder'
@@ -37,6 +37,9 @@ gem 'trollop'
 gem 'webrat'
 gem 'will_paginate'
 gem 'xml-simple'
+
+# mysql 2.8.1 is problematic (at least on Snow Leopard).  Use 2.7 version of the gem
+gem 'mysql', "2.7"  
 
 
 source 'http://gemcutter.org'
