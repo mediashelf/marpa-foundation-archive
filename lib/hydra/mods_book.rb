@@ -50,7 +50,7 @@ class ModsBook < ActiveFedora::NokogiriDatastream
         t.publisher
         t.date_issued(:path=>"dateIssued")
       }
-      t.issn(:path=>"identifier", :attributes=>{:type=>"issn"})
+      t.isbn(:path=>"identifier", :attributes=>{:type=>"isbn"})
       t.issue(:path=>"part") {
         t.volume(:path=>"detail", :attributes=>{:type=>"volume"}, :default_content_path=>"number")
         t.level(:path=>"detail", :attributes=>{:type=>"number"}, :default_content_path=>"number")

@@ -4,49 +4,23 @@
 
 <li id="pbPublisher">
 	<fieldset id="publisher_fieldset">
-  <legend>Publisher</legend>
-  <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher], :multiple=>false) %>
-</fieldset>
-</li>
-
-<li id="pbISBN">
-	<fieldset id="isbn_fieldset">
-  <legend>ISBN</legend>
-  <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter}, :issn], :multiple=>false) %>
-</fieldset>
+    <legend>Publisher</legend>
+    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher], :multiple=>false) %>
+  </fieldset>
 </li>
 
 <li id="pbPublicationDate">
 	<fieldset id="publication_date_fieldset">
-  <legend>Publication Date</legend>
-  <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date], :multiple=>false) %>
-</fieldset>
+    <legend>Publication Date</legend>
+    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date], :multiple=>false) %>
+  </fieldset>
 </li>      
 
-<li id="pbCitation">
-	<fieldset id="citation_fieldset">	
-  <legend>Citation</legend>
-<dl class="book citation" id="<%= base_id %>">
-  <dd class="multi_inline citation">
-    <ul>
-      <li class="citation_volume">
-        <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:volume], "Volume:") %>
-        <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:volume], :multiple=>false) %>
-      </li>
-      <li class="citation_issue">
-        <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:level], "(Issue):") %>
-        <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:level], :multiple=>false) %>
-      </li>
-      <li class="start_page">
-        <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:start_page], "Start Page") %>
-        <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:start_page], :multiple=>false) %>
-      </li>
-      <li class="end_page">
-        <%= fedora_field_label("descMetadata", [{:book => book_counter},:issue,:end_page], "End Page") %>
-        <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:end_page], :multiple=>false) %>
-      </li>
-    </ul>
-  </dd>
-</dl>
-</fieldset>
+<li id="pbISBN">
+	<fieldset id="isbn_fieldset">
+    <legend>ISBN</legend>
+    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter}, :isbn], :multiple=>false) %>
+  </fieldset>
 </li>
+
+
