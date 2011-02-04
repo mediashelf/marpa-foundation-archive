@@ -78,7 +78,7 @@
 </ul><!-- END STEP 1 -->
 	
 <ul id="step_2" class="step">
-	<div class="step_label progressItem <% unless true != false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
+	<div class="step_label progressItem <% unless true == false %>progressItemChecked<% end %>" id="step_2_label">Describe<small>Step 2 of 3</small></div>
 			
 	<%= render :partial=>"hydrangea_books/edit_book", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:book) %>	
 

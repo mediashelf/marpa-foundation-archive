@@ -269,9 +269,11 @@
        case "copyright_uvalicense":
          var licenseUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
+         break;
        case "journal_0_title_info_main_title":
          var journalTitleUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_2_label');
+         break;
        default:
        }
 
