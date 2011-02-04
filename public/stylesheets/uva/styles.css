@@ -696,19 +696,26 @@ tr.document {
 	width: 950px;
 	margin-right: auto;
 	margin-left: auto;
-	height: 56px;
+	height: 69px;
 	text-align: right;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #FFF;
 	line-height: 21px;
-	padding-top: 17px;
+	padding-top: 5px;
 }
 
 #footer #container3 img {
 	float: left;
-	margin-top: -15px;
+	margin-top: -10px;
 }
+
+#footer #container3 #hydra_logo{
+	float: right;
+	margin-top: -30px;
+  margin-right: -45px;
+}
+
 
 div .author_browse_row {
   display: block;
