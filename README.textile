@@ -21,3 +21,14 @@ If you already have a jetty running:
 To load your changes (this task will automatically start your jetty):
   rake hydra:jetty:load
 
+Cucumber Usage:
+
+Additional rake tasks are provided for adding features that override or extend core functionality:  
+
+<pre>
+rake cucumber:local_with_core
+rake cucumber:local
+rake cucumber:core
+</pre>
+
+For further information, see "Cucumber Usage":README_CUCUMBER.textile
