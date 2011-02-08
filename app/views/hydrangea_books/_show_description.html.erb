@@ -6,14 +6,6 @@
 </ol>
 </div>
 
-<% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:journal => 0}, :title_info, :main_title]).first.empty? %>
-	<fieldset><legend>Published</legend>
-	<div id="journal" class="browse_value">
-	<%= render :partial=>"hydrangea_articles/show_journal", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:journal) %>
-	</div>
-	</fieldset>
-	<% end %>
-
 <% unless get_values_from_datastream(@document_fedora,"descMetadata", [:subject, :topic]).first.empty? %>
 <fieldset><legend>Keywords</legend>
 	<div class="browse_value">
