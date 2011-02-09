@@ -7,11 +7,9 @@ html {
 }
 
 body {
+	background: #fff;
     margin: 0;
     padding: 0;
-	background-image: url(../../images/uva/body_repeat.jpg);
-    background-repeat: repeat-x;
-    background-color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
     color: #121212;
@@ -20,8 +18,9 @@ body {
 }
 
 #uva_lib_banner {
-    width: 100%;
+	background: #051f38;
     height: 37px;
+	width: 100%;
 }
 
 #uva_lib_banner #container1 {
@@ -72,6 +71,7 @@ body {
 }
 
 #libra_banner_container {
+	background: url(../../images/uva/libra_banner_bg.jpg);
 	height: 78px;
 	width: 100%;
 }
@@ -494,14 +494,18 @@ div.sidebar {
     color: #4079A0;
 }
 
+#facets li span.selected {
+	color: #000000;
+}
+
 .side_bar_content, #facets div ul {
     background-color: #ffffff;
-    padding: 10px 0;
+    padding: 0.5em 0;
 	border-bottom: none;
 }
 
 .side_bar_content, #facets div ul li {
-    padding: 0.5em 10px;
+    padding: 0.5em 12px;
 	margin: 0;
     line-height: 20px;
     display: block;
