@@ -3,28 +3,15 @@
 
 jQuery(document).ready(function($) {
 	// ACTIVATE THE HOVER STATES OF THE IMAGE LINKS
-	$("img#add-work-image").mouseenter(function(){
-		img_src = $("img#add-work-image").attr('src');
-		$("img#add-work-image").attr('src', img_src.replace(/.png/, "-hover.png"));
-	}).mouseleave(function(){
-		img_src = $("img#add-work-image").attr('src');
-		$("img#add-work-image").attr('src', img_src.replace(/-hover.png/, ".png"));
+	$(".libra_buttons img, .home_buttons img").hover(function(){
+		$(this).siblings('ul').show();
+		
 	});
 	
-	$("a.learn_more img").mouseenter(function(){
-		img_src = $("a.learn_more img").attr('src');
-		$("a.learn_more img").attr('src', img_src.replace(/.png/, "-hover.png"));
-	}).mouseleave(function(){
-		img_src = $("a.learn_more img").attr('src');
-		$("a.learn_more img").attr('src', img_src.replace(/-hover.png/, ".png"));
+	$(".libra_buttons ul, .home_buttons ul").mouseleave(function(){
+		$(this).hide();
 	});
 	
-	// ACTIVATE THE 'ADD YOUR WORK' IMAGE AS A LINK
-	$('img#add-work-image').css('cursor', 'pointer');
-	$('img#add-work-image').click(function() {
-    $('#create-asset-menu').is(":hidden") ? 
-      $('#create-asset-menu').show() : $('#create-asset-menu').hide();
-    });
 });
 
 

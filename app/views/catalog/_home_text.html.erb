@@ -14,9 +14,9 @@
 	
 	<%= link_to image_tag('learn_more_lrg_btn.png'), "/open_access_self_deposit_policies.html", {:class => "learn_more"} %>
 	
-	  <div id="create-asset-box" class="ui-buttonset">
-		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add-work-image'})%>
-	    <ul id="create-asset-menu" style="display:none;">
+	  <div class="add_work">
+		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add_work_image'})%>
+	    <ul class="add_sub_menu">
 	      <% if current_user %>
 	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
 	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>
