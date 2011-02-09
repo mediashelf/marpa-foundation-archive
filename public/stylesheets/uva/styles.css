@@ -92,6 +92,7 @@ body {
 
 .libra_buttons {
 	float: right;
+	width: 274px;
 }
 
 .libra_buttons .learn_more,
@@ -247,6 +248,32 @@ dl dd {
     color: black;
     background-color: white;
     padding-top: 0;
+}
+
+.home_text {
+	float: left;
+	width: 530px;
+	margin-top: 30px;
+	font-size: 18px;
+}
+
+.home_text h1 {
+	color: #003b64;
+	font-size: 24px;
+	margin: 0;
+}
+
+.home_text h2 {
+	color: #676767;
+	font-size: 20px;
+	text-transform: none;
+	margin: 0 0 0.67em 10px;
+}
+
+.home_buttons {
+	float: left;
+	width: 170px;
+	margin-top: 30px;
 }
 
 div#create-asset-box img {
@@ -425,12 +452,11 @@ div.sidebar {
 }
 
 #facets {
-/*	height: 680px;*/
-/*	width: 189px;*/
     width: 224px;
-    border: 1px solid #8F95A3;
+    border: 1px solid #83A1C9;
     text-align: left;
     background-color: white;
+	padding: 0;
 }
 
 .side_bar_heading, #facets div h3 {
@@ -438,19 +464,18 @@ div.sidebar {
     height: 50px;
 }
 
-#facets {
-    padding-left: 0;
-}
-
 #facets h2 {
     color: #617DA6;
     font: normal normal normal 10px/20px helvetica, arial, verdana, sans-serif;
-    margin: 0.625em 0px 0.625em 10px;
+    padding: 1em 0px 1em 10px;
+	margin: 0;
+	border-top: 1px solid #dddddd;
     text-transform: uppercase;
 }
 
 #facets div {
     background-color: #E5EBFD;
+	border-top: 1px solid #B7C5DC;
 }
 
 #facets div h3 {
@@ -470,12 +495,14 @@ div.sidebar {
 }
 
 .side_bar_content, #facets div ul {
-    background-color: #E5EBFD;
-    padding: 0;
+    background-color: #ffffff;
+    padding: 10px 0;
+	border-bottom: none;
 }
 
 .side_bar_content, #facets div ul li {
-    padding: 0 10px;
+    padding: 0.5em 10px;
+	margin: 0;
     line-height: 20px;
     display: block;
 }
@@ -560,6 +587,8 @@ div.sidebar {
 #authors {
     float: left;
     display: block;
+	clear: both;
+	margin-top: 20px;
 }
 
 tr.document {
@@ -769,7 +798,7 @@ div .author_browse_row {
     margin-bottom: 1.54em;
     margin: 0px auto 1.54em;
     padding: 0;
-    height: 150px;
+    height: 170px;
 }
 
 div .author_browse_image {
@@ -777,12 +806,33 @@ div .author_browse_image {
     overflow: hidden;
     position: relative;
     float: left;
-    margin-left: 3.2em;
-    vertical_align: baseline;
-    margin-top: -5px;
-    padding: 9px;
-    width: auto;
-"
+    margin-right: 3.5em;
+    vertical-align: baseline;
+    padding: 6px;
+    width: 102px;
+	background: #FFFBEF;
+	border: 2px solid #EEE4CC;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius:    4px 4px 4px 4px;
+	border-radius:         4px 4px 4px 4px;
+	-webkit-background-clip: padding-box;
+}
+
+.author_browse_image a.facet_image {
+	border: 1px solid #EEE4CC;
+	display: block;
+	width: 100px;
+	max-height: 100px;
+	overflow: hidden;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	-moz-border-radius:    2px 2px 2px 2px;
+	border-radius:         2px 2px 2px 2px;
+	-webkit-background-clip: padding-box;
+}
+
+.author_browse_image img {
+	width: 100px;
+	min-height: 100px;
 }
 
 div #actions {

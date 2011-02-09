@@ -26,7 +26,7 @@ module ApplicationHelper
       img = image_tag "default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
     end
 
-    link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") 
+    link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select facet_image") 
   end
 
   def render_journal_image(facet_solr_field, item, options = {})

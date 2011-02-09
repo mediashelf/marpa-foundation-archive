@@ -1,10 +1,33 @@
 <div id="results">
+	
 	<%= render :partial=>'search_form' %>
-	<h1>Welcome to LIBRA, the online archive of UVa scholarship.</h1>
-    <p>LIBRA makes faculty publications available to the world and
+	
+	<div class="home_text">
+		<h1>Welcome to LIBRA</h1>
+		<h2>The online archive of UVa scholarship</h2>
+    <p>LIBRA makes publications available to the world and
     provides safe and secure storage for the scholarly output of the
-    UVa community. By depositing your work in LIBRA, you can
-    help transform the landscape of scholarly publishing.</p>
+    UVa community.</p>
+	</div>
+	
+	<div class="home_buttons">
+	
+	<%= link_to image_tag('learn_more_lrg_btn.png'), "/open_access_self_deposit_policies.html", {:class => "learn_more"} %>
+	
+	  <div id="create-asset-box" class="ui-buttonset">
+		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add-work-image'})%>
+	    <ul id="create-asset-menu" style="display:none;">
+	      <% if current_user %>
+	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
+	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>
+        <% else %>
+          <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article"}) %>)'">Add an article</li>
+          <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book"}) %>)'">Add a book</li>
+        <% end %>
+	    </ul>
+	  </div>
+	
+	</div>
 
   <% # container for facets -%>
   <%-
@@ -42,22 +65,6 @@
         <% end %>
         </div><!-- END author browse row -->
     <% end %>
-      </div><!-- END authors div -->
-
-	<%= link_to image_tag('learn_more_lrg_btn.png'), "/open_access_self_deposit_policies.html", {:class => "learn_more"} %>
-	
-	  <div id="create-asset-box" class="ui-buttonset">
-		<%= image_tag('add_your_work_lrg_btn.png', {:id => 'add-work-image'})%>
-	    <ul id="create-asset-menu" style="display:none;">
-	      <% if current_user %>
-	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
-	        <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>
-        <% else %>
-          <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_article"}) %>)'">Add an article</li>
-          <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "hydrangea_book"}) %>)'">Add a book</li>
-        <% end %>
-	    </ul>
-	  </div>
-	
+      </div><!-- END authors div -->	
 
 </div>
