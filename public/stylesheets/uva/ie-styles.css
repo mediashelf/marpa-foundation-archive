@@ -8,13 +8,37 @@
 }
 
 #results {
-  width: 703px;	
-	margin: -1px 0 0 -4px;
+ 	width: 690px;
 	padding-right: 0px;
 }
 
+.home_text {
+	width: 520px;
+}
+
+.home_buttons {
+	width: 160px;
+}
+
+.libra_buttons ul {
+	top: 65px;
+	right: 0;
+}
+
+#appliedParams {
+	margin-top: 35px;
+}
+
 #appliedParams div {
-	width: 680px;
+	width: 670px;
+}
+
+#appliedParams h3 {
+	width: 653px;
+}
+
+.appliedFilter {
+	width: 630px;
 }
 
 #search {

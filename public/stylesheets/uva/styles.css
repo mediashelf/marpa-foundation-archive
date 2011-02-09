@@ -277,6 +277,10 @@ dl dd {
 	position: relative;
 }
 
+.libra_buttons {
+	position: relative;
+}
+
 .home_buttons a {
 	display: block;
 	margin-bottom: 1em;
@@ -303,12 +307,28 @@ dl dd {
 	-moz-border-radius:    0 0 4px 4px;
 	border-radius:         0 0 4px 4px;
 	-webkit-background-clip: padding-box;
+	-webkit-box-shadow: 0px 1px 3px #999;
+	-moz-box-shadow:    0px 1px 3px #999;
+	box-shadow:         0px 1px 3px #999;
+}
+
+.home_buttons ul {
+	top: 160px;
+	left: 0;
+}
+
+.libra_buttons ul {
+	top: 55px;
+	right: 0;
 }
 
 .libra_buttons ul.add_sub_menu {
 	width: 116px;
 	margin: -20px 2px 0 2px;
 }
+
+/* .libra_buttons .add_work needs margin-top: 10px in IE7 */
+/* "    " AND .libra_buttons .learn_more needs 10px in IE8/9.  New strategy? */
 
 .home_buttons ul li,
 .libra_buttons ul li {
@@ -762,9 +782,9 @@ tr.document {
 }
 
 #results {
-    float: right;
+    float: left;
     min-height: 638px;
-    width: 701px;
+    width: 702px;
     padding: 10px;
     text-align: left;
     margin: 0 0 0 -3px;
