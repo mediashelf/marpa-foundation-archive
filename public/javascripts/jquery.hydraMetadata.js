@@ -275,6 +275,7 @@
        default:
        }
 
+			 alert('running ajax'); 
        $.ajax({
          type: "PUT",
          url: url,
@@ -474,7 +475,7 @@
    $.fn.hydraTextField = function(settings) {
       this.each(function() {
        $(this).unbind('blur').bind('blur', function(e) {
-         if ($(this).hasClass("data-changed")) {
+         if ($(this).hasClass("data-changed")) {;
            $.fn.hydraMetadata.saveEdit(this,e);
            $(this).removeClass("data-changed");
          }

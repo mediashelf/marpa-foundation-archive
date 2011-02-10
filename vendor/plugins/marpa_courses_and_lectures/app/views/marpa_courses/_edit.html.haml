@@ -17,6 +17,10 @@
 - stylesheet_links << ["../javascripts/select_to_ui_slider/css/ui.slider.extras.css"]
 - stylesheet_links << "slider"
 
+// For progress box
+- stylesheet_links << "progressBox"
+- javascript_includes << "jquery.hydraProgressBox.js"
+
 - extra_head_content << capture do 
   :javascript
     $(document).ready(function() {
