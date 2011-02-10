@@ -14,11 +14,11 @@
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
 	<ul id="step_1" class="step">
-			<div  class="progressItem <% unless author_entries.empty? && (title_values.empty? && title_values.first.empty?) && (license_values.empty? && license_values.first.empty? && license_values.first.downcase == "yes") %>progressItemChecked<% end %>" id="step_1_label">Add<small>Step 1 of 3</small></div>
+			<li  class="progressItem <% unless author_entries.empty? && (title_values.empty? && title_values.first.empty?) && (license_values.empty? && license_values.first.empty? && license_values.first.downcase == "yes") %>progressItemChecked<% end %>" id="step_1_label">Add<small>Step 1 of 3</small></li>
 
 	  <li id="pbAuthorProvided">
 		<fieldset id="contributors_fieldset">
-		<legend>Enter the Article's Author
+		<legend>Author
 			<small>Required</small>
 	    	<label>An individual or organizational author of work.</label>			
 		</legend>	
@@ -35,7 +35,7 @@
 	
  <li id="pbTitleProvided">
 	<fieldset id="title_fieldset">
-	<legend>Enter the Article's Title<small>Required</small></legend>	
+	<legend>Title<small>Required</small></legend>	
 <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
 	</fieldset>
  </li> 

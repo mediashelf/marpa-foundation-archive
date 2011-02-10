@@ -34,7 +34,6 @@
 	<h1>Add Your Book</h1>
     <%= render :partial => 'hydrangea_books/edit_description' %>
 
-    <%= render :partial => '/brown_sidebar.html' %>		
 </div>
 
 <%= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads') %>

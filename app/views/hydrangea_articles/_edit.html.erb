@@ -32,8 +32,6 @@
 
 	<h1>Add Your Article</h1>
     <%= render :partial => 'hydrangea_articles/edit_description' %>
-
-    <%= render :partial => '/brown_sidebar.html' %>		
 </div>
 
 <%= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads') %>

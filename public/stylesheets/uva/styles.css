@@ -110,12 +110,12 @@ button.ui-button-icon-only {
 }
 
 .select-edit {
-    font-family: "Helvetica Neue", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 11px;
 }
 
 #re-run-action, #re-run-add-contributor-action {
-    font-family: "Helvetica Neue", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     color: #0F3E83;
 }
 
@@ -129,11 +129,12 @@ button.ui-button-icon-only {
 }
 
 #cover_container h1 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 8px;
+	margin-left: 90px;
     color: #5B4418;
     display: block;
-    font-family: "Times New Roman", Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-weight: normal;
 }
 
@@ -159,7 +160,7 @@ button.ui-button-icon-only {
 
 a:link, a:visited, a:active, #uvalicense_read_all {
     color: #0F3E83;
-    text-decoration: none;
+    text-decoration: underline;
     border: none;
 }
 
@@ -169,10 +170,6 @@ a:link, a:visited, a:active, #uvalicense_read_all {
 
 .yui-t2 .yui-b p {
     padding-top: 0;
-}
-
-a#add_author {
-    margin-top: -10px;
 }
 
 a:hover, a:hover.addval, #uvalicense_read_all:hover {
@@ -214,7 +211,7 @@ a.destructive:hover {
 
 button {
     min-height: 10px;
-    font-family: "Helvetica Neue", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 11px;
     height: 26px;
     width: 60px;
@@ -244,13 +241,6 @@ h3 {
 
 dl dd {
     margin-left: 0;
-}
-
-.multi_inline label {
-    top: -1.5em;
-    color: black;
-    background-color: white;
-    padding-top: 0;
 }
 
 .home_text {
@@ -470,8 +460,25 @@ table#file_assets {
 }
 
 #submitForRelease {
-    margin: 5px 0 5px -5px;
-    font-size: 11px;
+	background: #DFEFFC;
+	color: #336;
+	border: 3px solid #336;
+    font-size: 16px;
+	font-weight: bold;
+	line-height: 16px;
+	height: 37px;
+	width: 100px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius:    4px 4px 4px 4px;
+	border-radius:         4px 4px 4px 4px;
+	cursor: pointer;
+}
+
+#submitForRelease[disabled] {
+	background: #DDD;
+	border: 3px solid #BBB;
+	color: #AAA;
+	cursor: default;
 }
 
 #deleteAsset {
@@ -939,6 +946,10 @@ li div .license {
     font-weight: bold;
 }
 
+table#file_assets td {
+	border: 1px solid #CCC;
+}
+
 a.destroy_contributor {
     top: 2px;
     right: -15px;
@@ -946,6 +957,7 @@ a.destroy_contributor {
 
 a.destroy_file_asset {
     text-align: right;
+	color: red;
 }
 
 .browse_value {
@@ -962,7 +974,9 @@ a.destroy_file_asset {
 }
 
 #uploader, .fl-uploader-queue-wrapper {
-    width: 100%;
+    width: 350px;
+	float: left;
+	margin-right: 20px;
 }
 
 .fl-scroller-inner td {
@@ -970,7 +984,7 @@ a.destroy_file_asset {
 }
 
 .fl-uploader {
-    width: 350px;
+    width: 600px;
     position: relative;
     display: block;
     clear: both;
@@ -1042,13 +1056,13 @@ a.destroy_file_asset {
 .fl-uploader button.fl-uploader-button-default {
     background-color: #74B74A;
     border-color: #006838;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .fl-uploader button.fl-uploader-button-default:hover {
     background-color: #519325;
     border-color: #142B8C;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .fl-uploader button.fl-uploader-button-cancel {
@@ -1064,6 +1078,7 @@ a.destroy_file_asset {
 .fl-uploader button.fl-uploader-dim {
     background-color: #999;
     border-color: #666;
+	float: left;
 }
 
 .fl-uploader button.fl-uploader-dim:hover {
@@ -1076,6 +1091,7 @@ a.destroy_file_asset {
 }
 
 .fl-uploader a.fl-uploader-browse {
+	background-color: #DFEFFC;
     background-image: url(../images/add.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -1084,7 +1100,10 @@ a.destroy_file_asset {
     border: none;
     white-space: nowrap;
     color: #0F3E83;
-    font-weight: normal;
+	font-size: 1.06em;
+	font-style: normal;
+    font-weight: bold;
+	text-decoration: none;
     cursor: pointer;
 }
 
@@ -1094,7 +1113,14 @@ a.destroy_file_asset {
 
 html>body .fl-uploader a.fl-uploader-browse {
     padding: 3px 6px;
-    border: 1px solid transparent;
+    border: 1px solid #2F3E53;
+	width: 8.4em;
+	margin: 0;
+	text-align: center;
+	background: #EEE;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius:    4px 4px 4px 4px;
+	border-radius:         4px 4px 4px 4px;	
 }
 
 .fl-uploader a.fl-uploader-browse:hover {
@@ -1108,15 +1134,17 @@ html>body .fl-uploader a.fl-uploader-browse {
 }
 
 .fl-uploader-browse-overlay {
-    bottom: 47px;
+    bottom: 6px;
     position: absolute;
     left: 0px;
     z-index: 7;
     width: 350px;
+	cursor: pointer;
 }
 
 #SWFUpload_0, #SWFUpload_1, #SWFUpload_2 {
     width: 350px;
+	cursor: pointer;
 }
 
 .swfupload {
@@ -1147,7 +1175,7 @@ html>body .fl-uploader a.fl-uploader-browse {
 
 .fl-uploader-queue-footer {
     position: relative;
-    background-color: #F6F6F6;
+    background-color: #DDD;
 }
 
 .fl-uploader-queue-footer table, #uploads table {
@@ -1320,7 +1348,9 @@ html>body .fl-uploader a.fl-uploader-browse {
 }
 
 .fl-uploader-btns .fl-uploader-upload, .fl-uploader-btns .fl-uploader-resume, .fl-uploader-btns .fl-uploader-pause {
+	height: 26px;
     width: 8.4em;
+	margin-top: 6px;
 }
 
 .fl-uploader-btns .fl-uploader-done, .fl-uploader-btns .fl-uploader-cancel {
@@ -1492,35 +1522,44 @@ div#delete_dialog div.button {
 
 #cover_container ul {
     margin-top: 5px;
-    width: 450px;
+}
+
+#title_fieldset input.edit {
+	margin-top: 20px;
 }
 
 ul.step {
-    margin-left: 20px;
+    margin-left: 0;
 }
 
 ul.step > li {
     list-style: none;
-    margin-left: 60px;
+    margin-left: 90px;
+	margin-bottom: 2em;
 }
 
 ul .progressItem {
-    margin-left: -20px;
-    padding-left: 20px;
+	background-image: url('/images/chkbox_empty.png');
+    background-repeat: no-repeat;
     display: block;
     float: left;
     color: #576BA1;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Georgia, "Times New Roman", Times, serif;
-    background-image: url('/images/chkbox_empty.png');
-    background-repeat: no-repeat;
+	text-align: center;
+}
+
+/* Hiding validation indicators */
+#bd ul .progressItem {
+	background-image: none !important;
+	margin-left: 0;
 }
 
 ul .progressItem small {
     display: block;
     color: #999;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 li fieldset {
@@ -1533,52 +1572,100 @@ li fieldset {
 li fieldset legend {
     font-weight: bold;
     font-size: 16px;
-    color: black;
-    line-height: 18px;
-    width: 400px;
-    background-color: #F4F6FE;
+    color: #222;
+    line-height: 20px;
+    width: 600px;
+    background-color: #eef3fe;
     border-top: 2px solid #627BB0;
     padding: 4px;
 }
 
-fieldset#citation_fieldset > ul > li > fieldset > legend {
-    color: black;
-    font-size: 10px;
-    line-height: 8px;
+fieldset#citation_fieldset ul li fieldset legend {
     font-weight: normal;
     border-top: none;
     background-color: white;
-    padding: 3px 0 0 0;
-    display: block;
+	padding-bottom: 0;
+	line-height: 0.8em;
+} 
+
+.step dl {
+	overflow: visible;
 }
 
-legend > small {
-    position: absolute;
-    left: 450px;
+.step dl dd {
+	float: none;
+	width:auto;
+	margin-top: 0;
+}
+
+.step dl dd li {
+	width: auto;
+}
+
+.step #uvalicense,
+.step #peer_reviewed {
+	margin-left: 5px;
+	margin-top: 15px;
+}
+
+.step #availability_fieldset input {
+	margin-top: 15px;
+}
+
+.step #availability_fieldset input {
+	margin-left: 5px;
+}
+
+.step #uvalicense label,
+.step #peer_reviewed_fieldset label,
+.step #availability_fieldset label {
+	font-size: 15px;
+	margin-right: 1em;
+}
+
+.step #availability_fieldset legend label {
+	font-size: 13px;
+}
+
+#keywords_fieldset ol {
+	margin-top: 15px;
+}
+
+#embargo_fieldset .datepicker {
+	margin-top: 15px;
+}
+
+legend small {
+    float: right;
     color: red;
-    font-size: x-small;
+    font-size: 12px;
     font-weight: normal;
     margin-top: 1px;
     padding-top: 0;
+	padding-right: 10px;
     display: inline;
     text-align: right;
-    background-color: #F4F6FE;
 }
 
-fieldset#citation_fieldset legend > small {
+fieldset#citation_fieldset legend small {
     background-color: white;
 }
 
-legend > label {
+legend label {
     white-space: normal;
     display: block;
-    width: 400px;
+    width: 600px;
 }
 
 li fieldset label {
     padding-top: 4px;
     font-weight: normal;
     font-size: 13px;
+	line-height: 1.1em;
+}
+
+.step dl dd li.computing_id {
+	width: 100%;
 }
 
 li fieldset .field_wrapper label {
@@ -1601,8 +1688,36 @@ li fieldset a {
     min-width: 170px;
 }
 
+a#add_author {
+	clear: both;
+}
+
+.multi_inline li label,
+#citation_fieldset li legend {
+    color: #222;
+    background-color: white;
+    padding: 1em 0 0.25em 0;
+	font-size: 14px;
+	position: static;
+	display: block;
+}
+
+input.edit {
+	padding: 4px 5px;
+	font-size: 14px;
+	margin-right: 30px;
+}
+
+textarea.edit {
+	padding: 4px 5px;
+	font-size: 14px;
+	margin-top: 15px;
+	width: 508px;
+	height: 10em;
+}
+
 .multi_inline ul li, .multi_inline ol li {
-    height: 40px;
+    height: auto;
 }
 
 div#add-contributor-box {
@@ -1630,11 +1745,11 @@ dd.citation li {
 }
 
 dd.citation ul input.editable-edit.edit {
-    width: 40px;
+    width: 45px;
 }
 
 dd.person ul input.editable-edit.edit {
-    width: 160px;
+    width: 240px;
 }
 
 #citation_fieldset > ul {
@@ -1645,18 +1760,13 @@ dd.person ul input.editable-edit.edit {
     list-style: none;
 }
 
-dl dd.citation {
-    margin-top: 1em;
-    margin-bottom: -1em;
-}
-
 #citation_fieldset > ul > li > fieldset {
     margin-bottom: 0px;
 }
 
 #citation_fieldset > ul > li > fieldset > label {
     color: #999;
-    font-size: 0.8em;
+    font-size: 12px;
     font-weight: normal;
     white-space: nowrap;
     background-color: white;
