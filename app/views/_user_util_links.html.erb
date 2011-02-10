@@ -1,6 +1,6 @@
 <% if current_user %>
   <div class="add_work">
-	<img id="add_work_image_sm" src="/images/add_your_work_small_btn.png" />
+		<img id="add_work_image_sm" src="/images/add_your_work_small_btn.png" />
     <ul class="add_sub_menu">
       <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_article") %>');">Add an article</li>
       <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "hydrangea_book") %>');">Add a book</li>

@@ -3,47 +3,27 @@
   width: 926px;
 }
 
-#frame, .yui-t2 #yui-main {
-	width: 926px;
+.libra_buttons {
+	z-index: 80;
 }
 
-#results {
- 	width: 690px;
-	padding-right: 0px;
+.libra_buttons div.add_work,
+.libra_buttons a.learn_more {
+	height: 28px;
+	line-height: 28px;
 }
 
-.home_text {
-	width: 520px;
-}
-
-.home_buttons {
-	width: 160px;
+.libra_buttons img {
+	float: left;
 }
 
 .libra_buttons ul {
-	top: 65px;
+	top: 10px;
 	right: 0;
 }
 
-#appliedParams {
-	margin-top: 35px;
-}
-
-#appliedParams div {
-	width: 670px;
-}
-
-#appliedParams h3 {
-	width: 653px;
-}
-
-.appliedFilter {
-	width: 630px;
-}
-
-#search {
-	width: 701px;
-	float: right;
+.libra_buttons div.add_work ul li {
+	line-height: 1.1em;
 }
 
 #submitForRelease {
