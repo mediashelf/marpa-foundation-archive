@@ -7,6 +7,7 @@ describe HydrangeaArticle do
   before(:each) do
     Fedora::Repository.stubs(:instance).returns(stub_everything())
     @article = HydrangeaArticle.new
+    @article.stubs(:apply_ldap_values)
     @file_asset = FileAsset.new
   end
 

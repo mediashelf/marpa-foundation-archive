@@ -11,6 +11,7 @@ describe Hydra::ModelMethods do
       rights_ds.expects(:update_indexed_attributes).with([:edit_access, :person]=>"foouser")
 
       helper.stubs(:datastreams_in_memory).returns({"rightsMetadata"=>rights_ds,"properties"=>prop_ds})
+      helper.stubs(:apply_ldap_values)
       helper.apply_depositor_metadata("foouser")
     end
   end
