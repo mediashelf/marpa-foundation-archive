@@ -755,14 +755,10 @@ tr.document {
     background-color: none;
 }
 
-.pagination, #sortAndPerPage {
-    width: 700px;
-}
-
 #sortAndPerPage {
 	clear: both;
     height: 20px;
-    margin: 0 10px;
+    margin: 0 15px;
     padding: 10px 0;
 }
 
@@ -788,6 +784,26 @@ tr.document {
     border: none;
 	font-size: 13px;
     font-weight: bold;
+}
+
+.document_title {
+	width: 300px;
+}
+
+.document_author {
+	width: 150px;
+}
+
+.document_work {
+	width: 120px;
+}
+
+.document_date {
+	width: 100px;
+}
+
+.document_files {
+	width: 30px;
 }
 
 #results {
