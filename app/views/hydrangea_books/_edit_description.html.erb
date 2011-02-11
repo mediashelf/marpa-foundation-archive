@@ -15,7 +15,7 @@
 
 	  <li id="pbAuthorProvided">
 		<fieldset id="contributors_fieldset">
-		<legend>Enter the Book's Author
+		<legend>Author
 			<small>Required</small>
 	    	<label>An individual or organizational author of work.</label>
 		</legend>	
@@ -34,7 +34,7 @@
 	
  <li id="pbTitleProvided">
 	<fieldset id="title_fieldset">
-	<legend>Enter the Book's Title
+	<legend>Title
 		<small>Required</small>
 	</legend>	
 <%= fedora_text_field(@document_fedora,"descMetadata", [:title_info, :main_title], :multiple=>false) %>
@@ -70,7 +70,7 @@
 		<fieldset id="uploaded_files">
 		<legend>Upload the Book
 			<small>Required</small>
-			<label>Upload a PDF any supplemental files for the work</label>
+			<label>Upload a PDF any supplemental files for the work.</label>
 		</legend>						
     	<div id="uploads" data-pid=<%= params[:id] %>></div>
 		</fieldset>

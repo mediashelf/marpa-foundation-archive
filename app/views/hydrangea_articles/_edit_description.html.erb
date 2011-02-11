@@ -69,7 +69,7 @@
 		<fieldset id="uploaded_files">
 		<legend>Upload the Article
 			<small>Required</small>
-			<label>Upload a PDF any supplemental files for the work</label>			
+			<label>Upload a PDF any supplemental files for the work.</label>			
 		</legend>	
 		<div id="uploads" data-pid=<%= params[:id] %>></div>
 		</fieldset>
@@ -83,7 +83,8 @@
 	
 	<li id="pbAbstract">
 		<fieldset id="abstract_fieldset">
-		<legend>Abstract</legend>	
+		<legend>Abstract
+			<label>Provide the abstract of the work, or if none exists, a short summary.</label></legend>
 	  <%= fedora_text_area(@document_fedora,"descMetadata", [:abstract], :multiple=>false) %>
 		</fieldset>
 	</li>
@@ -129,7 +130,7 @@
 	<li id="pbEmbargo">
 		<fieldset id="embargo_fieldset">
 			<legend>Release Date
-				<label>The work's files will not be visible in Libra until the date selected.</label>
+				<label>Choose when to make your work's files available to Libra users.</label>
 			</legend>
 		  	<%= fedora_text_field(@document_fedora, "rightsMetadata", [:embargo, :embargo_release_date], :multiple => false) %>				
 		</fieldset>
@@ -138,7 +139,7 @@
   <li id="pbAvailability">
 		<fieldset id="availability_fieldset">
 		<legend>Availability
-			<label>Choose who can see and download your work.</label>
+			<label>Choose who can see and download your work after the release date.</label>
 		</legend>
       <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"public"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"public"}) %>
 		</fieldset>
