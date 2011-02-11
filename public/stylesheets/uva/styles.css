@@ -2047,9 +2047,10 @@ h1.about_head {
 .about_toc li {
 	font-size: 14px;
 	line-height: 1.3em;
-	list-style: none;
+	list-style: disc inside none;
 	margin-left: 0;
 	padding-left: 0;
+	padding-bottom: 0.5em;
 }
 
 .about_text {
@@ -2067,7 +2068,7 @@ h1.about_head {
     font-weight: normal;
 	line-height: 1.2em;
 	margin-bottom: 0;
-	margin-top: 1em;
+	margin-top: 1.5em;
 	text-transform: none;
 }
 
