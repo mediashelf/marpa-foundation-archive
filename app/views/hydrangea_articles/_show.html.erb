@@ -15,10 +15,11 @@
 
 
 	<% unless @document_fedora.file_objects(:response_format=>:solr).hits.empty? %>
+		<fieldset><legend>Files</legend>
 	    <div id="uploads" data-pid=<%= params[:id] %>>	
 		  <table id="file_assets" class="multipleEdit">
 		    <tr>
-		      <th>File</th>
+		      <th>File Name</th>
 		      <th>Size</th>
 		      <th>Uploaded</th>
 		    </tr>
@@ -33,12 +34,13 @@
 			  </td>
 			  <td>
 			    <% dt = DateTime.parse(result[ solr_name("system_create", :date)] ) %>
-			    <%= dt.strftime("%Y-%m-%d %I:%M%p UTC") %>
+			    <%= format_date dt %>
 			  </td>
 			</tr>
 			<% end %>		
 		  </table>	
-	</div>
+			</div>
+ 		</fieldset>
 	<% end %>
 
 </div>

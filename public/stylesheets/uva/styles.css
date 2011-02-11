@@ -131,11 +131,16 @@ button.ui-button-icon-only {
 #cover_container h1 {
     font-size: 26px;
     margin-bottom: 8px;
-	margin-left: 90px;
     color: #5B4418;
     display: block;
     font-family: Georgia, "Times New Roman", Times, serif;
     font-weight: normal;
+	line-height: 1.2em;
+	width: 600px;
+}
+
+#cover_container .multipleEdit h1 {
+	margin-left: 90px;
 }
 
 .error, .notice, .errorExplanation {
@@ -806,6 +811,21 @@ tr.document {
 	width: 30px;
 }
 
+.edit-browse {
+	float: right;
+}
+
+#showUtils {
+	margin: 0 10px;
+	height: 1em;
+	margin-bottom: 1em;
+}
+
+#showUtils #previousNextDocument {
+	float: right;
+	margin: 0;
+}
+
 #results {
     float: left;
     min-height: 638px;
@@ -813,6 +833,49 @@ tr.document {
 	border: 1px solid #C8C8C8;
 	width: 720px;
 	padding-bottom: 15px;
+}
+
+.document_show #cover_container h1 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.document_show #contributors_list {
+	margin-top: 0;
+	margin-bottom: 2em;	
+}
+
+#contributors_list ol {
+	color: #444;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+
+#contributors_list .contributor_role {
+	display: none;
+}
+
+.document_show fieldset {
+	border: none;
+	width: 600px;
+	padding: 0.5em 0;
+}
+
+.document_show fieldset legend {
+	background-color: #EEF3FE;
+	border-top: 2px solid #627BB0;
+	color: #222;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0.33em;
+	width: 600px;
+}
+
+.document_show .browse_value {
+	margin: 0;
+	padding: 0;
 }
 
 /*#results {
@@ -951,18 +1014,6 @@ li div .license {
 
 #uvalicense dl {
     margin-top: -15px;
-}
-
-#contributors_list ol {
-    margin: 0 0 10px 5px;
-}
-
-#contributors_list ol li {
-    line-height: 20px;
-}
-
-#contributor_role {
-    font-weight: bold;
 }
 
 table#file_assets td {
@@ -1746,7 +1797,6 @@ div#add-contributor-box {
 
 #uploads table {
     position: relative;
-    width: 349px;
 }
 
 .fl-inlineEdit-invitation-text {
@@ -1808,10 +1858,6 @@ li.editable-container.field {
     width: 90%;
 }
 
-#showHead {
-    display: none;
-}
-
 ul.optional {
     background: #CECECE;
     margin-left: -10px;
@@ -1854,53 +1900,6 @@ fieldset#publication_fieldset label {
 
 .fl-uploader-footer-buttons {
     width: 200px;
-}
-
-#brown_box {
-    border-top: 4px solid #A3886C;
-    background-color: #EDEFDD;
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 80px;
-    right: 70px;
-}
-
-#brown_box li {
-    margin-left: 45px;
-    padding: 15px 0;
-    font-size: 14px;
-}
-
-#brown_box a, #brown_box a:hover {
-    color: #343434;
-    text-decoration: none;
-}
-
-#brown_box #side_search {
-    border-bottom: 2px solid #A3886C;
-    background-color: #422415;
-    height: 45px;
-}
-
-#brown_box #side_search label {
-    color: #E4E4D2;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 16px;
-    padding: 10px 8px;
-    font-weight: normal;
-    display: inline;
-    float: left;
-}
-
-#brown_box #side_search #q {
-    width: 120px;
-    display: inline;
-    margin: 8px 0;
-}
-
-#brown_box input[type="submit"] {
-    font-size: 12px;
 }
 
 #globalUtilNav {

@@ -5,7 +5,7 @@
 <% unless ( get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :last_name]).first.empty? || get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :first_name]).first.empty? ) %>
   <li id="person_<%= person_counter %>">
 	  <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :role]).first.strip.empty? %>
-          <span id="contributor_role"><%= get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :role, :text]) %>:</span>
+          <span class="contributor_role"><%= get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :role, :text]) %></span>
       <% end %>
       <% unless get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :first_name]).first.empty? %>
           <%= get_values_from_datastream(@document_fedora,"descMetadata", [{:person=>person_counter}, :first_name]).first.strip %>
