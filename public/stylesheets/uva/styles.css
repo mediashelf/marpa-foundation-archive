@@ -468,7 +468,7 @@ table#file_assets {
 #submitForRelease {
 	background: #DFEFFC;
 	color: #336;
-	border: 3px solid #336;
+	border: 3px solid #627BB0;
     font-size: 16px;
 	font-weight: bold;
 	line-height: 16px;
@@ -1553,21 +1553,40 @@ div#uva-tabs ul li a.selected {
     border: 1px solid #8ABDE3;
     color: black;
 }
-
-div#delete_dialog_container {
-    border: thin solid #DD4747;
-    background-color: #FFE0E8;
+#delete_dialog_container {
     margin: 10px;
-    height: 175px;
+    height: 75px;
+	background: #FFF6BF;
+	color: #514721;
+	padding: 0.8em;
+	margin-bottom: 1em;
+	border: 2px solid #FFD324;
+    text-align: center;
+    margin: 10px 0 10px 90px;
+	width: 40%;
 }
 
-div#delete_dialog {
-    text-align: center;
-    margin: 10px 15px;
-}
+.error, .alert, .notice, .success, .info {padding:0.8em;margin:0 auto 1em;border:2px solid #ddd;width: 50%;}
+.error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
 
 div#delete_dialog div {
     display: block;
+	padding-bottom: 1em;
+}
+
+div#delete_dialog div.button {
+	margin-right: 10px;
+}
+
+div#delete_dialog div.button input {
+	font-size: 16px;
 }
 
 div#deletable_assets ul li {
