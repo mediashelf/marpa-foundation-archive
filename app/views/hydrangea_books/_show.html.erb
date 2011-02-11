@@ -34,7 +34,7 @@
 			  </td>
 			  <td>
 			    <% dt = DateTime.parse(result[ solr_name("system_create", :date)] ) %>
-			    <%= dt.strftime("%Y-%m-%d %I:%M%p UTC") %>
+			    <%= format_date dt %>
 			  </td>
 			</tr>
 			<% end %>		

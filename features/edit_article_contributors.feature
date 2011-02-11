@@ -75,7 +75,7 @@ Feature: Edit Article Contributors
     Given I am logged in as "archivist1"
     And I am on the show document page for libra-oa:1
     Then I should see "Mary Gibson" within "#contributors_list"
-    And I should see "Author" within "#contributor_role"
+    And I should see "Author" within ".contributor_role"
     And I should see "University of Virginia" within "#contributors_list"
     And I should not see a delete contributor button for "the 1st person entry in libra-oa:1"
 

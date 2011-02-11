@@ -14,5 +14,5 @@ Feature: Catalog Index
     And I press "submit"
     Then I should see "Title"
     And I should see "Author"
-    And I should see "Journal"
+    And I should see "Work"
     And I should see "Files"
