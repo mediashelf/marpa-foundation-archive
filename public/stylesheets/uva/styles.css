@@ -2025,3 +2025,61 @@ div.NetbadgeLogin .login ul a:hover {
     background: #FFF;
     padding: 1em;
 }
+
+h1.about_head {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-align: left;
+	font-size: 26px;
+    margin-bottom: 8px;
+    color: #5B4418;
+    display: block;
+    font-weight: normal;
+	line-height: 1.2em;
+	margin-bottom: 1em;
+	width: 600px;
+}
+
+.about_toc {
+	text-align: left;
+}
+
+.about_toc ul,
+.about_toc li {
+	font-size: 14px;
+	line-height: 1.3em;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.about_text {
+	line-height: 1.33em;
+	text-align: left;
+	width: 600px;
+}
+
+.about_text h2 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-align: left;
+	font-size: 20px;
+    color: #444;
+    display: block;
+    font-weight: normal;
+	line-height: 1.2em;
+	margin-bottom: 0;
+	margin-top: 1em;
+	text-transform: none;
+}
+
+.about_text h3 {
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 1.2em;
+	margin: 1.2em 0 0.25em 0;
+	text-transform: none;
+}
+
+.about_text .example_license {
+	font-style: italic;
+	margin: 0 5em;
+}
