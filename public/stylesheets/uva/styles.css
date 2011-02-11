@@ -489,7 +489,6 @@ table#file_assets {
 
 #deleteAsset {
     text-align: right;
-    font-size: x-small;
     margin-top: 5px;
     margin-bottom: 0px;
 }
@@ -751,10 +750,6 @@ tr.document {
     width: 645px;
 }
 
-.appliedFilter .first {
-    font-style: italic;
-}
-
 .filterName, .filterValue {
     font-style: normal;
     background-color: none;
@@ -828,7 +823,7 @@ tr.document {
 
 #results {
     float: left;
-    min-height: 638px;
+    min-height: 720px;
     text-align: left;
 	border: 1px solid #C8C8C8;
 	width: 720px;
@@ -1025,9 +1020,9 @@ a.destroy_contributor {
     right: -15px;
 }
 
-a.destroy_file_asset {
-    text-align: right;
-	color: red;
+table#file_assets tr.file_asset td {
+	border: none;
+	border-bottom: 1px dotted #CCC;
 }
 
 .browse_value {
@@ -1756,6 +1751,12 @@ li fieldset a {
 
 .person li {
     min-width: 170px;
+}
+
+#person_1, #person_2, #person_3, #person_4, #person_5,
+#person_6, #person_7, #person_8, #person_9, #person_10 {
+	border-top: 1px dotted #CCC;
+	margin-top: 20px;
 }
 
 a#add_author {

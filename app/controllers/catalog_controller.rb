@@ -19,6 +19,8 @@ class ApplicationController
     stylesheet_links << ['redmond/jquery-ui-1.8.5.custom.css', {:media=>'all'}]      
     stylesheet_links << ['styles', 'hydrangea', "hydrangea-split-button.css", {:media=>'all'}]
   end 
-
-
+  
+  def about
+  end
+  
 end
