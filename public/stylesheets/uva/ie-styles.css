@@ -3,6 +3,19 @@
   width: 926px;
 }
 
+.about_head, .about_text, .about_toc {
+	width: 960px;
+}
+
+.about_head h1, .about_text h2, .about_text h3, .about_text p {
+	width: 600px;
+}
+
+.document {
+	width: 960px;
+}
+
+
 .libra_buttons {
 	z-index: 80;
 }
@@ -26,23 +39,12 @@
 	line-height: 1.1em;
 }
 
-#submitForRelease {
-	width: 220px;
-	margin-left: 2px;
+fieldset#contributors_fieldset {
+	width: 600px;
 }
 
-#deleteAsset {
-	font-size: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-table#file_assets {
-	width: 660px;
-}
-
-#uploader, .fl-uploader-queue-wrapper {
-	width: 660px;
+fieldset#citation_fieldset ul li fieldset legend {
+	line-height: 1.1em;
 }
 
 .fl-uploader-btns {

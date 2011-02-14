@@ -146,6 +146,7 @@ button.ui-button-icon-only {
 .error, .notice, .errorExplanation {
     margin: 0;
     width: 907px;
+	font-size: 14px;
 }
 
 #abstract-text {
@@ -572,7 +573,7 @@ table#file_assets {
 }
 
 #facets div h3:hover {
-    color: #4079A0;
+    cursor: default;
 }
 
 #facets li span.selected {
@@ -772,7 +773,7 @@ tr.document {
     padding: 0;
 }
 
-#documents tr.alt {
+#documents tr.even {
 	background: #F0F0F0;
 }
 
@@ -1586,7 +1587,7 @@ div#delete_dialog div.button {
 }
 
 div#delete_dialog div.button input {
-	font-size: 16px;
+	font-size: 13px;
 }
 
 div#deletable_assets ul li {

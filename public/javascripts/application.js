@@ -12,9 +12,6 @@ jQuery(document).ready(function($) {
 		$(this).hide();
 	});
 	
-	// Style odd rows in search results
-	$('tr.document:even').addClass('alt');
-	
 });
 
 
