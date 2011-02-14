@@ -659,6 +659,10 @@ table#file_assets {
     text-align: left;
 }
 
+#documents tr.document {
+	min-height: 1em;
+}
+
 #authors {
     float: left;
     display: block;
@@ -2120,7 +2124,11 @@ h1.about_head {
 	text-transform: none;
 }
 
+.about_text li {
+	padding-bottom: 0.5em;
+}
+
 .about_text .example_license {
 	font-style: italic;
-	margin: 0 5em;
+	margin: 0 5em 1em;
 }
