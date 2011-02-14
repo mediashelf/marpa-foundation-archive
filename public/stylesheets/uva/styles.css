@@ -880,46 +880,63 @@ tr.document {
 }*/
 
 #footer {
-    height: 74px;
     width: 100%;
-    background-image: url(../../images/uva/footer_bg.jpg);
+	background-color: #4672AF;
+    background-image: url(../../images/uva/footer_bg.png);
     background-repeat: repeat-x;
 }
 
 #footer #container3 {
+	height: 160px;
     width: 960px;
     margin-right: auto;
     margin-left: auto;
-    height: 69px;
     text-align: right;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     color: #FFF;
     line-height: 21px;
-    padding-top: 5px;
+    padding-top: 15px;
+}
+
+#footer .contact_info {
+	float: left;
+	margin-bottom: 1.5em;
+	text-align: left;
+}
+
+#footer .aux_links {
+	float: right;
+	text-align: right;
+}
+
+#footer_notices {
+	border-top: 1px solid #648FC7;
+	clear: both;
+	padding-top: 1.5em;
+	width: 100%;
 }
 
 #footer #container3 #federal_lib_logo {
     float: left;
     height: 50px;
-    width: 37px;
-    margin-right: 50px;
-    /*margin-top: -10px;*/
+    width: 5%;
+	text-align: left;
 }
 
 #footer #container3 #hydra_logo {
-    float: right;
+    float: left;
     height: 50px;
-    width: 80px;
-    margin-left: 50px;
+    width: 10%;
 }
 
 #footer #container3 #bottom_text {
+	float: left;
 	font-size: 11px;
 	font-weight: bold;
 	color: #B9CAE6;
-	margin-left: 50px;
-    margin-right: 50px;
+	height: 50px;
+	width: 85%;
 }
 
 #footer #container3 #bottom_text #federal_lib{
@@ -1773,8 +1790,10 @@ li fieldset a {
     min-width: 170px;
 }
 
-#person_1, #person_2, #person_3, #person_4, #person_5,
-#person_6, #person_7, #person_8, #person_9, #person_10 {
+.document_edit #person_1, .document_edit #person_2, .document_edit #person_3, 
+.document_edit #person_4, .document_edit #person_5, .document_edit #person_6, 
+.document_edit #person_7, .document_edit #person_8, .document_edit #person_9, 
+.document_edit #person_10, .document_edit #person_11, .document_edit #person_12 {
 	border-top: 1px dotted #CCC;
 	margin-top: 20px;
 }
