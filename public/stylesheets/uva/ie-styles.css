@@ -41,13 +41,17 @@
 
 
 .libra_buttons {
+	width: 275px;
 	z-index: 80;
 }
 
 .libra_buttons div.add_work,
 .libra_buttons a.learn_more {
+	display: block;
+	float: left;
 	height: 28px;
 	line-height: 28px;
+	margin-right: 0;
 }
 
 .libra_buttons img {
@@ -74,6 +78,80 @@ fieldset#citation_fieldset ul li fieldset legend {
 #uploader-contents {
 	margin-top: 15px;
 }
+
+/* IE 7 */
+
+.ie7 body .libra_buttons {
+	width: 286px;
+}
+
+.ie7 body .libra_buttons ul {
+	top: 10px;
+	right: 4px;
+}
+
+.ie7 #globalUtilNav {
+	width: 200px;
+}
+
+.ie7 #globalUtilNav .NetbadgeLogin .login .button {
+	background: #A5BDE4;
+}
+
+.ie7 #globalUtilNav .NetbadgeLogin .login .util_menu {
+	height: 0;
+}
+
+.ie7 #globalUtilNav .NetbadgeLogin .login .util_menu ul {
+	height: 1em;
+}
+
+.ie7 #cover_container .multipleEdit h1 {
+	margin-left: 0;
+}
+
+
+.ie7 #cover_container .multipleEdit {
+	margin-left: 90px;
+}
+
+.ie7 .document_show fieldset legend,
+.ie7 #bd .document_edit fieldset legend {
+	position: relative;
+	left: -8px;
+}
+
+.ie7 #showUtils {
+	clear: both;
+}
+
+.ie7 .libra_buttons ul li {
+	font-size: 12px;
+}
+
+.ie7 .document_edit ul li {
+	list-style: none outside none;
+}
+
+.ie7 .step_label.progressItem {
+	clear: both;
+	display: block;
+	float: none;
+	margin-left: 0px !important;
+	position: relative;
+	right: 90px;
+	top: 40px;
+	width: 90px;
+}
+
+/* TODO: Get Form in order (strip down?) */
+/* Also: Check IE version a-la HTML5 BP  */
+
+body #bd ul.step li.progressItem {
+	margin-left: -90px;
+}
+
+/* Flash uploader */
 
 .fl-uploader-btns {
 	text-align: right;
