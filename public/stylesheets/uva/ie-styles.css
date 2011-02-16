@@ -1,6 +1,6 @@
 .error, .notice, .errorExplanation {
   margin: 0;
-  width: 926px;
+  width: 600px;
 }
 
 #bd h1.about_head, .about_text, .about_toc {
@@ -10,10 +10,6 @@
 #bd legend label {
 	line-height: 1.2em;
 	width: 515px;
-}
-
-#bd fieldset > legend {
-	margin-left: -8px;
 }
 
 #globalUtilNav ul > li.util_menu {
@@ -72,22 +68,34 @@ fieldset#contributors_fieldset {
 }
 
 fieldset#citation_fieldset ul li fieldset legend {
-	line-height: 1.1em;
+	line-height: 1.2em;
+}
+
+.step fieldset fieldset legend {
+	margin-bottom: 0.25em;
 }
 
 #uploader-contents {
 	margin-top: 15px;
 }
 
-/* IE 7 */
-
-.ie7 body .libra_buttons {
-	width: 286px;
+dl.person {
+	clear: both;
 }
+
+.person .department {
+	margin-bottom: 2em;
+}
+
+/* IE 7 */
 
 .ie7 body .libra_buttons ul {
 	top: 10px;
-	right: 4px;
+	right: 0px;
+}
+
+.ie7 .person .department {
+	margin-bottom: 0;
 }
 
 .ie7 #globalUtilNav {
@@ -107,11 +115,6 @@ fieldset#citation_fieldset ul li fieldset legend {
 }
 
 .ie7 #cover_container .multipleEdit h1 {
-	margin-left: 0;
-}
-
-
-.ie7 #cover_container .multipleEdit {
 	margin-left: 90px;
 }
 
@@ -133,22 +136,15 @@ fieldset#citation_fieldset ul li fieldset legend {
 	list-style: none outside none;
 }
 
-.ie7 .step_label.progressItem {
+html.ie7 .step_label.progressItem {
 	clear: both;
 	display: block;
 	float: none;
-	margin-left: 0px !important;
+	margin-left: -8px !important;
 	position: relative;
-	right: 90px;
+	right: 0;
 	top: 40px;
 	width: 90px;
-}
-
-/* TODO: Get Form in order (strip down?) */
-/* Also: Check IE version a-la HTML5 BP  */
-
-body #bd ul.step li.progressItem {
-	margin-left: -90px;
 }
 
 /* Flash uploader */
