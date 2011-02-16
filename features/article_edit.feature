@@ -8,7 +8,6 @@ Feature: Edit a document
   Scenario: Visit Document Edit Page
     Given I am logged in as "archivist1" 
     And I am on the edit document page for hydrangea:fixture_mods_article1 
-<<<<<<< HEAD:features/edit_document.feature
     Then I should see an inline edit containing "ARTICLE TITLE"
   
   @local
@@ -16,10 +15,6 @@ Feature: Edit a document
     Given I am logged in as "archivist1" 
     And I am on the edit document page for libra-oa:1
     Then I should see "The Smallest Victims of the " within "#pbTitleProvided"
-=======
-    Then I should see "ARTICLE TITLE" within "h1.document_heading"
-    And I should see an inline edit containing "ARTICLE TITLE"
->>>>>>> 452a6f670bfebaa30c378b72a22f1d05877ea648:features/article_edit.feature
 
   # the mockups for Libra did not have browse/edit buttons
   @overwritten

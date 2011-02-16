@@ -75,12 +75,12 @@ Blacklight.configure(:shared) do |config|
   # for human reading/writing, kind of like search_fields. Eg,
   # config[:facet] << {:field_name => "format", :label => "Format", :limit => 10}
   config[:facet] = {
-    :field_names => [
+    :field_names => (facet_fields = [
       "person_full_name_cid_facet",
       "object_type_facet",
       "department_facet",
       "peer_reviewed_facet"
-      ],
+      ]),
     :labels => {
       "person_full_name_cid_facet"=>"Author",
       "object_type_facet"=>"Type of Work",
