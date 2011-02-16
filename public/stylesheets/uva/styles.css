@@ -602,6 +602,10 @@ table#file_assets {
     top: 0px;
     width: 100%;
     text-align: right;
+		border: 1px solid #AAA;
+		border-radius: 0;
+		font-size: 100%;
+		padding: 0;
     /*  width: 695px;
      background-image: url(../../images/uva/search_bg.jpg);
      background-repeat: repeat-x;
@@ -681,8 +685,13 @@ tr.document {
 
 #appliedParams {
     width: 100%;
-	margin-left: 10px;
+		margin-left: 10px;
     margin-top: 10px;
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		margin-bottom: 0;
+		padding: 0;
 }
 
 #appliedParams h3 {
@@ -707,10 +716,17 @@ tr.document {
 .pagination, #sortAndPerPage {
 /*	background-color: #F1F1F1;*/
     background-color: white;
+		border-color: white;
+		border-style: solid;
+		border-width: 0;
+		border-radius: 0;
 }
 
 .pagination {
     width: 100%;
+		line-height: 2em;
+		padding: 0;
+		position: inherit;
 }
 
 .prev_next_links {
