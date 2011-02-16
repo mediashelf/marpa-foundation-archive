@@ -1,3 +1,5 @@
+require 'vendor/plugins/blacklight/app/helpers/application_helper.rb'
+require 'vendor/plugins/hydra_repository/app/helpers/application_helper.rb'
 
 module ApplicationHelper
 
@@ -106,6 +108,8 @@ module ApplicationHelper
     new_params
   end
 
-
+  def application_name
+    'Libra'
+  end
 
 end
