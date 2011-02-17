@@ -44,7 +44,7 @@ module Hydra::ModelMethods
     desc_ds.find_by_terms(:person, :computing_id)[person_number].content = person.computing_id
     desc_ds.find_by_terms(:person, :first_name)[person_number].content = person.first_name
     desc_ds.find_by_terms(:person, :last_name)[person_number].content = person.last_name
-    desc_ds.find_by_terms(:person, :institution)[person_number].content = 'University of Virginia'    
+    desc_ds.find_by_terms(:person, :institution)[person_number].content = person.institution    
     desc_ds.find_by_terms(:person, :description)[person_number].content = person.department
   end
   
