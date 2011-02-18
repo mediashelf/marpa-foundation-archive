@@ -15,4 +15,5 @@ ActionController::Routing::Routes.draw do |map|
   map.logged_out 'logged_out', :controller => 'user_sessions', :action => 'logged_out'
   map.superuser 'superuser', :controller => 'user_sessions', :action => 'superuser'
   map.about 'about', :controller => 'catalog', :action => 'about'
+  map.ldap_photo 'catalog/:id/ldap_photo', :controller => 'catalog', :action => 'ldap_photo'
 end
