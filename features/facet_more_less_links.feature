@@ -1,4 +1,4 @@
-# Marked @wip until we are able to load solr fixtures.  
+# Marked @pending until we are able to load solr fixtures.  
 # Currently failing with jetty index because there aren't enough technology facet values in the jetty index to trigger rendering of more/less feature
 # This test will pass with the full SALT sample dataset (from SALT disk image)
 @facets @pending

@@ -18,6 +18,8 @@ rake cucumber:local_with_core
 Runs all features except those marked with @pending, @wip, or @overwritten.  This should include all your custom features plus all core features that you have not overwritten.
 If you find that you have a core feature that you expect to fail due to local changes in behavioral expectations, you should tag the core feature with @overwritten so that it will be ignored by this rake task.
 
+The default task (rake cucumber) will check for previously failed tests and will run them prior to running the entire suite.
+
 h3. Work In Progress
 
 <pre>rake cucumber:wip</pre>
@@ -26,7 +28,7 @@ Runs only features tagged with @wip.  This task assumes that the feature you are
 
 h3. Local only
 
-<pre>rake cucumber:local</pre>
+<pre>rake cucumber:local_only</pre>
 
 Runs only features marked with the @local tag.  This is good to get a quick look at the status of your customized behaviors.
 
