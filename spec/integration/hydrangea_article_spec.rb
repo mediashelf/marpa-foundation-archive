@@ -13,6 +13,7 @@ describe HydrangeaArticle do
       ActiveFedora::Base.load_instance("test:HydrangeaArticleTest").delete
     end
     it "should save and index successfully" do
+      @sample.stubs(:apply_ldap_values)
       @sample.apply_depositor_metadata("Depositor ID")
       @sample.save.should be_true
     end
