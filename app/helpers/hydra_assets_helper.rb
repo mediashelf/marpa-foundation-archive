@@ -1,3 +1,5 @@
+require_dependency 'vendor/plugins/hydra_repository/app/helpers/hydra_assets_helper.rb'
+
 module HydraAssetsHelper
 
   # Render a link to delete the given asset from the repository.
