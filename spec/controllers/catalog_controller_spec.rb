@@ -29,7 +29,7 @@ describe CatalogController do
     params_from(:get, '/catalog').should == {:controller=>'catalog', :action=>'index'}
     params_from(:get, '/catalog/_PID_').should == {:controller=>'catalog', :id=>"_PID_", :action=>'show'}
     params_from(:get, '/catalog/_PID_/edit').should == {:controller=>'catalog', :id=>"_PID_", :action=>'edit'}
-    params_from(:get, '/catalog/_PID_/ldap_photo').should == {:controller=>'catalog', :ID=>"_PID_", :action=>'ldap_photo'}
+    params_from(:get, '/catalog/_PID_/ldap_photo').should == {:controller=>'catalog', :id=>"_PID_", :action=>'ldap_photo'}
   end
   
   describe "index" do
