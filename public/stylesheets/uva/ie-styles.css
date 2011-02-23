@@ -172,7 +172,7 @@ html.ie7 .step_label.progressItem {
 .fl-uploader button.fl-uploader-dim{background-color:#999;border-color:#666;}
 .fl-uploader button.fl-uploader-dim:hover{background-color:#999;border-color:#666;}
 .fl-uploader button span.text-description{display:none;}
-.fl-uploader a.fl-uploader-browse{background-image:url(../images/add.png);background-attachment:scroll;background-repeat:no-repeat;background-position:5px center;padding:3px 7px 3px 26px;border:none;white-space:nowrap;color:#427ABE;font-weight:bold;cursor:default;z-index: 0;position:relative; bottom: 2px;}
+.fl-uploader a.fl-uploader-browse{background-image:url(/images/add.png);background-attachment:scroll;background-repeat:no-repeat;background-position:5px center;padding:3px 7px 3px 26px;border:none;white-space:nowrap;color:#427ABE;font-weight:bold;cursor:default;z-index: 0;position:relative; bottom: 2px;}
 .fl-uploader a.fl-uploader-browse:hover{border:1px solid #CCC;background-color:#FFF;}
 .fl-uploader a.fl-uploader-browse:focus,.fl-uploader a.fl-uploader-browse.focus{outline:2px solid #142B8C;background-color:#FFF;}
 
@@ -208,15 +208,15 @@ html>body .fl-uploader-queue{width:100%;}
 .fl-uploader-queue .fl-uploader-file-action{border:1px solid transparent;height:20px;width:20px;overflow:hidden;background-color:transparent;background-attachment:scroll;background-repeat:no-repeat;background-position:1px 1px;outline:0;padding:0;margin:0;outline:none;}
 .fl-uploader-queue .fl-uploader-file-action:hover{border:1px solid transparent;background-color:transparent;cursor:auto;}
 .fl-uploader-queue .fl-uploader-file-actions .fl-uploader-dim{border:1px solid transparent;background-color:transparent;cursor:auto;}
-.fl-uploader-queue .fl-uploader-file-action-remove{background-image:url(../images/remove.png);cursor:pointer!important;}
+.fl-uploader-queue .fl-uploader-file-action-remove{background-image:url(/images/remove.png);cursor:pointer!important;}
 .fl-uploader-queue .fl-uploader-file-action-remove:hover,.fl-uploader-queue tr.fl-uploader-file-state-ready:focus .fl-uploader-file-action-remove,.fl-uploader-queue tr.focus .fl-uploader-file-action-remove{border:1px solid #CCC;background-color:#FFF;}
 .fl-uploader-queue .fl-uploader-file-action-remove:focus,.fl-uploader-queue .fl-uploader-file-action-remove.focus{background-color:#4F99D3;outline:none;}
 .fl-uploader-queue .fl-uploader-file-state-uploaded th,.fl-uploader-queue tr.fl-uploader-file-state-uploaded th,.fl-uploader-queue tr.focus th{border-left:4px solid #74B74A;color:#5E7A5E;}
 .fl-uploader-queue .fl-uploader-file-state-uploaded td{color:#5E7A5E;}
-.fl-uploader-queue .fl-uploader-file-state-uploaded .fl-uploader-file-action{background-image:url(../images/tick.png);}
+.fl-uploader-queue .fl-uploader-file-state-uploaded .fl-uploader-file-action{background-image:url(/images/tick.png);}
 .fl-uploader-queue .fl-uploader-file-state-error th{border-left:4px solid #F5E392;background-color:#FCFBE6;border-bottom-width:0;}
 .fl-uploader-queue .fl-uploader-file-state-error td{background-color:#FCFBE6;border-bottom-width:0;}
-.fl-uploader-queue .fl-uploader-file-error td{background-color:#FCFBE6;border-left:4px solid #F5E392;background-image:url(../images/error.png);background-position:8px 2px;background-repeat:no-repeat;padding-bottom:8px;padding-left:32px;}
+.fl-uploader-queue .fl-uploader-file-error td{background-color:#FCFBE6;border-left:4px solid #F5E392;background-image:url(/images/error.png);background-position:8px 2px;background-repeat:no-repeat;padding-bottom:8px;padding-left:32px;}
 .fl-uploader-queue-wrapper td.fl-uploader-file-actions,.fl-uploader-queue-wrapper th.fl-uploader-file-actions{white-space:nowrap;text-align:center;}
 .fl-uploader-queue td.fileStatus{white-space:nowrap;}
 
@@ -231,10 +231,10 @@ button span.fl-uploader-button-text-hidden{display:none;}
 .fl-uploader-hidden{display:none;}
 .fl-uploader-hidden-templates{display:none;}
 .fl-uploader-file-progress,.fl-uploader-total-progress-okay,.fl-uploader-total-progress-errored{position:absolute;display:none;background-attachment:scroll;background-position:bottom left;background-repeat:repeat-x;overflow:hidden;left:0;z-index:4;}
-.fl-uploader-file-progress{background-image:url('../images/gradient-file-green.png');background-color:#D1D6DD;border-right:1px solid #9FCE7F;width:76%;}
+.fl-uploader-file-progress{background-image:url('/images/gradient-file-green.png');background-color:#D1D6DD;border-right:1px solid #9FCE7F;width:76%;}
 .fl-uploader-file-progress .fl-uploader-file-progress-text{display:none;}
 .fl-uploader-total-progress-okay,.fl-uploader-total-progress-errored{top:0;height:100%;width:76%;}
-.fl-uploader-total-progress-okay{background-image:url('../images/gradient-total-green.png');border-right:1px solid #9FCE7F;background-color:#BDBFC1;}
-.fl-uploader-total-progress-errored{background-image:url('../images/gradient-total-yellow.png');border-right:1px solid #E8C81C;background-color:#F6ECA0;}
+.fl-uploader-total-progress-okay{background-image:url('/images/gradient-total-green.png');border-right:1px solid #9FCE7F;background-color:#BDBFC1;}
+.fl-uploader-total-progress-errored{background-image:url('/images/gradient-total-yellow.png');border-right:1px solid #E8C81C;background-color:#F6ECA0;}
 .fl-uploader-flash9-container{overflow:hidden;width:1px;height:1px;}
 .hideUploaderForOpera{visibility:hidden;overflow:hidden;height:0;width:0;padding:0;}

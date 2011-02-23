@@ -80,7 +80,7 @@ div.notice-wrap {
 }
 
 #libra_banner_container {
-	background: url(../../images/uva/libra_banner_bg.jpg);
+	background: url(/images/uva/libra_banner_bg.jpg);
 	height: 78px;
 	width: 100%;
 }
@@ -455,7 +455,7 @@ table#file_assets {
 .yui-g {
     height: 78px;
     width: 100%;
-    background-image: url(../../images/uva/libra_banner_bg.jpg);
+    background-image: url(/images/uva/libra_banner_bg.jpg);
     background-repeat: repeat-x;
     color: #F3A729;
     text-align: left;
@@ -607,7 +607,7 @@ body .ui-widget {
 }
 
 #search {
-    background-image: url(../../images/uva/search_bg.jpg);
+    background-image: url(/images/uva/search_bg.jpg);
     background-repeat: repeat-x;
     height: 42px;
     left: 0px;
@@ -620,7 +620,7 @@ body .ui-widget {
 		font-size: 100%;
 		padding: 0;
     /*  width: 695px;
-     background-image: url(../../images/uva/search_bg.jpg);
+     background-image: url(/images/uva/search_bg.jpg);
      background-repeat: repeat-x;
      height: 42px;
      margin: -11px -11px 0 0;
@@ -915,7 +915,7 @@ tr.document {
 #footer {
     width: 100%;
 	background-color: #4672AF;
-    background-image: url(../../images/uva/footer_bg.png);
+    background-image: url(/images/uva/footer_bg.png);
     background-repeat: repeat-x;
 }
 
@@ -1208,7 +1208,7 @@ table#file_assets tr.file_asset td {
 
 .fl-uploader a.fl-uploader-browse {
 	background-color: #DFEFFC;
-    background-image: url(../images/add.png);
+    background-image: url(/images/add.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: 5px center;
@@ -1394,7 +1394,7 @@ html>body .fl-uploader a.fl-uploader-browse {
 }
 
 .fl-uploader-queue .fl-uploader-file-action-remove {
-    background-image: url(../images/remove.png);
+    background-image: url(/images/remove.png);
     cursor: pointer !important;
 }
 
@@ -1418,7 +1418,7 @@ html>body .fl-uploader a.fl-uploader-browse {
 }
 
 .fl-uploader-queue .fl-uploader-file-state-uploaded .fl-uploader-file-action {
-    background-image: url(../images/tick.png);
+    background-image: url(/images/tick.png);
 }
 
 .fl-uploader-queue .fl-uploader-file-state-error th {
@@ -1435,7 +1435,7 @@ html>body .fl-uploader a.fl-uploader-browse {
 .fl-uploader-queue .fl-uploader-file-error td {
     background-color: #FCFBE6;
     border-left: 4px solid #F5E392;
-    background-image: url(../images/error.png);
+    background-image: url(/images/error.png);
     background-position: 8px 2px;
     background-repeat: no-repeat;
     padding-bottom: 8px;
@@ -1515,7 +1515,7 @@ button span.fl-uploader-button-text-hidden {
 }
 
 .fl-uploader-file-progress {
-    background-image: url('../images/gradient-file-green.png');
+    background-image: url('/images/gradient-file-green.png');
     background-color: #D1D6DD;
     border-right: 1px solid #9FCE7F;
     width: 76%;
@@ -1532,13 +1532,13 @@ button span.fl-uploader-button-text-hidden {
 }
 
 .fl-uploader-total-progress-okay {
-    background-image: url('../images/gradient-total-green.png');
+    background-image: url('/images/gradient-total-green.png');
     border-right: 1px solid #9FCE7F;
     background-color: #BDBFC1;
 }
 
 .fl-uploader-total-progress-errored {
-    background-image: url('../images/gradient-total-yellow.png');
+    background-image: url('/images/gradient-total-yellow.png');
     border-right: 1px solid #E8C81C;
     background-color: #F6ECA0;
 }
@@ -1558,7 +1558,7 @@ button span.fl-uploader-button-text-hidden {
 }
 
 .primary_button {
-    background-image: url('../../plugin_assets/blacklight/images/start_over.gif');
+    background-image: url('/plugin_assets/blacklight/images/start_over.gif');
     border: none;
     color: white;
     cursor: pointer;
