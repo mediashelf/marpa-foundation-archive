@@ -35,7 +35,7 @@ module ApplicationHelper
     elsif   Ldap::Person.new(computing_id).has_photo?
       img = image_tag ldap_photo_path(computing_id), :width=>"100", :alt=>"#{item.value}"
     else
-      img = image_tag "default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
+      img = image_tag "/plugin_assets/hydra_repository/images/default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
     end
     link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select facet_image") 
   end
@@ -44,7 +44,7 @@ module ApplicationHelper
     if File.exists?("#{Rails.root}/public/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg")
       img = image_tag "/images/journal_images/#{item.value.strip.downcase.gsub(/\s+/,'_')}.jpg", :width => "100"
     else
-      img = image_tag "default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
+      img = image_tag "/plugin_assets/hydra_repository/images/default_thumbnail.gif", :width=>"100", :alt=>"#{item.value}"
     end
 
     link_to_unless(options[:suppress_link], img, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") 
