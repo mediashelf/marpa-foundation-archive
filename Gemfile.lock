@@ -54,6 +54,7 @@ GEM
     mime-types (1.16)
     mocha (0.9.12)
     multipart-post (1.1.0)
+    mysql (2.8.1)
     nokogiri (1.4.3.1)
     om (1.0.2)
       facets
@@ -94,7 +95,6 @@ GEM
       om
       solr-ruby
     solrizer-fedora (0.1.1)
-    sqlite3-ruby (1.2.5)
     term-ansicolor (1.0.5)
     trollop (1.16.2)
     webrat (0.7.3)
@@ -131,6 +131,7 @@ DEPENDENCIES
   mime-types
   mocha
   multipart-post
+  mysql (= 2.8.1)
   nokogiri (= 1.4.3.1)
   om (>= 1.0.1)
   rack
@@ -148,7 +149,6 @@ DEPENDENCIES
   solr-ruby
   solrizer (>= 0.3.1)
   solrizer-fedora (>= 0.1.1)
-  sqlite3-ruby (= 1.2.5)
   term-ansicolor
   trollop
   webrat
