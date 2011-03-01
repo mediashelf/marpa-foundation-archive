@@ -34,7 +34,7 @@ Runs only features marked with the @local tag.  This is good to get a quick look
 
 h3. Core Only
 
-<pre>rake cucumber:core_only</pre>
+<pre>rake cucumber:core</pre>
 
 Runs all features not marked with the following tags: @wip, @local, and @pending.  This runs what would be the default feature set prior to any customization.
 

@@ -76,28 +76,16 @@ Blacklight.configure(:shared) do |config|
   # config[:facet] << {:field_name => "format", :label => "Format", :limit => 10}
   config[:facet] = {
     :field_names => (facet_fields = [
+      "person_full_name_cid_facet",
       "object_type_facet",
-      "person_full_name_facet",
-      "mods_organization_facet",
-      "topic_tag_facet",
-      "language_lang_code_facet",
-      "mods_journal_title_info_facet",
-      "gps_facet",
-      "region_facet",
-      "site_facet",
-      "ecosystem_facet"
+      "department_facet",
+      "peer_reviewed_facet"
       ]),
     :labels => {
-      "object_type_facet"=>"Type",
-      "person_full_name_facet"=>"Person",
-      "mods_organization_facet"=>"Organization",
-      "topic_tag_facet"=>"Topic",
-      "language_lang_code_facet"=>"Language",
-      "mods_journal_title_info_facet"=>"Journal",
-      "gps_facet"=>"GPS Coordinates",
-      "region_facet"=>"Region",
-      "site_facet"=>"Site",
-      "ecosystem_facet"=>"Ecosystem"
+      "person_full_name_cid_facet"=>"Author",
+      "object_type_facet"=>"Type of Work",
+      "department_facet"=>"Department",
+      "peer_reviewed_facet"=>"Peer Reviewed"
     },
     
     # Setting a limit will trigger Blacklight's 'more' facet values link.
@@ -115,6 +103,21 @@ Blacklight.configure(:shared) do |config|
     # app code to actually have it echo'd back to see it.     
     :limits=> {nil=>10}
   }
+
+#  config[:facet] = {
+#    :field_names => [
+#      "person_full_name_cid_facet",
+#      "mods_journal_title_info_facet",
+#      "topic_tag_facet"
+#      ],
+#    :labels => {
+#      "person_full_name_cid_facet"=>"Author",
+#      "mods_journal_title_info_facet"=>"Journal",
+#      "topic_tag_facet"=>"Tag"
+#    },
+#    :limits=> {nil=>10}
+#  }
+
   
 
   # Have BL send all facet field names to Solr, which has been the default
@@ -122,6 +125,7 @@ Blacklight.configure(:shared) do |config|
   # handler defaults, or have no facets.
   config[:default_solr_params] ||= {}
   config[:default_solr_params][:"facet.field"] = facet_fields
+
 
   # solr fields to be displayed in the index (search results) view
   #   The ordering of the field names is the order of the display 
@@ -241,9 +245,9 @@ Blacklight.configure(:shared) do |config|
   config[:sort_fields] << ['relevance', 'score desc, year_facet desc, month_facet asc, title_facet asc']
   config[:sort_fields] << ['date -', 'year_facet desc, month_facet asc, title_facet asc']
   config[:sort_fields] << ['date +', 'year_facet asc, month_facet asc, title_facet asc']
-  config[:sort_fields] << ['title', 'title_facet asc']
-  config[:sort_fields] << ['document type', 'medium_t asc, year_facet desc, month_facet asc, title_facet asc']
-  config[:sort_fields] << ['location', 'series_facet asc, box_facet asc, folder_facet asc, year_facet desc, month_facet asc, title_facet asc']
+  config[:sort_fields] << ['title', 'mods_title_info_main_title_facet asc']
+  #config[:sort_fields] << ['document type', 'medium_t asc, year_facet desc, month_facet asc, title_facet asc']
+  #config[:sort_fields] << ['location', 'series_facet asc, box_facet asc, folder_facet asc, year_facet desc, month_facet asc, title_facet asc']
   
   # If there are more than this many search results, no spelling ("did you 
   # mean") suggestion is offered.

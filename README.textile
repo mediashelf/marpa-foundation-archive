@@ -1,22 +1,15 @@
 !http://github.com/projecthydra/hydrangea/raw/master/public/images/hydrangea_logo_h50_white_bg.png(Hydrangea)!
 
-h1. Hydrangea & the Hydra Framework
+h1. Libra Open Access
 
 h2. Introduction and Installation Instructions
 
-Hydrangea is the reference implementation of the Hydra framework, which builds on "Blacklight":http://projectblacklight.org, "ActiveFedora":http://yourmediashelf.com/activefedora and "Ruby on Rails":http://rubyonrails.org
+Libra Open Access is self-submission application for open-access publications.
+
+Libra OA is an extension and customization of Hydrangea, the reference implementation of the Hydra framework.
 
 For a more thorough overview of the Hydra framework, see "HYDRA_OVERVIEW.textile":http://github.com/projecthydra/hydrangea/blob/master/HYDRA_OVERVIEW.textile
-
-h3. Prerequisites
-
-Hydrangea requires Ruby version 1.8.7.  It will not run on Ruby 1.8.6.  If you need to upgrade Ruby, consider using "RVM":http://rvm.beginrescueend.com/ to do so, especially in your development environment.
-
-Other Requirements:
-* "git":http://git-scm.com/
-* "rubygems":http://rubygems.org/pages/download
-* "bundler":http://gembundler.com/ (gem install bundler)
-
+=======
 h3. Basic installation & Running RSpec tests
 
 This is based on Matt Zumwalt's "Hydra Stack: Getting Started":http://docs.google.com/View?id=ddrmhvjh_181gj9b7rcv notes from LibDevConX in March 2010.
@@ -89,20 +82,28 @@ Now run the rails lighttpd server
 ./script/server
 </pre>
 
-If all goes well, you will be able to see an empty copy of hydrangea at http://localhost:3000
+For instructions on how to build and run Libra OA, please refer to the "Hydrangea project":http://github.com/projecthydra/hydrangea
 
-h3. Create the sample user "archivist1"
+To pre-populate Libra OA with a set of fixture objects, run the following rake task:
+rake libra_oa:default_fixtures:load
 
-The fixture objects are set up to control permissions for a user named archivist1.  To create this user, click "login" then click "create one" and create a new user named archivist1 with whatever password you want.  Now when you log in as archivist1 you will be able to see more records and you will be able to edit some of them.
+To overwrite the pre-packaged fedora instance, make the desired changes to fedora/conf/fedora.fcfg and then run the following rake task(s):
+If you already have a jetty running:
+  rake hydra:jetty:stop 
+To load your changes (this task will automatically start your jetty):
+  rake hydra:jetty:load
 
-h3. Stopping the server when you're done
+Cucumber Usage:
 
-To stop the rails app, press ctl+c in the window where you ran script/server
+Additional rake tasks are provided for adding features that override or extend core functionality:  
 
-To stop jetty, use the rake task
 <pre>
-  rake hydra:jetty:stop
+rake cucumber:local_with_core
+rake cucumber:local
+rake cucumber:core
 </pre>
+
+For further information, see "Cucumber Usage":README_CUCUMBER.textile
 
 h2. Custom Fedora Config
 
@@ -152,5 +153,3 @@ Willy Mene, who created one of the "Hydra head" prototypes on which Hydrangea is
 Chris Fitzpatrick & Douglas Kim, who created the first version of Solrizer and then thoroughly exercised it.
 Naomi Dushay, whose knowledge of solr is impeccable.
 Stu Snydman, project manager for the SALT Hydra prototype.
-
-

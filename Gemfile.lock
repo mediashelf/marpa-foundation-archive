@@ -38,13 +38,13 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     curb (0.7.10)
-    database_cleaner (0.6.1)
+    database_cleaner (0.6.3)
     diff-lcs (1.1.2)
     facets (2.8.4)
     gherkin (2.3.3)
       json (~> 1.4.6)
     haml (3.0.25)
-    httparty (0.7.3)
+    httparty (0.7.4)
       crack (= 0.1.8)
     json (1.4.6)
     json_pure (1.5.1)
@@ -52,9 +52,9 @@ GEM
     marc (0.4.1)
     mediashelf-loggable (0.4.0)
     mime-types (1.16)
-    mocha (0.9.10)
-      rake
+    mocha (0.9.12)
     multipart-post (1.1.0)
+    mysql (2.8.1)
     nokogiri (1.4.3.1)
     om (1.0.2)
       facets
@@ -86,6 +86,7 @@ GEM
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
+    ruby-net-ldap (0.0.4)
     solr-ruby (0.0.8)
     solrizer (0.3.2)
       mediashelf-loggable
@@ -94,7 +95,6 @@ GEM
       om
       solr-ruby
     solrizer-fedora (0.1.1)
-    sqlite3-ruby (1.2.5)
     term-ansicolor (1.0.5)
     trollop (1.16.2)
     webrat (0.7.3)
@@ -131,6 +131,7 @@ DEPENDENCIES
   mime-types
   mocha
   multipart-post
+  mysql (= 2.8.1)
   nokogiri (= 1.4.3.1)
   om (>= 1.0.1)
   rack
@@ -144,10 +145,10 @@ DEPENDENCIES
   rspec-rails (< 2.0.0)
   ruby-debug
   ruby-debug-base
+  ruby-net-ldap
   solr-ruby
   solrizer (>= 0.3.1)
   solrizer-fedora (>= 0.1.1)
-  sqlite3-ruby (= 1.2.5)
   term-ansicolor
   trollop
   webrat
