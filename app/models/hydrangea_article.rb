@@ -14,9 +14,9 @@ class HydrangeaArticle < ActiveFedora::Base
   def apply_release(solr_doc)
     if ready_to_release?
       release_to = datastreams["properties"].release_to_values.first
-      solr_doc << Solr::Field.new(:read_access_group_t => 'uva')
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "read_access_group_t", "uva")
       if release_to == "public"
-        solr_doc << Solr::Field.new(:read_access_group_t => release_to)
+        ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "read_access_group_t", release_to)        
       end
     end
     solr_doc

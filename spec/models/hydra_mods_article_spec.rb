@@ -100,7 +100,7 @@ describe Hydra::ModsArticle do
   describe "#to_solr" do
     it "should add an object_type_facet with 'Article' as the value" do
       solr_doc = @article_ds.to_solr
-      solr_doc[:object_type_facet].should == 'Article'
+      solr_doc.should have_solr_fields("object_type_facet" => 'Article')
     end
     it "should include and respond to methods from Hydra::CommonModsIndexMethods" do
       Hydra::ModsArticle.included_modules.should include Hydra::CommonModsIndexMethods

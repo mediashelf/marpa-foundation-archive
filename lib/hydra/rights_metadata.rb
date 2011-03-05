@@ -22,9 +22,9 @@ module Hydra
       (embargo_release_date && Date.today < embargo_release_date.to_date) ? true : false
     end
 
-    def to_solr(solr_doc=Solr::Document.new)
+    def to_solr(solr_doc=Hash.new)
       super(solr_doc)
-      solr_doc << {:embargo_release_date_dt => embargo_release_date(:format=>:solr_date)} if embargo_release_date
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "embargo_release_date_dt", embargo_release_date(:format=>:solr_date)) if embargo_release_date
       solr_doc
     end
 

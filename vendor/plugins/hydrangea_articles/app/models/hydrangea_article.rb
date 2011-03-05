@@ -25,7 +25,7 @@ class HydrangeaArticle < ActiveFedora::Base
     m.field 'peer_reviewed', :string
   end
   
-  def to_solr(solr_doc=Solr::Document.new,opts={})
+  def to_solr(solr_doc=Hash.new,opts={})
     super(solr_doc, opts)
     if submitted_for_release?
       solr_doc = apply_release(solr_doc)
@@ -48,7 +48,7 @@ class HydrangeaArticle < ActiveFedora::Base
       if release_to.nil?
         release_to = "public"
       end
-      solr_doc << Solr::Field.new(:read_access_group_t => release_to)
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "read_access_group_t", release_to)
     end
     solr_doc
   end

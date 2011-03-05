@@ -153,13 +153,16 @@ module Hydra
       return builder.doc.root
     end
     
-    def to_solr(solr_doc=Solr::Document.new)
+    def to_solr(solr_doc=Hash.new)
       super(solr_doc)
-      extract_person_full_names.each {|pfn| solr_doc << pfn }
-      extract_person_organizations.each {|org| solr_doc << org }
-      extract_person_full_names_and_computing_ids.each {|pfc| solr_doc << pfc }
-      solr_doc << {:object_type_facet => "Article"}
-      solr_doc << {:mods_journal_title_info_facet => "Unknown" } if solr_doc["mods_journal_title_info_facet"].nil? || solr_doc["mods_journal_title_info_facet"].blank?
+      
+      extract_person_full_names.each_pair {|n,v| ::Solrizer::Extractor.insert_solr_field_value(solr_doc, n, v) }
+      extract_person_organizations.each_pair {|n,v| ::Solrizer::Extractor.insert_solr_field_value(solr_doc, n, v) }
+      extract_person_full_names_and_computing_ids.each_pair {|n,v| ::Solrizer::Extractor.insert_solr_field_value(solr_doc, n, v) }
+      
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "object_type_facet", "Article")
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "mods_journal_title_info_facet", "Unknown") if solr_doc["mods_journal_title_info_facet"].nil? || solr_doc["mods_journal_title_info_facet"].blank?
+
       solr_doc
     end
   end
