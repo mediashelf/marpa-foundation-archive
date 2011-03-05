@@ -24,12 +24,11 @@ describe CatalogController do
     # route_for(:controller=>'catalog', :action=>'index').should == '/catalog'
     route_for(:controller=>'catalog', :action=>'show', :id=>"_PID_").should == '/catalog/_PID_'
     route_for(:controller=>'catalog', :action=>'edit', :id=>"_PID_").should == '/catalog/_PID_/edit'
-    route_for(:controller=>'catalog', :action=>'ldap_photo', :id=>"_PID_").should == '/catalog/_PID_/ldap_photo'
 
     params_from(:get, '/catalog').should == {:controller=>'catalog', :action=>'index'}
     params_from(:get, '/catalog/_PID_').should == {:controller=>'catalog', :id=>"_PID_", :action=>'show'}
     params_from(:get, '/catalog/_PID_/edit').should == {:controller=>'catalog', :id=>"_PID_", :action=>'edit'}
-    params_from(:get, '/catalog/_PID_/ldap_photo').should == {:controller=>'catalog', :id=>"_PID_", :action=>'ldap_photo'}
+    params_from(:get, '/catalog/_PID_/ldap_photo').should == {:controller=>'ldap_person_photos', :id=>"_PID_", :action=>'show'}
   end
   
   describe "index" do

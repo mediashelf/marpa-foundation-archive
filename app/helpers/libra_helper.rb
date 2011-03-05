@@ -28,18 +28,5 @@ module LibraHelper
       end
     end
   end  
-  # def check_embargo_date_format(updater_method_args)
-  #   if updater_method_args[:params].keys.include? [:embargo, :embargo_release_date]
-  #     em_date = updater_method_args[:params][[:embargo, :embargo_release_date]]["0"]
-  #     unless em_date.blank?
-  #       begin 
-  #         !Date.parse(em_date)
-  #       rescue
-  #         updater_method_args[:params][[:embargo,:embargo_release_date]]["0"] = ""
-  #         raise "Unacceptable date format"
-  #       end
-  #     end
-  #   end
-  # end
   
 end
