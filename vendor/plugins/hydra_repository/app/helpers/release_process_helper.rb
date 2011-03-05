@@ -1,4 +1,4 @@
-module LibraHelper
+module ReleaseProcessHelper
   
   def display_release_status_notice(document)
     readiness = document.test_release_readiness
