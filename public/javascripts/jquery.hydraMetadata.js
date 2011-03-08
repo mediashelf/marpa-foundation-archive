@@ -55,7 +55,7 @@
 
        $("div.textile", $item).editable(assetUrl+"&format=textile", {
            method    : "PUT",
-           indicator : "<img src='/images/ajax-loader.gif'>",
+           indicator : "<img src='/plugin_assets/hydra_repository/images/ajax-loader.gif'>",
            loadtext  : "",
            type      : "textarea",
            submit    : "OK",
@@ -269,13 +269,14 @@
        case "copyright_uvalicense":
          var licenseUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_1_label');
+         break;
        case "journal_0_title_info_main_title":
          var journalTitleUpdated = true;
          $.fn.hydraProgressBox.showProcessingInProgress('step_2_label');
+         break;
        default:
        }
 
-			 alert('running ajax'); 
        $.ajax({
          type: "PUT",
          url: url,
@@ -475,7 +476,7 @@
    $.fn.hydraTextField = function(settings) {
       this.each(function() {
        $(this).unbind('blur').bind('blur', function(e) {
-         if ($(this).hasClass("data-changed")) {;
+         if ($(this).hasClass("data-changed")) {
            $.fn.hydraMetadata.saveEdit(this,e);
            $(this).removeClass("data-changed");
          }
@@ -498,7 +499,7 @@
    $.fn.hydraTextileField = function(settings) {
      var config = {
        method    : "PUT",
-       indicator : "<img src='/images/ajax-loader.gif'>",
+       indicator : "<img src='/plugin_assets/hydra_repository/images/ajax-loader.gif'>",
        type      : "textarea",
        //submit    : "OK",
        //cancel    : "Cancel",

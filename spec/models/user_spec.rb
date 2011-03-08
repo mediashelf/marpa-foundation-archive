@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 require "active_fedora"
 
 describe User do
-
+  
   describe "a user using no enhanced attribution" do
     before(:each) do
       @user = User.create(:login=>"testuser", :email=> "testuser@example.com", :password=> "password", :password_confirmation => "password")

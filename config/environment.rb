@@ -5,8 +5,8 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-# This is not necessary because we're using Bundler
-# RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+# We need to make sure that rails 2.3.5 is used because that's what Blacklight uses
+RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -27,7 +27,8 @@ Rails::Initializer.run do |config|
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/blacklight/vendor/plugins"]  
-  config.plugins = %W(engines blacklight acts_as_taggable_on_steroids resource_controller haml fluid-infusion hydra_repository stanford_salt white_list hydrangea_articles hydrangea_datasets marpa_courses_and_lectures)
+  config.plugins = %W(engines blacklight acts_as_taggable_on_steroids resource_controller haml fluid-infusion hydra_repository stanford_salt white_list hydrangea_articles hydrangea_datasets hydrangea_books marpa_courses_and_lectures)
+
   
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
@@ -46,8 +47,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_blacklight_session',
-    :secret      => '3e37cf3b7a9a3359f437aac207241fd25c2e2a107f85b2e6d32e0b5e3795e75fdb094b9d045d8c40e9ae2b38063c8926ef01b1e03946652eadf96c653d6effa9'
+    :key => '_blacklight_session',
+    :secret => '3e37cf3b7a9a3359f437aac207241fd25c2e2a107f85b2e6d32e0b5e3795e75fdb094b9d045d8c40e9ae2b38063c8926ef01b1e03946652eadf96c653d6effa9'
   }
   
   # Use the database for sessions instead of the cookie-based default,

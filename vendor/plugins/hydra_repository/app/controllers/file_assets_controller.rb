@@ -26,7 +26,6 @@ class FileAssetsController < ApplicationController
     else
       # @solr_result = ActiveFedora::SolrService.instance.conn.query('has_model_field:info\:fedora/afmodel\:FileAsset', @search_params)
       @solr_result = FileAsset.find_by_solr(:all)
-      puts @solr_result.inspect
     end
     render :action=>params[:action], :layout=>layout
   end
@@ -45,7 +44,7 @@ class FileAssetsController < ApplicationController
       @container.save
     end
     
-    ## FOR CAPTURING ANY FILE METADATA  
+    ## FOR CAPTURING ANY FILE METADATA // THERE'S PROBABY A BETTER PLACE FOR THIS. 
     unless params[:asset].nil?
       updater_method_args = prep_updater_method_args(params)
       logger.debug("attributes submitted: #{updater_method_args.inspect}")

@@ -1,11 +1,11 @@
-<h3><%=h facet_value if facet_value %> <em><%= grouped_result_count(@response, facet_name, facet_value) %></em></h3>
+
 <table>
 	<% unless params[:display_type] == 'list' %>
   <tr>
     <th class="title">Title</th>
-    <th class="date_recorded">Date Recorded</th>
-    <th class="location">Location</th>
-    <th class="topics">Main Topics</th>
+    <th class="creator">Author</th>
+    <th class="journal">Work</th>
+    <th class="deposited">Deposited</th>
     <th class="files">Files</th>
   </tr>
   <% end %>

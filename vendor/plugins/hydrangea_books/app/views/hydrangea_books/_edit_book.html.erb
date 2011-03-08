@@ -1,0 +1,26 @@
+<% book = edit_book %>
+<% book_counter = edit_book_counter %>
+<% base_id = "book_#{book_counter}" %>
+
+<li id="pbPublisher">
+	<fieldset id="publisher_fieldset">
+    <legend>Publisher</legend>
+    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:origin_info, :publisher], :multiple=>false) %>
+  </fieldset>
+</li>
+
+<li id="pbPublicationDate">
+	<fieldset id="publication_date_fieldset">
+    <legend>Publication Date</legend>
+    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter},:issue,:publication_date], :multiple=>false) %>
+  </fieldset>
+</li>      
+
+<li id="pbISBN">
+	<fieldset id="isbn_fieldset">
+    <legend>ISBN</legend>
+    <%= fedora_text_field(@document_fedora,"descMetadata", [{:book => book_counter}, :isbn], :multiple=>false) %>
+  </fieldset>
+</li>
+
+

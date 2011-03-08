@@ -7,6 +7,7 @@ Feature: Dataset Search Result
   Scenario: Viewing search results
     Given I am on the home page
     And I fill in "q" with "tiger shark"
-    When I press "search"
+    When I press "submit"
     Then I should see a link to "the show document page for hydrangea:fixture_mods_dataset1"
-    And I should see "2010-08-14 4:41a"
+    And I should see "Fixture Marine Biology Dataset"
+    And I should see "Aug. 14, 2010"

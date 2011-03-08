@@ -8,6 +8,17 @@ module Hydra::GenericContent
    klass.send :include, Hydra::ModelMethods
   end
   
+  # For each value in DEFAULT_CONTENT_DATASTREAMS, instances will have 3 corresponding methods for
+  # * getting the datastream's content
+  # * setting a new file as the datastream's content
+  # * checking whether the current object has the datastream already
+  #
+  # Example: DEFAULT_CONTENT_DATASTREAMS = ['content','original']
+  # These methods will be available on the object:
+  #
+  # .has_original?, original, orginal=()
+  # .has_content?, content, content=()
+  #
   DEFAULT_CONTENT_DATASTREAMS = ['content','original']
   
   DEFAULT_CONTENT_DATASTREAMS.each do |m|
@@ -78,7 +89,7 @@ module Hydra::GenericContent
       end
   end   
   
-  # augments add_file_datastream to also put file size (in bytes/KB/MB/GB/TB) in dc:extent 
+  # augments add_file_datastream to also put file size (in bytes/KB/MB/GB/TB) in mods:physicaldescription/mods:extent 
   def add_file_datastream(file, opts={})
     label = opts.has_key?(:label) ? opts[:label] : ""
     mimeType = opts.has_key?(:mimeType) ? opts[:mimeType] : ""
@@ -92,7 +103,7 @@ module Hydra::GenericContent
     else
       size = ""
     end
-    datastreams_in_memory["descMetadata"].extent_values = size
+    datastreams_in_memory["descMetadata"].update_indexed_attributes( [:physical_description, :extent] => size )
   end
   
   def mime_type file_name

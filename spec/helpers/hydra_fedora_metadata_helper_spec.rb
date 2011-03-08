@@ -37,7 +37,7 @@ describe HydraFedoraMetadataHelper do
       generated_html = helper.fedora_text_field(@resource,"simple_ds","subject")
       generated_html.should have_tag "ol[rel=subject]" do
         with_tag "li#subject_0-container.editable-container.field" do
-          without_tag "a.destructive.field"
+          with_tag "a.destructive.field"
           with_tag "span#subject_0-text.editable-text.text", "topic1"
           with_tag "input#subject_0.editable-edit.edit" do
             with_tag "[value=?]", "topic1"
@@ -77,49 +77,30 @@ describe HydraFedoraMetadataHelper do
   describe "fedora_text_area" do
     it "should generate an ordered list of textile-enabled text area with values from the given datastream" do
       helper.fedora_text_area(@resource,"simple_ds","subject").should have_tag "ol[rel=subject]" do
-        with_tag "li#subject_0-container.field_value.textile-container.field" do
-          # with_tag "[data-datastream-name=?]", "simple_ds" 
+        with_tag "li#subject_0-container.field" do
           without_tag "a.destructive.field"
-          with_tag "div#subject_0-text.textile-text.text", "topic1"
-          with_tag "input#subject_0.textile-edit.edit[value=topic1]" do
-            with_tag "[data-datastream-name=?]", "simple_ds" 
-            with_tag "[rel=?]", "subject" 
-            with_tag "[name=?]", "asset[simple_ds][subject][0]"
-          end
+          with_tag "span#subject_0-text.editable-text.text[style=display:none;]", "topic1"
+          with_tag "textarea#subject_0.editable-edit.edit", "topic1"
         end 
-        with_tag "li#subject_1-container.field_value.textile-container.field" do
-          # with_tag "[data-datastream-name=?]", "simple_ds" 
-          with_tag "a.destructive.field"
-          with_tag "div#subject_1-text.textile-text.text", "topic2"
-          with_tag "input#subject_1.textile-edit.edit[value=topic2]" do
-            with_tag "[data-datastream-name=?]", "simple_ds" 
-            with_tag "[rel=?]", "subject" 
-            with_tag "[name=?]", "asset[simple_ds][subject][1]"
-          end
-        end
+        with_tag "li#subject_1-container.field" do
+          with_tag "span#subject_1-text.editable-text.text[style=display:none;]","topic2"
+          with_tag "textarea#subject_1.editable-edit.edit", "topic2"
+        end 
       end
     end
     it "should render an empty control if the field has no values" do      
-      helper.fedora_text_area(@resource,"empty_ds","something").should have_tag "li#something_0-container.textile-container" do
-        with_tag "#something_0-text.textile-text", ""
+      helper.fedora_text_area(@resource,"empty_ds","something").should have_tag "li#something_0-container.field" do
+        with_tag "span#something_0-text.editable-text.text[style=display:none;]", ""
+        with_tag "textarea#something_0.editable-edit.edit", ""
       end
     end
     it "should limit to single-value output if :multiple=>false" do
       generated_html = helper.fedora_text_area(@resource,"simple_ds","subject", :multiple=>false)
       generated_html.should_not have_tag "ol"
       generated_html.should_not have_tag "li"
-      generated_html.should have_tag "span#subject-container.field_value.textile-container.field" do
-        with_tag "div#subject-text.textile-text.text", "topic1"
-        with_tag "input#subject.textile-edit.edit[value=topic1]" do
-          with_tag "[data-datastream-name=?]", "simple_ds" 
-          with_tag "[rel=?]", "subject" 
-          with_tag "[name=?]", "asset[simple_ds][subject][0]"
-        end 
-      end
-    end
-    it "should render an empty control if the field has no values" do
-      helper.fedora_text_area(@resource,"empty_ds","something").should have_tag "li#something_0-container.textile-container" do
-        with_tag "#something_0-text.textile-text", ""
+      generated_html.should have_tag "span#subject-container.field" do
+        with_tag "span#subject-text.editable-text.text[style=display:none;]", "topic1"
+        with_tag "textarea#subject.editable-edit.edit", "topic1"
       end
     end
   end

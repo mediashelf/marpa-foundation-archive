@@ -20,7 +20,7 @@ describe Hydra::ModsArticle do
     it "should generate a new person node" do
       node = Hydra::ModsArticle.person_template
       node.should be_kind_of(Nokogiri::XML::Element)
-      node.to_xml.should == "<name type=\"personal\">\n  <namePart type=\"family\"/>\n  <namePart type=\"given\"/>\n  <affiliation/>\n  <role>\n    <roleTerm type=\"text\"/>\n  </role>\n</name>"
+      node.to_xml.should == "<name type=\"personal\">\n  <namePart type=\"family\"/>\n  <namePart type=\"given\"/>\n  <affiliation/>\n  <computing_id/>\n  <description/>\n  <role>\n    <roleTerm type=\"text\">Author</roleTerm>\n  </role>\n</name>"
     end
   end
   describe "insert_contributor" do
@@ -100,7 +100,7 @@ describe Hydra::ModsArticle do
   describe "#to_solr" do
     it "should add an object_type_facet with 'Article' as the value" do
       solr_doc = @article_ds.to_solr
-      solr_doc[:object_type_facet].should == 'Article'
+      solr_doc.should have_solr_fields("object_type_facet" => 'Article')
     end
     it "should include and respond to methods from Hydra::CommonModsIndexMethods" do
       Hydra::ModsArticle.included_modules.should include Hydra::CommonModsIndexMethods

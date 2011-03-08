@@ -1,5 +1,8 @@
+<fieldset id="coverage_and_methodology">
+    <legend>Coverage and Methodology</legend>
+  <dl>
+<% unless get_values_from_datastream(@document_fedora,"hydraDataset", [:interval]).first.empty? %>
 
-  <% unless get_values_from_datastream(@document_fedora,"hydraDataset", [:interval]).first.empty? %>
     <dt>
       <%= fedora_field_label("descMetadata", [:data_type], "Data Collection") %>
     </dt>
@@ -73,6 +76,8 @@
       <%= fedora_field_label("hydraDataset", [:ecosystem], "Ecosystem Type") %>
     </dt>
     <dd class="ecosystem">
-      <%= get_values_from_datastream(@document_fedora,"hydraDataset", [:ecoysystem]) %>
+      <%= get_values_from_datastream(@document_fedora,"hydraDataset", [:ecosystem]) %>
     </dd>
 	<% end %>
+	</dl>
+</fieldset>
