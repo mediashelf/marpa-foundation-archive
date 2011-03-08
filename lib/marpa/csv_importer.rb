@@ -8,13 +8,13 @@ class Marpa::CSVImporter
   
   @@header_mappings = {
     "File Name" => ["marpaCore", [:digital_master, :identifier]],
-    "Title Tibetan" => ["descMetadata", :tibetan_title],
-    "Title English" => ["descMetadata", :title],
+    "Title Tibetan" => ["descMetadata", [:tibetan_title]],
+    "Title English" => ["descMetadata", [:title]],
     "Author" => ["marpaCore", [:commentary_taught, :author]],
-    "Date" => ["descMetadata", :date],
+    "Date" => ["descMetadata", [:date]],
     "Time" => ["marpaCore", [:digital_master, :duration]],
     "Size (MB)" => ["marpaCore", [:digital_master, :file_size]],
-    "Location" => ["descMetadata", :spatial], 
+    "Location" => ["descMetadata", [:spatial]], 
     "Access" => ["marpaCore", [:restriction_level]], 
     "Originals" => ["marpaCore", [:physical_instance, :annotation]], 
     "Master" => ["marpaCore", [:digital_master, :location]], 
@@ -100,7 +100,7 @@ class Marpa::CSVImporter
       end
     end
     # obj.update_datastream_attributes(new_values)
-    obj.datastreams["descMetadata"].update_attributes(new_values["descMetadata"])
+    obj.datastreams["descMetadata"].update_indexed_attributes(new_values["descMetadata"])
     obj.datastreams["marpaCore"].update_indexed_attributes(new_values["marpaCore"])
     obj.datastreams["rightsMetadata"].permissions({:group=>"archivist"}, "edit")
     obj.datastreams["rightsMetadata"].permissions({:group=>"admin"}, "edit")    

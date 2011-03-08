@@ -9,7 +9,7 @@ describe Marpa::CSVImporter  do
   describe "parse_csv" do
     it "should set up courses and lectures attributes, placing all lectures within their associated courses" do
       @test_importer.parse_csv( File.join(RAILS_ROOT,"lib","marpa","KTGR MP3.csv") )
-      @test_importer.courses.length.should == 55
+      @test_importer.courses.length.should == 54
       @test_importer.courses["bzang.spyod.smon.lam-bouddha-1991-psc-t-5c"][:lectures].length.should == 5
       @test_importer.courses["bzang.spyod.smon.lam-bouddha-1991-psc-t-5c"][:lectures].each {|row| row.should be_kind_of(FasterCSV::Row) }
       @test_importer.headers.should == ["File Name", "Type", "Title Tibetan", "Title English", "Author", "Date", "Time", "Size (MB)", "Location", "Access", "Originals", "Master", "Notes", "Technical Notes"]
@@ -28,10 +28,10 @@ describe Marpa::CSVImporter  do
       lecture = @test_importer.fobject_from_row(lecture_row, MarpaLecture)
       
       course_dc = course.datastreams["descMetadata"]
-      course_dc.tibetan_title_values.should == ["shes bya mdzod chapter 2.3"]
-      course_dc.title_values.should == ["Treasury of Knowledge - chapter 2.3"]
-      course_dc.date_values.should == ["6-23 April 1986"]
-      course_dc.spatial_values.should == ["Kagyü Ling, Plaige, France"]
+      course_dc.term_values(:tibetan_title).should == ["shes bya mdzod chapter 2.3"]
+      course_dc.term_values(:english_title).should == ["Treasury of Knowledge - chapter 2.3"]
+      course_dc.term_values(:date).should == ["6-23 April 1986"]
+      course_dc.term_values(:spatial).should == ["Kagyü Ling, Plaige, France"]
       
       course_mc = course.datastreams["marpaCore"]
       course_mc.term_values(:digital_master, :identifier).should == ["shes.bya.mdzod.ch2.3-plaige-1986-psc-te-8c"]
@@ -45,10 +45,10 @@ describe Marpa::CSVImporter  do
       course_mc.term_values(:technical_note).should == [""]
       
       lecture_dc = lecture.datastreams["descMetadata"]
-      lecture_dc.tibetan_title_values.should == [" 'phrul gyi lde mig"]
-      lecture_dc.title_values.should == ["The Miraculous Key "]
-      lecture_dc.date_values.should == ["17-19 April 1986"]
-      lecture_dc.spatial_values.should == []
+      lecture_dc.term_values(:tibetan_title).should == [" 'phrul gyi lde mig"]
+      lecture_dc.term_values(:english_title).should == ["The Miraculous Key "]
+      lecture_dc.term_values(:date).should == ["17-19 April 1986"]
+      lecture_dc.term_values(:spatial).should == []
       
       lecture_mc = lecture.datastreams["marpaCore"]
       lecture_mc.term_values(:digital_master, :identifier).should == ["shes.bya.mdzod.ch2.3-plaige-1986-psc-te-8c-7"]

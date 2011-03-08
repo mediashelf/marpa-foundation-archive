@@ -8,9 +8,7 @@ class MarpaLecture < ActiveFedora::Base
     has_relationship "file", :is_part_of, :inbound => true
     has_relationship "manifestation", :is_description_of
 
-    has_metadata :name => "descMetadata", :type => ActiveFedora::QualifiedDublinCoreDatastream do |m|
-      #m.field :tibetan_title, :string, :xml_node => "title", :language => "tibetan"
-    end
+    has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
     
