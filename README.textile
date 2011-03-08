@@ -59,8 +59,8 @@ RAILS_ENV=test rake hydra:default_fixtures:load
 If you have already loaded these fixtures before, you should refresh them with 
 
 <pre>
-rake hydra:default_fixtures:refresh	
-RAILS_ENV=test rake hydra:default_fixtures:refresh
+rake RAILS_ENV=test hydra:fixtures:refresh
+rake hydra:fixtures:refresh
 </pre>
 
 Run the Rspec tests to make sure everything is working properly.
