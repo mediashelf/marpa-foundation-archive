@@ -6,10 +6,16 @@ h2. Loading Content from Spreadsheet & S3
 
 To load a rough replica of the content in the live site, run these rake tasks.
 
-rake marpa_importer:import_csv csv="lib/marpa/KTGR MP3.csv"
-rake marpa_importer:import_s3
+<pre>rake marpa_importer:import_csv csv="lib/marpa/KTGR MP3.csv"</pre>
+
+Import (pointers to) recordings from Amazon S3 and then match them to the talks 
+<pre>rake marpa_importer:import_s3</pre>
+
+Give Lectures meaningful titles based on Course titles
+<pre>
 rake marpa_importer:match_talks
 rake marpa_importer:populate_titles
+</pre>
 
 h1. Hydrangea & the Hydra Framework
 
