@@ -1,16 +1,17 @@
 # This is a sample config file that does not have multiple solr instances. You will also need to be sure to
 # edit the fedora.yml file to match the solr URL for active-fedora. 
 development:
-<<<<<<< HEAD
   default:
-    url: http://archives.ktgrinpoche.org:8983/solr/developments
+    url: http://localhost:8983/solr/development
+    # url: http://archives.ktgrinpoche.org:8983/solr/development
   fulltext:
-    url: http://archives.ktgrinpoche.org:8983/solr/development
+    url: http://localhost:8983/solr/development
+    # url: http://archives.ktgrinpoche.org:8983/solr/development
 test: &TEST
   default:
-    url: http://archives.ktgrinpoche.org:8983/solr/test
+    url: http://localhost:8983/solr/test
   fulltext:
-    url: http://archives.ktgrinpoche.org:8983/solr/test
+    url: http://localhost:8983/solr/test
 production:
   default:
     url: http://your.production.server:8080/bl_solr/core0 
