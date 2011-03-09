@@ -2283,37 +2283,9 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   </access>
   <access type="read">
     <human></human>
-    <machine></machine>
-  </access>
-  <access type="edit">
-    <human></human>
     <machine>
-      <person>archivist1</person>
+      <group>public</group>
     </machine>
-  </access>
-  <embargo>
-    <human></human>
-    <machine></machine>
-  </embargo>
-</rightsMetadata>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="rightsMetadata.1" LABEL="" CREATED="2011-01-25T19:44:13.553Z" MIMETYPE="text/xml" SIZE="579">
-<foxml:xmlContent>
-<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
-  <copyright>
-    <human></human>
-    <machine>
-      <uvalicense>yes</uvalicense>
-    </machine>
-  </copyright>
-  <access type="discover">
-    <human></human>
-    <machine></machine>
-  </access>
-  <access type="read">
-    <human></human>
-    <machine></machine>
   </access>
   <access type="edit">
     <human></human>
