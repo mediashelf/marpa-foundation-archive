@@ -8,7 +8,7 @@ describe Marpa::CSVImporter  do
   
   describe "parse_csv" do
     it "should set up courses and lectures attributes, placing all lectures within their associated courses" do
-      @test_importer.parse_csv( File.join(RAILS_ROOT,"lib","marpa","KTGR MP3.csv") )
+      @test_importer.parse_csv( File.join(RAILS_ROOT, "vendor", "plugins", "marpa_courses_and_lectures", "lib","marpa","KTGR MP3.csv") )
       @test_importer.courses.length.should == 54
       @test_importer.courses["bzang.spyod.smon.lam-bouddha-1991-psc-t-5c"][:lectures].length.should == 5
       @test_importer.courses["bzang.spyod.smon.lam-bouddha-1991-psc-t-5c"][:lectures].each {|row| row.should be_kind_of(FasterCSV::Row) }
@@ -19,7 +19,7 @@ describe Marpa::CSVImporter  do
   
   describe "fobject_from_row" do
     it "should create an object of the given model and apply the row's metadata to it" do
-      @test_importer.parse_csv( File.join(RAILS_ROOT,"lib","marpa","KTGR MP3.csv") )
+      @test_importer.parse_csv( File.join(RAILS_ROOT, "vendor", "plugins", "marpa_courses_and_lectures", "lib","marpa","KTGR MP3.csv") )
       course = @test_importer.courses["shes.bya.mdzod.ch2.3-plaige-1986-psc-te-8c"]
       course_row = course[:metadata]
       lecture_row = course[:lectures][6]
