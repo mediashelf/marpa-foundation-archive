@@ -4,6 +4,7 @@ gem 'rails', '2.3.5'
 
 gem 'active-fedora', '2.0.0'  
 gem 'authlogic', '>=0.1.0'
+gem "aws-s3"
 gem 'builder'
 gem 'columnize'
 gem 'crack'
@@ -20,7 +21,7 @@ gem 'mime-types'
 gem 'multipart-post'
 # gem 'mysql', '2.8.1'
 gem 'nokogiri', '1.4.3.1'
-gem 'om', '>=1.0.1'
+gem 'om', '>=1.1.1'
 gem 'rack'
 gem 'rack-test'
 gem 'rake'
@@ -54,4 +55,8 @@ group :development, :test do
   gem 'cucumber', '>=0.8.5'
   gem 'cucumber-rails'
   gem 'gherkin'
+end
+
+group :importer do
+ gem 'fastercsv'
 end
