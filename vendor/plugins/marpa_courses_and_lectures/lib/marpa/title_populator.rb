@@ -13,17 +13,17 @@ class Marpa::TitlePopulator
       begin
         course_filename = course.datastreams["marpaCore"].term_values(:digital_master, :identifier).first
         # course_title = course.datastreams["descMetadata"].term_values(:title_info, :main_title).first
-        course_title = course.datastreams["descMetadata"].title_values.first
+        course_title = course.datastreams["descMetadata"].term_values(:english_title).first
         if course_title.nil? || course_title.empty?
           course_title = course_filename
-          course.datastreams["descMetadata"].title_values = course_title
+          course.datastreams["descMetadata"].update_indexed_attributes([:english_title]=>course_title)
           course.save
         end
         course.parts(:rows=>100).each do |talk|
           talk_filename = talk.datastreams["marpaCore"].term_values(:digital_master, :identifier).first
           talk_name = talk_filename.gsub(course_filename+"-", "")
           talk_title = "#{course_title}: Talk #{talk_name}"
-          talk.datastreams["descMetadata"].title_values = talk_title
+          talk.datastreams["descMetadata"].update_indexed_attributes([:english_title]=>course_title)
           talk.save
         end
       rescue => e

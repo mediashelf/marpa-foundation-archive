@@ -5,13 +5,13 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.root(:path=>"dc", :xmlns=>'http://purl.org/dc/terms/')
     t.tibetan_title(:path=>"title", :attributes=>{:language=>"tibetan"})
     t.english_title(:path=>"title", :attributes=>{:language=>:none})
-    t.contributor
+    t.contributor(:index_as=>[:facetable])
     t.coverage
     t.creator
     t.description
     t.format
     t.identifier
-    t.language
+    t.language(:index_as=>[:facetable])
     t.publisher
     t.relation
     t.source
@@ -30,7 +30,7 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.coverage
     t.created
     t.creator
-    t.date
+    t.date(:index_as=>[:facetable])
     t.dateAccepted
     t.dateCopyrighted
     t.dateSubmitted
@@ -50,7 +50,7 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.isRequiredBy
     t.issued
     t.isVersionOf
-    t.language
+    t.language(:index_as=>[:facetable])
     t.license
     t.mediator
     t.medium
@@ -64,8 +64,8 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.rights
     t.rightsHolder
     t.source
-    t.spatial
-    t.subject
+    t.spatial(:index_as=>[:facetable])
+    t.subject(:index_as=>[:facetable])
     t.tableOfContents
     t.temporal
     t.type

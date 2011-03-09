@@ -36,4 +36,12 @@ class MarpaLecture < ActiveFedora::Base
       end
     end
     
+    def to_solr(solr_doc=Hash.new, opts={})
+      super(solr_doc)
+      
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "object_type_facet", "Talk")
+
+      solr_doc
+    end
+    
 end
