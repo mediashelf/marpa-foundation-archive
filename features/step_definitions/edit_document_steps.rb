@@ -14,6 +14,16 @@ Then /^the "([^\"]*)" inline edit should contain "([^\"]*)"$/ do |arg1, arg2|
   end
 end
 
+Then /^the "([^\"]*)" inline edit should be empty$/ do |arg1|
+  response.should have_selector("dt", :content=>arg1) do |dt|
+    dt.each do |term| 
+      term.next_element.should have_selector("dd .editable-container") do |editable|
+        editable.should have_selector(".editable-edit", :content=>nil)
+      end 
+    end
+  end
+end
+
 Then /^the "([^\"]*)" inline date edit should contain "([^\"]*)"$/ do |arg1, arg2|
   response.should have_selector("dt", :content=>arg1) do |dt|
     dt.each do |term| 
