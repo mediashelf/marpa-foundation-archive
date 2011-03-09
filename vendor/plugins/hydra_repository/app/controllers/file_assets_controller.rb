@@ -5,34 +5,24 @@ class FileAssetsController < ApplicationController
   include Hydra::RepositoryController  
   include MediaShelf::ActiveFedoraHelper
   include Blacklight::SolrHelper
-  include ActiveSupport::Callbacks
   
   before_filter :require_fedora
   before_filter :require_solr, :only=>[:index, :create, :show, :destroy]
   
-  def load_container_object
-    @container =  ActiveFedora::Base.load_instance(params[:container_id])
-  end
-
+  
   def index
-    
     if params[:layout] == "false"
       # action = "index_embedded"
       layout = false
     end
     if !params[:container_id].nil?
-      container_uri = "info:fedora/#{params[:container_id]}"
-      escaped_uri = container_uri.gsub(/(:)/, '\\:')
-      extra_controller_params =  {:q=>"is_part_of_s:#{escaped_uri}"}
-      @response, @document_list = get_search_results( extra_controller_params )      
-    
-      # Including this line so permissions tests can be run against the container
-      @container_response, @document = get_solr_response_for_doc_id(params[:container_id])
+      @response, @document = get_solr_response_for_doc_id(params[:container_id])
+      @container =  ActiveFedora::Base.load_instance(params[:container_id])
+      @solr_result = @container.file_objects(:response_format=>:solr)
     else
       # @solr_result = ActiveFedora::SolrService.instance.conn.query('has_model_field:info\:fedora/afmodel\:FileAsset', @search_params)
       @solr_result = FileAsset.find_by_solr(:all)
     end
-    
     render :action=>params[:action], :layout=>layout
   end
   
@@ -107,26 +97,4 @@ class FileAssetsController < ApplicationController
       end
     end
   end
-  
-  #
-  # Copied from Blacklight CatalogController. Will be put into a module at some point.  Until then, just replicating...
-  # See comments in CatalogController for more info.
-  #
-  def facet_limit_for(facet_field)
-    limits_hash = facet_limit_hash
-    return nil unless limits_hash
-
-    limit = limits_hash[facet_field]
-    limit = limits_hash[nil] unless limit
-
-    return limit
-  end
-  helper_method :facet_limit_for
-  # Returns complete hash of key=facet_field, value=limit.
-  # Used by SolrHelper#solr_search_params to add limits to solr
-  # request for all configured facet limits.
-  def facet_limit_hash
-    Blacklight.config[:facet][:limits]           
-  end
-  helper_method :facet_limit_hash
 end
