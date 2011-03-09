@@ -5,12 +5,17 @@ class FileAssetsController < ApplicationController
   include Hydra::RepositoryController  
   include MediaShelf::ActiveFedoraHelper
   include Blacklight::SolrHelper
+  include ActiveSupport::Callbacks
   
   before_filter :require_fedora
   before_filter :require_solr, :only=>[:index, :create, :show, :destroy]
   
-  
+  def load_container_object
+    @container =  ActiveFedora::Base.load_instance(params[:container_id])
+  end
+
   def index
+    
     if params[:layout] == "false"
       # action = "index_embedded"
       layout = false
@@ -20,13 +25,14 @@ class FileAssetsController < ApplicationController
       escaped_uri = container_uri.gsub(/(:)/, '\\:')
       extra_controller_params =  {:q=>"is_part_of_s:#{escaped_uri}"}
       @response, @document_list = get_search_results( extra_controller_params )      
-      
+    
       # Including this line so permissions tests can be run against the container
       @container_response, @document = get_solr_response_for_doc_id(params[:container_id])
     else
       # @solr_result = ActiveFedora::SolrService.instance.conn.query('has_model_field:info\:fedora/afmodel\:FileAsset', @search_params)
       @solr_result = FileAsset.find_by_solr(:all)
     end
+    
     render :action=>params[:action], :layout=>layout
   end
   

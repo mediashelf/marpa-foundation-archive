@@ -4,6 +4,7 @@ class CatalogController
   include Blacklight::CatalogHelper
   include Hydra::RepositoryController
   include Hydra::AccessControlsEnforcement
+  helper MediaShelf::ActiveFedoraHelper
   before_filter :require_solr, :require_fedora, :only=>[:show, :edit, :index]
   
   def default_html_head
