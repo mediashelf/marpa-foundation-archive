@@ -1,0 +1,11 @@
+- parts = @document_fedora.parts(:response_format=>:solr)
+- parts.each do |part|
+  - if part["has_model_s"].include?("info:fedora/afmodel:S3Content")
+    -# if ActiveFedora::ContentModel.known_models_for(part).include?(S3Content)
+    - s3_part = S3Content.load_instance(part["id"])
+    =render :partial=>'s3_contents/recording', :object => s3_part
+  - else
+    =render :partial=>'marpa_lectures/managed_content', :object => part
+    =#render :partial=>'file_assets/result', :object => part
+%ul
+      

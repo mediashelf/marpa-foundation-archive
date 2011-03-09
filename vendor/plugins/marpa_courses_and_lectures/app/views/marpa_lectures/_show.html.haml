@@ -1,0 +1,28 @@
+- javascript_includes << "/plugin_assets/fluid-infusion/infusion-1.2-src/lib/jquery/ui/js/jquery.ui.accordion.js"
+- javascript_includes << 'custom'
+- javascript_includes << "catalog/show"
+
+:plain
+  <style type="text/css" media="screen">
+    input.editable-edit, input.textile-edit {display:none}
+  </style>
+
+.document_viewer#cover_container
+
+  - course_pid_array = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"])
+  - unless course_pid_array.nil? || course_pid_array.empty?
+    - course_pid = ActiveFedora::Base.pids_from_uris(document["is_part_of_s"]).first
+    = link_to "Return to course", catalog_path(course_pid)
+  
+  %div.accordion-section
+    %h2.section-title Recordings
+    %div#uploads{'data-pid' => params[:id]}
+  
+  %div.accordion-section
+    %h2.section-title Description
+    = render :partial => 'marpa_lectures/edit_description'
+
+- sidebar_items << capture do 
+  = #render :partial=>"catalog/_show_partials/facets", :locals=>{:document=>document, :facets_display_heading => "This document refers to:"}
+
+= async_load_tag(asset_file_assets_path(params[:id]), 'uploads')

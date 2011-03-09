@@ -1,0 +1,18 @@
+-@page_explanation = "This is a listing of the courses you have contributed.  To contribute, click #{link_to("new course", url_for(:action => "new", :controller => "assets", :content_type => "marpa_course"))}."
+#page_actions
+  #actions
+    =link_to("New Course", url_for(:action => "new", :controller => "assets", :content_type => "marpa_course"))
+  %div#pagination
+
+%table#courses
+  %col{:width=>"25%"}/
+  %col{:width=>"15%"}/
+  %col{:width=>"15%"}/
+  %col{:width=>"55%"}/
+  
+  %th Title
+  %th Date Recorded
+  %th Location 
+  %th Main Topics 
+  =render :partial=>'marpa_courses/index', :collection=>@solr_result.hits
+

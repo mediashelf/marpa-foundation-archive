@@ -1,0 +1,9 @@
+#file_assets_block.column.span-24
+  %h2 
+    Files
+  %div{:id=>"#{@lecture.pid}_file_asset_list"}
+    =image_tag('ajax-loader.gif')
+      
+=javascript_tag do
+  ="window._token='#{form_authenticity_token}'"
+  ="async_load('#{lecture_file_assets_url(@lecture, "layout"=>"false")}', \'#{@lecture.pid}_file_asset_list\');"

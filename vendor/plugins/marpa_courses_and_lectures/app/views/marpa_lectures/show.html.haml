@@ -1,0 +1,19 @@
+#lecture_detail
+  .lecture_title.column.span-3
+    =edit_in_place_for(@lecture, "dublin_core", "title") 
+  .lecture_player.column.span-13.last
+    #lecture_preview
+      =image_tag("/images/player_placeholder.png", :width=>"250px")
+  //.lecture_actions.column.span-3
+  //  =link_to("edit", url_for(:action=>:edit))
+  .lecture_link.column.span-10
+    %label
+      Session URL
+    .permlink
+      =url_for(:action=>:show)
+  .lecture_download.column.span-4.last
+    Download
+    MP3
+=javascript_tag do
+  ="window._token='#{form_authenticity_token}'"
+  ="async_load('#{file_asset_url(@lecture.manifestation(:response_format=>:id_array).first, :layout=>"false")}', \"lecture_preview_#{@lecture.pid}\");"
