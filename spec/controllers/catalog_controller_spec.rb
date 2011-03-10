@@ -22,13 +22,21 @@ describe CatalogController do
   it "should be restful" do
     route_for(:controller=>'catalog', :action=>'index').should == '/'
     # route_for(:controller=>'catalog', :action=>'index').should == '/catalog'
-    route_for(:controller=>'catalog', :action=>'show', :id=>"_PID_").should == '/catalog/_PID_'
-    route_for(:controller=>'catalog', :action=>'edit', :id=>"_PID_").should == '/catalog/_PID_/edit'
-
+    route_for(:controller=>'catalog', :action=>'show', :id=>"test:3").should == '/catalog/test:3'
+    route_for(:controller=>'catalog', :action=>'edit', :id=>"test:3").should == '/catalog/test:3/edit'
+        
     params_from(:get, '/catalog').should == {:controller=>'catalog', :action=>'index'}
-    params_from(:get, '/catalog/_PID_').should == {:controller=>'catalog', :id=>"_PID_", :action=>'show'}
-    params_from(:get, '/catalog/_PID_/edit').should == {:controller=>'catalog', :id=>"_PID_", :action=>'edit'}
-    params_from(:get, '/catalog/_PID_/ldap_photo').should == {:controller=>'ldap_person_photos', :id=>"_PID_", :action=>'show'}
+    params_from(:get, '/catalog/test:3').should == {:controller=>'catalog', :id=>"test:3", :action=>'show'}
+    params_from(:get, '/catalog/test:3/edit').should == {:controller=>'catalog', :id=>"test:3", :action=>'edit'}
+    params_from(:get, '/catalog/test:3/ldap_photo').should == {:controller=>'ldap_person_photos', :id=>"test:3", :action=>'show'}
+  
+    catalog_path("test:3").should == '/catalog/test:3'
+  end
+  
+  it "should not choke on objects with periods in ids (ie Fedora system objects)" do    
+    pending "this would require a patch to all routes that allows periods in ids. for now, use rake solrizer:fedora:forget_system_objects"
+    catalog_path("fedora-system:FedoraObject-3.0").should == '/catalog/fedora-system:FedoraObject-3.0'
+    route_for(:controller=>"catalog", :action=>"show", :id=>"fedora-system:FedoraObject-3.0").should == '/catalog/fedora-system:FedoraObject-3.0'
   end
   
   describe "index" do
