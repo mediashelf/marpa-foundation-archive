@@ -3,8 +3,8 @@
 <% javascript_includes << "jquery.jeditable.mini" %>
 <%# javascript_includes << "date-picker/js/datepicker" %>
 <% javascript_includes << "jquery.form.js" %>
-<% javascript_includes << 'custom' %>
-<% javascript_includes << "catalog/edit" %>
+<% javascript_includes << ['custom', {:plugin=>:hydra_repository, :media=>"all"}] %>
+<% javascript_includes << ["catalog/edit", {:plugin=>:hydra_repository, :media=>"all"}] %>
 <% javascript_includes << "jquery.hydraMetadata.js" %>
 <% javascript_includes << "jquery.notice.js" %>
 <%# For Fancybox> %>
