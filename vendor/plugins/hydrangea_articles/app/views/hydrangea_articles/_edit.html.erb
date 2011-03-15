@@ -1,20 +1,20 @@
 <%# stylesheet_links << "../javascripts/date-picker/css/datepicker" %>
 <% javascript_includes << infusion_javascripts(:default_no_jquery, :extras=>[:inline_editor_integrations], :debug=>true, :render_html=>false) %>
-<% javascript_includes << "jquery.jeditable.mini" %>
+<% javascript_includes << ["jquery.jeditable.mini", {:plugin=>:hydra_repository, :media=>"all"}] %>
 <%# javascript_includes << "date-picker/js/datepicker" %>
-<% javascript_includes << "jquery.form.js" %>
+<% javascript_includes << ["jquery.form.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
 <% javascript_includes << ['custom', {:plugin=>:hydra_repository, :media=>"all"}] %>
 <% javascript_includes << ["catalog/edit", {:plugin=>:hydra_repository, :media=>"all"}] %>
-<% javascript_includes << "jquery.hydraMetadata.js" %>
-<% javascript_includes << "jquery.notice.js" %>
+<% javascript_includes << ["jquery.hydraMetadata.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
+<% javascript_includes << ["jquery.notice.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
 <%# For Fancybox> %>
 <% javascript_includes << "fancybox/jquery.fancybox-1.3.1.pack.js" %>
 <% stylesheet_links << "../javascripts/fancybox/jquery.fancybox-1.3.1.css" %>
 
-<%- javascript_includes << "jquery.ui.widget.js" %>
-<%- javascript_includes << "jquery.ui.datepicker.js" %>
-<%- javascript_includes << "mediashelf.datepicker.js" %>
-<%- javascript_includes << "mediashelf.placeholder.js" %>
+<%- javascript_includes << ["jquery.ui.widget.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
+<%- javascript_includes << ["jquery.ui.datepicker.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
+<%- javascript_includes << ["mediashelf.datepicker.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
+<%- javascript_includes << ["mediashelf.placeholder.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
 
 <% extra_head_content << capture do %>
   <script type="text/javascript">
