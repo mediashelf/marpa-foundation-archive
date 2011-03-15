@@ -1,5 +1,5 @@
-<%- stylesheet_links << "progressBox" %>
-<%- javascript_includes << "jquery.hydraProgressBox.js" %>
+<%- stylesheet_links << ["progressBox", {:plugin=>:hydra_repository, :media=>"all"}] %>
+<%- javascript_includes << ["jquery.hydraProgressBox.js", {:plugin=>:hydra_repository, :media=>"all"}] %>
 <%- @ds_desc_metadata = @document_fedora.datastreams["descMetadata"] %>
 <%- @ds_rights_metadata = @document_fedora.datastreams["rightsMetadata"] %>
 <%- author_entries = @ds_desc_metadata.find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]') %>
