@@ -24,6 +24,6 @@ INSERT INTO schema_migrations (version) VALUES ('20090529161304-blacklight');
 
 INSERT INTO schema_migrations (version) VALUES ('20090529214829');
 
-INSERT INTO schema_migrations (version) VALUES ('20101105214243-hydra_repository');
-
 INSERT INTO schema_migrations (version) VALUES ('20101108192527');
+
+INSERT INTO schema_migrations (version) VALUES ('20101105214243-hydra_repository');
