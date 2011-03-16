@@ -44,23 +44,8 @@
 <li id="pbLicenseAgreedto">
 	<fieldset id="license_fieldset">
 	<legend>License
-		<small>Required</small>
 		<label>The license outlines the Library's use of your work while acknowledging that you, or the current copyright owner, will continue to be the rights holder.</label>
 	</legend>
-	<div id="uvalicense" class="license">
-	            	<%= fedora_checkbox(@document_fedora, "rightsMetadata", [:copyright, :uvalicense]) %>
-	                <label for="license">
-	                 I agree to the UVa Libra Submission Agreement
-	                </label>
-		            <div id="uvalicense_read_all">Read Entire Libra Contributor’s License</div>
-	                <p>
-	                To properly administer this repository and preserve the contents for future use, the University of Virginia (UVA) requires certain permissions from you, the author(s) or copyright owner. By accepting this license, you still retain copyright to your work. You do not give up the right to submit the work to publishers or other repositories.</p>
-	                <p>By clicking through this license, you grant to the University of Virginia the non-exclusive right to reproduce, translate (as defined below), and/or distribute your submission (including the metadata and abstract) worldwide, in any format or medium for non-commercial, academic purposes only.  UVA will clearly identify your name(s) as the author(s) or owner(s) of the submission, including a statement of your copyright, and will not make any alteration, other than as allowed by this license, to your submission.</p>
-	                <p>You agree that UVA may translate the submission to any medium or format and keep more than one copy for the purposes of security, back up and preservation.</p>
-	                <p>You represent that the submission is your original work, and/or that you have the right to grant the rights contained in this license. You also represent that your submission does not, to the best of your knowledge, infringe upon anyone's copyright.  You also represent and warrant that the submission contains no libelous or other unlawful matter and makes no improper invasion of the privacy of any other person.</p>
-	                <p>If the submission contains material for which you do not hold copyright and that exceeds fair use, you represent that you have obtained the unrestricted permission of the copyright owner to grant UVA the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
-	                <p>IF THE SUBMISSION IS BASED UPON WORK THAT HAS BEEN SPONSORED OR SUPPORTED BY AN AGENCY OR ORGANIZATION OTHER THAN UVA, YOU REPRESENT THAT YOU HAVE FULFILLED ANY RIGHT OF REVIEW OR OTHER OBLIGATIONS REQUIRED BY THAT CONTRACT OR AGREEMENT.</p>
-	</div>
 	</fieldset>
 </li>
 
@@ -141,7 +126,7 @@
 		<legend>Availability
 			<label>Choose who can see and download your work after the release date.</label>
 		</legend>
-      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"public"=>"Everyone","uva"=>"UVa Only"}, :default_value=>"public"}) %>
+      <%= fedora_radio_button(@document_fedora,"properties", [:release_to], {:choices=>{"public"=>"Everyone"}, :default_value=>"public"}) %>
 		</fieldset>
 	</li>
 	<li>
