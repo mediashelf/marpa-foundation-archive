@@ -1,5 +1,15 @@
 h1. Tracking Plugins with Git Subtree
 
+We are now tracking all of the Hydra plugins in their own Git repositories.  We are doing this with the git subtree tool.  This allows each hydra head to have a full copy of each plugin in its working copy.  When you want to commit plugin changes back to the shared plugin git repository, use the git subtree tool to "split" that plugin's code and commit log into its own branch, then merge your changes into the shared plugin repository.
+
+h2. Getting the git subtree tool
+
+You can checkout the git subtree tool from https://github.com/apenwarr/git-subtree
+
+The tool itself is just a single-file shell script that you need to install into where the rest of your git scripts are stored.  See the "INSTALL instructions":https://github.com/apenwarr/git-subtree/blob/master/INSTALL
+
+Once you've got it installed, refer to  "git-subtree.txt":https://github.com/apenwarr/git-subtree/blob/master/git-subtree.txt for details on how to use the script.  For our purposes, you can mostly rely on the info below.
+
 h2. Using the git subtree tool 
 
 Say I'm working on the HyHull project and I need to commit changes from my head back to the shared hydrangea_articles plugin
