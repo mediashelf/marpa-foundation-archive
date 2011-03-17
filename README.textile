@@ -51,17 +51,15 @@ rake hydra:jetty:load
 
 Import the fixture objects that are used by the rspec and cucumber tests. Please note you must import them in both the development and test rails environments in order to be able to run the tests. 
 
+*Order is important here*
+
 <pre>
+rake libra_oa:default_fixtures:refresh
 rake hydra:fixtures:refresh
 RAILS_ENV=test rake hydra:fixtures:refresh
 </pre>
 
-If you have already loaded these fixtures before, you should refresh them with 
-
-<pre>
-rake RAILS_ENV=test hydra:fixtures:refresh
-rake hydra:fixtures:refresh
-</pre>
+Note: The libra_oa fixtures have to be manually imported once in order to ensure that the first fixture is included (sometimes it gets skipped when you run hydra:fixtures:refresh.  See "HYDRA-410":https://jira.duraspace.org/browse/HYDRA-410 Bug ticket for more info.
 
 Run the Rspec tests to make sure everything is working properly.
 <pre>
