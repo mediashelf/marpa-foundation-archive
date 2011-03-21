@@ -21,6 +21,7 @@ tmp/performance
 rerun.txt
 
 db/schema.rb
+db/*.sqlite3-journal
 
 .project
 .buildpath
