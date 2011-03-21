@@ -22,6 +22,7 @@ rerun.txt
 
 db/schema.rb
 db/development_structure.sql
+db/*.sqlite3-journal
 
 .project
 .buildpath

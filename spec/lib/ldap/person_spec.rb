@@ -27,7 +27,7 @@ describe Ldap::Person do
     @person.computing_id.should == "mst3k"
   end
   it "should return the institution" do
-    @person.institution.should == "University of Virginia"
+    @person.institution.should == ""
   end
   it "should return the department" do
     @person.department.should == "Curry School of Education"

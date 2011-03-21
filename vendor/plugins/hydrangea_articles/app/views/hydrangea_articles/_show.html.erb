@@ -1,5 +1,5 @@
-<% javascript_includes << 'custom' %>
-<% javascript_includes << "catalog/show" %>
+<% javascript_includes << ['custom', {:plugin=>:hydra_repository, :media=>"all"}] %>
+<% javascript_includes << ["catalog/show", {:plugin=>:hydra_repository, :media=>"all"}] %>
 
 <div class="document_viewer" id="cover_container">
 

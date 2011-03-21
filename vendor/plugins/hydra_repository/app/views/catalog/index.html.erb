@@ -13,11 +13,10 @@
 	
 	<%= render 'constraints', :localized_params=>params %>
 	
-	<div class="pagination">
-	  <h2>Results navigation</h2>
-	  <%= will_paginate @response.docs, :page_links => true, :class => 'prev_next_links' %>
-	</div>
-	
+  <div class="pagination">
+    <%= will_paginate @response.docs, :page_links => true, :class => 'prev_next_links' %>
+  </div>
+  
 	<%= render 'sort_and_per_page' %>
 	
 	<%= render :partial=>'document_list' %>
@@ -26,9 +25,9 @@
 	  <%= render :partial=>'facets' %>
 	<% end %>
 
-	<div class="pagination">
-	  <%= will_paginate @response.docs, :page_links => true, :class => 'prev_next_links' %>
-	</div>
+  <div class="pagination">
+    <%= will_paginate @response.docs, :page_links => true, :class => 'prev_next_links' %>
+  </div>
 
 	<%= render :partial=>'solr_request' %>
 </div>

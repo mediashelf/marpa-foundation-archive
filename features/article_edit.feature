@@ -14,7 +14,7 @@ Feature: Edit a document
   Scenario: Visit Document Edit Page
     Given I am logged in as "archivist1" 
     And I am on the edit document page for libra-oa:1
-    Then I should see "The Smallest Victims of the " within "#pbTitleProvided"
+    Then I should see "The Smallest Victims of the " within "#title_fieldset"
 
   # the mockups for Libra did not have browse/edit buttons
   @overwritten
