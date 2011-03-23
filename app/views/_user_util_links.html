@@ -1,0 +1,17 @@
+<% if current_user %>
+
+    <ul>
+      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "marpa_course") %>');">Add a Course</li>
+      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "marpa_lecture") %>');">Add a Talk</li>
+	  <li><%= current_user.login %> (<%= link_to "Log Out", logout_path %>)</li>
+    </ul>
+
+<% else %>
+
+    <ul>
+      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "marpa_course"}) %>'">Add a Course</li>
+      <li onclick="javascript:location.href='<%= url_for(:action => "new", :controller => "user_sessions", :redirect_params => {:action => "new", :controller=> "assets", :content_type => "marpa_lecture"}) %>'">Add a Talk</li>
+  	  <li><%= link_to 'Login', login_path %></li>
+    </ul>
+
+<% end %>
