@@ -622,6 +622,7 @@ body .ui-widget {
 		border-radius: 0;
 		font-size: 100%;
 		padding: 0;
+		border: 0;
 }
 
 #search #form1 {
@@ -748,6 +749,7 @@ tr.document {
 .prev_next_links .current {
     background-color: black;
     color: white;
+		padding: 2px;
 }
 
 .prev_next_links a {
@@ -762,6 +764,8 @@ tr.document {
 
 .prev_next_links .next_page {
     border-right: none;
+		border-bottom: none;
+		position: static;
 }
 
 .prev_next_links a:hover {
@@ -785,13 +789,13 @@ tr.document {
 
 #sortAndPerPage {
 	clear: both;
-    height: 20px;
-    margin: 0 15px;
-    padding: 10px 0;
+  height: 20px;
+  margin: 0 15px;
+  padding: 10px 0;
 }
 
 #sortAndPerPage label {
-    font-weight: bold;
+  font-weight: normal;
 }
 
 #documents {
@@ -835,7 +839,11 @@ tr.document {
 }
 
 .edit-browse {
-	float: right;
+	display: block;
+}
+
+td.duration {
+	text-align: right;
 }
 
 #showUtils {
@@ -1054,6 +1062,14 @@ table#file_assets td {
 	border: 1px solid #CCC;
 }
 
+th.deposited {
+	width: 200px;
+}
+
+td {
+	vertical-align:top;
+}
+
 a.destroy_contributor {
     top: 2px;
     right: -15px;
@@ -1077,8 +1093,12 @@ table#file_assets tr.file_asset td {
     width: 200px;
 }
 
-#uploader, .fl-uploader-queue-wrapper {
-    width: 350px;
+#uploader {
+	display:block;
+} 
+
+.fl-uploader-queue-wrapper {
+  width: 350px;
 	float: left;
 	margin-right: 20px;
 }
@@ -1282,6 +1302,10 @@ html>body .fl-uploader a.fl-uploader-browse {
     background-color: #DDD;
 }
 
+#uploads {
+	margin-bottom: 30px;
+}
+
 .fl-uploader-queue-footer table, #uploads table {
     width: 100%;
     position: relative;
@@ -1453,8 +1477,8 @@ html>body .fl-uploader a.fl-uploader-browse {
 
 .fl-uploader-btns .fl-uploader-upload, .fl-uploader-btns .fl-uploader-resume, .fl-uploader-btns .fl-uploader-pause {
 	height: 26px;
-    width: 8.4em;
-	margin-top: 6px;
+  width: 8.4em;
+	padding-top: 4px;
 }
 
 .fl-uploader-btns .fl-uploader-done, .fl-uploader-btns .fl-uploader-cancel {
@@ -1908,6 +1932,11 @@ input[type="text"] {
 
 input[type="submit"] {
     font-size: 18px;
+}
+
+input#submit {
+	float: left;
+	margin-left: 10px;
 }
 
 input.textile-edit {
