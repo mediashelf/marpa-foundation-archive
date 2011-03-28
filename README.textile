@@ -1,6 +1,6 @@
 !http://github.com/projecthydra/hydrangea/raw/master/public/images/hydrangea_logo_h50_white_bg.png(Hydrangea)!
 
-h1. Libra Open Access
+h1. Hydrangea (an Open Access version of Libra)
 
 h2. Introduction and Installation Instructions
 
@@ -44,6 +44,8 @@ Now run the bundled copy of Jetty, which has Fedora and Solr installed & configu
 <pre>
 rake --describe hydra
 </pre>
+
+Note that java 1.6 must be invoked by the "java" command or Hydrangea won't work.
 
 <pre>
 rake hydra:jetty:load
