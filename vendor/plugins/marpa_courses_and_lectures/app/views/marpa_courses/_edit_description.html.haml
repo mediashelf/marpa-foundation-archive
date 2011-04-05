@@ -6,23 +6,23 @@
       %fieldset
         %legend
           Title
-        = fedora_text_field(@document_fedora,"descMetadata", :title, :multiple=>false) 
+        = fedora_text_field(@document_fedora,"descMetadata", [:title], :multiple=>false) 
 
         %legend
           Tibetan Title      
-        = fedora_text_field(@document_fedora,"descMetadata", :tibetan_title, :multiple=>false)       
+        = fedora_text_field(@document_fedora,"descMetadata", [:tibetan_title], :multiple=>false)       
 
         %legend
           Dates of Teaching    
-        = fedora_text_field(@document_fedora,"descMetadata", :date, :multiple=>false)  
+        = fedora_text_field(@document_fedora,"descMetadata", [:date], :multiple=>false)  
 
         %legend
           Location 
-        = fedora_text_field(@document_fedora,"descMetadata", :spatial, :multiple=>false)  
+        = fedora_text_field(@document_fedora,"descMetadata", [:spatial], :multiple=>false)  
 
         %legend
           Teacher
-        = fedora_text_field(@document_fedora,"descMetadata", :creator, :multiple=>false)  
+        = fedora_text_field(@document_fedora,"descMetadata", [:creator], :multiple=>false)  
 
         %legend
           Commentary Author
@@ -38,19 +38,19 @@
       
         %legend
           Topics
-        = fedora_text_field(@document_fedora,"descMetadata", :subject, :multiple=>true)          
+        = fedora_text_field(@document_fedora,"descMetadata", [:subject], :multiple=>true)          
         = fedora_text_field_insert_link "descMetadata", [:subject]
 
 
         %legend
           Languages
-        = fedora_text_field(@document_fedora,"descMetadata", :language, :multiple=>true)                  
+        = fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true)                  
         = fedora_text_field_insert_link "descMetadata", [:language ]      
         
         
         %legend
           Translators
-        = fedora_text_field(@document_fedora,"descMetadata", :contributor, :multiple=>true)     
+        = fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
         = fedora_text_field_insert_link "descMetadata", [:contributor]               
         
         
