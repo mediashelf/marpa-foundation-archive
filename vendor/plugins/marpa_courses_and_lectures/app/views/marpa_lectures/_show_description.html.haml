@@ -1,0 +1,60 @@
+%form#document_metadata{ :action=>url_for(:action=>"update", :controller=>"assets"), :method=>"post", "accept-charset"=>"utf-8"}
+  %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"marpa_course"}
+
+  %ul.step
+    %li
+      %fieldset
+        %legend
+          Title & Teacher
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:title]) 
+
+        %legend
+          Tibetan Title
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:tibetan_title])       
+
+        %legend
+          Dates of Teaching
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:date])  
+
+        %legend 
+          Location
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:spatial])  
+
+        %legend
+          Teacher
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:creator])  
+      
+        %legend
+          Commentary Author
+        %p
+          = get_values_from_datastream(@document_fedora,"marpaCore", [:commentary_taught, :author])
+        
+        %legend
+          Notes
+        %p
+          = white_list( RedCloth.new(get_values_from_datastream(@document_fedora,"marpaCore", [:note]).first, [:sanitize_html]).to_html)
+      
+        %legend
+          Time
+        %p
+          = get_values_from_datastream(@document_fedora,"marpaCore", [:digital_master, :duration])    
+      
+        %legend
+          Topics
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:subject], :multiple=>true)          
+
+        %legend
+          Languages
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:language], :multiple=>true)                  
+ 
+        %legend
+          Translators
+        %p
+          = get_values_from_datastream(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     

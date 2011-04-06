@@ -1,5 +1,4 @@
-<%- stylesheet_links << "progressBox" %>
-<%- javascript_includes << "jquery.hydraProgressBox.js" %>
+
 <%- @ds_desc_metadata = @document_fedora.datastreams["descMetadata"] %>
 <%- author_entries = @ds_desc_metadata.find_by_terms_and_value('//oxns:name[@type="personal" and contains(oxns:role, "Author") and string-length(oxns:namePart[@type="family"]) > 0 ]') %>
 <%- title_values = @ds_desc_metadata.term_values(:title_info, :main_title) %>	

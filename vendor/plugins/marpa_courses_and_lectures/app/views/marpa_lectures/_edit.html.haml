@@ -17,10 +17,6 @@
 - stylesheet_links << "/plugin_assets/hydra_repository/javascripts/select_to_ui_slider/css/ui.slider.extras.css"
 - stylesheet_links << ['slider.css', {:plugin=>:hydra_repository, :media=>'all'}]
 
-// For progress box
-- stylesheet_links << ['progressBox.css', {:plugin=>:hydra_repository, :media=>'all'}]
-- javascript_includes << ['jquery.hydraProgressBox.js', {:plugin=>:hydra_repository, :media=>'all'}]
-
 - extra_head_content << capture do 
   :javascript
     $(document).ready(function() {
