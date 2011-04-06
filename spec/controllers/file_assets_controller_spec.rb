@@ -129,28 +129,6 @@ describe FileAssetsController do
       xhr :post, :create, :Filedata=>stub("File"), :Filename=>"Foo File", :container_id=>"_PID_"
     end
     
-    it "should attempt to guess at type and set model accordingly" do
-      pending "THIS TEST's EXPECTATIONS ARE BLEEDING OVER AND BREAKING OTHER TESTS"
-      FileAsset.expects(:new).never
-      AudioAsset.expects(:new).times(3).returns(stub_everything)
-
-      post :create, :Filename=>"meow.mp3", :Filedata=>"boo"
-      post :create, :Filename=>"meow.wav", :Filedata=>"boo"
-      post :create, :Filename=>"meow.aiff", :Filedata=>"boo"
-      
-      VideoAsset.expects(:new).times(2).returns(stub_everything)
-      
-      post :create, :Filename=>"meow.mov", :Filedata=>"boo"
-      post :create, :Filename=>"meow.flv", :Filedata=>"boo"
-      
-      ImageAsset.expects(:new).times(4).returns(stub_everything)
-      
-      post :create, :Filename=>"meow.jpg", :Filedata=>"boo"
-      post :create, :Filename=>"meow.jpeg", :Filedata=>"boo"
-      post :create, :Filename=>"meow.png", :Filedata=>"boo"
-      post :create, :Filename=>"meow.gif", :Filedata=>"boo"
-
-    end    
   end
 
   describe "destroy" do

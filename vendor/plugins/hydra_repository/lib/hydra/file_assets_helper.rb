@@ -74,7 +74,7 @@ module Hydra::FileAssetsHelper
     case extension
     when ".wav", ".mp3", ".aiff"
       AudioAsset
-    when ".mov", ".flv", ".mp4"
+    when ".mov", ".flv", ".mp4", ".m4v"
       VideoAsset
     when ".jpeg", ".jpg", ".gif", ".png"
       ImageAsset
