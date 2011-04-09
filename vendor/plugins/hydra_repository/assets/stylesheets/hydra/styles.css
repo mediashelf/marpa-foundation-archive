@@ -19,7 +19,11 @@ body {
 }
 
 body td, body ul, body p, body ol {
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;;
+}
+
+body p {
+	font-size: 16px;
 }
 
 div.notice-wrap {
@@ -894,13 +898,14 @@ td.duration {
 	padding: 0.5em 0;
 }
 
-.document_show fieldset legend {
-	background-color: #EEF3FE;
-	border-top: 2px solid #627BB0;
-	color: #222;
-	font-size: 14px;
+.document_show fieldset legend, th {
+	color: #CCC;
+	font-size: 12px;
 	font-weight: bold;
-	padding: 0.33em;
+	padding: 0.33em 0;
+}
+
+.document_show fieldset legend{
 	width: 600px;
 }
 
@@ -1718,13 +1723,11 @@ li fieldset {
 
 li fieldset legend {
     font-weight: bold;
-    font-size: 14px;
-    color: #222;
+    font-size: 12px;
+    color: #CCC;
     line-height: 20px;
     width: 600px;
-    background-color: #eef3fe;
-    border-top: 2px solid #627BB0;
-    padding: 4px;
+    padding: 4px 0;
 }
 
 fieldset#citation_fieldset ul li fieldset legend {
