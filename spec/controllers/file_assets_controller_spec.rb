@@ -116,46 +116,19 @@ describe FileAssetsController do
       xhr :post, :create, :Filedata=>mock_file, :Filename=>filename
     end
     it "if container_id is provided, should initialize a Base stub of the container, add the file asset to its relationships, and save both objects" do
-      mock_file = mock("File")
-      filename = "Foo File"
-      mock_fa = mock("FileAsset", :save)
-      mock_fa.stubs(:pid).returns("foo:pid")
-      FileAsset.expects(:new).returns(mock_fa)
-      mime_type = "application/octet-stream"
-      mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename, :mimeType=>mime_type)
-#mock_fa.expects(:add_file_datastream).with(mock_file, :label=>filename)
-      mock_fa.expects(:label=).with(filename)
+      stub_fa = stub("FileAsset", :save)
+      stub_fa.stubs(:pid).returns("foo:pid")
+      controller.stubs(:create_and_save_file_asset_from_params).returns(stub_fa)
+      controller.stubs(:apply_depositor_metadata)
       
       mock_container = mock("container")
-      mock_container.expects(:file_objects_append).with(mock_fa) 
+      mock_container.expects(:file_objects_append).with(stub_fa) 
       mock_container.expects(:save)
-      #mock_container.expects(:rels_ext).returns(mock("rels-ext", :save))
       ActiveFedora::Base.expects(:load_instance).with("_PID_").returns(mock_container)
-      xhr :post, :create, :Filedata=>mock_file, :Filename=>filename, :container_id=>"_PID_"
+      
+      xhr :post, :create, :Filedata=>stub("File"), :Filename=>"Foo File", :container_id=>"_PID_"
     end
     
-    it "should attempt to guess at type and set model accordingly" do
-      pending "THIS TEST's EXPECTATIONS ARE BLEEDING OVER AND BREAKING OTHER TESTS"
-      FileAsset.expects(:new).never
-      AudioAsset.expects(:new).times(3).returns(stub_everything)
-
-      post :create, :Filename=>"meow.mp3", :Filedata=>"boo"
-      post :create, :Filename=>"meow.wav", :Filedata=>"boo"
-      post :create, :Filename=>"meow.aiff", :Filedata=>"boo"
-      
-      VideoAsset.expects(:new).times(2).returns(stub_everything)
-      
-      post :create, :Filename=>"meow.mov", :Filedata=>"boo"
-      post :create, :Filename=>"meow.flv", :Filedata=>"boo"
-      
-      ImageAsset.expects(:new).times(4).returns(stub_everything)
-      
-      post :create, :Filename=>"meow.jpg", :Filedata=>"boo"
-      post :create, :Filename=>"meow.jpeg", :Filedata=>"boo"
-      post :create, :Filename=>"meow.png", :Filedata=>"boo"
-      post :create, :Filename=>"meow.gif", :Filedata=>"boo"
-
-    end    
   end
 
   describe "destroy" do
