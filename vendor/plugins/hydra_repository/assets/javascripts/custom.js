@@ -5,12 +5,12 @@ function async_load(url, divid) {
     dataType: "html",
     success: function(data){
             $(divid).html(data);
-            $("#file_assets  .editable-container").hydraTextField();
-            $("#file_assets  a.destroy_file_asset").hydraFileAssetDeleteButton();
+            //$("#file_assets  .editable-container").hydraTextField();
+            //$("#file_assets  a.destroy_file_asset").hydraFileAssetDeleteButton();
             // Custom for Libra -- update progress box when necessary
-            $.fn.hydraProgressBox.testReleaseReadiness();
-            var stepOneReady = $.fn.hydraProgressBox.testStepOneReadiness();
-            $.fn.hydraProgressBox.checkUncheckProgress('step_1_label', stepOneReady);
+            //$.fn.hydraProgressBox.testReleaseReadiness();
+            //var stepOneReady = $.fn.hydraProgressBox.testStepOneReadiness();
+            //$.fn.hydraProgressBox.checkUncheckProgress('step_1_label', stepOneReady);
           }
   });
   // $(divid).load(url);

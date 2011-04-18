@@ -17,6 +17,9 @@
     
     <%= render_head_content %>
 
+	<%= javascript_include_tag('mediaelementjs/mediaelement-and-player.min.js', {:plugin=>:hydra_repository, :media=>'all'}) %>
+	<%= stylesheet_link_tag('mediaelementjs/mediaelementplayer.css', {:plugin=>:hydra_repository, :media=>'all'}) %>
+
 		<!--[if IE]>
     	<%= stylesheet_link_tag('hydra/ie-styles', {:plugin=>:hydra_repository, :media=>'all'}) %>
     	<%= stylesheet_link_tag('progressBox-ie6.css', {:plugin=>:hydra_repository, :media=>'all'}) %>

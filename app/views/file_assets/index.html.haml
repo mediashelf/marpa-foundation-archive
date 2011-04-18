@@ -1,7 +1,7 @@
 - if params[:layout] == "false"
   :javascript
       $(document).ready(function() {
-        $("#file_assets  .editable-container").hydraTextField();
+        $("#file_assets  .editable-container").hydraTextField();       
       });
 - else
   -# javascript_includes << infusion_javascripts(:inline_edit, :extras=>[:inline_editor_integrations], :debug=>true, :render_html=>false) 
@@ -16,7 +16,7 @@
 
   - extra_head_content << capture do 
     :javascript
-      $(document).ready(function() {
+      $(document).ready(function() {          
         $("#file_assets  .editable-container").hydraTextField();
       });
 
@@ -44,3 +44,8 @@
 
   %div#uploader
     = render :partial=>"new", :layout=>false
+
+:javascript
+  $(document).ready(function() {
+    $('video,audio').mediaelementplayer();       
+  });
