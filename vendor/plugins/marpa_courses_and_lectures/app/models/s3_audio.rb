@@ -1,6 +1,4 @@
-require 'aws/s3'
-
-class S3Content < ActiveFedora::Base
+class S3Audio < ActiveFedora::Base
   
   include S3Fedora
   
@@ -14,6 +12,6 @@ class S3Content < ActiveFedora::Base
     m.field "account_id", :symbol
   end  
   
-  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata
   
 end
