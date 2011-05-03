@@ -2,8 +2,7 @@
 
 %tr.file_asset.document{:id=>document["id"], :class=>cycle("even","odd")}
   %td
-    %audio{:controls=>"controls"}
-      %source{:src=>s3_object.s3_url}
+    %audio{:src=>s3_object.s3_url, :controls=>"controls", :type=>"audio/mp3"}
     
   %td
     %form#document_metadata{:action=>url_for(:id=>document["id"], :controller=>"assets", :action=>"update"), :method=>"post"}
