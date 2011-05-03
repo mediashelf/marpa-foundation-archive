@@ -1,23 +1,21 @@
 @create @split_button
 Feature: Create Asset or Dataset Split Button
-  In order to create new Assets or Datasets
+  In order to create new Talks or Courses
   As an editor 
-  I want to see a button that will let me create a new Article or Dataset
+  I want to see a button that will let me create a new Talk or Course
   
-  Scenario: Editor views the search results page and sees the add article button
+  Scenario: Editor views the search results page and sees the add talk button
     Given I am logged in as "archivist1" 
     Given I am on the base search page
-    Then I should see "Add an Article" within "ul li"
+    Then I should see "Add a Course" within "ul li"
     
-  # FOR CORE
   @overwritten
-  Scenario: Non-editor views the search results page and does not see the add article button
+  Scenario: Non-editor views the search results page and does not see the add talk button
    Given I am on the base search page
-   Then I should not see "Add an Article" 
+   Then I should not see "Add a Talk" 
 
-# FOR UVa
   @local
-  Scenario: Non-editor views the search results page and does see the add article button
+  Scenario: Non-editor views the search results page and does see the add talk button
     Given I am on the base search page
-    Then I should see "Add an Article" 
+    Then I should see "Add a Talk" 
   

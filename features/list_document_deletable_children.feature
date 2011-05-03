@@ -8,5 +8,5 @@ Feature: List deletable files for a document
   Scenario: Editor views the file list
     Given I am logged in as "archivist1" 
     And I am on the deletable file list page for hydrangea:fixture_mods_article1
-    Then I should see a "li" element containing "hydrangea:fixture_uploaded_svg1 (OM_MANI_PADME_HUM-bw.svg)"
+    Then I should see a "td" element containing "OM_MANI_PADME_HUM-bw.svg"
     

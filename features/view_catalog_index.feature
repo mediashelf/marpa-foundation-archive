@@ -13,6 +13,5 @@ Feature: Catalog Index
     And I fill in "q" with "hydrangea"
     And I press "submit"
     Then I should see "Title"
-    And I should see "Author"
+    And I should see "Deposited"
     And I should see "Work"
-    And I should see "Files"
