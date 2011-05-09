@@ -1929,7 +1929,7 @@ dd.person ul input.editable-edit.edit {
     background-color: white;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"], input[type="submit"] {
     display: block;
 }
 
