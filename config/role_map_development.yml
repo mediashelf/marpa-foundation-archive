@@ -1,19 +1,12 @@
 uva-only:
   - uva-only
 archivist:
-  - arig
-  - aekarr
-  - rolmokhen
-  - mzumwalt
   - archivist1
-  - ecallahan
-  - rtaylor
-  - tsepakdorje
-  - ponloprinpoche
 donor:
   - donor1
 researcher:
   - researcher1
 patron:
   - patron1
-
+admin_policy_object_editor:
+  - archivist1

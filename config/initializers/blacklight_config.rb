@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # You can configure Blacklight from here. 
 #   
 #   Blacklight.configure(:environment) do |config| end
@@ -18,56 +19,23 @@
 
 Blacklight.configure(:shared) do |config|
 
-  # Set up and register the default SolrDocument Marc extension
-  SolrDocument.extension_parameters[:marc_source_field] = :marc_display
-  SolrDocument.extension_parameters[:marc_format_type] = :marc21
-  SolrDocument.use_extension( Blacklight::Solr::Document::Marc) do |document|
-    document.key?( :marc_display  )
-  end
-
-  # DublinCore uses the semantic field mappings below to assemble an OAI-compliant Dublin Core document
-  SolrDocument.use_extension( Blacklight::Solr::Document::DublinCore)
-    
-  # Semantic mappings of solr stored fields. Fields may be multi or
-  # single valued. See Blacklight::Solr::Document::ExtendableClassMethods#field_semantics
-  # and Blacklight::Solr::Document#to_semantic_values
-  # Recommendation: Use field names from Dublin Core
-  SolrDocument.field_semantics.merge!(    
-    :title => "title_display",
-    :author => "author_display",
-    :language => "language_facet"  
-  )
-        
-  
-  
-  
-  ##############################
-
   config[:default_solr_params] = {
     :qt => "search",
     :per_page => 10 
   }
-  
-  config[:public_solr_params] = {
-    :qt => "search",
-    :per_page => 10
-  }
-  
-
+ 
   # solr field values given special treatment in the show (single result) view
-   config[:show] = {
-     :html_title => "title_t",
-     :heading => "title_t",
-     :display_type => "has_model_s"
-   }
+  config[:show] = {
+    :html_title => "title_t",
+    :heading => "title_t",
+    :display_type => "has_model_s"
+  }
 
-   # solr fld values given special treatment in the index (search results) view
-   config[:index] = {
-     :show_link => "title_facet",
-     :num_per_page => 40,
-     :record_display_type => "id"
-   }
-
+  # solr fld values given special treatment in the index (search results) view
+  config[:index] = {
+    :show_link => "title_t",
+    :record_display_type => "id"
+  }
 
   # solr fields that will be treated as facets by the blacklight application
   #   The ordering of the field names is the order of the display
@@ -76,22 +44,23 @@ Blacklight.configure(:shared) do |config|
   # config[:facet] << {:field_name => "format", :label => "Format", :limit => 10}
   config[:facet] = {
     :field_names => (facet_fields = [
-      "person_full_name_cid_facet",
-      "object_type_facet",
-      "spatial_facet",
-      "subject_facet",
-      "contributor_facet",
-      "date_facet"
-      ]),
+      "format",
+      "pub_date",
+      "subject_topic_facet",
+      "language_facet",
+      "lc_1letter_facet",
+      "subject_geo_facet",
+      "subject_era_facet"
+    ]),
     :labels => {
-      "person_full_name_cid_facet"=>"Author",
-      "object_type_facet"=>"Type of Work",
-      "spatial_facet" => "Location",
-      "subject_facet" => "Topic",
-      "contributor_facet" => "Translator",
-      "date_facet" => "Date Recorded"
+      "format"              => "Format",
+      "pub_date"            => "Publication Year",
+      "subject_topic_facet" => "Topic",
+      "language_facet"      => "Language",
+      "lc_1letter_facet"    => "Call Number",
+      "subject_era_facet"   => "Era",
+      "subject_geo_facet"   => "Region"
     },
-    
     # Setting a limit will trigger Blacklight's 'more' facet values link.
     # * If left unset, then all facet values returned by solr will be displayed.
     # * If set to an integer, then "f.somefield.facet.limit" will be added to
@@ -105,24 +74,11 @@ Blacklight.configure(:shared) do |config|
     # on the solr side in the request handler itself. Request handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.     
-    :limits=> {nil=>10}
+    :limits => {
+      "subject_topic_facet" => 20,
+      "language_facet" => true
+    }
   }
-
-#  config[:facet] = {
-#    :field_names => [
-#      "person_full_name_cid_facet",
-#      "mods_journal_title_info_facet",
-#      "topic_tag_facet"
-#      ],
-#    :labels => {
-#      "person_full_name_cid_facet"=>"Author",
-#      "mods_journal_title_info_facet"=>"Journal",
-#      "topic_tag_facet"=>"Tag"
-#    },
-#    :limits=> {nil=>10}
-#  }
-
-  
 
   # Have BL send all facet field names to Solr, which has been the default
   # previously. Simply remove these lines if you'd rather use Solr request
@@ -130,47 +86,71 @@ Blacklight.configure(:shared) do |config|
   config[:default_solr_params] ||= {}
   config[:default_solr_params][:"facet.field"] = facet_fields
 
-
   # solr fields to be displayed in the index (search results) view
   #   The ordering of the field names is the order of the display 
-  # solr fields to be displayed in the index (search results) view
-   #   The ordering of the field names is the order of the display 
-   config[:index_fields] = {
-     :field_names => [
-       "date_t",
-       "title_t",
-       "medium_t",
-       "location_t"],
-     :labels => {
-       "date_t"=>"Date",
-       "title_t"=>"Title",
-       "medium_t"=>"Content Type",
-       "location_t"=>"Location"
-     }
-   }
+  config[:index_fields] = {
+    :field_names => [
+      "title_display",
+      "title_vern_display",
+      "author_display",
+      "author_vern_display",
+      "format",
+      "language_facet",
+      "published_display",
+      "published_vern_display",
+      "lc_callnum_display"
+    ],
+    :labels => {
+      "title_display"           => "Title:",
+      "title_vern_display"      => "Title:",
+      "author_display"          => "Author:",
+      "author_vern_display"     => "Author:",
+      "format"                  => "Format:",
+      "language_facet"          => "Language:",
+      "published_display"       => "Published:",
+      "published_vern_display"  => "Published:",
+      "lc_callnum_display"      => "Call number:"
+    }
+  }
 
   # solr fields to be displayed in the show (single result) view
   #   The ordering of the field names is the order of the display 
   config[:show_fields] = {
-     :field_names => [
-       "text",
-       "title_facet",
-       "date_t",
-       "medium_t",
-       "location_t",
-       "rights_t",
-       "access_t"
-     ],
-     :labels => {
-       "text" => "Text:",
-       "title_facet" => "Title:",
-       "date_t" => "Date:",
-       "medium_t" => "Document Type:",
-       "location_t" => "Location:",
-       "rights_t"  => "Copyright:",
-       "access_t" => "Access:"
-     }
-   }
+    :field_names => [
+      "title_display",
+      "title_vern_display",
+      "subtitle_display",
+      "subtitle_vern_display",
+      "author_display",
+      "author_vern_display",
+      "format",
+      "url_fulltext_display",
+      "url_suppl_display",
+      "material_type_display",
+      "language_facet",
+      "published_display",
+      "published_vern_display",
+      "lc_callnum_display",
+      "isbn_t"
+    ],
+    :labels => {
+      "title_display"           => "Title:",
+      "title_vern_display"      => "Title:",
+      "subtitle_display"        => "Subtitle:",
+      "subtitle_vern_display"   => "Subtitle:",
+      "author_display"          => "Author:",
+      "author_vern_display"     => "Author:",
+      "format"                  => "Format:",
+      "url_fulltext_display"    => "URL:",
+      "url_suppl_display"       => "More Information:",
+      "material_type_display"   => "Physical description:",
+      "language_facet"          => "Language:",
+      "published_display"       => "Published:",
+      "published_vern_display"  => "Published:",
+      "lc_callnum_display"      => "Call number:",
+      "isbn_t"                  => "ISBN:"
+    }
+  }
 
 
   # "fielded" search configuration. Used by pulldown among other places.
@@ -191,10 +171,10 @@ Blacklight.configure(:shared) do |config|
   # This one uses all the defaults set by the solr request handler. Which
   # solr request handler? The one set in config[:default_solr_parameters][:qt],
   # since we aren't specifying it otherwise. 
-  
-  config[:search_fields] << ['Descriptions', 'search']
-  config[:search_fields] << ['Descriptions and full text', 'fulltext']
-  
+  config[:search_fields] << {
+    :key => "all_fields",  
+    :display_label => 'All Fields'   
+  }
 
   # Now we see how to over-ride Solr request handler defaults, in this
   # case for a BL "search field", which is really a dismax aggregate
@@ -246,18 +226,21 @@ Blacklight.configure(:shared) do |config|
   # except in the relevancy case).
   # label is key, solr field is value
   config[:sort_fields] ||= []
-  config[:sort_fields] << ['relevance', 'score desc, year_facet desc, month_facet asc, title_facet asc']
-  config[:sort_fields] << ['date -', 'year_facet desc, month_facet asc, title_facet asc']
-  config[:sort_fields] << ['date +', 'year_facet asc, month_facet asc, title_facet asc']
-  config[:sort_fields] << ['title', 'mods_title_info_main_title_facet asc']
-  #config[:sort_fields] << ['document type', 'medium_t asc, year_facet desc, month_facet asc, title_facet asc']
-  #config[:sort_fields] << ['location', 'series_facet asc, box_facet asc, folder_facet asc, year_facet desc, month_facet asc, title_facet asc']
+  config[:sort_fields] << ['relevance', 'score desc, pub_date_sort desc, title_sort asc']
+  config[:sort_fields] << ['year', 'pub_date_sort desc, title_sort asc']
+  config[:sort_fields] << ['author', 'author_sort asc, title_sort asc']
+  config[:sort_fields] << ['title', 'title_sort asc, pub_date_sort desc']
   
   # If there are more than this many search results, no spelling ("did you 
   # mean") suggestion is offered.
   config[:spell_max] = 5
-  
-  # number of facets to show before adding a more link
-  config[:facet_more_num] = 5
+
+  # Add documents to the list of object formats that are supported for all objects.
+  # This parameter is a hash, identical to the Blacklight::Solr::Document#export_formats 
+  # output; keys are format short-names that can be exported. Hash includes:
+  #    :content-type => mime-content-type
+  config[:unapi] = {
+    'oai_dc_xml' => { :content_type => 'text/xml' } 
+  }
 end
 
