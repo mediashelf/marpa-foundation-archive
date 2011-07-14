@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.3.5'
+gem 'rails', '2.3.11'
 
 gem 'active-fedora', '2.0.0'  
 gem 'authlogic', '>=0.1.0'
@@ -24,7 +24,7 @@ gem 'nokogiri', '1.4.3.1'
 gem 'om', '>=1.1.1'
 gem 'rack'
 gem 'rack-test'
-gem 'rake'
+gem 'rake', '0.8.7'
 gem 'rcov'
 gem 'RedCloth', '4.2.2'
 gem 'rsolr', '=0.12.1'
