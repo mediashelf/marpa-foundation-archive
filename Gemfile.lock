@@ -1,12 +1,12 @@
 GIT
   remote: git@github.com:projecthydra/hydra-head.git
-  revision: afbda490c22ea1e5b73ede28bdd1fc8127a41e1b
+  revision: 8dfa3da16b7dea07f3058a8703bc72bbfa0aa04c
   branch: rails3
   specs:
     hydra-head (0.0.1)
       RedCloth (= 4.2.3)
       active-fedora (>= 2.3.0)
-      blacklight (= 3.0.0pre8)
+      blacklight (= 3.0.0)
       block_helpers
       builder
       columnize
@@ -85,11 +85,15 @@ GEM
       activesupport (= 3.0.9)
     activesupport (3.0.9)
     arel (2.0.10)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     bcrypt-ruby (2.1.4)
-    blacklight (3.0.0pre8)
+    blacklight (3.0.0)
       kaminari
       marc (~> 0.4.3)
-      nokogiri (~> 1.5.0.beta.3)
+      nokogiri (~> 1.5)
       rails (~> 3.0)
       rsolr (~> 1.0)
       rsolr-ext (~> 1.0)
@@ -257,7 +261,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight (= 3.0.0pre8)
+  aws-s3
+  blacklight (= 3.0.0)
   cucumber (>= 0.8.5)
   cucumber-rails
   devise
