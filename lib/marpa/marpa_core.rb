@@ -1,3 +1,4 @@
+require 'marpa/marpa_dc_datastream'
 module Marpa
 class MarpaCore < ActiveFedora::NokogiriDatastream
   

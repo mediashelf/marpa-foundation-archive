@@ -1,3 +1,5 @@
+
+require 'marpa/csv_importer'
 namespace :marpa_importer do
   desc "Imports objects from CSV file"
   task :import_csv => [:environment] do
@@ -25,5 +27,12 @@ namespace :marpa_importer do
     populator = Marpa::TitlePopulator.new
     populator.populate_titles
   end
-  
+end
+
+
+namespace :spec do
+  task :fixtures => [:environment] do
+    #TODO -empty fedora first?
+    Marpa::CSVImporter.new.import('spec/fixtures/marpa.csv')
+  end
 end

@@ -17,19 +17,19 @@ describe CatalogController do
   describe "show" do
     it "should redirect to edit view if session is in edit context and user has edit permission" do
       mock_user = mock("User")
-      mock_user.stubs(:login).returns("archivist1")
+      mock_user.stubs(:login).returns("archivist")
       controller.stubs(:current_user).returns(mock_user)
       
       controller.session[:viewing_context] = "edit"
-      get(:show, {:id=>"hydrangea:fixture_mods_article1"})
+      get(:show, {:id=>"marpa:1"})
       response.should redirect_to(:action => 'edit')
     end
     it "should allow you to reset the session context to browse using :viewing_context param" do
-      mock_user = mock("User", :login=>"archivist1")
+      mock_user = mock("User", :login=>"archivist")
       controller.stubs(:current_user).returns(mock_user)
             
       controller.session[:viewing_context] = "edit"
-      get(:show, :id=>"hydrangea:fixture_mods_article1", :viewing_context=>"browse")
+      get(:show, :id=>"marpa:1", :viewing_context=>"browse")
       session[:viewing_context].should == "browse"
       response.should_not redirect_to(:action => 'edit')
     end
@@ -40,7 +40,7 @@ describe CatalogController do
       controller.stubs(:current_user).returns(mock_user)
       
       controller.session[:viewing_context] = "edit"
-      get(:show, {:id=>"hydrangea:fixture_mods_article1"})
+      get(:show, {:id=>"marpa:1"})
       session[:viewing_context].should == "browse"
       response.should_not redirect_to(:action => 'edit')
     end
@@ -53,15 +53,15 @@ describe CatalogController do
       mock_user.stubs(:is_being_superuser?).returns(false)
       controller.stubs(:current_user).returns(mock_user)
       
-      get :edit, :id=>"hydrangea:fixture_mods_article1"
+      get :edit, :id=>"marpa:1"
       response.should redirect_to(:action => 'show')
       flash[:notice].should == "You do not have sufficient privileges to edit this document. You have been redirected to the read-only view."
     end
     it "should render normally if user has edit permissions" do
-      mock_user = stub("User", :login=>"archivist1")
+      mock_user = stub("User", :login=>"archivist")
       controller.stubs(:current_user).returns(mock_user)
       
-      get :edit, :id=>"hydrangea:fixture_mods_article1"
+      get :edit, :id=>"marpa:1"
       response.should_not redirect_to(:action => 'show')
     end
   end

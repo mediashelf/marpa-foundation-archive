@@ -6,6 +6,13 @@ MarpaFoundation::Application.routes.draw do
 
   root :to => "catalog#index"
 
+  resources :courses do 
+    resources :lectures
+  end
+  resources :lectures, :except => [:create] do 
+    resources :file_assets, :only => [:index, :new]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
