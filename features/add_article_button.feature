@@ -5,7 +5,7 @@ Feature: Create Asset or Dataset Split Button
   I want to see a button that will let me create a new Talk or Course
   
   Scenario: Editor views the search results page and sees the add talk button
-    Given I am logged in as "archivist1" 
+    Given I am logged in as "archivist@example.com" 
     Given I am on the base search page
     Then I should see "Add a Course" within "ul li"
     
