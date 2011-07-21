@@ -1,0 +1,11 @@
+<associatedTexts>
+  <associatedText nature="root">
+    <chapter>1</chapter>
+    <sections>1-5</sections>
+    <identifier authority="local">marpa:55</identifier>
+  </associatedText>
+  <associatedText nature="commentary">
+    <pages>22-55</pages>
+    <identifier authority="local">marpa:27</identifier>
+  </associatedText>
+</associatedTexts>
