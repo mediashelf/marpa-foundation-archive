@@ -1,4 +1,4 @@
-<associatedTexts>
+<associatedTexts xmlns="http://yourmediashelf.com/schemas/marpaTextAssociations/v0">
   <associatedText nature="root">
     <chapter>1</chapter>
     <sections>1-5</sections>

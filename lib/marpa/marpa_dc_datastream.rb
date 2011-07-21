@@ -68,7 +68,7 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.subject(:index_as=>[:facetable])
     t.tableOfContents
     t.temporal
-    t.type
+    t.type_
     t.valid
   end
   

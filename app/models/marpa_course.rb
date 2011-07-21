@@ -14,7 +14,7 @@ class MarpaCourse < ActiveFedora::Base
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
     
     def file_objects_append(file_asset)
-      lecture = Lecture.new
+      lecture = MarpaLecture.new
       lecture.file_objects_append(file_asset)
       lecture.add_relationship(:is_part_of, self)
       lecture.save
