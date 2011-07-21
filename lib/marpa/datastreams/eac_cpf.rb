@@ -13,17 +13,23 @@ module Marpa
          t.cpf_description(:path=>"cpfDescription", :index_as=>[:not_searchable]) {
            t.identity(:index_as=>[:not_searchable]) {
              t.entity_type(:path=>"entityType")
-             t.name_entry(:path=>"nameEntry", :index_as=>[:not_searchable]) {
-               t.display_(:path=>"part", :index_as=>[:not_searchable])
-               t.authority(:path=>"authorizedForm", :index_as=>[:not_searchable])
-             }
+             t.parallel_names(:path=>"nameEntryParallel") do
+               t.name_entry(:path=>"nameEntry", :index_as=>[:not_searchable]) {
+                 t.display_(:path=>"part", :index_as=>[:not_searchable])
+               }
+               t.tibetan_name(:ref=>[:name_entry], :attributes=>{'xml:lang'=>'tib', 'scriptCode'=>'Tibt'})
+             end
            }
          }
          t.control(:index_as=>[:not_searchable]) {
-           t.freebase_id(:path=>"otherRecordId", :attributes=>{"localType"=>"freebase"}, :index_as=>[:not_searchable])
+           t.tbrc_id(:path=>"otherRecordId", :attributes=>{"localType"=>"tbrc"}, :index_as=>[:not_searchable])
          }
-         t.name_form(:ref=>[:cpf_description, :identity, :name_entry, :display], :index_as=>[:searchable])
-         t.freebase_id(:ref=>[:control, :freebase_id], :index_as=>[:searchable, :displayable])
+         t.tbrc_id(:ref=>[:control, :tbrc_id], :index_as=>[:searchable, :displayable])o
+
+         t.tibetan_name(:proxy=>[:cpf_description, :identity, :parallel_names, :tibetan_name, :display])
+         t.wylie_name(:proxy=>[:cpf_description, :identity, :parallel_names, :wylie_name, :display])
+         t.tibetan_name(:proxy=>[:cpf_description, :identity, :parallel_names, :tibetan_name, :display])
+         t.tibetan_name(:proxy=>[:cpf_description, :identity, :parallel_names, :tibetan_name, :display])
          # t.authorized_name_display
          # t.authorized_name_authority
          # t.unauthorized_name_display
