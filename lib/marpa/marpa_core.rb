@@ -4,13 +4,13 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
   
   set_terminology do |t|
     t.root(:path=>"marpa_core", :xmlns=>"http://yourmediashelf.com/schemas/marpa-core/v0")
-    t.restriction_level(:path=>"accessRestrictionLevel")
+    t.restriction_level(:path=>"accessRestrictionLevel") # pbcoreAudienceLevel
     t.restriction_instructions(:path=>"accessRestrictionInstructions")
     t.commentary_taught(:path=>"subject", :type=>"commentary") {
       t.author
       t.title
     }
-    t.originally_recorded_by(:path=>"contributor", :attributes=>{:role=>"operator"})
+    t.originally_recorded_by(:path=>"contributor", :attributes=>{:role=>"operator"}) # contributor with contributorRole of operator
     t.instance_{
       t.identifier
       t.location
@@ -20,7 +20,7 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
     }
     t.physical_instance(:ref=>:instance, :attributes=>{:type=>"physical"})
     t.original_instance(:ref=>:instance, :attributes=>{:type=>"original"})
-    t.digital_master(:ref=>:instance, :attributes=>{:type=>"digital"})
+    t.digital_master(:ref=>:instance, :attributes=>{:type=>"digital"}) # instantiation/instantiationDigital
     # t.original_filename(:proxy=>[:digital_master, :identifier]) # Proxies don't work at the root of Terminologies :(    
     t.note
     t.technical_note(:path=>"note", :attributes=>{:type=>"technical"})

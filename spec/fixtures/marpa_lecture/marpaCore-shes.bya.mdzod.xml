@@ -1,0 +1,21 @@
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3"> 
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description> 
+  <subject type="commentary"> 
+    <author></author> 
+    <title></title> 
+  </subject> 
+  <contributor role="operator"></contributor> 
+  <instance type="digital"> 
+    <identifier>shes.bya.mdzod.ch6.2.ch7.2-bouddha-1988-psc-t-2c-1</identifier> 
+    <location></location> 
+    <fileSize>105</fileSize> 
+    <duration>1:31:50</duration> 
+  </instance> 
+  <instance type="physical"> 
+    <identifier></identifier> 
+    <location></location> 
+    <annotation></annotation> 
+  </instance> 
+  <note type="pages">ch. 7.2 p.41.13-42.1 debate introduction / causes &amp; conditions according to rten &apos;brel</note> 
+  <note type="technical"></note> 
+</marpa_core>

@@ -1,0 +1,32 @@
+<!--
+  PBCore datastream for a PBCore Asset
+-->
+<pbcoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html"> 
+  <pbcoreContributor>
+    <contributor></contributor>
+    <contributorRole>operator</contributorRole>    
+  </pbcoreContributor>
+  <pbcoreInstantiation>
+    <!-- 
+      The full metadata for this instantiation is in the pbcore datastream of the marpa:556 S3Content object
+      See: fixtures/marpa_recording/pbcore-shes.bya.mdzod-s3-instantiation.xml
+    -->
+    <instantiationIdentifier>marpa:556</instantiationIdentifier>
+    <instantiationLocation>S3: http://s3.amazonaws.com/marpa-foundation/import/shes.bya.mdzod.ch1.1-bouddha-1988-psc-t-4c/1.mp3</instantiationLocation>
+  </pbcoreInstantiation>
+  <!-- 
+    Metadata about Digital Original (WAV) stored on archive drives, not in Fedora 
+    Current work does not cover tracking anything other than the S3 instantiations, but this shows how they would be tracked.  Optionally, this could be put in the PBcore datastream of a separate "ArchivalRecording" model.
+  -->
+  <pbcoreInstantiation>
+    <instantiationDigital source="IANA MIME Media types">audio/wav</instantiationDigital>
+    <instantiationFileSize unitsOfMeasure="MB">1058</instantiationFileSize>
+    <instantiationDuration>1:31:50</instantiationDuration>
+    <instantiationMediaType>Sound</instantiationMediaType>
+    <instantiationIdentifier>digitalOriginal:shes.bya.mdzod.ch6.2.ch7.2-bouddha-1988-psc-t-2c-1</instantiationIdentifier>
+    <instantiationLocation>drive2/shes.bya.mdzod.ch6.2.ch7.2-bouddha-1988-psc-t-2c/1.wav</instantiationLocation>
+  </pbcoreInstantiation>
+  <pbcoreInstantiation>
+    <instantiationPhysical></instantiationPhysical>
+  </pbcoreInstantiation>
+</pbcoreDescriptionDocument>
