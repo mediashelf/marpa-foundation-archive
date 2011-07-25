@@ -1,9 +1,9 @@
 GIT
   remote: git@github.com:projecthydra/hydra-head.git
-  revision: 672028b6ab5d44c825a46dd66c3d4888b7bf66d1
+  revision: ceb0d28b9927b057794f1af77012e080a79da2d2
   branch: rails3
   specs:
-    hydra-head (0.0.1)
+    hydra-head (3.0.0pre1)
       RedCloth (= 4.2.3)
       active-fedora (>= 2.3.3)
       blacklight (= 3.0.0)
@@ -233,7 +233,7 @@ GEM
       solrizer (>= 1.0.0)
     sqlite3-ruby (1.2.5)
     stomp (1.1.9)
-    term-ansicolor (1.0.5)
+    term-ansicolor (1.0.6)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -253,12 +253,13 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
-  blacklight (= 3.0.0)
+  blacklight (>= 3.0.0)
   cucumber (>= 0.8.5)
   cucumber-rails
   devise
   fastercsv
   gherkin
+  haml
   hydra-head!
   mocha
   rails (>= 3.0.7)

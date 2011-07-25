@@ -1,0 +1,6 @@
+<location xmlns="http://yourmediashelf.com/schemas/marpaLocation/v0">
+  <latitude>44.949955</latitude>
+  <longitude>-93.285441</longitude>
+  <name>CodeSpace</name>
+  <description>A good place to find coders</description>
+<location>

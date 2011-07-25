@@ -9,46 +9,42 @@ module Marpa
            "xmlns:xsi"=>"http://www.w3.org/2001/XMLSchema-instance",
            "xmlns:xlink"=>"http://www.w3.org/1999/xlink",
            "xsi:schemaLocation"=>"narm http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd",
-           :schema=>"http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd")
+           :schema=>"http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd", :index_as=>[:not_searchable])
          t.cpf_description(:path=>"cpfDescription", :index_as=>[:not_searchable]) {
            t.identity(:index_as=>[:not_searchable]) {
-             t.entity_type(:path=>"entityType")
-             t.parallel_names(:path=>"nameEntryParallel") do
-               t.name_entry(:path=>"nameEntry", :index_as=>[:not_searchable]) {
-                 t.display_(:path=>"part", :index_as=>[:not_searchable])
+             t.entity_type(:path=>"entityType", :index_as=>[:not_searchable])
+             t.parallel_names(:path=>"nameEntryParallel", :index_as=>[:not_searchable]) { 
+               t.tibetan_name(:path=>"nameEntry", :attributes=>{'xml:lang'=>'tib', 'scriptCode'=>'Tibt'}, :index_as=>[:not_searchable]) {
+                 t.display_(:path=>"part") #, :index_as=>[:not_searchable])
                }
-               t.tibetan_name(:ref=>[:name_entry], :attributes=>{'xml:lang'=>'tib', 'scriptCode'=>'Tibt'})
-             end
+               t.wylie_name(:path=>"nameEntry", :attributes=>{'xml:lang'=>'tib', 'scriptCode'=>'Latn', 'transliteration'=>'wylie'}, :index_as=>[:not_searchable]) {
+                 t.display_(:path=>"part")#, :index_as=>[:not_searchable])
+               }
+               t.phonetic_name(:path=>"nameEntry", :attributes=>{'xml:lang'=>'skt', 'scriptCode'=>'Latn', 'transliteration'=>'marpa'}, :index_as=>[:not_searchable]) {
+                 t.display_(:path=>"part")#, :index_as=>[:not_searchable])
+               }
+             } 
            }
          }
          t.control(:index_as=>[:not_searchable]) {
            t.tbrc_id(:path=>"otherRecordId", :attributes=>{"localType"=>"tbrc"}, :index_as=>[:not_searchable])
          }
-         t.tbrc_id(:ref=>[:control, :tbrc_id], :index_as=>[:searchable, :displayable])o
-
+         t.tbrc_id(:ref=>[:control, :tbrc_id], :index_as=>[:searchable])
+ 
          t.tibetan_name(:proxy=>[:cpf_description, :identity, :parallel_names, :tibetan_name, :display])
          t.wylie_name(:proxy=>[:cpf_description, :identity, :parallel_names, :wylie_name, :display])
-         t.tibetan_name(:proxy=>[:cpf_description, :identity, :parallel_names, :tibetan_name, :display])
-         t.tibetan_name(:proxy=>[:cpf_description, :identity, :parallel_names, :tibetan_name, :display])
-         # t.authorized_name_display
-         # t.authorized_name_authority
-         # t.unauthorized_name_display
+         t.phonetic_name(:proxy=>[:cpf_description, :identity, :parallel_names, :phonetic_name, :display], :index_as=>[:searchable])
       end
      
       def to_solr(solr_doc=Hash.new, field_mapper=nil)
          super
-         narm_name = self.term_values("//oxns:nameEntry[oxns:authorizedForm='NARM']/oxns:part")
-         solr_doc["title_t"] = narm_name
-         solr_doc["title_display"] = narm_name
-         solr_doc["narm_authorized_name_t"] = narm_name
-         solr_doc["narm_authorized_name_display"] = narm_name
-         supplier_name = self.term_values("//oxns:nameEntry[oxns:authorizedForm!='NARM']/oxns:part")
-         solr_doc["supplier_authorized_name_t"] = supplier_name
-         solr_doc["supplier_authorized_name_display"] = supplier_name
-         aliases = self.term_values("//oxns:nameEntry[not(oxns:authorizedForm)]/oxns:part")
-         solr_doc["nonauthorized_name_t"] = aliases
-         solr_doc["nonauthorized_name_display"] = aliases
          return solr_doc
+      end
+
+      def self.xml_template
+        Nokogiri::XML::Document.parse '<eac-cpf xmlns="urn:isbn:1-931666-33-4" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:isbn:1-931666-33-4 http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd"> 
+          <control></control>
+        </eac-cpf>' 
       end
 
     end    

@@ -1,5 +1,7 @@
-
 require 'marpa/csv_importer'
+require 'marpa/s3_importer'
+require 'marpa/talk_matcher'
+require 'marpa/title_populator'
 namespace :marpa_importer do
   desc "Imports objects from CSV file"
   task :import_csv => [:environment] do

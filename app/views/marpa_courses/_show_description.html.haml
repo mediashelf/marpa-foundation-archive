@@ -37,7 +37,7 @@
         %legend
           Notes
         %p
-          = white_list( RedCloth.new(get_values_from_datastream(@document_fedora,"marpaCore", [:note]).first, [:sanitize_html]).to_html)
+          = RedCloth.new(get_values_from_datastream(@document_fedora,"marpaCore", [:note]).first, [:sanitize_html]).to_html
 
         %legend
           Time

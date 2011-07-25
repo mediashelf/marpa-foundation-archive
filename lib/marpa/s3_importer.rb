@@ -1,5 +1,4 @@
 require 'aws/s3'
-require "s3_content"
 require "active-fedora"
 
 class Marpa::S3Importer 
