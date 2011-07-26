@@ -37,18 +37,13 @@ describe CatalogController do
     end
   end
 
-  
-  it "should not choke on objects with periods in ids (ie Fedora system objects)" do    
-    pending "this would require a patch to all routes that allows periods in ids. for now, use rake solrizer:fedora:forget_system_objects"
-    catalog_path("fedora-system:FedoraObject-3.0").should == '/catalog/fedora-system:FedoraObject-3.0'
-    route_for(:controller=>"catalog", :action=>"show", :id=>"fedora-system:FedoraObject-3.0").should == '/catalog/fedora-system:FedoraObject-3.0'
-  end
-  
   describe "index" do
      describe "access controls" do
       before(:all) do
         @public_only_results = Blacklight.solr.find Hash[:phrases=>{:access_t=>"public"}]
         @private_only_results = Blacklight.solr.find Hash[:phrases=>{:access_t=>"private"}]
+        @public_only_results.docs.count.should > 0
+        @private_only_results.docs.count.should > 0
       end
 
       it "should only return public documents if role does not have permissions" do

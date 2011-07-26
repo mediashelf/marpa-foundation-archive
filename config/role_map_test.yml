@@ -1,15 +1,10 @@
 archivist:
-  - archivist1
-  - archivist2
-  - leland_himself
-admin_policy_object_editor:
-  - archivist1
+  - archivist@example.com
 donor:
-  - donor1
-  - leland_himself
+  - donor@example.com
 researcher:
-  - archivist1
-  - researcher1
+  - researcher@example.com
 patron:
-  - patron1
-  - leland_himself
+  - patron@example.com
+admin_policy_object_editor:
+  - archivist@example.com

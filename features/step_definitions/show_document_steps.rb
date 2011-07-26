@@ -31,6 +31,7 @@ Then /^I should see a link to the "([^\"]*)" page$/ do |arg1|
 end
 
 Then /^I should see a link to "([^\"]*)" with label "([^\"]*)"$/ do |arg1,arg2|
+debugger
   response.should have_selector("a", :href=>path_to(arg1), :content=>arg2)
 end
 

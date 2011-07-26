@@ -11,6 +11,7 @@ Given /^I (?:am )?log(?:ged)? in as "([^\"]*)"$/ do |email|
   fill_in "Email", :with => email 
   fill_in "Password", :with => "password"
   click_button "Sign in"
+  THen show me the page
   Then %{I should see a link to "my account info" with label "#{email}"} 
   And %{I should see a link to "logout"} 
 end

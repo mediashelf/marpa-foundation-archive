@@ -1,8 +1,8 @@
 require File.join( File.dirname(__FILE__), "../spec_helper" )
 
-describe Marpa::Datastreams::Location do
+describe Marpa::Datastreams::Place do
   before :each do
-    @datastream = Marpa::Datastreams::Location.from_xml( fixture("marpa_location/place.xml") )
+    @datastream = Marpa::Datastreams::Place.from_xml( fixture("marpa_location/place.xml") )
   end
   describe "to_solr" do
     before(:each) do
