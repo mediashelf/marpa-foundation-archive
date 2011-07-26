@@ -27,7 +27,7 @@ Then /^I should see a link called "([^\"]*)"$/ do |locator|
 end
 
 Then /^I should see a link to "([^\"]*)"$/ do |link_path|
-  page.should have_xpath(".//a[@href=\"#{path_to(link_path)}\"]")
+  page.should have_xpath(".//a[starts-with(@href, \"#{path_to(link_path)}\")]")
 end
 
 Then /^I should see a link to the "([^\"]*)" page$/ do |link_path|
@@ -35,7 +35,7 @@ Then /^I should see a link to the "([^\"]*)" page$/ do |link_path|
 end
 
 Then /^I should see a link to "([^\"]*)" with label "([^\"]*)"$/ do |link_path,link_label|
-  page.should have_xpath(".//a[@href=\"#{path_to(link_path)}\"]", :text=>link_label)  
+  page.should have_selector("a[href=\"#{path_to(link_path)}\"]", :text=>link_label)  
 end
 
 Then /^I should not see a link to "([^\"]*)"$/ do |link_path|

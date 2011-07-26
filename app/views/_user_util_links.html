@@ -1,16 +1,14 @@
 <% if current_user %>
 
     <ul>
-      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "marpa_course") %>');">Add a Course</li>
-      <li onclick="javascript:createAssetNavigateTo(this, '<%= url_for(:action => "new", :controller => "assets", :content_type => "marpa_lecture") %>');">Add a Talk</li>
-	  <li><%= link_to current_user.login, edit_user_registration_path %> (<%= link_to "Log Out", destroy_user_session_path %>)</li>
+      <li><%= link_to "Add a Course", :action => "new", :controller => "assets", :content_type => "marpa_course" %></li>
+      <li><%= link_to "Add a Talk", :action => "new", :controller => "assets", :content_type => "marpa_lecture" %></li>
+	    <li><%= link_to current_user.login, edit_user_registration_path %> (<%= link_to "Log Out", destroy_user_session_path %>)</li>
     </ul>
 
 <% else %>
 
     <ul>
-      <li onclick="javascript:location.href='<%= new_user_session_path(:redirect_params => {:action => "new", :controller=> "assets", :content_type => "marpa_course"}) %>'">Add a Course</li>
-      <li onclick="javascript:location.href='<%= new_user_session_path( :redirect_params => {:action => "new", :controller=> "assets", :content_type => "marpa_lecture"}) %>'">Add a Talk</li>
   	  <li><%= link_to 'Login', new_user_session_path() %></li>
     </ul>
 

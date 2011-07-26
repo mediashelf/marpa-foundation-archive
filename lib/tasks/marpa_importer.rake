@@ -2,6 +2,7 @@ require 'marpa/csv_importer'
 require 'marpa/s3_importer'
 require 'marpa/talk_matcher'
 require 'marpa/title_populator'
+require 'hydra/fixture_loader'
 namespace :marpa_importer do
   desc "Imports objects from CSV file"
   task :import_csv => [:environment] do
@@ -32,9 +33,13 @@ namespace :marpa_importer do
 end
 
 
-namespace :spec do
+namespace :test do
   task :fixtures => [:environment] do
     #TODO -empty fedora first?
-    Marpa::CSVImporter.new.import('spec/fixtures/marpa.csv')
+    loader =  Hydra::FixtureLoader.new('spec/fixtures')
+    ['marpa:1', 'marpa:2', 'marpa:3'].each do |pid|
+      puts "Loading #{pid}"
+      loader.reload(pid)
+    end
   end
 end

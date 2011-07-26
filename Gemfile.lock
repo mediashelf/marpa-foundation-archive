@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:projecthydra/hydra-head.git
-  revision: 6664bc4f47b0b45aee6d0de617bb49dfc17cd789
+  revision: 305b74d357e371e9449420c293dfbd0386fec66a
   branch: rails3
   specs:
     hydra-head (3.0.0pre1)

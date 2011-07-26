@@ -13,6 +13,8 @@ module NavigationHelpers
       '/'
     when /the search page/
       '/catalog'
+    when /login/
+      new_user_session_path
     when /logout/
       destroy_user_session_path
     when /my account info/
