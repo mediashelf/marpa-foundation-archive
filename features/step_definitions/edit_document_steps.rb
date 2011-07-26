@@ -1,5 +1,9 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
+Then /^I should see a link with an id of "([^"]*)" and a label "([^"]*)"$/ do |id, text|
+  page.should have_selector("a##{id}", :text=>text)
+end
+
 Then /^I should see an inline edit containing "([^"]*)"$/ do |arg1|
   response.should have_selector(".editable-text", :content=>arg1)
 end

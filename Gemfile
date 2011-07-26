@@ -7,6 +7,8 @@ gem "hydra-head", :git => "git@github.com:projecthydra/hydra-head.git", :branch=
 gem "aws-s3"
 gem "haml"
 
+gem "om", "1.3.0"
+
 
 group :development, :test do
   gem 'ruby-debug'
