@@ -35,7 +35,7 @@ describe Marpa::Datastreams::EacCpf do
     end
     it "should generate xml with two attributes on the name" do
       @new.update_indexed_attributes({['tibetan_name']=>['steve']})
-      @new.find_by_terms(:tibetan_name).to_xml.should be_equivalent_to '<xml>'
+      @new.find_by_terms(:tibetan_name).to_xml.should == '<part>steve</part>'
     end
   end
 end
