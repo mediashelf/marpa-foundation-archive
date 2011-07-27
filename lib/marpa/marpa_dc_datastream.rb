@@ -31,13 +31,13 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.created
     t.creator
     t.date(:index_as=>[:not_searchable]) {
-      t.Vevent(:xmlns =>'ical', :path=>'Vevent', :index_as=>[:not_searchable]) {
-        t.dtstart(:xmlns=>'ical', :index_as=>[:facetable])
+      t.vevent(:xmlns =>'ical', :path=>'Vevent', :index_as=>[:not_searchable]) {
+        t.dtstart(:xmlns=>'ical', :path=>'dtstart', :index_as=>[:facetable])
         t.dtend(:xmlns=>'ical')
       }
     }
-    t.start_date(:proxy=>[:date, :Vevent, :dtstart])
-    t.end_date(:proxy=>[:date, :Vevent, :dtend])
+    t.start_date(:proxy=>[:date, :vevent, :dtstart])
+    t.end_date(:proxy=>[:date, :vevent, :dtend])
     t.dateAccepted
     t.dateCopyrighted
     t.dateSubmitted

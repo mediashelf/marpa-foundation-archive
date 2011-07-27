@@ -4,6 +4,9 @@
   /*  =label_tag 'tibetian_title',  'Tibetan Title' */
   /*  = fedora_text_field(@document_fedora,"descMetadata", [:tibetan_title], :multiple=>false)       */
 
+  %li
+    =label_tag 'creator', 'Teacher'
+    = fedora_text_field(@document_fedora,"descMetadata", [:creator], :multiple=>false)  
   %li.start_date
     =label_tag 'start_date', 'Start Date' 
     = fedora_text_field(@document_fedora,"descMetadata", [:start_date], :multiple=>false)  
@@ -15,79 +18,21 @@
   %li
     =label_tag 'spatial',  'Location'
     = fedora_text_field(@document_fedora,"descMetadata", [:spatial], :multiple=>false)  
+    =link_to "add a location", '#', {:id => 'add-location', :class=>'addval'}
+    =# fedora_text_field_insert_link "descMetadata", [:spatial ]     
 
   %li
-    =label_tag 'creator', 'Teacher'
-    = fedora_text_field(@document_fedora,"descMetadata", [:creator], :multiple=>false)  
-
-  %li
-    %label
-      Commentary Author
-    = fedora_text_field(@document_fedora,"marpaCore", [:commentary_taught, :author], :multiple=>false)
-
-  %li
-    %label
-      Notes
-    = fedora_text_area(@document_fedora,"marpaCore", [:note], :multiple=>false)
-
-  %li
-    %label
-      Time
-    = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :duration], :multiple=>false)    
-
-  %li
-    %label
-      Topics
-    = fedora_text_field(@document_fedora,"descMetadata", [:subject], :multiple=>true)          
-    = fedora_text_field_insert_link "descMetadata", [:subject]
+    =label_tag 'language',  'Language(s)'
+    = fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true) # english, tibetian, french, chinese 
 
 
   %li
-    %label
-      Languages
-    = fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true)                  
-    = fedora_text_field_insert_link "descMetadata", [:language ]      
-
-
-    %label
-      Translators
+    =label_tag 'contributor',  'Translators'
     = fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
-    = fedora_text_field_insert_link "descMetadata", [:contributor]               
-
-
-    - unless params[:action] == "show"
-      %label 
-        File Size
-      = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
-
-      %label 
-        Master Copy Location
-      = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
-
-      %label
-        Original Filename
-      = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
-
-      %label
-        Date added to Archive
-      =@document["system_create_dt"]
-
-      %label
-        Date Last Modified
-      =@document["system_modified_dt"]
-
-      %label
-        Contributed By
-      =@document["depositor_t"]
-
-      %label
-        Controlled By
-      =@document_fedora.owner_id
-
-      %label
-        Technical Note
-      = fedora_text_area(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
-       
-      %label
-        Annotation
-      = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)
+    =link_to "add a translator", '#', {:id => 'add-translator', :class=>'addval'}
+    = #fedora_text_field_insert_link "descMetadata", [:contributor]               
+  %li
+    %label
+      Associated Texts
+    %table.texts
+    =link_to 'add a text', '#', {:id=>'add-text', :class=>'addval'}

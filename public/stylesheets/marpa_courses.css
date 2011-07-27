@@ -3,10 +3,16 @@ fieldset.course-talks {
   width: 47%;
 }
 
-#title {
-  font-size: 20px;
-  width: 600px;
+#title-container {
+  margin-top: 40px;
+  font-size: 24pt;
 }
+
+#title {
+  width: 800px;
+  font-size: 24pt;
+}
+
 
 fieldset.permissions {
   display: none

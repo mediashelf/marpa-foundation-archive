@@ -1,5 +1,6 @@
 - content_for(:head) do
   =stylesheet_link_tag 'marpa_courses'
+  =javascript_include_tag 'edit_course'
   /*- stylesheet_link_tag "javascripts/date-picker/css/datepicker.css"*/
 
   /*- javascript_include_tag 'jquery.jeditable.mini.js', {:media=>'all'} */
@@ -17,10 +18,10 @@
   /*- stylesheet_link_tag "javascripts/select_to_ui_slider/css/ui.slider.extras.css"*/
   /*- stylesheet_link_tag 'slider.css', {:media=>'all'}*/
 
-  /*:javascript*/
-  /*  $(document).ready(function() {*/
-  /*    $(document).catalogEdit();*/
-  /*  });*/
+  :javascript
+    $(document).ready(function() {
+      $(document).editCourse();
+    });
 
 .document_viewer#cover_container
   .multipleEdit

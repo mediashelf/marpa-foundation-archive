@@ -17,6 +17,7 @@ describe Marpa::MarpaDCDatastream do
     before(:each) do
     end
     it "should have stuff" do
+#      @datastream.term_values(:date).should == ['2010-05-28']
       @datastream.term_values(:start_date).should == ['2010-05-28']
       @datastream.term_values(:end_date).should == ['2010-06-02']
 
