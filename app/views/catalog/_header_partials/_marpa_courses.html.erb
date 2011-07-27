@@ -1,5 +1,3 @@
-<h1><%= @document[Blacklight.config[:show][:heading]]%>
-<% if params[:action] == 'edit' %>
-  <%=link_to 'edit title', '#', {:id=>'edit-title'} %>
+<% if params[:action] != 'edit' %>
+  <h1><%= @document[Blacklight.config[:show][:heading]]%></h1>
 <% end %>
-</h1>

@@ -1,0 +1,8 @@
+<dc xmlns='http://purl.org/dc/terms/' xmlns:ical='http://www.w3.org/2002/12/cal#'>
+  <date>
+    <ical:Vevent>
+      <ical:dtstart>2010-05-28</ical:dtstart>
+      <ical:dtend>2010-06-02</ical:dtend>
+    </ical:Vevent>
+  </date>
+</dc>

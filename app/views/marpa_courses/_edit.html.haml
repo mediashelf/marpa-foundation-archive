@@ -1,4 +1,5 @@
 - content_for(:head) do
+  =stylesheet_link_tag 'marpa_courses'
   /*- stylesheet_link_tag "javascripts/date-picker/css/datepicker.css"*/
 
   /*- javascript_include_tag 'jquery.jeditable.mini.js', {:media=>'all'} */
@@ -29,20 +30,23 @@
       .notice
         = flash[:notice]
     
-    %fieldset 
-      Talks in this Course
-      = render :partial => 'marpa_courses/talks'
-          
-    %fieldset 
-      Describe the Course
+    %form#document_metadata{ :action=>url_for(:action=>"update", :controller=>"assets"), :method=>"post", "accept-charset"=>"utf-8"}
+      .title-line
+        = fedora_text_field(@document_fedora,"descMetadata", [:title], :multiple=>false) 
+        =link_to 'edit title', '#', {:id=>'edit-title'} 
+      %fieldset.course-talks 
+        Talks in this Course
+        = render :partial => 'marpa_courses/talks'
       = render :partial => 'marpa_courses/edit_description'
 
+          
 
-    %fieldset 
+
+    %fieldset.permissions 
       Set permissions
       %span#permissions
         = render :partial => "permissions/index", :locals => {:document => document, :asset_id=>params[:id]}
 
     = delete_asset_link(params[:id], "course")
 
-= async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')
+= #async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')

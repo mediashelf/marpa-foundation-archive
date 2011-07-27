@@ -39,3 +39,6 @@
   float:left;
 }
 
+#showHead {
+  display: none;
+}

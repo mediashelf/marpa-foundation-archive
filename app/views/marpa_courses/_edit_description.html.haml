@@ -1,92 +1,93 @@
-%form#document_metadata{ :action=>url_for(:action=>"update", :controller=>"assets"), :method=>"post", "accept-charset"=>"utf-8"}
-  %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"marpa_course"}
-  
-  %ul.step
-    %li
-      %fieldset
-        %legend
-          Title
-        = fedora_text_field(@document_fedora,"descMetadata", [:title], :multiple=>false) 
+%input#content_type{:type=>"hidden", :name=>"content_type", :value=>"marpa_course"}
+%ul.form-fields
+  /*%li*/
+  /*  =label_tag 'tibetian_title',  'Tibetan Title' */
+  /*  = fedora_text_field(@document_fedora,"descMetadata", [:tibetan_title], :multiple=>false)       */
 
-        %legend
-          Tibetan Title      
-        = fedora_text_field(@document_fedora,"descMetadata", [:tibetan_title], :multiple=>false)       
+  %li.start_date
+    =label_tag 'start_date', 'Start Date' 
+    = fedora_text_field(@document_fedora,"descMetadata", [:start_date], :multiple=>false)  
 
-        %legend
-          Dates of Teaching    
-        = fedora_text_field(@document_fedora,"descMetadata", [:date], :multiple=>false)  
+  %li.end_date
+    =label_tag 'end_date', 'End Date' 
+    = fedora_text_field(@document_fedora,"descMetadata", [:end_date], :multiple=>false)  
 
-        %legend
-          Location 
-        = fedora_text_field(@document_fedora,"descMetadata", [:spatial], :multiple=>false)  
+  %li
+    =label_tag 'spatial',  'Location'
+    = fedora_text_field(@document_fedora,"descMetadata", [:spatial], :multiple=>false)  
 
-        %legend
-          Teacher
-        = fedora_text_field(@document_fedora,"descMetadata", [:creator], :multiple=>false)  
+  %li
+    =label_tag 'creator', 'Teacher'
+    = fedora_text_field(@document_fedora,"descMetadata", [:creator], :multiple=>false)  
 
-        %legend
-          Commentary Author
-        = fedora_text_field(@document_fedora,"marpaCore", [:commentary_taught, :author], :multiple=>false)
-        
-        %legend
-          Notes
-        = fedora_text_area(@document_fedora,"marpaCore", [:note], :multiple=>false)
+  %li
+    %label
+      Commentary Author
+    = fedora_text_field(@document_fedora,"marpaCore", [:commentary_taught, :author], :multiple=>false)
 
-        %legend
-          Time
-        = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :duration], :multiple=>false)    
-      
-        %legend
-          Topics
-        = fedora_text_field(@document_fedora,"descMetadata", [:subject], :multiple=>true)          
-        = fedora_text_field_insert_link "descMetadata", [:subject]
+  %li
+    %label
+      Notes
+    = fedora_text_area(@document_fedora,"marpaCore", [:note], :multiple=>false)
+
+  %li
+    %label
+      Time
+    = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :duration], :multiple=>false)    
+
+  %li
+    %label
+      Topics
+    = fedora_text_field(@document_fedora,"descMetadata", [:subject], :multiple=>true)          
+    = fedora_text_field_insert_link "descMetadata", [:subject]
 
 
-        %legend
-          Languages
-        = fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true)                  
-        = fedora_text_field_insert_link "descMetadata", [:language ]      
-        
-        
-        %legend
-          Translators
-        = fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
-        = fedora_text_field_insert_link "descMetadata", [:contributor]               
-        
-        
-        - unless params[:action] == "show"
-          %legend 
-            File Size
-          = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
+  %li
+    %label
+      Languages
+    = fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true)                  
+    = fedora_text_field_insert_link "descMetadata", [:language ]      
 
-          %legend 
-            Master Copy Location
-          = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
 
-          %legend
-            Original Filename
-          = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
+    %label
+      Translators
+    = fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
+    = fedora_text_field_insert_link "descMetadata", [:contributor]               
 
-          %legend
-            Date added to Archive
-          =@document["system_create_dt"]
 
-          %legend
-            Date Last Modified
-          =@document["system_modified_dt"]
+    - unless params[:action] == "show"
+      %label 
+        File Size
+      = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :file_size], :multiple=>false)
 
-          %legend
-            Contributed By
-          =@document["depositor_t"]
+      %label 
+        Master Copy Location
+      = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :location], :multiple=>false)
 
-          %legend
-            Controlled By
-          =@document_fedora.owner_id
+      %label
+        Original Filename
+      = fedora_text_field(@document_fedora,"marpaCore", [:digital_master, :identifier], :multiple=>false)
 
-          %legend
-            Technical Note
-          = fedora_text_area(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
-           
-          %legend
-            Annotation
-          = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)
+      %label
+        Date added to Archive
+      =@document["system_create_dt"]
+
+      %label
+        Date Last Modified
+      =@document["system_modified_dt"]
+
+      %label
+        Contributed By
+      =@document["depositor_t"]
+
+      %label
+        Controlled By
+      =@document_fedora.owner_id
+
+      %label
+        Technical Note
+      = fedora_text_area(@document_fedora,"marpaCore", [:technical_note], :multiple=>false)
+       
+      %label
+        Annotation
+      = fedora_text_field(@document_fedora,"marpaCore", [:physical_instance, :annotation], :multiple=>false)

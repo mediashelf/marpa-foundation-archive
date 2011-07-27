@@ -79,3 +79,27 @@ Then /^the "([^\"]*)" inline textarea edit should be empty$/ do |arg1|
   end
 end
 
+
+Then /^I should see a text field for "([^"]*)"$/ do |label_text|
+  page.should have_selector('label', :text=>label_text) do |label|
+    debugger
+    puts ""
+  end
+end
+
+Then /^I should see a dropdown field for "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see a link with a class of "([^"]*)" and a label "([^"]*)"$/ do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see checkboxes for "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see a table with a class of "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+

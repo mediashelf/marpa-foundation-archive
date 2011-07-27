@@ -1,0 +1,44 @@
+fieldset.course-talks {
+  float:right;
+  width: 47%;
+}
+
+#title {
+  font-size: 20px;
+  width: 600px;
+}
+
+fieldset.permissions {
+  display: none
+}
+
+.delete_asset {
+  display: none;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.title-line {
+  margin-bottom: 20px;
+}
+
+ul.form-fields {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+ul.form-fields li {
+  margin-bottom: 10px;
+}
+
+ul.form-fields li label {
+  width: 200px;
+  display: inline-block;
+}
+

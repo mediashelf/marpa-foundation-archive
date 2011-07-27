@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:projecthydra/hydra-head.git
-  revision: 305b74d357e371e9449420c293dfbd0386fec66a
+  revision: 04addf49ee76e59c691d5cb5f9d134d71f41a314
   branch: rails3
   specs:
     hydra-head (3.0.0pre1)
@@ -165,7 +165,7 @@ GEM
     om (1.3.0)
       nokogiri (>= 1.4.2)
     orm_adapter (0.0.5)
-    polyglot (0.3.1)
+    polyglot (0.3.2)
     rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -237,12 +237,13 @@ GEM
     stomp (1.1.9)
     term-ansicolor (1.0.6)
     thor (0.14.6)
-    treetop (1.4.9)
+    treetop (1.4.10)
+      polyglot
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.29)
     unicode (0.4.0)
-    warden (1.0.4)
+    warden (1.0.5)
       rack (>= 1.0)
     will_paginate (2.3.15)
     xml-simple (1.1.0)

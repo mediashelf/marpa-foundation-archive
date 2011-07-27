@@ -8,4 +8,14 @@ Feature: Edit the course
     Given I am on the the edit page for id marpa:1
     Then I should see "General Teachings on Buddha nature"
     And I should see a link with an id of "edit-title" and a label "edit title"
+    And I should see a text field for "Teacher"
+    And I should see a text field for "Start Date"
+    And I should see a text field for "End Date"
+    And I should see a dropdown field for "Location"
+    And I should see a link with a class of "addval" and a label "add a location"
+    And I should see checkboxes for "Language(s)"
+    And I should see a dropdown field for "Translator"
+    And I should see a link with a class of "addval" and a label "add a translator"
+    And I should see a table with a class of "texts" 
+    And I should see a link with a class of "addval" and a label "add a text"
 
