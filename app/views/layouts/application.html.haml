@@ -1,7 +1,13 @@
 !!!
 %head
-  - stylesheet_link_tag 'styles'
+  = stylesheet_link_tag 'utils'
+  = stylesheet_link_tag params[:controller]
   = yield :head
+  = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'
+  :javascript
+    $(function(){
+      $('ul.utils').css('top', ($(document).height() - 50) + 'px');
+    });
 %body
   = render :partial=>'/user_util_links'
   = yield

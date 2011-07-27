@@ -1,0 +1,41 @@
+#q {
+  width: 400px;
+  margin-bottom: 3px;
+}
+
+#submit {
+  vertical-align: bottom;
+}
+
+#search {
+  height: 40px;
+  padding-left: 230px;
+  margin-left: 100px;
+  padding-top: 40px;
+  background: url('../images/marpa_foundation_logo_v1_color_sm_02.gif') no-repeat;
+}
+
+#appliedParams {
+  width: 150px;
+  float: left;
+}
+
+.pageEntriesInfo {
+  margin-left: 180px;
+  float: left;
+}
+
+#sortAndPerPage {
+  margin-left: 80px;
+  float:left;
+}
+
+#sortAndPerPage form {
+  display: inline;
+}
+#documents {
+  margin-left: 40px;
+  margin-top: 30px;
+  float:left;
+}
+
