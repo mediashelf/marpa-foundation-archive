@@ -6,6 +6,8 @@ MarpaFoundation::Application.routes.draw do
 
   root :to => "catalog#index"
 
+  resources :places do 
+  end
   resources :courses do 
     resources :lectures
   end

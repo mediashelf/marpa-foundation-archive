@@ -1,5 +1,5 @@
 - content_for(:head) do
-  =stylesheet_link_tag 'marpa_courses'
+  =stylesheet_link_tag 'marpa_courses', 'forms'
   =javascript_include_tag 'edit_course'
   /*- stylesheet_link_tag "javascripts/date-picker/css/datepicker.css"*/
 
@@ -31,14 +31,15 @@
       .notice
         = flash[:notice]
     
-    %form#document_metadata{ :action=>url_for(:action=>"update", :controller=>"assets"), :method=>"post", "accept-charset"=>"utf-8"}
+    =form_for @document_fedora, :url=>asset_path(), :method=>"put", :html=>{:id => 'document_metadata'} do |f|
       .title-line
-        = fedora_text_field(@document_fedora,"descMetadata", [:title], :multiple=>false) 
+        = fedora_text_field(f.object, "descMetadata", [:title], :multiple=>false) 
         =link_to 'edit title', '#', {:id=>'edit-title'} 
       %fieldset.course-talks 
         Talks in this Course
         = render :partial => 'marpa_courses/talks'
-      = render :partial => 'marpa_courses/edit_description'
+      = render :partial => 'marpa_courses/edit_description', :locals=>{:f => f}
+      = submit_tag
 
           
 

@@ -5,30 +5,46 @@
   /*  = fedora_text_field(@document_fedora,"descMetadata", [:tibetan_title], :multiple=>false)       */
 
   %li
-    =label_tag 'creator', 'Teacher'
-    = fedora_text_field(@document_fedora,"descMetadata", [:creator], :multiple=>false)  
+    =label_tag 'creator', 'Teacher', :class=>'left-col'
+    = fedora_text_field(f.object,"descMetadata", [:creator], :multiple=>false)  
   %li.start_date
-    =label_tag 'start_date', 'Start Date' 
+    =label_tag 'start_date', 'Start Date' , :class=>'left-col'
     = fedora_text_field(@document_fedora,"descMetadata", [:start_date], :multiple=>false)  
 
   %li.end_date
-    =label_tag 'end_date', 'End Date' 
+    =label_tag 'end_date', 'End Date' , :class=>'left-col'
     = fedora_text_field(@document_fedora,"descMetadata", [:end_date], :multiple=>false)  
 
   %li
-    =label_tag 'spatial',  'Location'
-    = fedora_text_field(@document_fedora,"descMetadata", [:spatial], :multiple=>false)  
-    =link_to "add a location", '#', {:id => 'add-location', :class=>'addval'}
+    =label_tag 'place',  'Location', :class=>'left-col'
+    =#fedora_text_field(@document_fedora,"descMetadata", [:spatial], :multiple=>false)  
+    =select_tag 'place', options_from_collection_for_select(Place.find(:all), "id", "name")
+    =link_to "add a location", new_place_path(:course=>@document_fedora.pid), {:id => 'add-location', :class=>'addval'}
     =# fedora_text_field_insert_link "descMetadata", [:spatial ]     
 
   %li
-    =label_tag 'language',  'Language(s)'
-    = fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true) # english, tibetian, french, chinese 
+    =label_tag 'language',  'Language(s)', :class=>'left-col'
+    =# fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true) # english, tibetian, french, chinese 
+    = fields_for :language do |languages|
+      .checkbox-group
+        = languages.check_box 'eng'
+        = label_tag 'language_eng', "English"
+        %br
+        = languages.check_box 'fre'
+        = label_tag 'language_fre', "French"
+        %br
+        = languages.check_box 'tib'
+        = label_tag 'language_tib', "Tibetan"
+        %br
+        = languages.check_box 'man'
+        = label_tag 'language_man', "Mandarin"
 
 
   %li
-    =label_tag 'contributor',  'Translators'
-    = fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
+    =label_tag 'contributor',  'Translator(s)', :class=>'left-col'
+    =select_tag 'contributor', options_from_collection_for_select(Translator.find(:all), "id", "name")
+    =#label_tag 'contributor',  'Translators'
+    =# fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
     =link_to "add a translator", '#', {:id => 'add-translator', :class=>'addval'}
     = #fedora_text_field_insert_link "descMetadata", [:contributor]               
   %li

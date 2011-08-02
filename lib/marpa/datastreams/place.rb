@@ -12,6 +12,21 @@ module Marpa
             t.latitude(:path=>'location.geocode.latitude', :xmlns=>'fb')
           }
         }
+        t.longitude(:proxy=>[:geolocation, :geocode, :longitude])
+        t.latitude(:proxy=>[:geolocation, :geocode, :latitude])
+      end
+
+      def self.xml_template
+        Nokogiri::XML::Document.parse '<location xmlns="http://yourmediashelf.com/schemas/marpaLocation/v0" xmlns:fb="http://rdf.freebase.com/ns/"> 
+          <name></name>
+          <description></description>
+          <fb:location.location.geolocation>
+            <fb:location.geocode>
+              <fb:location.geocode.longitude></fb:location.geocode.longitude>
+              <fb:location.geocode.latitude></fb:location.geocode.latitude>
+            </fb:location.geocode>
+          </fb:location.location.geolocation>
+        </location>' 
       end
       
     end 

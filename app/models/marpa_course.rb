@@ -2,7 +2,12 @@ require "hydra"
 require "marpa/marpa_core"
 
 class MarpaCourse < ActiveFedora::Base
-
+    extend ActiveModel::Naming
+    include ActiveModel::Conversion
+    def persisted?
+      !self.new_object?
+    end
+    
     include Hydra::ModelMethods
 
     has_relationship "lectures", :is_part_of, :inbound => true
@@ -13,6 +18,7 @@ class MarpaCourse < ActiveFedora::Base
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
     
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+
     
     def file_objects_append(file_asset)
       lecture = MarpaLecture.new

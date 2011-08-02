@@ -11,11 +11,9 @@ Then /^I should not see the "([^\"]*)" term$/ do |arg1|
 end
 
 Then /^the "([^\"]*)" term should contain "([^\"]*)"$/ do |arg1, arg2|
-  page.should have_selector("dt", :content=>arg1) do |dt|
-    dt.each do |term| 
-      term.next.should have_selector("dd", :text=>arg2) 
-    end
-  end
+  dt = page.find("dt", :text=>arg1)
+  dt.should_not be_nil
+  dt.find(:xpath,".//..").find('dd', :text=>arg2) ### Note, this doesn't ensure that this dd comes after this dt
 end
 
 Then /^I should see the "([^\"]*)" value$/ do |arg1|

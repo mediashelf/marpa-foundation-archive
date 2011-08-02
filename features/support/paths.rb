@@ -5,7 +5,7 @@ module NavigationHelpers
   #
   # step definition in webrat_steps.rb
   #
-  def path_to(page_name)
+  def path_to(page_name, args={})
     
     case page_name
   
@@ -22,7 +22,7 @@ module NavigationHelpers
     when /the base search page/
       '/catalog?q=&search_field=search&action=index&controller=catalog&commit=search'
     when /the document page for id (.+)/ 
-      catalog_path($1)
+      catalog_path($1, args)
     when /the edit page for id (.+)/ 
       edit_catalog_path($1)
     when /the catalog index page/
@@ -36,7 +36,7 @@ module NavigationHelpers
     when /the edit document page for (.*)$/i
       edit_catalog_path($1)
     when /the show document page for (.*)$/i
-      catalog_path($1)
+      catalog_path($1, args)
     when /the delete confirmation page for (.*)$/i
       delete_catalog_path($1)
       

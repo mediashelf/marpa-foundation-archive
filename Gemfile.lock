@@ -270,4 +270,5 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby-debug
+  solrizer-fedora
   sqlite3-ruby

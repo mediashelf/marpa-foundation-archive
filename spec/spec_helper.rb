@@ -45,6 +45,10 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   #
+
+
+  config.include Devise::TestHelpers, :type => :controller
+
   # == Notes
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
@@ -68,5 +72,7 @@ RSpec.configure do |config|
   
     @bl_solr = Solr::Connection.new(url, :autocommit => :on )
   end
+  
+  
   
 end

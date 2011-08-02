@@ -15,7 +15,8 @@ fieldset.course-talks {
 
 
 fieldset.permissions {
-  display: none
+  float: right;
+  width: 47%;
 }
 
 .delete_asset {
@@ -34,17 +35,8 @@ fieldset.permissions {
   margin-bottom: 20px;
 }
 
-ul.form-fields {
-  padding-left: 0;
-  list-style-type: none;
-}
 
-ul.form-fields li {
-  margin-bottom: 10px;
-}
-
-ul.form-fields li label {
+.checkbox-group {
   width: 200px;
   display: inline-block;
-}
-
+} 

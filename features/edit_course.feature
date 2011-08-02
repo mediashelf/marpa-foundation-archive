@@ -5,7 +5,7 @@ Feature: Edit the course
 
   Scenario: Editor views the search results page and sees the create buttons
     Given I am logged in as "archivist@example.com" 
-    Given I am on the the edit page for id marpa:1
+    Given I am on the edit page for id marpa:1
     Then I should see "General Teachings on Buddha nature"
     And I should see a link with an id of "edit-title" and a label "edit title"
     And I should see a text field for "Teacher"
@@ -21,4 +21,15 @@ Feature: Edit the course
     And I should see a link with a class of "addval" and a label "add a translator"
     And I should see a table with a class of "texts" 
     And I should see a link with a class of "addval" and a label "add a text"
+
+  Scenario: Editor views the edit page and submits values
+    Given I am logged in as "archivist@example.com" 
+    Given I am on the edit page for id marpa:1
+    When I fill in the following:
+       |Teacher  |Marco Polo |
+    And I press "Save changes"
+    Then I should see "Your changes have been saved" within ".notice"
+    When I go to the show document page for marpa:1 in browse context
+    Then the "Teacher" term should contain "Marco Polo"
+    
 
