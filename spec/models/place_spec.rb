@@ -43,5 +43,19 @@ describe Place do
       @obj.save
       @obj.name.should == 'The beach'
   end
+
+  it "Should parse map_coordinates" do
+      @obj = Place.new(:map_coordinates=>'44.95,-93.28')
+      @obj.save
+      @obj.datastreams['placeInfo'].term_values(:latitude).first.should == '44.95'
+      @obj.datastreams['placeInfo'].term_values(:longitude).first.should == '-93.28'
+  end
+  it "Should print map_coordinates" do
+      @obj = Place.new()
+      @obj.datastreams['placeInfo'].update_indexed_attributes([:latitude] => '44.95')
+      @obj.datastreams['placeInfo'].update_indexed_attributes([:latitude] => '-93.28')
+      @obj.save
+      @obj.map_coordinates.should == '44.95,-93.28'
+  end
 end
 
