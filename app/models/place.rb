@@ -29,28 +29,31 @@ class Place < ActiveFedora::Base
     #TODO this is how we should do it in the future 
     #delegate :name, :to => :placeInfo
     def name
-      datastreams['placeInfo'].term_values(:name).first
+      placeInfo.term_values(:name).first
     end
     def name=(n)
-      datastreams['placeInfo'].update_indexed_attributes([:name] => n)
+      placeInfo.update_indexed_attributes([:name] => n)
     end
 
     def map_coordinates
-      ds = datastreams['placeInfo']
-      "#{ds.term_values(:latitude).first},#{ds.term_values(:longitude).first}"
+      "#{placeInfo.term_values(:latitude).first},#{placeInfo.term_values(:longitude).first}"
+    end
+    def map_coordinates=(val)
+      lat,lon = val.split(',')
+      placeInfo.update_indexed_attributes([:latitude] => lat)
+      placeInfo.update_indexed_attributes([:longitude] => lon)
     end
 
     def description
-      datastreams['placeInfo'].term_values(:name).first
+      placeInfo.term_values(:name).first
+    end
+    def description=(n)
+      placeInfo.update_indexed_attributes([:description] => n)
     end
 
     private 
 
     def placeInfo
-      if datastreams['placeInfo'].nil?
-        new_ds = Marpa::Datastreams::Place.new(:dsid=>'placeInfo')
-        self.add_datastream( new_ds) 
-      end
       datastreams['placeInfo'] 
     end
    

@@ -9,7 +9,8 @@ describe Marpa::Datastreams::Place do
       @solr_doc = @datastream.to_solr
     end
     it "should not need any indexing" do
-      @solr_doc.should == {'name_t'=>['CodeSpace'], 'description_t'=>['A good place to find coders']}
+      @solr_doc['name_t'].should == ['CodeSpace']
+      @solr_doc['description_t'].should == ['A good place to find coders']
     end
   end
   describe "the terminology" do
@@ -53,7 +54,7 @@ describe Place do
   it "Should print map_coordinates" do
       @obj = Place.new()
       @obj.datastreams['placeInfo'].update_indexed_attributes([:latitude] => '44.95')
-      @obj.datastreams['placeInfo'].update_indexed_attributes([:latitude] => '-93.28')
+      @obj.datastreams['placeInfo'].update_indexed_attributes([:longitude] => '-93.28')
       @obj.save
       @obj.map_coordinates.should == '44.95,-93.28'
   end

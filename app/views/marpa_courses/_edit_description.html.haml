@@ -45,7 +45,7 @@
     =select_tag 'contributor', options_from_collection_for_select(Translator.find(:all), "id", "name")
     =#label_tag 'contributor',  'Translators'
     =# fedora_text_field(@document_fedora,"descMetadata", [:contributor], :multiple=>true)     
-    =link_to "add a translator", '#', {:id => 'add-translator', :class=>'addval'}
+    =link_to "add a translator", new_translator_path(:course=>@document_fedora.pid), {:id => 'add-translator', :class=>'addval'}
     = #fedora_text_field_insert_link "descMetadata", [:contributor]               
   %li
     %label
