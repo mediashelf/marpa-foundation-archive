@@ -1,0 +1,18 @@
+-content_for :head do
+  =stylesheet_link_tag params[:controller], 'forms'
+=form_for @place do |f|
+  %ul.form-fields
+    %li
+      =f.label 'name', 'Location/Center Name', :class=>'left-col'
+      =f.text_field 'name'
+    %li
+      =f.label 'map_coordinates', :class=>'left-col'
+      =f.text_field 'map_coordinates'
+    %li
+      =f.label 'description', :class=>'left-col'
+      =f.text_area  'description'
+    %li
+      =hidden_field_tag 'course', params[:course]
+      =f.submit 
+  
+
