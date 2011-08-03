@@ -8,6 +8,8 @@ MarpaFoundation::Application.routes.draw do
 
   resources :places  
   resources :translators
+  resources :talks
+  resources :topics
 
   resources :courses do 
     resources :lectures

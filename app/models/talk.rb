@@ -2,11 +2,39 @@ require "hydra"
 require "marpa/marpa_core"
 require "marpa/datastreams/associated_texts"
 
-class MarpaLecture < ActiveFedora::Base
+class Talk < ActiveFedora::Base
 
     include Hydra::ModelMethods
+
+    def initialize (attrs = {} )
+      attrs ||= {}
+      super(attrs)
+      populate_attributes(attrs)
+    end
+
+    def update_attributes(properties)
+      populate_attributes(properties)
+      save
+    end
+    def populate_attributes(properties)
+      if (properties[:english_title])
+        self.english_title=properties[:english_title]
+      end
+      if (properties[:date])
+        self.date=properties[:date]
+      end
+      if (properties[:duration])
+        self.duration=properties[:duration]
+      end
+      if (properties[:subject])
+        self.subject=properties[:subject]
+      end
+      if (properties[:note])
+        self.note=properties[:note]
+      end
+    end
   
-    has_relationship "course", :is_part_of
+    has_relationship "courses", :is_part_of
     has_relationship "file", :is_part_of, :inbound => true
     has_relationship "manifestation", :is_description_of
 
@@ -17,6 +45,13 @@ class MarpaLecture < ActiveFedora::Base
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
 
     has_metadata :name => "associatedTexts", :type => Marpa::Datastreams::AssociatedTexts
+
+
+    delegate :english_title, :to=>'descMetadata'
+    delegate :date, :to=>'descMetadata'
+    delegate :duration, :to=>'descMetadata'
+    delegate :subject, :to=>'descMetadata'
+    delegate :note, :to=>'marpaCore'
     
     def file_objects_append(file_asset)
       super(file_asset)
@@ -33,5 +68,7 @@ class MarpaLecture < ActiveFedora::Base
 
       solr_doc
     end
+
+  
     
 end

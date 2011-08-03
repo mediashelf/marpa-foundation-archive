@@ -1,0 +1,61 @@
+-content_for :head do
+  =csrf_meta_tag
+  =stylesheet_link_tag 'application', params[:controller], 'forms'
+  =javascript_include_tag 'edit_talk'
+  :javascript
+    $(document).ready(function() {
+      $(document).editTalk();
+    });
+
+.course-title
+  -if @course
+    Course: 
+    =link_to @course.title, catalog_path(@course)
+  -else
+    No course found
+
+=form_for @talk do |f|
+  %ul.form-fields
+    %li
+      %h1#title-text
+        =@talk.english_title
+      =f.label 'english_title', 'Title', :class=>'left-col'
+      =f.text_field 'english_title'
+      =link_to 'edit title', '#', :id=>'edit-title'
+  
+    %li
+      =f.label 'date', 'Date', :class=>'left-col'
+      =f.text_field 'date'
+    %li
+      =f.label 'duration', 'Duration', :class=>'left-col'
+      =f.text_field 'duration'
+    %li
+      =f.label 'topics', 'Topics', :class=>'left-col'
+      =select_tag 'topics', options_from_collection_for_select(Topic.find(:all), "pid", "name")
+      =link_to "add a topic", new_topic_path(:talk=>@talk)
+    %li
+      =f.label 'subject', 'Keywords', :class=>'left-col'
+      =f.text_field 'subject'
+    %li
+      .label
+        Associated Texts
+      =link_to "add a text", '#'
+      %table.associated-texts
+    %li
+      .label
+        Songs
+      =link_to "add a song", '#'
+      %table.associated-songs
+    %li
+      .label
+        Verses Quoted
+      =link_to "add a quotation", '#'
+      %table.associated-quotes
+    %li
+      =f.label 'note', 'Notes/Annotations'
+      =f.text_area 'note'
+    %li
+      =f.submit 'Save talk'
+      =hidden_field_tag 'course', params[:course]
+
+

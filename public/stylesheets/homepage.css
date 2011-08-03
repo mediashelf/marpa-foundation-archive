@@ -7,15 +7,14 @@ body {
 }
 #search {
   width: 853px; /* same width as large logo*/
-  margin: 10px auto;
+  margin: 10px auto 30px auto;
 
   background: none;
-  margin-left: auto;
   padding-left: 0;
 }
 
 .search #submit {
-  margin: 10px auto;
+  margin: 10px auto ;
   display: block;
 }
 

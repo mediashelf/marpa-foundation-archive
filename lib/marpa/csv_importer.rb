@@ -79,7 +79,7 @@ module Marpa
           course_fedora.save
         end
         course[:lectures].each do |lecture_row|
-          lecture_fedora = fobject_from_row(lecture_row, MarpaLecture)
+          lecture_fedora = fobject_from_row(lecture_row, Talk)
           lecture_fedora.add_relationship(:is_part_of, course_fedora)
           lecture_fedora.save
         end

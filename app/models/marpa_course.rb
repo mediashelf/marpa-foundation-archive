@@ -1,15 +1,11 @@
 require "hydra"
 require "marpa/marpa_core"
 
+#TODO rename to program
 class MarpaCourse < ActiveFedora::Base
-    extend ActiveModel::Naming
-    include ActiveModel::Conversion
-    def persisted?
-      !self.new_object?
-    end
-    
     include Hydra::ModelMethods
 
+    ##TODO rename to talks
     has_relationship "lectures", :is_part_of, :inbound => true
     has_relationship "place", :is_location_of
     
@@ -19,13 +15,14 @@ class MarpaCourse < ActiveFedora::Base
     
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
 
+    delegate :title, :to=>'descMetadata'
     
     def file_objects_append(file_asset)
-      lecture = MarpaLecture.new
+      lecture = Talk.new
       lecture.file_objects_append(file_asset)
       lecture.add_relationship(:is_part_of, self)
       lecture.save
-      return lecture
+      lecture
     end
     
     def to_solr(solr_doc=Hash.new, opts={})
@@ -35,5 +32,5 @@ class MarpaCourse < ActiveFedora::Base
 
       solr_doc
     end
-    
+
 end

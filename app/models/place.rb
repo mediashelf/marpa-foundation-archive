@@ -1,6 +1,7 @@
 require 'marpa/datastreams/place'
 class Place < ActiveFedora::Base
     def initialize (attrs = {} )
+      attrs ||= {}
       super(attrs)
       update_properties(attrs)
     end

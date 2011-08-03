@@ -19,7 +19,7 @@ namespace :marpa_importer do
     importer = Marpa::S3Importer.new
     importer.import
   end
-  desc "Match recordings to the corresponding MarpaLecture objects"
+  desc "Match recordings to the corresponding Talks"
   task :match_talks => [:environment] do
     matcher = Marpa::TalkMatcher.new
     matcher.match

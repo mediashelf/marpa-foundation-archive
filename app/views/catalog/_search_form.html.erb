@@ -1,3 +1,6 @@
+<%-content_for(:head) do %>
+  <%=stylesheet_link_tag 'application' %>
+<% end %>
 <div id="search" class="search">
   <%= form_tag catalog_index_path, :method => :get do %>
     <%= text_field_tag :q, params[:q], :class => "q"  %>

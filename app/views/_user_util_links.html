@@ -2,7 +2,6 @@
 
     <ul class="utils">
       <li><%= link_to "Add a Course", :action => "new", :controller => "assets", :content_type => "marpa_course" %></li>
-      <li><%= link_to "Add a Talk", :action => "new", :controller => "assets", :content_type => "marpa_lecture" %></li>
 	    <li><%= link_to current_user.login, edit_user_registration_path %> (<%= link_to "Log Out", destroy_user_session_path %>)</li>
     </ul>
 

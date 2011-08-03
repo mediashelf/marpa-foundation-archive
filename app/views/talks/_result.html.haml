@@ -1,9 +1,8 @@
 %tr.result
   %td.title
-    -name = result.has_key?("title_t") && !result["title_t"].empty? ? result["title_t"] : result["id"]
-    -safe_pid = result['id'].gsub(":", "_")
+    -name = result.has_key?("english_title_t") && !result["english_title_t"].empty? ? result["english_title_t"] : result["id"]
     -detail_url = catalog_url(result["id"])
-    = link_to(name, detail_url)
+    = link_to(name, edit_talk_path(result["id"]))
   %td.date
     =result["date_t"]
   %td.keywords

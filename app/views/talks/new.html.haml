@@ -1,0 +1,51 @@
+-content_for :head do
+  =stylesheet_link_tag 'application', params[:controller], 'forms'
+
+.course-title
+  Course: 
+  =link_to @course.title, catalog_path(@course)
+
+%fieldset.recordings
+  %legend
+    Manage recordings of this talk
+    
+=form_for @talk do |f|
+  %ul.form-fields
+    %li
+      =f.label 'english_title', 'Title', :class=>'left-col'
+      =f.text_field 'english_title'
+    %li
+      =f.label 'date', 'Date', :class=>'left-col'
+      =f.text_field 'date'
+    %li
+      =f.label 'duration', 'Duration', :class=>'left-col'
+      =f.text_field 'duration'
+    %li
+      =f.label 'topics', 'Topics', :class=>'left-col'
+      =select_tag 'topics', options_from_collection_for_select(Topic.find(:all), "pid", "name")
+      =link_to "add a topic", new_topic_path(:talk=>@talk)
+    %li
+      =f.label 'subject', 'Keywords', :class=>'left-col'
+      =f.text_field 'subject'
+    %li
+      .label
+        Associated Texts
+      =link_to "add a text", '#'
+      %table.associated-texts
+    %li
+      .label
+        Songs
+      =link_to "add a song", '#'
+      %table.associated-songs
+    %li
+      .label
+        Verses Quoted
+      =link_to "add a quotation", '#'
+      %table.associated-quotes
+    %li
+      =f.label 'note', 'Notes/Annotations'
+      =f.text_area 'note'
+
+
+  
+

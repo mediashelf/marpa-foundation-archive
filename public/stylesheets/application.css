@@ -1,0 +1,17 @@
+body {
+  width: 904px;
+  margin: 10px auto;
+  background-color: white;
+  padding: 10px 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 10px 10px 10px #777; /* Firefox */
+  -webkit-box-shadow: 10px 10px 10px #777; /* Safari, Chrome */
+  box-shadow: 10px 10px 10px #777; 
+  min-height: 400px;
+}
+
+html {
+  background-color: #99CCFF;
+}

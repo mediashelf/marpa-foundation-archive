@@ -3,10 +3,9 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
   
   set_terminology do |t|
     t.root(:path=>"dc", :xmlns=>'http://purl.org/dc/terms/', 'xmlns:ical' => 'http://www.w3.org/2002/12/cal#')
-    t.tibetan_title(:path=>"title", :attributes=>{:language=>"tibetan"})
-    t.english_title(:path=>"title", :attributes=>{:language=>:none})
+    t.tibetan_title(:path=>"title", :attributes=>{'xml:lang'=>"tib"})
+    t.english_title(:path=>"title", :attributes=>{'xml:lang'=>"eng"})
     t.contributor(:index_as=>[:facetable])
-    t.coverage
     t.creator
     t.description
     t.format
@@ -38,6 +37,7 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     }
     t.start_date(:proxy=>[:date, :vevent, :dtstart])
     t.end_date(:proxy=>[:date, :vevent, :dtend])
+    t.duration(:proxy=>[:coverage])
     t.dateAccepted
     t.dateCopyrighted
     t.dateSubmitted
