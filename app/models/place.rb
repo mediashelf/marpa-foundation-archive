@@ -1,12 +1,5 @@
 require 'marpa/datastreams/place'
 class Place < ActiveFedora::Base
-    extend ActiveModel::Naming
-    include ActiveModel::Conversion
-    def persisted?
-      !self.new_object?
-    end
-
-
     def initialize (attrs = {} )
       super(attrs)
       update_properties(attrs)
@@ -26,14 +19,8 @@ class Place < ActiveFedora::Base
     has_metadata :name => "placeInfo", :type => Marpa::Datastreams::Place
     has_relationship "course", :is_location_of
 
-    #TODO this is how we should do it in the future 
-    #delegate :name, :to => :placeInfo
-    def name
-      placeInfo.term_values(:name).first
-    end
-    def name=(n)
-      placeInfo.update_indexed_attributes([:name] => n)
-    end
+    delegate :name, :to => :placeInfo
+    delegate :description, :to => :placeInfo
 
     def map_coordinates
       "#{placeInfo.term_values(:latitude).first},#{placeInfo.term_values(:longitude).first}"
@@ -44,17 +31,5 @@ class Place < ActiveFedora::Base
       placeInfo.update_indexed_attributes([:longitude] => lon)
     end
 
-    def description
-      placeInfo.term_values(:name).first
-    end
-    def description=(n)
-      placeInfo.update_indexed_attributes([:description] => n)
-    end
-
-    private 
-
-    def placeInfo
-      datastreams['placeInfo'] 
-    end
    
 end
