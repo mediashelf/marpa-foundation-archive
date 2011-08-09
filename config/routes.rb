@@ -1,4 +1,6 @@
 MarpaFoundation::Application.routes.draw do
+  get "texts/songs"
+
   devise_for :users
 
   Blacklight.add_routes(self)
@@ -6,6 +8,9 @@ MarpaFoundation::Application.routes.draw do
 
   root :to => "catalog#index"
 
+  resources :songs  
+  resources :quotations  
+  resources :texts  
   resources :places  
   resources :translators
   resources :talks

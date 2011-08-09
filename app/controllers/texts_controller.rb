@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController
+class TextsController < ApplicationController
   include Blacklight::Catalog
   include Hydra::Catalog
   include Hydra::AssetsControllerHelper
@@ -8,28 +8,27 @@ class TopicsController < ApplicationController
   
 
   # This applies appropriate access controls to all solr queries
-  TopicsController.solr_search_params_logic << :add_access_controls_to_solr_params
+  TextsController.solr_search_params_logic << :add_access_controls_to_solr_params
   
   def create
     @talk = Talk.find(params[:talk])
-    @topic = Topic.new(params[:topic])
-    @topic.talks_append @talk
-    apply_depositor_metadata(@topic)
-    if (@topic.save)
-        redirect_to(edit_topic_path(@topic, :talk=>@talk), :notice => 'Topic was successfully created.') 
+    @text = Text.new(params[:text])
+    @text.talks_append @talk
+    apply_depositor_metadata(@text)
+    if (@text.save)
+        redirect_to(edit_text_path(@text, :talk=>@talk), :notice => 'Text was successfully created.') 
     else 
       render :action=>"edit"
     end
   end
   
   def update 
-    @topic = Topic.find(params[:id])
-    @topic.update_attributes(params[:topic])
+    @text = Text.find(params[:id])
+    @text.update_attributes(params[:text])
     redirect_to catalog_path(:id=>params[:talk])
-
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @text = Text.find(params[:id])
   end 
 end

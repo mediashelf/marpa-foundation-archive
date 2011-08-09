@@ -1,0 +1,10 @@
+- content_for(:head) do
+  =stylesheet_link_tag 'application', params[:controller], 'forms'
+%h1 
+  Topic
+=form_for @topic do |f|
+  =f.label :english_title, 'Name'
+  =f.text_field :english_title
+  =hidden_field_tag :talk, params[:talk]
+  =f.submit 'Save'
+

@@ -2,11 +2,19 @@ require 'spec_helper'
 
 describe PlacesController do
   describe "adding a new place" do
+    before do
+      @course = MarpaCourse.new()
+      @course.save
+    end
     it "Should have a create form " do
-      get :create
-      response.should be_success
+      post :create, :course=>@course
+      response.should redirect_to(catalog_path(:id=>@course))
       assigns(:place).should_not be_nil
     end 
+
+    after do
+      @course.delete
+    end
   end
 
 end

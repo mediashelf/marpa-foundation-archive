@@ -38,6 +38,8 @@ class Talk < ActiveFedora::Base
     has_relationship "file", :is_part_of, :inbound => true
     has_relationship "manifestation", :is_description_of
 
+    has_relationship "topics", :is_topic_of, :inbound => true
+
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
