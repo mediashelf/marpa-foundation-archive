@@ -13,9 +13,9 @@ gem "haml"
 
 gem "om", "1.3.0"
 gem "active-fedora", :git=>'git://github.com/mediashelf/active_fedora.git', :branch=>'delegating'
+gem 'ruby-debug'
 
 group :development, :test do
-  gem 'ruby-debug'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'mocha'
