@@ -13,7 +13,6 @@ class TopicsController < ApplicationController
   def create
     @talk = Talk.find(params[:talk])
     @topic = Topic.new(params[:topic])
-    #@topic.talks_append @talk
     @talk.topics_append @topic
     apply_depositor_metadata(@topic)
     if (@topic.save && @talk.save)
@@ -26,7 +25,7 @@ class TopicsController < ApplicationController
   def update 
     @topic = Topic.find(params[:id])
     @topic.update_attributes(params[:topic])
-    redirect_to catalog_path(:id=>params[:talk])
+    redirect_to edit_talk_path(params[:talk])
 
   end
 

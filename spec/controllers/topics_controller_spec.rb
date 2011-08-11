@@ -46,7 +46,7 @@ describe TopicsController do
     it "should assign the topic" do
       put :update, :id => @topic.pid, :topic=>{:english_title=>"Far and away"}, :talk=>@talk.pid
       Topic.find(@topic.pid).english_title.should == "Far and away"
-      response.should redirect_to catalog_path(:id=>@talk)
+      response.should redirect_to edit_talk_path(@talk)
     end
     after do
       @topic.delete
