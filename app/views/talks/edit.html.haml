@@ -38,7 +38,6 @@
     %li
       .label
         Associated Texts
-      =link_to "add a text", texts_path(:talk=>@talk), :method=>'post'
       %table.associated-texts
         %thead
           %tr
@@ -64,6 +63,13 @@
             %td
             %td
             %td
+        %tr.addline
+          %td{:style=>'white-space: nowrap;'}
+            =select_tag 'text', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
+            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_text_talk_path(@talk), "data-field"=>'text'
+          %td{:colspan=>6}
+            =link_to "create a text", texts_path(:talk=>@talk), :method=>'post'
+          
     %li
       .label
         Songs
@@ -75,19 +81,16 @@
             %th
         -@talk.songs.each do |song|
           %tr
-            %td
+            %td{:colspan=>2}
               =song.english_title
-            %td
         %tr.addline
-          %td{:style=>'white-space: nowrap;'}
+          %td{:colspan=>2}
             =select_tag 'song', options_from_collection_for_select(Song.find(:all), "pid", "english_title")
-            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_song_talk_path(@talk, @song)
-          %td
+            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_song_talk_path(@talk), "data-field"=>'song'
             =link_to "create a song", songs_path(:talk=>@talk), :method=>'post'
     %li
       .label
         Verses Quoted
-      =link_to "add a quotation", quotations_path(:talk=>@talk), :method=>'post' 
       %table.associated-quotes
         %thead
           %tr
@@ -96,9 +99,13 @@
             %th
         -@talk.quotations.each do |quote|
           %tr
-            %td
+            %td{:colspan=>2}
               =quote.english_title
-            %td
+        %tr.addline
+          %td{:colspan=>2}
+            =select_tag 'quotation', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
+            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_text_talk_path(@talk), "data-field"=>'text'
+            =link_to "create a quotation", quotations_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'note', 'Notes/Annotations'
       =f.text_area 'note'

@@ -11,10 +11,8 @@ describe TextsController do
   describe "create action" do
     it "should assign the talk and a new text" do
       post :create, {:talk => @talk.pid}
-      assigns(:talk).english_title.should == 'This modern world'
       assigns(:text).persisted?.should be true
-      assigns(:text).talks.first.pid.should == assigns(:talk).pid
-      response.should redirect_to(edit_text_path(assigns(:text), :talk=>assigns(:talk)))
+      response.should redirect_to(edit_text_path(assigns(:text), :talk=>@talk.pid))
     end
   end
 
@@ -47,7 +45,7 @@ describe TextsController do
     it "should assign the text" do
       put :update, :id => @text.pid, :text=>{:english_title=>"Far and away"}, :talk=>@talk.pid
       Text.find(@text.pid).english_title.should == "Far and away"
-      response.should redirect_to catalog_path(:id=>@talk)
+      response.should redirect_to edit_talk_path(@talk)
     end
     after do
       @text.delete

@@ -11,12 +11,10 @@ class TextsController < ApplicationController
   TextsController.solr_search_params_logic << :add_access_controls_to_solr_params
   
   def create
-    @talk = Talk.find(params[:talk])
     @text = Text.new(params[:text])
-    @text.talks_append @talk
     apply_depositor_metadata(@text)
     if (@text.save)
-        redirect_to(edit_text_path(@text, :talk=>@talk), :notice => 'Text was successfully created.') 
+        redirect_to(edit_text_path(@text, :talk=>params[:talk]), :notice => 'Text was successfully created.') 
     else 
       render :action=>"edit"
     end
@@ -25,7 +23,7 @@ class TextsController < ApplicationController
   def update 
     @text = Text.find(params[:id])
     @text.update_attributes(params[:text])
-    redirect_to catalog_path(:id=>params[:talk])
+    redirect_to edit_talk_path(params[:talk])
   end
 
   def edit

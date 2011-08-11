@@ -1,2 +1,8 @@
 %h1
   Edit a text
+=form_for @text do |f|
+  =f.label :english_title, "Title"
+  =f.text_field :english_title
+  =f.submit "Save"
+  =hidden_field_tag :talk, params[:talk]
+

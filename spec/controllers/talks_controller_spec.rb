@@ -35,12 +35,34 @@ describe TalksController do
       Talk.find(@talk.pid).topics.map(&:pid).should include(@topic1.pid, @topic2.pid)
     end
 
+
+
     after do
       @talk.delete
       @topic1.delete
       @topic2.delete
     end
 
+  end
+
+  describe "add_song" do
+    before do
+      @talk = Talk.new()
+      @talk.save
+      @song = Song.new()
+      @song.save
+    end
+    it "should add songs" do
+      xhr :post, :add_song, :id=>@talk.pid, :song=>@song.pid
+      Talk.find(@talk.pid).songs.map(&:pid).should include(@song.pid)
+      response.should render_template '_song'
+      
+    end
+
+    after do
+      @talk.delete
+      @song.delete
+    end
   end
 
 end

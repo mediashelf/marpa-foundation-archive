@@ -10,8 +10,13 @@ fieldset.recordings {
 
 
 table {
+  margin-left: 10px;
   border: 2px solid black;
   border-collapse: collapse;
+}
+
+table.associated-quotes, table.associated-songs {
+  width: 500px;
 }
 
 thead tr {
