@@ -4,7 +4,7 @@ h2. Loading Content from Spreadsheet & S3
 
 To load a rough replica of the content in the live site, run these rake tasks.
 
-<pre>rake marpa_importer:import_csv csv="vendor/plugins/marpa_courses_and_lectures/lib/marpa/KTGR MP3.csv"</pre>
+<pre>rake marpa_importer:import_csv csv="lib/marpa/KTGR MP3.csv"</pre>
 
 Import (pointers to) recordings from Amazon S3 and then match them to the talks 
 <pre>rake marpa_importer:import_s3</pre>

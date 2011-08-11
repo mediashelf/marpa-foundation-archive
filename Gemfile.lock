@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:mediashelf/active_fedora.git
+  remote: git://github.com/mediashelf/active_fedora.git
   revision: 7c1ab46f15c49245608269299c8ebce96542ca5c
   branch: delegating
   specs:
@@ -18,11 +18,11 @@ GIT
       xml-simple (>= 1.0.12)
 
 GIT
-  remote: git@github.com:projecthydra/hydra-head.git
-  revision: b97cd11aded99431e00dba859dfc58c11f0e03b1
+  remote: git://github.com/projecthydra/hydra-head.git
+  revision: cf113added1c12792ad0169a6e88f1e9be0240f0
   branch: rails3
   specs:
-    hydra-head (3.0.0pre2)
+    hydra-head (3.0.0pre3)
       RedCloth (= 4.2.3)
       active-fedora (>= 2.3.3)
       blacklight (= 3.0.0)
@@ -197,7 +197,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.9.2)
     rbx-require-relative (0.0.5)
-    rcov (0.9.9)
+    rcov (0.9.10)
     rdoc (3.9.1)
     rsolr (1.0.2)
       builder (>= 2.1.2)
@@ -255,7 +255,7 @@ GEM
     unicode (0.4.0)
     warden (1.0.5)
       rack (>= 1.0)
-    will_paginate (2.3.15)
+    will_paginate (3.0.0)
     xml-simple (1.1.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
