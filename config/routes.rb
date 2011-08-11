@@ -13,7 +13,14 @@ MarpaFoundation::Application.routes.draw do
   resources :texts  
   resources :places  
   resources :translators
-  resources :talks
+  resources :talks do
+    member do
+      post :add_song
+      post :add_quotation
+      post :add_text
+    end
+  end
+
   resources :topics
 
   resources :courses do 

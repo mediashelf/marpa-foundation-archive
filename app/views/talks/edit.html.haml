@@ -1,7 +1,5 @@
 -content_for :head do
-  =stylesheet_link_tag 'application', params[:controller], 'forms'
-  =csrf_meta_tag
-  =javascript_include_tag :defaults
+  =stylesheet_link_tag 'forms'
   =javascript_include_tag 'edit_talk'
   :javascript
     $(document).ready(function() {
@@ -32,7 +30,7 @@
       =f.text_field 'duration'
     %li
       =f.label 'topics', 'Topics', :class=>'left-col'
-      =select_tag 'topics[]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title"), :multiple=>true
+      =select_tag 'talk[topic_ids][]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title", @talk.topic_ids), :multiple=>true
       =link_to "add a topic", topics_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'subject', 'Keywords', :class=>'left-col'
@@ -42,16 +40,65 @@
         Associated Texts
       =link_to "add a text", texts_path(:talk=>@talk), :method=>'post'
       %table.associated-texts
+        %thead
+          %tr
+            %th
+              Title
+            %th
+              Author
+            %th
+            %th
+              Root/Commentary
+            %th
+              Chapter
+            %th
+              Section(s)
+            %th
+              Page(s)
+        -@talk.texts.each do |text|
+          %tr
+            %td
+              =text.english_title
+            %td
+            %td
+            %td
+            %td
+            %td
     %li
       .label
         Songs
-      =link_to "add a song", songs_path(:talk=>@talk), :method=>'post'
       %table.associated-songs
+        %thead
+          %tr
+            %th
+              Title
+            %th
+        -@talk.songs.each do |song|
+          %tr
+            %td
+              =song.english_title
+            %td
+        %tr.addline
+          %td{:style=>'white-space: nowrap;'}
+            =select_tag 'song', options_from_collection_for_select(Song.find(:all), "pid", "english_title")
+            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_song_talk_path(@talk, @song)
+          %td
+            =link_to "create a song", songs_path(:talk=>@talk), :method=>'post'
     %li
       .label
         Verses Quoted
       =link_to "add a quotation", quotations_path(:talk=>@talk), :method=>'post' 
       %table.associated-quotes
+        %thead
+          %tr
+            %th
+              Title
+            %th
+        -@talk.quotations.each do |quote|
+          %tr
+            %td
+              =quote.english_title
+            %td
     %li
       =f.label 'note', 'Notes/Annotations'
       =f.text_area 'note'

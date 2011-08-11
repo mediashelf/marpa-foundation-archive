@@ -21,4 +21,26 @@ describe TalksController do
     end
   end
 
+  describe "update" do
+    before do
+      @talk = Talk.new()
+      @talk.save
+      @topic1 = Topic.new()
+      @topic1.save
+      @topic2 = Topic.new()
+      @topic2.save
+    end
+    it "Should update the values" do
+      put :update, :id=>@talk.pid, :talk=>{:topic_ids=>[@topic1.pid, @topic2.pid]}
+      Talk.find(@talk.pid).topics.map(&:pid).should include(@topic1.pid, @topic2.pid)
+    end
+
+    after do
+      @talk.delete
+      @topic1.delete
+      @topic2.delete
+    end
+
+  end
+
 end

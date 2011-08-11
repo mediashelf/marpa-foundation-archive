@@ -13,9 +13,10 @@ class TopicsController < ApplicationController
   def create
     @talk = Talk.find(params[:talk])
     @topic = Topic.new(params[:topic])
-    @topic.talks_append @talk
+    #@topic.talks_append @talk
+    @talk.topics_append @topic
     apply_depositor_metadata(@topic)
-    if (@topic.save)
+    if (@topic.save && @talk.save)
         redirect_to(edit_topic_path(@topic, :talk=>@talk), :notice => 'Topic was successfully created.') 
     else 
       render :action=>"edit"

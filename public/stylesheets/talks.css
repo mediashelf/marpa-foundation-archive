@@ -7,3 +7,25 @@ fieldset.recordings {
   width: 500px;
   float:right;
 }
+
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background-color: #aaa;
+}
+
+th {
+  padding: 7px 20px;
+  text-align: left;
+}
+
+tr {
+  background-color: #eee;
+}
+tr:nth-child(2n) {
+  background-color: #ccc;
+}

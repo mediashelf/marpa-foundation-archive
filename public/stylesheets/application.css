@@ -10,6 +10,7 @@ body {
   -webkit-box-shadow: 10px 10px 10px #777; /* Safari, Chrome */
   box-shadow: 10px 10px 10px #777; 
   min-height: 400px;
+  font-family: 'Questrial', Helvetica, sans-serif;
 }
 
 html {

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TextsController do
 
   before do
-    @talk = Text.new()
+    @talk = Talk.new()
     @talk.english_title='This modern world'
     @talk.save
   end
@@ -24,7 +24,7 @@ describe TextsController do
       @user = User.new(:email=>"archivist@example.com")
       controller.stubs(:current_user).returns(@user)
       @text = Text.new()
-      @text.english_title='This modern world'
+      @text.english_title='Tis nobler in the mind to suffer'
       @text.apply_depositor_metadata(@user.login)
       @text.save
     end
@@ -46,7 +46,7 @@ describe TextsController do
     end
     it "should assign the text" do
       put :update, :id => @text.pid, :text=>{:english_title=>"Far and away"}, :talk=>@talk.pid
-      Topic.find(@text.pid).english_title.should == "Far and away"
+      Text.find(@text.pid).english_title.should == "Far and away"
       response.should redirect_to catalog_path(:id=>@talk)
     end
     after do
