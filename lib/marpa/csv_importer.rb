@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'fastercsv'
-require "ruby-debug"
+# require "ruby-debug"
 
 module Marpa
   class CSVImporter 
