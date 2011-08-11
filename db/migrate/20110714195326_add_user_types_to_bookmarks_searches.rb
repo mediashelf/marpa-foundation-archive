@@ -4,10 +4,10 @@ class AddUserTypesToBookmarksSearches < ActiveRecord::Migration
     add_column :searches, :user_type, :string
     add_column :bookmarks, :user_type, :string
     execute <<-SQL
-       UPDATE searches set user_type="user"
+       UPDATE searches set user_type='user'
     SQL
     execute <<-SQL
-       UPDATE bookmarks set user_type="user"
+       UPDATE bookmarks set user_type='user'
     SQL
   end
 
