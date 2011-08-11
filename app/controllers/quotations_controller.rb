@@ -14,7 +14,6 @@ class QuotationsController < ApplicationController
   def create
     @talk = Talk.find(params[:talk])
     @quotation = Quotation.new(params[:quotation])
-    @talk.quotations_append @quotation
     apply_depositor_metadata(@quotation)
     if (@talk.save && @quotation.save)
         redirect_to(edit_quotation_path(@quotation, :talk=>@talk), :notice => 'Quotation was successfully created.') 
@@ -26,7 +25,7 @@ class QuotationsController < ApplicationController
   def update 
     @quotation = Quotation.find(params[:id])
     @quotation.update_attributes(params[:quotation])
-    redirect_to catalog_path(:id=>params[:talk])
+    redirect_to edit_talk_path(params[:talk])
   end
 
   def edit

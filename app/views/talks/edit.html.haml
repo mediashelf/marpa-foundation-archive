@@ -98,13 +98,11 @@
               Title
             %th
         -@talk.quotations.each do |quote|
-          %tr
-            %td{:colspan=>2}
-              =quote.english_title
+          =render :partial=>"quotation", :locals=>{:quotation=>quote}
         %tr.addline
           %td{:colspan=>2}
-            =select_tag 'quotation', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
-            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_text_talk_path(@talk), "data-field"=>'text'
+            =select_tag 'quotation', options_from_collection_for_select(::Quotation.find(:all), "pid", "english_title")
+            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_quotation_talk_path(@talk), "data-field"=>'quotation'
             =link_to "create a quotation", quotations_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'note', 'Notes/Annotations'

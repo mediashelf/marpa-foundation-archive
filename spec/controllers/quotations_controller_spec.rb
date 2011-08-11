@@ -12,7 +12,6 @@ describe QuotationsController do
       post :create, {:talk => @talk.pid}
       assigns(:talk).english_title.should == 'This modern world'
       assigns(:quotation).persisted?.should be true
-      assigns(:quotation).talks.first.pid.should == assigns(:talk).pid
       response.should redirect_to(edit_quotation_path(assigns(:quotation), :talk=>assigns(:talk)))
     end
   end
@@ -46,7 +45,7 @@ describe QuotationsController do
     it "should assign the quotation" do
       put :update, :id => @quote.pid, :quotation=>{:english_title=>"Far and away"}, :talk=>@talk.pid
       Quotation.find(@quote.pid).english_title.should == "Far and away"
-      response.should redirect_to catalog_path(:id=>@talk)
+      response.should redirect_to edit_talk_path(@talk)
     end
     after do
       @quote.delete

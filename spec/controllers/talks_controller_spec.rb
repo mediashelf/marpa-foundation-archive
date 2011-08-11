@@ -85,4 +85,23 @@ describe TalksController do
     end
   end
 
+  describe "add_quotation" do
+    before do
+      @talk = Talk.new()
+      @talk.save
+      @quotation = Quotation.new()
+      @quotation.save
+    end
+    it "should add quotations" do
+      xhr :post, :add_quotation, :id=>@talk.pid, :quotation=>@quotation.pid
+      Talk.find(@talk.pid).quotations.map(&:pid).should include(@quotation.pid)
+      response.should render_template '_quotation'
+      
+    end
+
+    after do
+      @talk.delete
+      @quotation.delete
+    end
+  end
 end

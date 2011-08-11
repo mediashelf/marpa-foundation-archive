@@ -54,4 +54,12 @@ class TalksController < ApplicationController
     @talk.save
     render :partial=>'text', :locals=>{:text=>@text}
   end
+
+  def add_quotation
+    @talk = Talk.find(params[:id])
+    @quotation = Quotation.find(params[:quotation])
+    @talk.quotations_append @quotation
+    @talk.save
+    render :partial=>'quotation', :locals=>{:quotation=>@quotation}
+  end
 end
