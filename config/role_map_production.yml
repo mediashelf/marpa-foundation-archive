@@ -1,2 +1,10 @@
-uva-only:
-public:
+archivist:
+  - archivist@example.com
+donor:
+  - donor@example.com
+researcher:
+  - researcher@example.com
+patron:
+  - patron@example.com
+admin_policy_object_editor:
+  - archivist@example.com
