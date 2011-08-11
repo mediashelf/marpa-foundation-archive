@@ -65,4 +65,24 @@ describe TalksController do
     end
   end
 
+  describe "add_text" do
+    before do
+      @talk = Talk.new()
+      @talk.save
+      @text = Text.new()
+      @text.save
+    end
+    it "should add texts" do
+      xhr :post, :add_text, :id=>@talk.pid, :text=>@text.pid
+      Talk.find(@talk.pid).texts.map(&:pid).should include(@text.pid)
+      response.should render_template '_text'
+      
+    end
+
+    after do
+      @talk.delete
+      @text.delete
+    end
+  end
+
 end

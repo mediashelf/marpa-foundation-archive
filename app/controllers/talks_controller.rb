@@ -46,4 +46,12 @@ class TalksController < ApplicationController
     @talk.save
     render :partial=>'song', :locals=>{:song=>@song}
   end
+
+  def add_text
+    @talk = Talk.find(params[:id])
+    @text = Text.find(params[:text])
+    @talk.texts_append @text
+    @talk.save
+    render :partial=>'text', :locals=>{:text=>@text}
+  end
 end
