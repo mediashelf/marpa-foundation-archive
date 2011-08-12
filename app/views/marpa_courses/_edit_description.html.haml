@@ -27,17 +27,20 @@
     =# fedora_text_field(@document_fedora,"descMetadata", [:language], :multiple=>true) # english, tibetian, french, chinese 
     = fields_for :language do |languages|
       .checkbox-group
+        = languages.check_box 'chi'
+        = label_tag 'language_chi', "Chinese"
+        %br
         = languages.check_box 'eng'
         = label_tag 'language_eng', "English"
         %br
         = languages.check_box 'fre'
         = label_tag 'language_fre', "French"
         %br
+        = languages.check_box 'ger'
+        = label_tag 'language_ger', "German"
+        %br
         = languages.check_box 'tib'
         = label_tag 'language_tib', "Tibetan"
-        %br
-        = languages.check_box 'man'
-        = label_tag 'language_man', "Mandarin"
 
 
   %li

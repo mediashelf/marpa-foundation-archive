@@ -16,6 +16,7 @@ class MarpaCourse < ActiveFedora::Base
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
 
     delegate :title, :to=>'descMetadata'
+    delegate :creator, :to=>'descMetadata'
     
     def file_objects_append(file_asset)
       lecture = Talk.new

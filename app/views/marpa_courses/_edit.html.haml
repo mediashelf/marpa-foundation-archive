@@ -2,7 +2,7 @@
   =stylesheet_link_tag 'application', 'marpa_courses', 'forms'
   =csrf_meta_tag
   =javascript_include_tag :defaults
-  =javascript_include_tag 'edit_course'
+  =javascript_include_tag 'edit_program'
   /*- stylesheet_link_tag "javascripts/date-picker/css/datepicker.css"*/
 
   /*- javascript_include_tag 'jquery.jeditable.mini.js', {:media=>'all'} */
@@ -22,7 +22,7 @@
 
   :javascript
     $(document).ready(function() {
-      $(document).editCourse();
+      $(document).editProgram();
     });
 
 .document_viewer#cover_container.clearfix
@@ -38,7 +38,7 @@
         = fedora_text_field(f.object, "descMetadata", [:title], :multiple=>false) 
         =link_to 'edit title', '#', {:id=>'edit-title'} 
       %fieldset.course-talks 
-        Talks in this Course
+        Talks in this Program
         = render :partial => 'marpa_courses/talks'
         = link_to "Add a Talk", talks_path(:course=>@document_fedora), :method=>:post
       = render :partial => 'marpa_courses/edit_description', :locals=>{:f => f}

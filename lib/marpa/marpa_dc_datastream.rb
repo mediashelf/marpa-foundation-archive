@@ -28,7 +28,6 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.contributor
     t.coverage
     t.created
-    t.creator
     t.date(:index_as=>[:not_searchable]) {
       t.vevent(:xmlns =>'ical', :path=>'Vevent', :index_as=>[:not_searchable]) {
         t.dtstart(:xmlns=>'ical', :path=>'dtstart', :index_as=>[:facetable])

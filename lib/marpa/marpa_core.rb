@@ -22,6 +22,7 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
     t.original_instance(:ref=>:instance, :attributes=>{:type=>"original"})
     t.digital_master(:ref=>:instance, :attributes=>{:type=>"digital"}) # instantiation/instantiationDigital
     # t.original_filename(:proxy=>[:digital_master, :identifier]) # Proxies don't work at the root of Terminologies :(    
+    t.keywords
     t.note
     t.technical_note(:path=>"note", :attributes=>{:type=>"technical"})
     t.pages(:path=>"note", :attributes=>{:type=>"pages"})
@@ -47,6 +48,7 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
            xml.location
            xml.annotation
          }
+         xml.keywords()
          xml.note(:type=>"pages")
          xml.note(:type=>"technical")
       }

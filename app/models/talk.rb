@@ -6,17 +6,17 @@ class Talk < ActiveFedora::Base
 
     include Hydra::ModelMethods
 
-    def initialize (attrs = {} )
+    def initialize (attrs =nil)
       attrs ||= {}
       super(attrs)
-      populate_attributes(attrs)
+      self.attributes = attrs unless attrs.empty?
     end
 
     def update_attributes(properties)
-      populate_attributes(properties)
+      self.attributes = properties
       save
     end
-    def populate_attributes(properties)
+    def attributes=(properties)
       if (properties[:english_title])
         self.english_title=properties[:english_title]
       end
@@ -78,7 +78,7 @@ class Talk < ActiveFedora::Base
     delegate :duration, :to=>'descMetadata'
     delegate :subject, :to=>'descMetadata'
     delegate :note, :to=>'marpaCore'
-    
+
     def file_objects_append(file_asset)
       super(file_asset)
       if relationships[:self][:is_description_of].nil?

@@ -1,6 +1,6 @@
 - @page_title = "Contribute"
--@page_explanation = "Unlike the Basic Assets app, which immediately creates a new object when you click \"New Asset\", the users of this Courses & Lectures application wanted to fill out a form before creating the object."
--@suggested_actions = "Try filling out the title, location, and date info then click \"Create\" to see your new Course object and upload Lectures into it."
+-@page_explanation = "Unlike the Basic Assets app, which immediately creates a new object when you click \"New Asset\", the users of this Program & Talks application wanted to fill out a form before creating the object."
+-@suggested_actions = "Try filling out the title, location, and date info then click \"Create\" to see your new Program object and upload Lectures into it."
 
 -form_for :course, :url => {:action => "create" } do |f| 
   = f.error_messages 
@@ -15,8 +15,8 @@
       =metadata_form_field("language", f, :label=>"Language of Translator (broken)")
   .column.span-9.last
     =metadata_form_field("location", f, :label => "Location")
-    =metadata_form_field("date", f, :label=>"Dates of Course")
-    > Start & End Date of Course as dates...
+    =metadata_form_field("date", f, :label=>"Dates of Program")
+    > Start & End Date of Program as dates...
     =metadata_form_field("medium", f, :label=>"Format of Original Recordings")
     > "Number of Tapes, CD, used to record course"
     =metadata_form_field("original_recorded_by", f, :label=>"Originally Recorded by")

@@ -8,7 +8,7 @@
 
 .course-title
   -if @course
-    Course: 
+    Program: 
     =link_to @course.title, catalog_path(@course)
   -else
     No course found
@@ -37,7 +37,7 @@
       =f.text_field 'subject'
     %li
       .label
-        Associated Texts
+        Texts
       %table.associated-texts
         %thead
           %tr
@@ -54,15 +54,7 @@
               Section(s)
             %th
               Page(s)
-        -@talk.texts.each do |text|
-          %tr
-            %td
-              =text.english_title
-            %td
-            %td
-            %td
-            %td
-            %td
+        =render :partial=>"text", :collection=>@talk.texts
         %tr.addline
           %td{:style=>'white-space: nowrap;'}
             =select_tag 'text', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
@@ -79,10 +71,7 @@
             %th
               Title
             %th
-        -@talk.songs.each do |song|
-          %tr
-            %td{:colspan=>2}
-              =song.english_title
+        =render :partial=>"song", :collection=>@talk.songs
         %tr.addline
           %td{:colspan=>2}
             =select_tag 'song', options_from_collection_for_select(Song.find(:all), "pid", "english_title")
@@ -97,8 +86,7 @@
             %th
               Title
             %th
-        -@talk.quotations.each do |quote|
-          =render :partial=>"quotation", :locals=>{:quotation=>quote}
+        =render :partial=>"quotation", :collection=>@talk.quotations
         %tr.addline
           %td{:colspan=>2}
             =select_tag 'quotation', options_from_collection_for_select(::Quotation.find(:all), "pid", "english_title")

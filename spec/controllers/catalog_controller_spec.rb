@@ -12,7 +12,6 @@ require 'mocha'
 describe CatalogController do
   
   before do
-    #controller.stubs(:protect_from_forgery).returns("meh")
     session[:user]='bob'
   end
   
@@ -67,19 +66,6 @@ describe CatalogController do
     end
   end
 
-  describe "updating a course" do
-    before do
-      sign_in :user , User.new
-      loader = Hydra::FixtureLoader.new('spec/fixtures')
-      loader.reload('marpa:1')
-    end
-    it "should save the new values" do
-      put :update, :id=>'marpa:1', :asset=>{:descMetadata => {:creator =>['Thich Nhat Hanh']}}
-      object = MarpaCourse.find('marpa:1')
-      object.datastreams["descMetadata"].term_values(:creator).should == ['Thich Nhat Hanh']
-
-    end 
-  end 
 
   
   

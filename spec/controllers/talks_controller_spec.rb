@@ -31,8 +31,14 @@ describe TalksController do
       @topic2.save
     end
     it "Should update the values" do
-      put :update, :id=>@talk.pid, :talk=>{:topic_ids=>[@topic1.pid, @topic2.pid]}
-      Talk.find(@talk.pid).topics.map(&:pid).should include(@topic1.pid, @topic2.pid)
+      put :update, :id=>@talk.pid, :talk=>{:topic_ids=>[@topic1.pid, @topic2.pid], :english_title=>"My Title", :date=>"2011-08-11", :duration=>'90 min', :subject=>'key1, key2' }
+      updated = Talk.find(@talk.pid)
+      updated.topics.map(&:pid).should include(@topic1.pid, @topic2.pid)
+      updated.english_title.should == 'My Title'
+      updated.date.should == '2011-08-11'
+      updated.duration.should == '90 min'
+      updated.subject.should == 'key1, key2'
+      
     end
 
 

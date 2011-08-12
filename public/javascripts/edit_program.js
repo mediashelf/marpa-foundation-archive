@@ -6,7 +6,7 @@
       afterListUpdate: callback to execute after list updates.
   */
 
-  function editCourse(options, $element) {
+  function editProgram(options, $element) {
   
     var settings = {
       contextPath: "/franchise"
@@ -48,13 +48,13 @@
   }
   
   // jQuery plugin method
-  $.fn.editCourse = function(options) {
+  $.fn.editProgram = function(options) {
     return this.each(function() {
       var $this = $(this);
      
       // Store plugin object in this element's data if it doesn't already exist 
-      if (!$this.data('editCourse')) {
-        $this.data('editCourse', editCourse(options, $this));
+      if (!$this.data('editProgram')) {
+        $this.data('editProgram', editProgram(options, $this));
       }
     });
   };

@@ -47,7 +47,6 @@
         var value = $("#"+field).val();
         var params = new Object();
         params[field] = value;
-//need to add the crsf stuff to to the post too.
         $.post(button.attr('data-path'), params,
             function(data) {
               button.closest('tr').before(data); 
