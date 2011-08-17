@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mediashelf/active_fedora.git
-  revision: 7c1ab46f15c49245608269299c8ebce96542ca5c
+  revision: 85a600f6a9f2c42d48378627b7c5389f55882840
   branch: delegating
   specs:
     active-fedora (2.3.3)

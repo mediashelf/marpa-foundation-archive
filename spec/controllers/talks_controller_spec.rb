@@ -4,7 +4,7 @@ describe TalksController do
 
   describe "create" do
     before do
-      @course = MarpaCourse.new()
+      @course = Program.new()
       @course.title='Investigation of the self'
       @course.save
     end

@@ -27,7 +27,7 @@
     }
   
     function editableFields() {
-      var title = $('#title', $element).hide();
+      var title = $('#program_title', $element).hide();
       var titleText = $('#title-text', $element).show();
       $('#edit-title', $element).click(function () {
         title.show();

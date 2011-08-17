@@ -56,7 +56,6 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.isRequiredBy
     t.issued
     t.isVersionOf
-    t.language(:index_as=>[:facetable])
     t.license
     t.mediator
     t.medium

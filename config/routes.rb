@@ -8,6 +8,7 @@ MarpaFoundation::Application.routes.draw do
 
   root :to => "catalog#index"
 
+  resources :programs  
   resources :songs  
   resources :quotations  
   resources :texts  

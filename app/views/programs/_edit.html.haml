@@ -1,5 +1,5 @@
 - content_for(:head) do
-  =stylesheet_link_tag 'application', 'marpa_courses', 'forms'
+  =stylesheet_link_tag 'application', 'programs', 'forms'
   =csrf_meta_tag
   =javascript_include_tag :defaults
   =javascript_include_tag 'edit_program'
@@ -33,15 +33,17 @@
       .notice
         = flash[:notice]
     
-    =form_for @document_fedora, :url=>asset_path(), :method=>"put", :html=>{:id => 'document_metadata'} do |f|
+    =form_for @program, :html=>{:id => 'document_metadata'} do |f|
       .title-line
-        = fedora_text_field(f.object, "descMetadata", [:title], :multiple=>false) 
-        =link_to 'edit title', '#', {:id=>'edit-title'} 
+        #title-container
+          %h1#title-text=@program.title
+          = f.text_field(:title) 
+          =link_to 'edit title', '#', {:id=>'edit-title'} 
       %fieldset.course-talks 
         Talks in this Program
-        = render :partial => 'marpa_courses/talks'
-        = link_to "Add a Talk", talks_path(:course=>@document_fedora), :method=>:post
-      = render :partial => 'marpa_courses/edit_description', :locals=>{:f => f}
+        = render :partial => 'programs/talks'
+        = link_to "Add a Talk", talks_path(:program=>@program), :method=>:post
+      = render :partial => 'programs/edit_description', :locals=>{:f => f}
       = submit_tag
 
           
@@ -50,8 +52,8 @@
     %fieldset.permissions 
       Set permissions
       %span#permissions
-        = render :partial => "permissions/index", :locals => {:document => document, :asset_id=>params[:id]}
+        = render :partial => "permissions/index", :locals => {:document => @program, :asset_id=>params[:id]}
 
-    = delete_asset_link(params[:id], "course")
+    = delete_asset_link(params[:id], "program")
 
 = #async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')

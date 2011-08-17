@@ -9,10 +9,6 @@ class TalksController < ApplicationController
   # This applies appropriate access controls to all solr queries
   TalksController.solr_search_params_logic << :add_access_controls_to_solr_params
   
-  #def new
-  #  @course = MarpaCourse.find(params[:course])
-  #  @talk = Talk.new
-  #end
   def index
     render :text=>"indux"
   end
@@ -23,9 +19,9 @@ class TalksController < ApplicationController
   end
 
   def create
-    @course = MarpaCourse.find(params[:course])
+    @program = Program.find(params[:program])
     @talk = Talk.new(params[:talk])
-    @talk.courses_append @course
+    @talk.programs_append @program
     if (@talk.save)
       redirect_to(edit_talk_path(@talk), :notice => 'Talk was successfully updated.') 
     end
@@ -34,7 +30,7 @@ class TalksController < ApplicationController
   def update
     @talk = Talk.find(params[:id])
     if (@talk.update_attributes(params[:talk]))
-        redirect_to(edit_catalog_path(@talk.courses.first), :notice => 'Talk was successfully updated.') 
+        redirect_to(edit_catalog_path(@talk.programs.first), :notice => 'Talk was successfully updated.') 
     else 
       render :action=>"edit"
     end

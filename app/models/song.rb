@@ -13,14 +13,14 @@ class Song < ActiveFedora::Base
     def initialize (attrs = {} )
       attrs ||= {}
       super(attrs)
-      populate_attributes(attrs)
+      self.attributes=attrs
     end
 
     def update_attributes(properties)
-      populate_attributes(properties)
+      self.attributes=properties
       save
     end
-    def populate_attributes(properties)
+    def attributes=(properties)
       if (properties[:english_title])
         self.english_title=properties[:english_title]
       end

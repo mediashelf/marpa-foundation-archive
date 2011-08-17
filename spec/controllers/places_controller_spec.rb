@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PlacesController do
   describe "adding a new place" do
     before do
-      @course = MarpaCourse.new()
+      @course = Program.new()
       @course.save
     end
     it "Should have a create form " do

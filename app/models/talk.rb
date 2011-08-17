@@ -5,6 +5,7 @@ require "marpa/datastreams/associated_texts"
 class Talk < ActiveFedora::Base
 
     include Hydra::ModelMethods
+    include ActiveFedora::Associations, ActiveFedora::Reflection
 
     def initialize (attrs =nil)
       attrs ||= {}
@@ -54,8 +55,9 @@ class Talk < ActiveFedora::Base
       self.topics_ids
     end
   
-    has_relationship "courses", :is_part_of
-    has_relationship "file", :is_part_of, :inbound => true
+    #has_relationship "programs", :is_part_of 
+    belongs_to :program, :property=>:is_part_of
+    has_relationship "file", :is_part_of, :inbound => true # has_many :files
     has_relationship "manifestation", :is_description_of
 
     has_relationship "topics", :has_topic
@@ -93,6 +95,11 @@ class Talk < ActiveFedora::Base
       ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "object_type_facet", "Talk")
 
       solr_doc
+    end
+
+    ## Required by associations
+    def new_record?
+      self.new_object?
     end
 
   
