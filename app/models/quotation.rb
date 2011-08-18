@@ -7,7 +7,7 @@ class Quotation < ActiveFedora::Base
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata
 
 
-    delegate :english_title, :to=>'descMetadata'
+    delegate :english_title, :to=>'descMetadata', :unique=>true
 
 
     def initialize (attrs = {} )

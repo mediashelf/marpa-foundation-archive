@@ -20,8 +20,8 @@ class Place < ActiveFedora::Base
     has_metadata :name => "placeInfo", :type => Marpa::Datastreams::Place
     has_relationship "course", :is_location_of
 
-    delegate :name, :to => :placeInfo
-    delegate :description, :to => :placeInfo
+    delegate :name, :to => :placeInfo, :unique=>true
+    delegate :description, :to => :placeInfo, :unique=>true
 
     def map_coordinates
       "#{placeInfo.term_values(:latitude).first},#{placeInfo.term_values(:longitude).first}"

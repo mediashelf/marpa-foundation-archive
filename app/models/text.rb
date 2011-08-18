@@ -10,7 +10,7 @@ class Text < ActiveFedora::Base
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
 
-    delegate :english_title, :to=>'descMetadata'
+    delegate :english_title, :to=>'descMetadata', :unique=>true
     
     def to_solr(solr_doc=Hash.new, opts={})
       super(solr_doc)

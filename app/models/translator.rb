@@ -15,6 +15,6 @@ class Translator < ActiveFedora::Base
       end
     end
 
-    delegate :tibetan_name, :to => :eacCpf
+    delegate :tibetan_name, :to => :eacCpf, :unique=>true
 end
 

@@ -75,11 +75,11 @@ class Talk < ActiveFedora::Base
     has_metadata :name => "associatedTexts", :type => Marpa::Datastreams::AssociatedTexts
 
 
-    delegate :english_title, :to=>'descMetadata'
-    delegate :date, :to=>'descMetadata'
-    delegate :duration, :to=>'descMetadata'
-    delegate :subject, :to=>'descMetadata'
-    delegate :note, :to=>'marpaCore'
+    delegate :english_title, :to=>'descMetadata', :unique=>true
+    delegate :date, :to=>'descMetadata', :unique=>true
+    delegate :duration, :to=>'descMetadata', :unique=>true
+    delegate :subject, :to=>'descMetadata', :unique=>true
+    delegate :note, :to=>'marpaCore', :unique=>true
 
     def file_objects_append(file_asset)
       super(file_asset)

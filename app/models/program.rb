@@ -14,11 +14,11 @@ class Program < ActiveFedora::Base
     
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
 
-    delegate :title, :to=>'descMetadata'
-    delegate :creator, :to=>'descMetadata'
+    delegate :title, :to=>'descMetadata', :unique=>true
+    delegate :creator, :to=>'descMetadata', :unique=>true
     delegate :language, :to=>'descMetadata'
-    delegate :start_date, :to=>'descMetadata'
-    delegate :end_date, :to=>'descMetadata'
+    delegate :start_date, :to=>'descMetadata', :unique=>true
+    delegate :end_date, :to=>'descMetadata', :unique=>true
     
     def file_objects_append(file_asset)
       lecture = Talk.new
@@ -48,7 +48,11 @@ class Program < ActiveFedora::Base
     end
     def attributes=(properties)
       if (properties[:language])
-        self.language=properties[:language].select{|k, v| v == 1}.keys
+        if RUBY_VERSION > '1.9.0'
+          self.language=properties[:language].select{|k, v| v == "1"}.keys
+        else 
+          self.language=properties[:language].select{|k, v| v == "1"}.map {|e| e.first}
+        end
       end
       [:title, :creator, :start_date, :end_date].each do |k|
         self.send(k.to_s+'=', properties[k]) if (properties[k]) 
