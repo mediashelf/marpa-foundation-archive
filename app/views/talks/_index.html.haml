@@ -1,9 +1,10 @@
 %tr[document]
   %td
-    =link_to document["title_t"], program_path(document["id"])
+    =link_to document["title_t"], talk_path(document["id"])
   %td
     =document["date_t"]
   %td
-    Program
+    Talk
   %td=get_file_asset_count(document)
+
 

@@ -9,7 +9,10 @@ class Talk < ActiveFedora::Base
 
     def initialize (attrs =nil)
       attrs ||= {}
-      super(attrs)
+      super(attrs.dup)
+      # pid and new_object are set when you call ActiveFedora::Base.find
+      attrs.delete(:pid)
+      attrs.delete(:new_object)
       self.attributes = attrs unless attrs.empty?
     end
 
@@ -17,50 +20,14 @@ class Talk < ActiveFedora::Base
       self.attributes = properties
       save
     end
-    def attributes=(properties)
-      if (properties[:english_title])
-        self.english_title=properties[:english_title]
-      end
-      if (properties[:date])
-        self.date=properties[:date]
-      end
-      if (properties[:duration])
-        self.duration=properties[:duration]
-      end
-      if (properties[:subject])
-        self.subject=properties[:subject]
-      end
-      if (properties[:note])
-        self.note=properties[:note]
-      end
-      if (properties[:topic_ids])
-        self.topic_ids = properties[:topic_ids]
-      end
-    end
-
-    def topic_ids=(args)
-        rels = relationships[:self][:has_topic]
-        if rels
-          rels.dup.each do |rel|
-            remove_relationship(:has_topic, rel)
-          end
-        end
-        args.each do |pid|
-          topic = Topic.find(pid) 
-          raise "Couldn't find #{pid}. Persist it first" if topic.nil?
-          topics_append topic 
-        end
-    end
-    def topic_ids
-      self.topics_ids
-    end
   
     #has_relationship "programs", :is_part_of 
     belongs_to :program, :property=>:is_part_of
     has_relationship "file", :is_part_of, :inbound => true # has_many :files
     has_relationship "manifestation", :is_description_of
 
-    has_relationship "topics", :has_topic
+    #has_relationship "topics", :has_topic
+    has_many :topics, :property=>:has_topic
 
     has_relationship "songs", :is_about_songs
     has_relationship "quotations", :is_about_quotations
@@ -96,12 +63,5 @@ class Talk < ActiveFedora::Base
 
       solr_doc
     end
-
-    ## Required by associations
-    def new_record?
-      self.new_object?
-    end
-
-  
     
 end

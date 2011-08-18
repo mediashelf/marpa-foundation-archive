@@ -12,7 +12,7 @@ describe TopicsController do
       post :create, {:talk => @talk.pid}
       assigns(:talk).english_title.should == 'This modern world'
       assigns(:topic).persisted?.should be true
-      assigns(:topic).talks.first.pid.should == assigns(:talk).pid
+      assigns(:topic).talk.pid.should == assigns(:talk).pid
       response.should redirect_to(edit_topic_path(assigns(:topic), :talk=>assigns(:talk)))
     end
   end

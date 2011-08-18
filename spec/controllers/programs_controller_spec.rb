@@ -7,13 +7,21 @@ describe ProgramsController do
       controller.stubs(:current_user).returns(@user)
     end
     describe "update" do
+      before do
+        @place = Place.new
+        @place.save
+      end
       it "should save the new values" do
-        put :update, :id=>'marpa:1', :program=>{:creator =>'Thich Nhat Hanh', :language=>{"tib"=>"1", "fre"=>"1", "chi"=>"0", "eng"=>"0", "ger"=>"1"}}
+        put :update, :id=>'marpa:1', :program=>{:creator =>'Thich Nhat Hanh', :language=>{"tib"=>"1", "fre"=>"1", "chi"=>"0", "eng"=>"0", "ger"=>"1"}, :place_id => @place.pid}
         object = Program.find('marpa:1')
         object.creator.should == 'Thich Nhat Hanh'
         object.language.should == ['tib', 'fre', 'ger']
+        object.place.pid.should == @place.pid
   ## TODO, update again and change the languages
       end 
+      after do
+        @place.delete
+      end
     end 
 
     describe "create" do

@@ -1,0 +1,7 @@
+%tr.document
+  %td=link_to document["title_t"], catalog_path(document["id"])
+  %td=document["date_t"]
+  %td=document_type(document)
+  %td=get_file_asset_count(document)
+
+
