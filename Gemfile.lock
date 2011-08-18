@@ -1,11 +1,12 @@
 GIT
   remote: git://github.com/mediashelf/active_fedora.git
-  revision: 85a600f6a9f2c42d48378627b7c5389f55882840
-  branch: delegating
+  revision: 5de2dab1b81ff8859745e5a97b8a1a8ae66a7a34
+  branch: model_associations
   specs:
     active-fedora (2.3.3)
       activemodel
-      activeresource
+      activeresource (>= 3.0)
+      activesupport (>= 3.0)
       equivalent-xml
       facets
       mediashelf-loggable

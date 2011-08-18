@@ -12,7 +12,7 @@ gem "aws-s3"
 gem "haml"
 
 gem "om", "1.3.0"
-gem "active-fedora", :git=>'git://github.com/mediashelf/active_fedora.git', :branch=>'delegating'
+gem "active-fedora", :git=>'git://github.com/mediashelf/active_fedora.git', :branch=>'model_associations'
 gem 'ruby-debug'
 
 group :development, :test do

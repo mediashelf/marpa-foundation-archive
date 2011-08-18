@@ -1,12 +1,8 @@
 require "hydra"
 require "marpa/marpa_core"
 
-require 'lib/active_fedora/associations' #TODO autoload
-require 'lib/active_fedora/reflection' #TODO autoload
-
 class Program < ActiveFedora::Base
     include Hydra::ModelMethods
-    include ActiveFedora::Associations, ActiveFedora::Reflection
 
     has_many :talks, :property=>:is_part_of
     #has_relationship "talks", :is_part_of, :inbound => true # has_many
