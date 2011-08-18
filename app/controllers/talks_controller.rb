@@ -21,7 +21,7 @@ class TalksController < ApplicationController
   def create
     @program = Program.find(params[:program])
     @talk = Talk.new(params[:talk])
-    @talk.programs_append @program
+    @talk.program = @program
     if (@talk.save)
       redirect_to(edit_talk_path(@talk), :notice => 'Talk was successfully updated.') 
     end
@@ -30,7 +30,7 @@ class TalksController < ApplicationController
   def update
     @talk = Talk.find(params[:id])
     if (@talk.update_attributes(params[:talk]))
-        redirect_to(edit_catalog_path(@talk.programs.first), :notice => 'Talk was successfully updated.') 
+        redirect_to(edit_program_path(@talk.program), :notice => 'Talk was successfully updated.') 
     else 
       render :action=>"edit"
     end

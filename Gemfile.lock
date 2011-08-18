@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mediashelf/active_fedora.git
-  revision: e4e19e6f8175b15a7b9a0950c52cf392ea8d518d
+  revision: 7ec9fd11163798bf9f3d03963ecf6478f1672ef9
   branch: model_associations
   specs:
     active-fedora (2.3.3)

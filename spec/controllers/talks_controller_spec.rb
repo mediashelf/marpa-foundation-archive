@@ -4,26 +4,29 @@ describe TalksController do
 
   describe "create" do
     before do
-      @course = Program.new()
-      @course.title='Investigation of the self'
-      @course.save
+      @program = Program.new()
+      @program.title='Investigation of the self'
+      @program.save
     end
-    it "Should assign the course and a new talk" do
-      post :create, {:course => @course.pid}
-      assigns(:course).title.should == 'Investigation of the self'
+    it "Should assign the program and a new talk" do
+      post :create, :program => @program.pid
+      assigns(:program).title.should == 'Investigation of the self'
       assigns(:talk).persisted?.should be true
-      assigns(:talk).courses.first.pid.should == assigns(:course).pid
+      assigns(:talk).program.pid.should == assigns(:program).pid
       response.should redirect_to(edit_talk_path(assigns(:talk)))
     end
 
     after do
-      @course.delete
+      @program.delete
     end
   end
 
   describe "update" do
     before do
+      @program = Program.new()
+      @program.save
       @talk = Talk.new()
+      @talk.program = @program
       @talk.save
       @topic1 = Topic.new()
       @topic1.save
@@ -38,6 +41,7 @@ describe TalksController do
       updated.date.should == '2011-08-11'
       updated.duration.should == '90 min'
       updated.subject.should == 'key1, key2'
+      response.should redirect_to (edit_program_path(@program.pid))
       
     end
 
@@ -45,6 +49,7 @@ describe TalksController do
 
     after do
       @talk.delete
+      @program.delete
       @topic1.delete
       @topic2.delete
     end
