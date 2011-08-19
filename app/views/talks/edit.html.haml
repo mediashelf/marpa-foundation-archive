@@ -7,11 +7,11 @@
     });
 
 .course-title
-  -if @course
+  -if @program
     Program: 
-    =link_to @course.title, catalog_path(@course)
+    =link_to @program.title, program_path(@program)
   -else
-    No course found
+    No program found
 
 =form_for @talk do |f|
   %ul.form-fields

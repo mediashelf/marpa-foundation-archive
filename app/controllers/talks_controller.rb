@@ -15,7 +15,7 @@ class TalksController < ApplicationController
 
   def edit
     @talk = Talk.find(params[:id])
-    @course = @talk.courses.first
+    @program = @talk.program
   end
 
   def create

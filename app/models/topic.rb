@@ -13,7 +13,9 @@ class Topic < ActiveFedora::Base
 
     def initialize (attrs = {} )
       attrs ||= {}
-      super(attrs)
+      super(attrs.dup)
+      # pid and new_object are set when you call ActiveFedora::Base.find
+      [:pid, :new_object,:create_date, :modified_date].each { |k| attrs.delete(k)}
       populate_attributes(attrs)
     end
 

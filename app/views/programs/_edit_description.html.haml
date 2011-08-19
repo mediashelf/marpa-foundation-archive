@@ -16,26 +16,26 @@
 
   %li
     =label_tag 'place',  'Location', :class=>'left-col'
-    =f.select :place, options_from_collection_for_select(Place.find(:all), "pid", "name")
+    =f.select :place_id, options_from_collection_for_select(Place.find(:all), "pid", "name", @program.place_id)
     =link_to "add a location", new_place_path(:course=>@document_fedora.pid), {:id => 'add-location', :class=>'addval'}
 
   %li
     =label_tag 'language',  'Language(s)', :class=>'left-col'
-    = fields_for :language do |languages|
+    = f.fields_for :language do |languages|
       .checkbox-group
-        = languages.check_box 'chi'
+        = languages.check_box 'chi', :checked=>@program.language.include?('chi')
         = label_tag 'language_chi', "Chinese"
         %br
-        = languages.check_box 'eng'
+        = languages.check_box 'eng', :checked=>@program.language.include?('eng')
         = label_tag 'language_eng', "English"
         %br
-        = languages.check_box 'fre'
+        = languages.check_box 'fre', :checked=>@program.language.include?('fre')
         = label_tag 'language_fre', "French"
         %br
-        = languages.check_box 'ger'
+        = languages.check_box 'ger', :checked=>@program.language.include?('ger')
         = label_tag 'language_ger', "German"
         %br
-        = languages.check_box 'tib'
+        = languages.check_box 'tib', :checked=>@program.language.include?('tib')
         = label_tag 'language_tib', "Tibetan"
 
 

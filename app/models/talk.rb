@@ -11,8 +11,7 @@ class Talk < ActiveFedora::Base
       attrs ||= {}
       super(attrs.dup)
       # pid and new_object are set when you call ActiveFedora::Base.find
-      attrs.delete(:pid)
-      attrs.delete(:new_object)
+      [:pid, :new_object,:create_date, :modified_date].each { |k| attrs.delete(k)}
       self.attributes = attrs unless attrs.empty?
     end
 

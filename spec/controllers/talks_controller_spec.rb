@@ -2,6 +2,24 @@ require 'spec_helper'
 
 describe TalksController do
 
+  describe "edit" do
+    before do
+      @program = Program.new
+      @program.save
+      @talk = Talk.new(:program=>@program)
+      @talk.save
+    end
+    it "should set the instance vars" do
+      get :edit, :id=>@talk.pid
+      assigns(:talk).pid.should == @talk.pid
+      assigns(:program).pid.should == @program.pid
+    end
+    after do
+      @program.delete
+      @talk.delete
+    end
+  end
+
   describe "create" do
     before do
       @program = Program.new()
@@ -25,8 +43,7 @@ describe TalksController do
     before do
       @program = Program.new()
       @program.save
-      @talk = Talk.new()
-      @talk.program = @program
+      @talk = Talk.new(:program=>@program)
       @talk.save
       @topic1 = Topic.new()
       @topic1.save
@@ -41,7 +58,7 @@ describe TalksController do
       updated.date.should == '2011-08-11'
       updated.duration.should == '90 min'
       updated.subject.should == 'key1, key2'
-      response.should redirect_to (edit_program_path(@program.pid))
+      response.should redirect_to(edit_program_path(@program.pid))
       
     end
 
