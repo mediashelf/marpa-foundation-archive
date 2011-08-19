@@ -43,6 +43,9 @@
     :is_about_texts: isAboutText
     :is_about_quotations: isAboutQuotation
     :is_about_songs: isAboutSongs
+    :is_studied_by: isStudiedBy
+    :is_object_of_study: isObjectOfStudy
+    :is_author_of: author
   info:fedora/fedora-system:def/model#:
     :has_model: hasModel
 #  http://www.openarchives.org/OAI/2.0/: 

@@ -11,6 +11,10 @@ describe ProgramsController do
       { :put => program_path('marpa:1') }.should route_to(:controller => 'programs', :action => 'update', :id=>'marpa:1')
     end
 
+    it "should route to add_text_program" do
+      { :post => add_program_text_program_path('marpa:1') }.should route_to(:controller => 'programs', :action => 'add_program_text', :id=>'marpa:1')
+    end
+
 
 end
 

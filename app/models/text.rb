@@ -1,10 +1,12 @@
 require "hydra"
+require "marpa/marpa_core"
 
 class Text < ActiveFedora::Base
 
     include Hydra::ModelMethods
   
     has_relationship "talks", :is_part_of
+    belongs_to :author, :property=>:is_author_of
 
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
@@ -35,6 +37,7 @@ class Text < ActiveFedora::Base
         self.english_title=properties[:english_title]
       end
     end
+
     
 end
 

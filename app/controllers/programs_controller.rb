@@ -30,6 +30,15 @@ class ProgramsController < ApplicationController
   def show
     redirect_to edit_program_path(@program)
   end
+
+  def add_program_text
+    @program = Program.find(params[:id])
+    @text = Text.find(params[:text_id])
+    @program_text = ProgramText.new(:program=>@program, :text=>@text)
+    @program_text.save
+    render :partial=>'program_text', :locals=>{:program_text=>@program_text}
+    
+  end
   
   
 end

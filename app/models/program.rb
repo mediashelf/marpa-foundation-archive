@@ -5,9 +5,9 @@ class Program < ActiveFedora::Base
     include Hydra::ModelMethods
 
     has_many :talks, :property=>:is_part_of
-    #has_relationship "talks", :is_part_of, :inbound => true # has_many
     belongs_to :place, :property=>:has_location
-    #has_relationship "place", :is_location_of  ## Belongs_to 
+
+    has_many :program_texts, :property=>:is_studied_by
     
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     
@@ -68,6 +68,11 @@ class Program < ActiveFedora::Base
       !value.blank?
     end
 
+    def program_texts_attributes
+    end
 
+    def program_texts_attributes=(attr)
+
+    end
 
 end

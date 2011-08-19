@@ -1,15 +1,11 @@
 (function($){
 
   /* options
-      server: the mile marker server to talk to
-      mmToken: the mile marker token 
-      afterListUpdate: callback to execute after list updates.
   */
 
   function editProgram(options, $element) {
   
     var settings = {
-      contextPath: "/franchise"
     };
 
     /* PRIVATE VARIABLES */
@@ -24,6 +20,7 @@
         $.extend( settings, options );
       }
       editableFields();
+      addButtons();
     }
   
     function editableFields() {
@@ -35,6 +32,21 @@
         return false;
       });
 
+    }
+
+    function addButtons() {
+      $("input[type=button]", $element).click(function(e) {
+        var button = $(e.currentTarget);
+        var field = button.attr('data-field');
+        var value = $("#"+field).val();
+        var params = new Object();
+        params[field] = value;
+        $.post(button.attr('data-path'), params,
+            function(data) {
+              button.closest('tr').before(data); 
+            }
+        );
+      });
     }
 
     // run constructor

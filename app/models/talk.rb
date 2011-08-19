@@ -1,11 +1,8 @@
 require "hydra"
 require "marpa/marpa_core"
-require "marpa/datastreams/associated_texts"
 
 class Talk < ActiveFedora::Base
-
     include Hydra::ModelMethods
-    include ActiveFedora::Associations, ActiveFedora::Reflection
 
     def initialize (attrs =nil)
       attrs ||= {}
@@ -37,9 +34,6 @@ class Talk < ActiveFedora::Base
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
     
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
-
-    has_metadata :name => "associatedTexts", :type => Marpa::Datastreams::AssociatedTexts
-
 
     delegate :english_title, :to=>'descMetadata', :unique=>true
     delegate :date, :to=>'descMetadata', :unique=>true

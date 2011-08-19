@@ -45,7 +45,29 @@
     =#label_tag 'contributor',  'Translators'
     =link_to "add a translator", new_translator_path(:course=>@document_fedora.pid), {:id => 'add-translator', :class=>'addval'}
   %li
-    %label
-      Associated Texts
-    %table.texts
-    =link_to 'add a text', '#', {:id=>'add-text', :class=>'addval'}
+    .label
+      Texts
+    %table.associated-texts
+      %thead
+        %tr
+          %th
+            Title
+          %th
+            Author
+          %th
+          %th
+            Root/Commentary
+          %th
+            Chapter
+          %th
+            Section(s)
+          %th
+            Page(s)
+      =f.fields_for :program_texts do |ptf|
+        =render :partial=>"program_text", :locals=>{:ptf=>ptf}
+      %tr.addline
+        %td{:style=>'white-space: nowrap;'}
+          =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
+          =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
+        %td{:colspan=>6}
+          =link_to "create a text", texts_path(:program=>@program), :method=>'post'

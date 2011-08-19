@@ -1,11 +1,6 @@
-<associatedTexts xmlns="http://yourmediashelf.com/schemas/marpaTextAssociations/v0">
-  <associatedText nature="root">
+<associatedText xmlns="http://yourmediashelf.com/schemas/marpaTextAssociation/v0">
+    <nature>root</nature>
     <chapter>1</chapter>
     <sections>1-5</sections>
-    <identifier authority="local">marpa:55</identifier>
-  </associatedText>
-  <associatedText nature="commentary">
-    <pages>22-55</pages>
-    <identifier authority="local">marpa:27</identifier>
-  </associatedText>
-</associatedTexts>
+    <pages>11-24</pages>
+</associatedText>

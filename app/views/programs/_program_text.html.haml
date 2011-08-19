@@ -1,0 +1,14 @@
+%tr
+  %td=ptf.object.text.english_title
+  %td=ptf.object.text.author.tibetian_name if ptf.object.text.author
+  %td=link_to "edit", edit_text_path(ptf.object.text)
+  %td
+    =ptf.select :nature, {'root text'=>'root', 'commentary text' =>'commentary'}
+  %td
+    =ptf.text_field :chapter
+  %td
+    =ptf.text_field :sections
+  %td
+    =ptf.text_field :pages
+
+

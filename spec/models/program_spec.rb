@@ -50,6 +50,14 @@ describe Program do
     end
   end
 
+  describe "Should accept nested attributes for program_texts" do
+    it "should respond to method names" do
+      @program = Program.new
+      @program.should respond_to :program_texts_attributes=
+      @program.should respond_to :program_texts_attributes
+    end
+  end
+
 
 
 end
