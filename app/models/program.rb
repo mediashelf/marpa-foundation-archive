@@ -20,6 +20,8 @@ class Program < ActiveFedora::Base
     delegate :language, :to=>'descMetadata'
     delegate :start_date, :to=>'descMetadata', :unique=>true
     delegate :end_date, :to=>'descMetadata', :unique=>true
+
+    accepts_nested_attributes_for :program_texts
     
     def file_objects_append(file_asset)
       lecture = Talk.new
@@ -37,26 +39,15 @@ class Program < ActiveFedora::Base
       solr_doc
     end
 
-    def initialize (attrs = {} )
-      attrs ||= {}
-      super(attrs)
-      self.attributes=attrs
-    end
 
-    def update_attributes(properties)
-      self.attributes=properties
-      save
-    end
     def attributes=(properties)
+      super
       if (properties[:language])
         if RUBY_VERSION > '1.9.0'
           self.language=properties[:language].select{|k, v| v == "1"}.keys
         else 
           self.language=properties[:language].select{|k, v| v == "1"}.map {|e| e.first}
         end
-      end
-      [:title, :creator, :start_date, :end_date, :place_id].each do |k|
-        self.send(k.to_s+'=', properties[k]) if (properties[k]) 
       end
     end
 
@@ -68,11 +59,15 @@ class Program < ActiveFedora::Base
       !value.blank?
     end
 
-    def program_texts_attributes
-    end
+    # def program_texts_attributes=(attributes)
+    #   assign_nested_attributes_for_collection_association(:program_texts, attributes)
+    #   ## in lieu of autosave_association_callbacks just save all of em.
+    #   send(:program_texts).each {|obj| obj.save}
+    # end
 
-    def program_texts_attributes=(attr)
+    # def nested_attributes_options
+    #   {:program_texts=>{:allow_destroy=>true}}
+    # end
 
-    end
 
 end

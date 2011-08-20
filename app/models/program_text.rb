@@ -23,9 +23,5 @@ class ProgramText < ActiveFedora::Base
     delegate :pages, :to =>'descMetadata', :unique=>true
     delegate :sections, :to =>'descMetadata', :unique=>true
 
-    def id   ### Needed for the nested form helper
-      self.pid
-    end
-
 end
 
