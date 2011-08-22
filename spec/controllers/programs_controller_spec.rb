@@ -65,7 +65,7 @@ describe ProgramsController do
       it "should create a program_text" do
         xhr :post, :add_program_text, :id=>@program.pid, :text_id=>@text.pid
         assigns(:program_text).program.pid.should == @program.pid
-        response.should render_template '_program_text'
+        response.should render_template 'programs/_nested_texts'
       end
       after do
         @text.delete

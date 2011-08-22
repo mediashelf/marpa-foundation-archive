@@ -13,6 +13,7 @@ class ProgramText < ActiveFedora::Base
       self.attributes = properties
       save
     end
+
   
     belongs_to :program, :property=>:is_studied_by
     belongs_to :text, :property=>:is_object_of_study

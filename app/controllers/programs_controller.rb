@@ -36,7 +36,7 @@ class ProgramsController < ApplicationController
     @text = Text.find(params[:text_id])
     @program_text = ProgramText.new(:program=>@program, :text=>@text)
     @program_text.save
-    render :partial=>'program_text', :locals=>{:program_text=>@program_text}
+    render :partial=>'nested_texts', :locals=>{:program_text=>@program_text}
     
   end
   

@@ -12,6 +12,10 @@ module Marpa
       def self.xml_template 
         Nokogiri::XML::Document.parse(
             "<associatedText xmlns=\"http://yourmediashelf.com/schemas/marpaTextAssociation/v0\">
+              <nature></nature>
+              <chapter></chapter>
+              <sections></sections>
+              <pages></pages>
             </associatedText>")
       end
     end

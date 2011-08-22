@@ -1,0 +1,3 @@
+= fields_for @program || @program_text.program do |f|
+  = f.fields_for :program_texts do |ptf|
+    =render :partial=>"program_text", :locals=>{:ptf=>ptf}
