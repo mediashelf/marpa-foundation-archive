@@ -17,10 +17,9 @@ class TranslatorsController < ApplicationController
   end
 
   def create
-    course = params[:course]
     @translator = Translator.new(params[:translator])
     if (@translator.save)
-        redirect_to(edit_catalog_path(course), :notice => 'Translator was successfully created.') 
+        redirect_to(edit_program_path(params[:program]), :notice => 'Translator was successfully created.') 
     else 
       render :action=>"edit"
     end

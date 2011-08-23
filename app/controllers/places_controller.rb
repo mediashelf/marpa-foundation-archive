@@ -17,10 +17,9 @@ class PlacesController < ApplicationController
   end
 
   def create
-    course = params[:course]
     @place = Place.new(params[:place])
     if (@place.save)
-        redirect_to(catalog_path(:id=>params[:course]), :notice => 'Place was successfully created.') 
+        redirect_to(edit_program_path(:id=>params[:program]), :notice => 'Place was successfully created.') 
     else 
       render :action=>"edit"
     end

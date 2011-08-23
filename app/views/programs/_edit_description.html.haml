@@ -17,7 +17,7 @@
   %li
     =label_tag 'place',  'Location', :class=>'left-col'
     =f.select :place_id, options_from_collection_for_select(Place.find(:all), "pid", "name", @program.place_id)
-    =link_to "add a location", new_place_path(:course=>@document_fedora.pid), {:id => 'add-location', :class=>'addval'}
+    =link_to "add a location", new_place_path(:program=>@program.pid), {:id => 'add-location', :class=>'addval'}
 
   %li
     =label_tag 'language',  'Language(s)', :class=>'left-col'
@@ -43,7 +43,7 @@
     =label_tag 'contributor',  'Translator(s)', :class=>'left-col'
     =select_tag 'contributor', options_from_collection_for_select(Translator.find(:all), "pid", "tibetan_name")
     =#label_tag 'contributor',  'Translators'
-    =link_to "add a translator", new_translator_path(:course=>@document_fedora.pid), {:id => 'add-translator', :class=>'addval'}
+    =link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
   %li
     .label
       Texts
