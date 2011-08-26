@@ -20,7 +20,7 @@ module Marpa
                t.wylie_name(:path=>"nameEntry", :attributes=>{'xml:lang'=>'tib', 'scriptCode'=>'Latn', 'transliteration'=>'wylie'}, :index_as=>[:not_searchable]) {
                  t.display_(:path=>"part")#, :index_as=>[:not_searchable])
                }
-               t.phonetic_name(:path=>"nameEntry", :attributes=>{'xml:lang'=>'skt', 'scriptCode'=>'Latn', 'transliteration'=>'marpa'}, :index_as=>[:not_searchable]) {
+               t.phonetic_name(:path=>"nameEntry", :attributes=>{'xml:lang'=>'tib', 'scriptCode'=>'Latn', 'transliteration'=>'marpa'}, :index_as=>[:not_searchable]) {
                  t.display_(:path=>"part")#, :index_as=>[:not_searchable])
                }
              } 

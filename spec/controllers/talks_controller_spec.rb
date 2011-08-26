@@ -58,8 +58,11 @@ describe TalksController do
       updated.date.should == '2011-08-11'
       updated.duration.should == '90 min'
       updated.subject.should == 'key1, key2'
-      response.should redirect_to(edit_program_path(@program.pid))
-      
+      response.should be_success
+    end
+    it "should redirect to associated program after saving if program is provided as a param" do
+      put :update, :id=>@talk.pid, :talk=>{:topic_ids=>[@topic1.pid, @topic2.pid], :english_title=>"My Title"}, :program=>"programPID"
+      response.should redirect_to(edit_program_path("programPID"))
     end
 
 

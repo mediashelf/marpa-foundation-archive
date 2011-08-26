@@ -27,17 +27,17 @@ class TalksController < ApplicationController
     @talk = Talk.new(params[:talk])
     @talk.program = @program
     if (@talk.save)
-      redirect_to(edit_talk_path(@talk), :notice => 'Talk was successfully updated.') 
+      redirect_to(edit_talk_path(@talk), :notice => 'Talk was successfully created.') 
     end
   end
 
   def update
     @talk = Talk.find(params[:id])
     if (@talk.update_attributes(params[:talk]))
-      if !params[:program].nil?
-        redirect_to(edit_program_path(params[:program]), :notice => 'Talk was successfully updated.') 
-      else
+      if params[:program].nil?
         render :action=>"edit", :notice => 'Talk was successfully updated.'
+      else
+        redirect_to(edit_program_path(params[:program]), :notice => 'Talk was successfully updated.') 
       end
     else 
       render :action=>"edit"
