@@ -4,5 +4,8 @@
   =f.label :english_title, "Title"
   =f.text_field :english_title
   =f.submit "Save"
-  =hidden_field_tag :talk, params[:talk]
+  - if !params[:talk].nil?
+    =hidden_field_tag :talk, params[:talk]
+  - elsif !params[:program].nil?
+    =hidden_field_tag :program, params[:program]
 

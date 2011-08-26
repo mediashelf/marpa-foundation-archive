@@ -23,7 +23,13 @@ class TextsController < ApplicationController
   def update 
     @text = Text.find(params[:id])
     @text.update_attributes(params[:text])
-    redirect_to edit_talk_path(params[:talk])
+    if !params[:talk].nil?
+      redirect_to edit_talk_path(params[:talk])
+    elsif !params[:program].nil?
+      redirect_to edit_program_path(params[:talk])
+    else
+      render :action=>"edit"
+    end
   end
 
   def edit
