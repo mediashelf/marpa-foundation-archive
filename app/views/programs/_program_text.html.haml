@@ -1,7 +1,7 @@
 %tr
-  %td=ptf.object.text.english_title
+  %td=link_to ptf.object.text.english_title, text_path(ptf.object.text)
   %td=ptf.object.text.author.tibetian_name if ptf.object.text.author
-  %td=link_to "edit", edit_text_path(ptf.object.text)
+  %td
   %td
     =ptf.select :nature, {'root text'=>'root', 'commentary text' =>'commentary'}
   %td

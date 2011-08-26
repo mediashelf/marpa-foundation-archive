@@ -1,6 +1,6 @@
 %tr
-  %td=text.english_title
-  %td
+  %td=link_to text.english_title, text_path(text)
+  %td=text.author.tibetian_name if text.author
   %td
   %td
   %td

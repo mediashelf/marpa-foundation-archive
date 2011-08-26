@@ -35,4 +35,8 @@ class TextsController < ApplicationController
   def edit
     @text = Text.find(params[:id])
   end 
+  
+  def show
+    redirect_to edit_text_path(@text)
+  end
 end
