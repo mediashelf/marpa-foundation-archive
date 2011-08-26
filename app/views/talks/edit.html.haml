@@ -58,7 +58,7 @@
         %tr.addline
           %td{:style=>'white-space: nowrap;'}
             =select_tag 'text', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
-            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_text_talk_path(@talk), "data-field"=>'text'
+            =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_text_talk_path(@talk), "data-field"=>'text'
           %td{:colspan=>6}
             =link_to "create a text", texts_path(:talk=>@talk), :method=>'post'
           
@@ -75,7 +75,7 @@
         %tr.addline
           %td{:colspan=>2}
             =select_tag 'song', options_from_collection_for_select(Song.find(:all), "pid", "english_title")
-            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_song_talk_path(@talk), "data-field"=>'song'
+            =tag 'input', :type=>'button', :value=>"Associate Song", "data-path"=> add_song_talk_path(@talk), "data-field"=>'song'
             =link_to "create a song", songs_path(:talk=>@talk), :method=>'post'
     %li
       .label
@@ -90,7 +90,7 @@
         %tr.addline
           %td{:colspan=>2}
             =select_tag 'quotation', options_from_collection_for_select(::Quotation.find(:all), "pid", "english_title")
-            =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_quotation_talk_path(@talk), "data-field"=>'quotation'
+            =tag 'input', :type=>'button', :value=>"Associate Quotation", "data-path"=> add_quotation_talk_path(@talk), "data-field"=>'quotation'
             =link_to "create a quotation", quotations_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'note', 'Notes/Annotations'

@@ -67,5 +67,5 @@
         =render :partial=>"nested_texts"
     %div.addline
       =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
-      =tag 'input', :type=>'button', :value=>"Add", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
+      =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
       =link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
