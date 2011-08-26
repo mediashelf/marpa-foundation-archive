@@ -30,7 +30,11 @@ class TalksController < ApplicationController
   def update
     @talk = Talk.find(params[:id])
     if (@talk.update_attributes(params[:talk]))
-        redirect_to(edit_program_path(@talk.program), :notice => 'Talk was successfully updated.') 
+      if !params[:program].nil?
+        redirect_to(edit_program_path(params[:program]), :notice => 'Talk was successfully updated.') 
+      else
+        render :action=>"edit", :notice => 'Talk was successfully updated.'
+      end
     else 
       render :action=>"edit"
     end
