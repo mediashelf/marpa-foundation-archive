@@ -1,0 +1,6 @@
+<dc xmlns="http://purl.org/dc/terms/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpf="urn:isbn:1-931666-33-4"> 
+  <title xml:lang="eng">General Teachings on Buddha nature</title> 
+  <title xml:lang="tib" cpf:scriptCode="Tibt">ཐེག་པཆེན་པོ་རྒྱུད་བླ་མའི་བསྟན་བཅོས</title> 
+  <title xml:lang="tib" cpf:scriptCode="Latn" cpf:transliteration='wylie'>thek bChen po rgyud bla mai bstan bcos</title>
+  <title xml:lang="tib" cpf:scriptCode="Latn" cpf:transliteration='marpa'>thek chenpo gyu la mai ten chö</title>
+</dc>

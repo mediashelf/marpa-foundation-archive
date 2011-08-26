@@ -2,9 +2,14 @@ module Marpa
 class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
   
   set_terminology do |t|
-    t.root(:path=>"dc", :xmlns=>'http://purl.org/dc/terms/', 'xmlns:ical' => 'http://www.w3.org/2002/12/cal#')
-    t.tibetan_title(:path=>"title", :attributes=>{'xml:lang'=>"tib"})
+    t.root(:path=>"dc", :xmlns=>'http://purl.org/dc/terms/', 'xmlns:ical' => 'http://www.w3.org/2002/12/cal#', "xmlns:cpf"=>"urn:isbn:1-931666-33-4")
+    
+    # Title variations
     t.english_title(:path=>"title", :attributes=>{'xml:lang'=>"eng"})
+    t.tibetan_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Tibt"})
+    t.wylie_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'wylie'})
+    t.marpa_transliteration_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'marpa'})
+    
     t.contributor(:index_as=>[:facetable])
     t.creator
     t.description

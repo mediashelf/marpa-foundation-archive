@@ -3,6 +3,7 @@ require File.join( File.dirname(__FILE__), "../spec_helper" )
 describe Marpa::MarpaDCDatastream do
   before :each do
     @datastream = Marpa::MarpaDCDatastream.from_xml( fixture("marpa_course/course_dc.xml") )
+    @text_dc = Marpa::MarpaDCDatastream.from_xml( fixture("marpa_text/text_dc.xml") )
   end
   describe "to_solr" do
     before(:each) do
@@ -21,6 +22,13 @@ describe Marpa::MarpaDCDatastream do
       @datastream.term_values(:start_date).should == ['2010-05-28']
       @datastream.term_values(:end_date).should == ['2010-06-02']
 
+    end
+    
+    it "should work with cpf scriptCode and transliteration values" do
+      @text_dc.term_values(:english_title).should == ['General Teachings on Buddha nature']
+      @text_dc.term_values(:tibetan_title).should == ['ཐེག་པཆེན་པོ་རྒྱུད་བླ་མའི་བསྟན་བཅོས']
+      @text_dc.term_values(:wylie_title).should == ['thek bChen po rgyud bla mai bstan bcos']
+      @text_dc.term_values(:marpa_transliteration_title).should == ['thek chenpo gyu la mai ten chö']
     end
   end
   describe "generating xml" do
