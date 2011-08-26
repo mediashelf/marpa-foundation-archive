@@ -17,6 +17,10 @@ class TalksController < ApplicationController
     @talk = Talk.find(params[:id])
     @program = @talk.program
   end
+  
+  def show
+    redirect_to edit_talk_path(@talk)
+  end
 
   def create
     @program = Program.find(params[:program])
