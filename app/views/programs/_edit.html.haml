@@ -36,7 +36,9 @@
     =form_for @program, :html=>{:id => 'document_metadata'} do |f|
       .title-line
         #title-container
-          %h1#title-text=@program.title
+          %h1#title-text
+            Program:
+            =@program.title
           = f.text_field(:title) 
           =link_to 'edit title', '#', {:id=>'edit-title'} 
       %fieldset.course-talks 

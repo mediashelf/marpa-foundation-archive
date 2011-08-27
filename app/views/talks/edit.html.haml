@@ -7,16 +7,17 @@
     });
 
 .course-title
-  -if @program
-    Program: 
+  Program:
+  -if @program 
     =link_to @program.title, program_path(@program)
   -else
-    No program found
+    (No program found)
 
 =form_for @talk do |f|
   %ul.form-fields
     %li
       %h1#title-text
+        Talk:
         =@talk.english_title
       =f.label 'english_title', 'Title', :class=>'left-col'
       =f.text_field 'english_title'
