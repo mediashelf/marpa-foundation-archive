@@ -18,10 +18,8 @@ describe Marpa::MarpaDCDatastream do
     before(:each) do
     end
     it "should have stuff" do
-#      @datastream.term_values(:date).should == ['2010-05-28']
       @datastream.term_values(:start_date).should == ['2010-05-28']
       @datastream.term_values(:end_date).should == ['2010-06-02']
-
     end
     
     it "should work with cpf scriptCode and transliteration values" do
@@ -34,6 +32,13 @@ describe Marpa::MarpaDCDatastream do
   describe "generating xml" do
     before :each do
       @new = Marpa::MarpaDCDatastream.new()
+    end
+    it "should generate xml with scriptcode and transliteration set" do
+      # !! Cheating !! these fields are prefabricated in the xml template file
+      @new.update_indexed_attributes({['tibetan_title']=>['my tibetan'],['english_title']=>['my english'], ['wylie_title']=>['my wylie'], ['marpa_transliteration_title']=>['my phonetic']})
+      @new.find_by_terms(:tibetan_title).to_xml.should == "<title xml:lang=\"tib\" cpf:scriptCode=\"Tibt\">my tibetan</title>"
+      @new.find_by_terms(:wylie_title).to_xml.should == "<title xml:lang=\"tib\" cpf:scriptCode=\"Latn\" cpf:transliteration=\"wylie\">my wylie</title>"
+      @new.find_by_terms(:marpa_transliteration_title).to_xml.should == "<title xml:lang=\"tib\" cpf:scriptCode=\"Latn\" cpf:transliteration=\"marpa\">my phonetic</title>"
     end
     it "should generate xml with the date encoded as ical" do
       @new.update_indexed_attributes({['start_date']=>['1991-02-28']})

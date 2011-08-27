@@ -1,8 +1,20 @@
 %h1
   Edit a text
 =form_for @text do |f|
-  =f.label :english_title, "Title"
-  =f.text_field :english_title
+  %ul.form_fields
+    %li.english_title
+      =f.label :english_title, "Title" , :class=>'left-col'
+      =f.text_field :english_title
+    %li.tibetan_title
+      =f.label :tibetan_title, "Title (པོད་སྐད)" , :class=>'left-col'
+      =f.text_field :tibetan_title
+    %li.wylie_title
+      =f.label :wylie_title, "Title (wylie)" , :class=>'left-col'
+      =f.text_field :wylie_title
+    %li.marpa_transliteration_title
+      =f.label :marpa_transliteration_title, "Title (phonetic)" , :class=>'left-col'
+      =f.text_field :marpa_transliteration_title
+      
   =f.submit "Save"
   - if !params[:talk].nil?
     =hidden_field_tag :talk, params[:talk]

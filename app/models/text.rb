@@ -13,7 +13,10 @@ class Text < ActiveFedora::Base
     has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
 
     delegate :english_title, :to=>'descMetadata', :unique=>true
-    
+    delegate :tibetan_title, :to=>'descMetadata', :unique=>true
+    delegate :wylie_title, :to=>'descMetadata', :unique=>true
+    delegate :marpa_transliteration_title, :to=>'descMetadata', :unique=>true
+            
     def to_solr(solr_doc=Hash.new, opts={})
       super(solr_doc)
       
@@ -28,10 +31,10 @@ class Text < ActiveFedora::Base
       populate_attributes(attrs)
     end
 
-    def update_attributes(properties)
-      populate_attributes(properties)
-      save
-    end
+    # def update_attributes(properties)
+    #   populate_attributes(properties)
+    #   save
+    # end
     def populate_attributes(properties)
       if (properties[:english_title])
         self.english_title=properties[:english_title]

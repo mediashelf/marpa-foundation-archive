@@ -83,13 +83,15 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
   end
   
   def self.xml_template
-    builder = Nokogiri::XML::Builder.new do |xml|
-      xml.dc("xmlns"=>'http://purl.org/dc/terms/',
-        "xmlns:dcterms"=>'http://purl.org/dc/terms/', 
-        "xmlns:xsi"=>'http://www.w3.org/2001/XMLSchema-instance') {
-      }
-    end
-    return builder.doc
+    # builder = Nokogiri::XML::Builder.new do |xml|
+    #   xml.dc("xmlns"=>'http://purl.org/dc/terms/',
+    #     "xmlns:dcterms"=>'http://purl.org/dc/terms/', 
+    #     "xmlns:xsi"=>'http://www.w3.org/2001/XMLSchema-instance',
+    #     "xmlns:cpf"=>"urn:isbn:1-931666-33-4") {
+    #   }
+    # end
+    # return builder.doc
+    doc = Nokogiri::XML::Document.parse( File.new(File.join(File.dirname(__FILE__), 'marpa_dc_datastream_template.xml')) )
   end
   
 end
