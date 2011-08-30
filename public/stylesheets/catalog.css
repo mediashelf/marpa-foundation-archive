@@ -66,12 +66,11 @@
 
 .pageEntriesInfo {
   margin-left: 180px;
-  float: left;
 }
 
 #sortAndPerPage {
   margin-left: 80px;
-  float:left;
+  margin-top: 10px;
 }
 
 #sortAndPerPage form {
@@ -84,4 +83,14 @@
 
 #showHead {
   display: none;
+}
+
+.pagination {
+  margin: 10px;
+}
+.pagination h2 {
+  display: none;
+}
+.pagination .page_links {
+  display: inline-block;
 }
