@@ -13,4 +13,5 @@ class CatalogController < ApplicationController
   # This applies appropriate access controls to all solr queries
   CatalogController.solr_search_params_logic << :add_access_controls_to_solr_params
 
+
 end 

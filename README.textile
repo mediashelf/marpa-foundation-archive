@@ -14,3 +14,8 @@ Give Lectures meaningful titles based on Course titles
 rake marpa_importer:match_talks
 rake marpa_importer:populate_titles
 </pre>
+
+
+h2. Loading Fixtures
+
+rake test:fixtures
