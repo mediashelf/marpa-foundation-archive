@@ -51,12 +51,12 @@ class TalksController < ApplicationController
     render :partial=>'song', :locals=>{:song=>@song}
   end
 
-  def add_text
+  def add_talk_text
     @talk = Talk.find(params[:id])
-    @text = Text.find(params[:text])
-    @talk.texts_append @text
-    @talk.save
-    render :partial=>'text', :locals=>{:text=>@text}
+    @text = Text.find(params[:text_id])
+    @talk_text = TalkText.new(:talk=>@talk, :text=>@text)
+    @talk_text.save
+    render :partial=>'nested_texts', :locals=>{:talk_text=>@talk_text}
   end
 
   def add_quotation

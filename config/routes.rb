@@ -22,7 +22,7 @@ MarpaFoundation::Application.routes.draw do
     member do
       post :add_song
       post :add_quotation
-      post :add_text
+      post :add_talk_text
     end
   end
 

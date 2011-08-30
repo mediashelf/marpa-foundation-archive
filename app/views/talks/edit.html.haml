@@ -55,13 +55,12 @@
               Section(s)
             %th
               Page(s)
-        =render :partial=>"text", :collection=>@talk.texts
-        %tr.addline
-          %td{:style=>'white-space: nowrap;'}
-            =select_tag 'text', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
-            =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_text_talk_path(@talk), "data-field"=>'text'
-          %td{:colspan=>6}
-            =link_to "create a text", texts_path(:talk=>@talk), :method=>'post'
+        %tbody
+          =render :partial=>"nested_texts"
+      %div.addline
+        =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
+        =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_talk_text_talk_path(@talk), "data-field"=>'text_id'
+        =link_to "create a text", texts_path(:talk=>@talk), :method=>'post'
           
     %li
       %h3.label

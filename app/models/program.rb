@@ -59,15 +59,4 @@ class Program < ActiveFedora::Base
       !value.blank?
     end
 
-    # def program_texts_attributes=(attributes)
-    #   assign_nested_attributes_for_collection_association(:program_texts, attributes)
-    #   ## in lieu of autosave_association_callbacks just save all of em.
-    #   send(:program_texts).each {|obj| obj.save}
-    # end
-
-    # def nested_attributes_options
-    #   {:program_texts=>{:allow_destroy=>true}}
-    # end
-
-
 end

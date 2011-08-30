@@ -4,30 +4,30 @@ require "marpa/marpa_core"
 class Talk < ActiveFedora::Base
     include Hydra::ModelMethods
 
-    def initialize (attrs =nil)
-      attrs ||= {}
-      super(attrs.dup)
-      # pid and new_object are set when you call ActiveFedora::Base.find
-      [:pid, :new_object,:create_date, :modified_date].each { |k| attrs.delete(k)}
-      self.attributes = attrs unless attrs.empty?
-    end
+    # def initialize (attrs =nil)
+    #   attrs ||= {}
+    #   super(attrs.dup)
+    #   # pid and new_object are set when you call ActiveFedora::Base.find
+    #   [:pid, :new_object,:create_date, :modified_date].each { |k| attrs.delete(k)}
+    #   self.attributes = attrs unless attrs.empty?
+    # end
 
-    def update_attributes(properties)
-      self.attributes = properties
-      save
-    end
+    # def update_attributes(properties)
+    #   self.attributes = properties
+    #   save
+    # end
   
-    #has_relationship "programs", :is_part_of 
     belongs_to :program, :property=>:is_part_of
     has_relationship "file", :is_part_of, :inbound => true # has_many :files
     has_relationship "manifestation", :is_description_of
 
-    #has_relationship "topics", :has_topic
     has_many :topics, :property=>:has_topic
 
     has_relationship "songs", :is_about_songs
     has_relationship "quotations", :is_about_quotations
-    has_relationship "texts", :is_about_texts
+    has_many :talk_texts, :property=>:is_about_texts
+    accepts_nested_attributes_for :talk_texts
+    
 
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     

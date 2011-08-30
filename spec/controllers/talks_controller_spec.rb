@@ -96,23 +96,22 @@ describe TalksController do
     end
   end
 
-  describe "add_text" do
+  describe "add talk_text" do
     before do
+      @text = Text.new
+      @text.save
       @talk = Talk.new()
       @talk.save
-      @text = Text.new()
-      @text.save
     end
-    it "should add texts" do
-      xhr :post, :add_text, :id=>@talk.pid, :text=>@text.pid
-      Talk.find(@talk.pid).texts.map(&:pid).should include(@text.pid)
-      response.should render_template '_text'
-      
+    it "should create a talk_text" do
+      xhr :post, :add_talk_text, :id=>@talk.pid, :text_id=>@text.pid
+      assigns(:talk_text).talk.pid.should == @talk.pid
+      response.should render_template 'talks/_nested_texts'
     end
-
     after do
-      @talk.delete
       @text.delete
+      @talk.delete
+      assigns(:talk_text).delete
     end
   end
 

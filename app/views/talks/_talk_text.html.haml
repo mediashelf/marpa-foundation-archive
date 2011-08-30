@@ -1,0 +1,15 @@
+%tr
+  %td=link_to ttf.object.text.english_title, text_path(ttf.object.text)
+  %td=ttf.object.text.author.tibetian_name if ttf.object.text.author
+  %td
+  %td
+    =ttf.select :nature, {'root text'=>'root', 'commentary text' =>'commentary'}
+  %td
+    =ttf.text_field :chapter
+  %td
+    =ttf.text_field :sections
+  %td
+    =ttf.text_field :pages
+
+
+

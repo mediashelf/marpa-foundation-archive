@@ -49,7 +49,7 @@
         params[field] = value;
         $.post(button.attr('data-path'), params,
             function(data) {
-              button.closest('tr').before(data); 
+              $('table.associated-texts tbody', $element).html(data); 
             }
         );
       });

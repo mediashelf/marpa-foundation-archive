@@ -1,0 +1,4 @@
+= fields_for @talk || @talk_text.talk do |f|
+  = f.fields_for :talk_texts do |ttf|
+    =render :partial=>"talk_text", :locals=>{:ttf=>ttf}
+

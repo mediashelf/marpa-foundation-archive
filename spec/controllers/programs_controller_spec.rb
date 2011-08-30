@@ -59,7 +59,7 @@ describe ProgramsController do
       before do
         @text = Text.new
         @text.save
-        @program = Text.new
+        @program = Program.new
         @program.save
       end
       it "should create a program_text" do
