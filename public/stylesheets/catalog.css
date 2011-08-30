@@ -28,17 +28,17 @@
   font-size: 10pt;
 }
 
-#appliedParams .filter {
+#appliedParams .appliedFilter {
   display: block;
   padding: 3px 3px 3px 30px;
   background-color: #fee;
+  position: relative;
 }
 #appliedParams .filterName {
   font-weight: bold;
 }
 
 .appliedFilter {
-  position: relative;
 }
 .appliedFilter .btnRemove{
   display:block;
@@ -59,6 +59,11 @@
   float: left;
 }
 
+#facets ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
 .pageEntriesInfo {
   margin-left: 180px;
   float: left;
@@ -75,7 +80,6 @@
 }
 #documents {
   margin-left: 40px;
-  margin-top: 60px;
 }
 
 #showHead {
