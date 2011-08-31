@@ -15,8 +15,9 @@ table {
   border-collapse: collapse;
 }
 
-table.associated-quotes, table.associated-songs {
-  width: 500px;
+table.associated-quotes, table.associated-songs, table.associated-texts {
+  min-width: 500px;
+  max-width: 98%;
 }
 
 thead tr {
@@ -34,3 +35,16 @@ tr {
 tr:nth-child(2n) {
   background-color: #ccc;
 }
+
+.chapter {
+  width: 4em;
+}
+
+.sections {
+  width: 4em;
+}
+
+.pages {
+  width: 4em;
+}
+

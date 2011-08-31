@@ -43,3 +43,42 @@ fieldset.permissions {
 .permissions {
   display: none;
 }
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+table.associated-texts {
+  min-width: 500px;
+  max-width: 98%;
+  margin-left: 10px;
+}
+
+thead tr {
+  background-color: #aaa;
+}
+
+th {
+  padding: 7px 20px;
+  text-align: left;
+}
+
+tr {
+  background-color: #eee;
+}
+tr:nth-child(2n) {
+  background-color: #ccc;
+}
+
+.chapter {
+  width: 4em;
+}
+
+.sections {
+  width: 4em;
+}
+
+.pages {
+  width: 4em;
+}
