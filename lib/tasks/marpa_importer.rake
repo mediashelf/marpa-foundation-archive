@@ -38,9 +38,25 @@ namespace :test do
   task :fixtures => [:environment] do
     #TODO -empty fedora first?
     loader =  Hydra::FixtureLoader.new('spec/fixtures')
-    ['marpa:1', 'marpa:2', 'marpa:3'].each do |pid|
+    
+    fixtures_array = %w{programf:ktd_gyu_lama
+    talkf:ktd_gyu_lama_1
+    topicf:bodhicitta
+    topicf:mahamudra
+    locationf:ktd
+    songf:five_poisons
+    textf:gyu_lama
+    textf:ngedon
+    translatorf:arig
+    translatorf:ecallahan
+    fixture:1 fixture:2 fixture:3}
+    
+    # ['fixture:1', 'fixture:2', 'fixture:3']
+    
+    fixtures_array.each do |pid|
       puts "Loading #{pid}"
       loader.reload(pid)
     end
+    
   end
 end
