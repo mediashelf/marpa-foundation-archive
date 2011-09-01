@@ -10,8 +10,8 @@ test: &TEST
     url: http://localhost:8983/solr/development
 production:
   fedora:
-    url: http://fedoraAdmin:fedoraAdmin@ec2-107-20-44-160.compute-1.amazonaws.com:8983/fedora
+    url: http://fedoraAdmin:fedoraAdmin@archives.ktgrinpoche.org:8983/fedora
   solr:
-    url: http://ec2-107-20-44-160.compute-1.amazonaws.com:8983/solr/development 
+    url: http://archives.ktgrinpoche.org:8983/solr/development 
 cucumber:
   <<: *TEST

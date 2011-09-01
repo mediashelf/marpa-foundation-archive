@@ -31,7 +31,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:datastreamVersion ID="descMetadata.0" LABEL="" CREATED="2011-08-30T20:29:31.658Z" MIMETYPE="text/xml" SIZE="243">
 <foxml:xmlContent>
 <dc xmlns="http://purl.org/dc/terms/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <title xml:lang="eng">Talk 1 Title</title>
+  <title xml:lang="eng">Sample: General Teachings on Buddha Nature at KTD - Talk 1</title>
   <coverage>01:33:467</coverage>
   <date>12-2-11</date>
 </dc>
