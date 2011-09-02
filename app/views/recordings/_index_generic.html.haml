@@ -1,0 +1,8 @@
+%tr[document]
+  %td
+    =link_to document[solr_name("title", :text)], recording_path(document["id"])
+  %td
+    =document["date_t"]
+  %td
+    Recording
+  %td=get_file_asset_count(document)

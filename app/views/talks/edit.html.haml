@@ -16,7 +16,8 @@
 =form_for @talk do |f|
   %fieldset.course-talks 
     Recordings of this Talk
-    = render :partial => 'talks/recordings'
+    - @solr_result = @talk.parts(:response_format=>:solr, :rows=>1000) # locals isn't working for some reason...
+    = render :partial=>"recordings/index_table", :locals=>{:solr_result=>@talk.parts(:response_format=>:solr, :rows=>1000)}
     = link_to "Add a Recording", recordings_path(:talk=>@talk), :method=>:post
   %ul.form-fields
     %li

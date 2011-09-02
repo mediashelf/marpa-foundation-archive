@@ -1,0 +1,9 @@
+%h2 Recordings
+
+%span 
+  Total: 
+  = @solr_result.hits.length
+  
+=render :partial=>"recordings/index_table"
+  
+= link_to "Add a Recording", recordings_path, :method=>:post

@@ -1,8 +1,3 @@
--#=stylesheet_link_tag 'lectures.css', :cache=>true
-%span 
-  Total: 
-  = @talk.parts(:response_format=>:solr, :rows=>1000).hits.length
-
 %table#talks.column
   %col{:width=>"30%"}/
   %col{:width=>"25%"}/
@@ -13,5 +8,4 @@
     %th Date recorded           
     %th Topics                                                                    
     %th Run Time
-  =render :partial=>'recordings/index', :collection=>@talk.parts(:response_format=>:solr, :rows=>1000).hits
-  
+  =render :partial=>'recordings/index', :collection=>@solr_result.hits
