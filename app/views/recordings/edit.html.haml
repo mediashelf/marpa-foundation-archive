@@ -1,0 +1,63 @@
+-content_for :head do
+  =stylesheet_link_tag 'forms'
+  =javascript_include_tag 'edit_talk'
+  :javascript
+    $(document).ready(function() {
+      $(document).editTalk();
+    });
+
+.course-title
+
+%h1#title-text
+  Recording:
+  =@recording.document_identifier
+%span.label
+  This is a recording of:
+-if @talk 
+  =link_to @talk.english_title, program_path(@program)
+-else
+  (No talk found)
+  
+=form_for @recording do |f|
+
+  %fieldset 
+    %legend General Info
+    %ul.form-fields
+      %li
+        =f.label 'document_identifier', 'Identifier', :class=>'left-col'
+        =f.text_field 'document_identifier'
+      %li
+        =f.label 'duration', 'Duration', :class=>'left-col'
+        =f.text_field 'duration'
+      %li
+        =f.label 'originally_recorded_by', 'Recorded By', :class=>'left-col'
+        =f.text_field 'originally_recorded_by'
+      %li
+        =f.label 'contributed_by', 'Contributed By', :class=>'left-col'
+        =f.text_field 'contributed_by'
+      %li
+        =f.label 'restriction_level', 'Restriction Level', :class=>'left-col'
+        =f.select 'restriction_level', [ ["General Public","public"], ["Vajrayana Students","vajrayana"], ["Other (specify in Restriction Instructions)","other"]]
+      %li
+        =f.label 'restriction_instructions', 'Restriction Instructions', :class=>'left-col'
+        =f.text_area 'restriction_instructions'
+      %li
+        =f.label 'note', 'Notes', :class=>'left-col'
+        =f.text_area 'note'
+  %fieldset
+    %legend Digital Instantiations
+  %fieldset 
+    %legend Physical Instantiation (original)
+    %ul.form-fields
+      %li
+        =f.label 'physical_instance_format', 'Physical Format', :class=>'left-col'
+        =f.select 'physical_instance_format', Marpa::MarpaCore.ebu_storage_media_codes.invert.sort #{"Cassette Tape"=>"cassette","Compact Disc"=>"cd"} 
+      %li
+        =f.label 'physical_instance_location', 'Physical Location', :class=>'left-col'
+        =f.text_field 'physical_instance_location'          
+      %li
+        =f.label 'physical_instance_notes', 'Notes on Original Physical Copy', :class=>'left-col'
+        =f.text_area 'physical_instance_notes' 
+                        
+  =f.submit 'Save recording'
+  =hidden_field_tag 'talk', params[:talk]

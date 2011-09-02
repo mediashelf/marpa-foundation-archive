@@ -14,6 +14,10 @@
     (No program found)
 
 =form_for @talk do |f|
+  %fieldset.course-talks 
+    Recordings of this Talk
+    = render :partial => 'talks/recordings'
+    = link_to "Add a Recording", recordings_path(:talk=>@talk), :method=>:post
   %ul.form-fields
     %li
       %h1#title-text

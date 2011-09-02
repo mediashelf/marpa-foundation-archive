@@ -23,8 +23,10 @@ MarpaFoundation::Application.routes.draw do
       post :add_song
       post :add_quotation
       post :add_talk_text
+      post :add_recording
     end
   end
+  resources :recordings
 
   resources :topics
 
