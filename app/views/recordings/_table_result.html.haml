@@ -1,0 +1,9 @@
+%tr[document]
+  %td.identifier
+    =link_to document[solr_name("identifier", :text)], recording_path(document["id"])
+  %td.recorded_by
+    =document[solr_name("originally_recorded_by_t", :text)]
+  %td.uploaded_by
+    Recording
+  %td.date_uploaded
+    =document[solr_name("system_create_dt", :text)]

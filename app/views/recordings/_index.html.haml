@@ -1,7 +1,7 @@
 - document = document.nil? ? index : document
 
 - if params[:controller] == "catalog"
-  =render :partial=>'recordings/index_generic', :locals => {:document => document}
+  =render :partial=>'recordings/table_result_for_catalog', :locals => {:document => document}
 - else
   -# if ActiveFedora::ContentModel.known_models_for(part).include?(S3Content)
   - if document["has_model_s"].include?("info:fedora/afmodel:S3Audio")
@@ -11,14 +11,8 @@
   - elsif document["has_model_s"].include?("info:fedora/afmodel:S3Content")
     =render :partial=>'s3_contents/index', :locals => {:document => document}
   - else
-    %tr[document]
-      %td
-        =link_to document[solr_name("title", :text)], recording_path(document["id"])
-      %td
-        =document["date_t"]
-      %td
-        Recording!
-      %td=get_file_asset_count(document)
+    =render :partial=>'recordings/table_result', :locals => {:document => document}
+
   
 
 

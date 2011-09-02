@@ -46,6 +46,9 @@
         =f.text_area 'note'
   %fieldset
     %legend Digital Instantiations
+    
+    =link_to "Create a Placeholder", recording_instantiations_path(:recording=>@recording), :method=>'post'
+    =link_to "Upload an Instantiation", s3_instantiations_path(:recording=>@recording), :method=>'post'
   %fieldset 
     %legend Physical Instantiation (original)
     %ul.form-fields

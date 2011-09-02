@@ -4,8 +4,8 @@
   %col{:width=>"30%"}/
   %col{:width=>"15%"}/
   %tr
-    %th Recording Title              
-    %th Date recorded           
-    %th Topics                                                                    
-    %th Run Time
+    %th Identifier             
+    %th Recorder           
+    %th Uploaded by                                                                    
+    %th Date Uploaded
   =render :partial=>'recordings/index', :collection=>@solr_result.hits
