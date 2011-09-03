@@ -11,7 +11,7 @@ gem "hydra-head", :git => "git://github.com/projecthydra/hydra-head.git", :branc
 gem "aws-s3"
 gem "haml"
 
-gem "om", "1.3.0"
+gem "om", "~> 1.4.0"
 gem "active-fedora", :git=>'git://github.com/mediashelf/active_fedora.git', :branch=>'model_associations'
 gem 'ruby-debug'
 
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'cucumber', '>=0.8.5'
   gem 'cucumber-rails'
   gem 'gherkin'
+  gem "equivalent-xml", ">= 0.2.4"
 end
 
 group :importer do

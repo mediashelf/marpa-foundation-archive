@@ -173,7 +173,8 @@ GEM
     mocha (0.9.12)
     multipart-post (1.1.2)
     nokogiri (1.5.0)
-    om (1.3.0)
+    om (1.4.0)
+      mediashelf-loggable
       nokogiri (>= 1.4.2)
     orm_adapter (0.0.5)
     polyglot (0.3.2)
@@ -272,13 +273,14 @@ DEPENDENCIES
   cucumber (>= 0.8.5)
   cucumber-rails
   devise
+  equivalent-xml (>= 0.2.4)
   fastercsv
   gherkin
   haml
   hydra-head!
   jquery-rails (>= 1.0.12)
   mocha
-  om (= 1.3.0)
+  om (~> 1.4.0)
   rails (>= 3.0.7)
   rspec
   rspec-rails
