@@ -49,7 +49,7 @@ describe ProgramsController do
 
     describe "edit" do
       it "should assign the course" do
-        get :edit, :id=>'marpa:1'
+        get :edit, :id=>'fixture:1'
         assigns(:program).should_not be_nil
         response.should render_template 'edit'
       end

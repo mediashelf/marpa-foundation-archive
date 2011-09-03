@@ -19,13 +19,13 @@ describe CatalogController do
       controller.expects(:reader?).returns(true)
       controller.expects(:editor?).returns(true)
       controller.session[:viewing_context] = "edit"
-      get(:show, {:id=>"marpa:1"})
+      get(:show, {:id=>"fixture:1"})
       response.should redirect_to(:action => 'edit')
     end
     it "should allow you to reset the session context to browse using :viewing_context param" do
       controller.expects(:reader?).returns(true)
       controller.session[:viewing_context] = "edit"
-      get(:show, :id=>"marpa:1", :viewing_context=>"browse")
+      get(:show, :id=>"fixture:1", :viewing_context=>"browse")
       session[:viewing_context].should == "browse"
       response.should_not redirect_to(:action => 'edit')
     end
@@ -34,7 +34,7 @@ describe CatalogController do
       controller.expects(:reader?).returns(true)
       controller.expects(:editor?).returns(false)
       controller.session[:viewing_context] = "edit"
-      get(:show, {:id=>"marpa:1"})
+      get(:show, {:id=>"fixture:1"})
       session[:viewing_context].should == "browse"
       response.should_not redirect_to(:action => 'edit')
     end
@@ -47,7 +47,7 @@ describe CatalogController do
       mock_user.stubs(:is_being_superuser?).returns(false)
       controller.stubs(:current_user).returns(mock_user)
       
-      get :edit, :id=>"marpa:1"
+      get :edit, :id=>"fixture:1"
       response.should redirect_to(:action => 'show')
       flash[:notice].should == "You do not have sufficient privileges to edit this document. You have been redirected to the read-only view."
     end
@@ -55,7 +55,7 @@ describe CatalogController do
       mock_user = stub("User", :login=>"archivist@example.com")
       controller.stubs(:current_user).returns(mock_user)
       
-      get :edit, :id=>"marpa:1"
+      get :edit, :id=>"fixture:1"
       response.should_not redirect_to(:action => 'show')
     end
   end

@@ -1,4 +1,4 @@
-<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html"> 
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html"> 
   <instantiationDigital source="IANA MIME Media types">audio/mp3</instantiationDigital>
   <instantiationFileSize unitsOfMeasure="MB">109.9</instantiationFileSize>
   <instantiationDuration>1:33:49</instantiationDuration>
