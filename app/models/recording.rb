@@ -6,7 +6,8 @@ class Recording < ActiveFedora::Base
   include Hydra::ModelMethods
   
   belongs_to :talk, :property=>:is_part_of
-  has_many :instantiations, :property=>:is_described_by 
+  has_relationship "instantiations", :has_description, :inbound=>true
+  # has_many :instantiations, :property=>:is_described_by 
   
   delegate :document_identifier, :to=>'marpaCore', :unique=>true
   delegate :duration, :to=>'marpaCore', :unique=>true

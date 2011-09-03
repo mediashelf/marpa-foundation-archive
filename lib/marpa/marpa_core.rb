@@ -94,5 +94,16 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
     "SSM7" => "SD Memory Card"}
   end
   
+  def self.iana_mime_types
+    {
+      "audio/mpeg" => "MP3",
+      "audio/vnd.wave" => "WAV Audio",
+      "audio/mp4"=> "MP4 Audio",
+      "video/mp4" => "MP4 Video",
+      "video/quicktime" => "Quicktime Video",
+      "video/x-ms-wmv" => "Windows Media Video (WMV)"
+    }
+  end
+  
 end
 end

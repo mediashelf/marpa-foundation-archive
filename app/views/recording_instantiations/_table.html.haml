@@ -1,0 +1,15 @@
+%span 
+  Total: 
+  = @solr_result.hits.length
+
+%table#talks.column
+  %col{:width=>"30%"}/
+  %col{:width=>"25%"}/
+  %col{:width=>"30%"}/
+  %col{:width=>"15%"}/
+  %tr
+    %th Filename             
+    %th Format         
+    %th Uploaded by                                                                    
+    %th Location
+  =render :partial=>'recording_instantiations/table_result', :collection=>@solr_result.hits

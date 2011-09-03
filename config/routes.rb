@@ -27,7 +27,6 @@ MarpaFoundation::Application.routes.draw do
   end
   resources :recordings
   resources :recording_instantiations
-  resources :s3_instantiations
 
   resources :topics
 

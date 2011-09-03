@@ -1,0 +1,9 @@
+%tr[document]
+  %td
+    =link_to document["title_t"], program_path(document["id"])
+  %td
+    =document["date_t"]
+  %td
+    Recording Instantiation
+  %td=get_file_asset_count(document)
+

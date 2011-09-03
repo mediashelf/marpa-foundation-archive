@@ -1,12 +1,10 @@
 -content_for :head do
   =stylesheet_link_tag 'forms'
-  =javascript_include_tag 'edit_talk'
+  =javascript_include_tag 'edit_recording'
   :javascript
     $(document).ready(function() {
       $(document).editTalk();
     });
-
-.course-title
 
 %h1#title-text
   Recording:
@@ -46,9 +44,9 @@
         =f.text_area 'note'
   %fieldset
     %legend Digital Instantiations
-    
-    =link_to "Create a Placeholder", recording_instantiations_path(:recording=>@recording), :method=>'post'
-    =link_to "Upload an Instantiation", s3_instantiations_path(:recording=>@recording), :method=>'post'
+    - @solr_result = @recording.instantiations(:response_format=>:solr, :rows=>1000)
+    = render :partial=>"recording_instantiations/table", :locals=>{:solr_result=>@recording.instantiations(:response_format=>:solr, :rows=>1000)}
+    =link_to "Create an Instantiation", recording_instantiations_path(:recording=>@recording), :method=>'post'
   %fieldset 
     %legend Physical Instantiation (original)
     %ul.form-fields
