@@ -11,7 +11,7 @@ describe TalksController do
       { :post => add_quotation_talk_path(7) }.should route_to(:controller => 'talks', :action => 'add_quotation', :id=>"7")
     end
     it "should route to add_text_talk" do
-      { :post => add_talk_text_talk_path('marpa:1') }.should route_to(:controller => 'talks', :action => 'add_talk_text', :id=>'marpa:1')
+      { :post => add_talk_text_talk_path('fixture:1') }.should route_to(:controller => 'talks', :action => 'add_talk_text', :id=>'fixture:1')
     end
 
 end
