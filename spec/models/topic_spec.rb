@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Topic do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @topic = Topic.new
+  end
+  it "should belong to many programs" do
+    @topic.programs = [Program.new, Program.new]
+    @topic.programs.size.should == 2
+    
+  end
 end

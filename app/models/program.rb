@@ -5,6 +5,7 @@ class Program < ActiveFedora::Base
     include Hydra::ModelMethods
 
     has_many :talks, :property=>:is_part_of
+    has_and_belongs_to_many :topics, :property=>:has_topic
     belongs_to :place, :property=>:has_location
 
     has_many :program_texts, :property=>:is_studied_by
@@ -20,6 +21,7 @@ class Program < ActiveFedora::Base
     delegate :language, :to=>'descMetadata'
     delegate :start_date, :to=>'descMetadata', :unique=>true
     delegate :end_date, :to=>'descMetadata', :unique=>true
+    delegate :note, :to=>'marpaCore', :unique=>true
 
     accepts_nested_attributes_for :program_texts
     

@@ -7,6 +7,8 @@ describe Program do
       @program = Program.new()
       @talk = Talk.new
       @talk.save
+      @topic = Topic.new
+      @topic.save
     end
 
     it "should have many talks" do
@@ -18,8 +20,19 @@ describe Program do
       @program.talks.map(&:pid).should == [@talk.pid]
       @program.talk_ids.should ==[@talk.pid]
     end
+
+    it "should have note" do
+      @program.note = "foo"
+      @program.note.should == "foo" 
+    end
+    it "should have many topics" do
+      @program.topics.size == 0
+      @program.topics << @topic
+      @program.topics.map(&:pid).should == [@topic.pid]
+    end
     after do
       @talk.delete
+      @topic.delete
     end
   end
 

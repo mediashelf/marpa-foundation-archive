@@ -21,7 +21,7 @@ class Talk < ActiveFedora::Base
     has_relationship "file", :is_part_of, :inbound => true # has_many :files
     has_relationship "manifestation", :is_description_of
 
-    has_many :topics, :property=>:has_topic
+    has_and_belongs_to_many :topics, :property=>:has_topic
 
     has_relationship "songs", :is_about_songs
     has_relationship "quotations", :is_about_quotations
