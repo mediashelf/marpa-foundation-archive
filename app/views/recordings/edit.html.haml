@@ -44,7 +44,6 @@
         =f.text_area 'note'
   %fieldset
     %legend Digital Instantiations
-    - @solr_result = @recording.instantiations(:response_format=>:solr, :rows=>1000)
     = render :partial=>"recording_instantiations/table", :locals=>{:solr_result=>@recording.instantiations(:response_format=>:solr, :rows=>1000)}
     =link_to "Create an Instantiation", recording_instantiations_path(:recording=>@recording), :method=>'post'
   %fieldset 
