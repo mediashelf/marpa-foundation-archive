@@ -1,24 +1,4 @@
 GIT
-  remote: git://github.com/mediashelf/active_fedora.git
-  revision: ab8dd179f37b38a7ee9cf9295229064613e777c4
-  branch: model_associations
-  specs:
-    active-fedora (2.3.3)
-      activemodel
-      activeresource (>= 3.0)
-      activesupport (>= 3.0)
-      equivalent-xml
-      facets
-      mediashelf-loggable
-      mime-types (>= 1.16)
-      multipart-post (= 1.1.2)
-      nokogiri
-      om (>= 1.0)
-      solr-ruby (>= 0.0.6)
-      solrizer (> 1.0.0)
-      xml-simple (>= 1.0.12)
-
-GIT
   remote: git://github.com/projecthydra/hydra-head.git
   revision: e66b113e3496e81746675dde4f9aa5f2c09c8ad0
   branch: rails3
@@ -78,6 +58,19 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
+    active-fedora (3.0.0)
+      activeresource (~> 3.0.0)
+      activesupport (~> 3.0.0)
+      equivalent-xml
+      facets
+      mediashelf-loggable
+      mime-types (>= 1.16)
+      multipart-post (= 1.1.2)
+      nokogiri
+      om (>= 1.0)
+      solr-ruby (>= 0.0.6)
+      solrizer (> 1.0.0)
+      xml-simple (>= 1.0.12)
     activemodel (3.0.10)
       activesupport (= 3.0.10)
       builder (~> 2.1.2)
@@ -267,7 +260,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active-fedora!
+  active-fedora (~> 3.0.0)
   aws-s3
   blacklight (>= 3.0.0)
   cucumber (>= 0.8.5)
