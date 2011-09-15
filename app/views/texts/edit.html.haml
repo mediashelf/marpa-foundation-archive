@@ -5,16 +5,16 @@
   %ul.form_fields
     %li.english_title
       =f.label :english_title, "Title" , :class=>'left-col'
-      =f.text_field :english_title
-    %li.tibetan_title
+      =f.text_field :english_title, :class=>"long"
+    %li.tibetan_title.long
       =f.label :tibetan_title, "Title (པོད་སྐད)" , :class=>'left-col'
-      =f.text_field :tibetan_title
-    %li.wylie_title
+      =f.text_field :tibetan_title, :class=>"long"
+    %li.wylie_title.long
       =f.label :wylie_title, "Title (wylie)" , :class=>'left-col'
-      =f.text_field :wylie_title
-    %li.marpa_transliteration_title
+      =f.text_field :wylie_title, :class=>"long"
+    %li.marpa_transliteration_title.long
       =f.label :marpa_transliteration_title, "Title (phonetic)" , :class=>'left-col'
-      =f.text_field :marpa_transliteration_title
+      =f.text_field :marpa_transliteration_title, :class=>"long"
       
   =f.submit "Save"
   - if !params[:talk].nil?
