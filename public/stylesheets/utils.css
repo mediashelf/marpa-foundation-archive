@@ -1,14 +1,26 @@
 ul.utils {
-  margin-left: 100px;
-  position: relative;
-  top: 400px;
+  position: absolute;
+  right: 200px;
+  top: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #c1c1c1;
+  width: 500px;
 }
 
 
 ul.utils li {
   display: inline-block;
-  margin-left: 10px;
-  float: left;
+  margin-left: 20px;
+  float: right;
+  color: #c1c1c1;
+}
+ul.utils li a {
+  color: #c1c1c1;
+  text-decoration: none;
+}
+
+ul.utils li a:hover {
+ color: #f2c270;
 }
 
 

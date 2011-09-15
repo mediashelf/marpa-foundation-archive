@@ -1,6 +1,32 @@
-fieldset.course-talks {
+.fieldset.course-talks {
   float:right;
   width: 47%;
+}
+
+.fieldset {
+  border:none;
+  background-color: #e1ddd4;
+  padding-bottom: 5px;
+}
+
+.fieldset .legend {
+  padding: 8px;
+  background-color: #f2c270;
+  color: #666;
+  text-transform:uppercase;
+  font-weight: bold;
+  font-size: 10pt;
+  
+}
+
+.fieldset > a, .fieldset > .addline {
+  margin-left: 10px;
+}
+
+.title-line {
+  margin-bottom: 35px;
+  margin-left: 180px;
+  width: 800px;
 }
 
 #title-container {
@@ -30,9 +56,6 @@ fieldset.permissions {
     visibility: hidden;
 }
 
-.title-line {
-  margin-bottom: 20px;
-}
 
 
 .checkbox-group {
@@ -45,32 +68,32 @@ fieldset.permissions {
 }
 
 table {
-  border: 2px solid black;
   border-collapse: collapse;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+
 }
 
 table.associated-texts {
   min-width: 500px;
   max-width: 98%;
-  margin-left: 10px;
 }
 
 thead tr {
-  background-color: #aaa;
+  color: #6e6866;
 }
 
 th {
-  padding: 7px 20px;
+  padding: 2px 20px;
   text-align: left;
+  font-size: 10pt;
 }
 
-tr {
-  background-color: #eee;
-}
-tr:nth-child(2n) {
-  background-color: #ccc;
-}
 
+tbody tr {
+  border-top: 1px dotted #c1c1c1;
+}
 .chapter {
   width: 4em;
 }
@@ -81,4 +104,21 @@ tr:nth-child(2n) {
 
 .pages {
   width: 4em;
+}
+
+td {
+  padding: 3px 5px;
+}
+
+#program_note {
+  width: 600px;
+  height: 80px;
+}
+
+li.note {
+  margin-top: 20px;
+}
+
+.notice {
+  margin-left: 180px;
 }

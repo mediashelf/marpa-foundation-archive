@@ -45,31 +45,32 @@
     =#label_tag 'contributor',  'Translators'
     =link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
   %li
-    %h3.label
-      Texts
-    %table.associated-texts
-      %thead
-        %tr
-          %th
-            Title
-          %th
-            Author
-          %th
-          %th
-            Root/Commentary
-          %th
-            Chapter
-          %th
-            Section(s)
-          %th
-            Page(s)
-      %tbody
-        =render :partial=>"nested_texts"
-    %div.addline
-      =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
-      =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
-      =link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
-  %li
+    .fieldset
+      .legend
+        Texts
+      %table.associated-texts
+        %thead
+          %tr
+            %th
+              Title
+            %th
+              Author
+            %th
+            %th
+              Root/Commentary
+            %th
+              Chapter
+            %th
+              Section(s)
+            %th
+              Page(s)
+        %tbody
+          =render :partial=>"nested_texts"
+      %div.addline
+        =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
+        =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
+        =link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
+  %li.note
     =f.label 'note', 'Notes/Annotations'
     =f.text_area 'note'
 

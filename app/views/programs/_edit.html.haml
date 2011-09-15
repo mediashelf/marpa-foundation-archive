@@ -1,25 +1,8 @@
 - content_for(:head) do
-  =stylesheet_link_tag 'application', 'programs', 'forms'
+  =stylesheet_link_tag 'forms'
   =csrf_meta_tag
   =javascript_include_tag :defaults
   =javascript_include_tag 'edit_program'
-  /*- stylesheet_link_tag "javascripts/date-picker/css/datepicker.css"*/
-
-  /*- javascript_include_tag 'jquery.jeditable.mini.js', {:media=>'all'} */
-  /*- javascript_include_tag 'date-picker/js/datepicker.js', {:media=>'all'}*/
-  /*- javascript_include_tag 'jquery.form.js', {:media=>'all'}*/
-  /*- javascript_include_tag 'jquery.hydraMetadata.js', { :media=>'all'}  */
-  /*- javascript_include_tag 'catalog/edit.js', {:media=>'all'}*/
-  /*- javascript_include_tag'jquery.notice.js', {:media=>'all'}*/
-  /*// For Fancybox*/
-  /*- javascript_include_tag  'fancybox/jquery.fancybox-1.3.4.pack.js', {:media=>'all'}*/
-  /*- stylesheet_link_tag  "javascripts/fancybox/jquery.fancybox-1.3.4.css"*/
-
-  /*// For slider controls*/
-  /*- javascript_include_tag 'select_to_ui_slider/selectToUISlider.jQuery.js', {:media=>'all'}*/
-  /*- stylesheet_link_tag "javascripts/select_to_ui_slider/css/ui.slider.extras.css"*/
-  /*- stylesheet_link_tag 'slider.css', {:media=>'all'}*/
-
   :javascript
     $(document).ready(function() {
       $(document).editProgram();
@@ -41,8 +24,11 @@
             =@program.title
           = f.text_field(:title) 
           =link_to 'edit title', '#', {:id=>'edit-title'} 
-      %fieldset.course-talks 
-        Talks in this Program
+      .fieldset.course-talks 
+        .legend
+          Talks
+          %span.count="(#{@document_fedora.parts(:response_format=>:solr, :rows=>1000).hits.length})"
+
         = render :partial => 'programs/talks'
         = link_to "Add a Talk", talks_path(:program=>@program), :method=>:post
       = render :partial => 'programs/edit_description', :locals=>{:f => f}
