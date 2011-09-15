@@ -16,7 +16,7 @@
 
   %li
     =label_tag 'place',  'Location', :class=>'left-col'
-    =f.select :place_id, options_from_collection_for_select(Place.find(:all), "pid", "name", @program.place_id)
+    =f.select :place_id, options_from_collection_for_select(Place.find(:all, :rows=>1000), "pid", "name", @program.place_id), { :include_blank => true }
     =link_to "add a location", new_place_path(:program=>@program.pid), {:id => 'add-location', :class=>'addval'}
 
   %li
@@ -41,8 +41,7 @@
 
   %li
     =label_tag 'contributor',  'Translator(s)', :class=>'left-col'
-    =select_tag 'contributor', options_from_collection_for_select(Translator.find(:all), "pid", "tibetan_name")
-    =#label_tag 'contributor',  'Translators'
+    =select_tag 'contributor', options_from_collection_for_select(Translator.find(:all, :rows=>1000), "pid", "tibetan_name"), { :include_blank => true }
     =link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
   %li
     .fieldset
@@ -67,7 +66,7 @@
         %tbody
           =render :partial=>"nested_texts"
       %div.addline
-        =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
+        =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all, :rows=>1000), "pid", "english_title"), { :include_blank => true }
         =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
         =link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
   %li.note
