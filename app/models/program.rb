@@ -37,7 +37,18 @@ class Program < ActiveFedora::Base
       super(solr_doc)
       
       ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "object_type_facet", "Program")
+      
+      topics.each do |topic|
+        ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "topic_facet", topic.english_title)
+      end
+      unless place_id.nil?
+        ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "place_facet", place.name)
+      end
+      unless start_date.nil?
+        ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "date_facet", start_date)
+      end
 
+      
       solr_doc
     end
 

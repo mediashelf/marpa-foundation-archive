@@ -53,7 +53,11 @@ class Talk < ActiveFedora::Base
       super(solr_doc)
       
       ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "object_type_facet", "Talk")
-
+      topics.each do |topic|
+        ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "topic_facet", topic.english_title)
+      end
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "date_facet", date)
+      
       solr_doc
     end
     

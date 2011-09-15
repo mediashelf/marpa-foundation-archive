@@ -13,7 +13,10 @@
   %li.end_date
     =label_tag 'end_date', 'End Date' , :class=>'left-col'
     = f.text_field(:end_date)  
-
+  %li.topics
+    =f.label 'topics', 'Topics', :class=>'left-col'
+    =select_tag 'program[topic_ids][]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title", @program.topic_ids), :multiple=>true
+    =link_to "add a topic", topics_path(:program=>@program), :method=>'post'
   %li
     =label_tag 'place',  'Location', :class=>'left-col'
     =f.select :place_id, options_from_collection_for_select(Place.find(:all, :rows=>1000), "pid", "name", @program.place_id), { :include_blank => true }

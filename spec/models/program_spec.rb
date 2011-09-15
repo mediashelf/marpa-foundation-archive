@@ -8,7 +8,11 @@ describe Program do
       @talk = Talk.new
       @talk.save
       @topic = Topic.new
+      @topic.english_title = "Topic title"
       @topic.save
+      @place = Place.new
+      @place.name = "My Location"
+      @place.save
     end
 
     it "should have many talks" do
@@ -30,9 +34,26 @@ describe Program do
       @program.topics << @topic
       @program.topics.map(&:pid).should == [@topic.pid]
     end
+    
+    describe "association facets" do
+      it "should populate location_facet" do
+        @program.place = @place
+        @program.to_solr["place_facet"].should == [@place.name]
+      end
+    
+      it "should populate topic_facet" do
+        @program.topic_ids = [@topic.pid]
+        @program.to_solr["topic_facet"].should == [@topic.english_title]
+      end
+    
+      it "should populate text_facet" 
+      
+    end
+    
     after do
       @talk.delete
       @topic.delete
+      @place.delete
     end
   end
 

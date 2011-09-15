@@ -7,6 +7,7 @@ describe Talk do
     before do
       @talk = Talk.new
       @topic1 = Topic.new
+      @topic1.english_title = "Topic 1"
       @topic1.save
       @topic2 = Topic.new
       @topic2.save
@@ -22,7 +23,10 @@ describe Talk do
       @talk.topic_ids = [@topic1.pid, @topic2.pid]
       @talk.topic_ids = [@topic3.pid]
       @talk.topics.map(&:pid).should == [@topic3.pid]
-      
+    end
+    it "should populate topic_facet" do
+      @talk.topic_ids = [@topic1.pid]
+      @talk.to_solr["topic_facet"].should == [@topic1.english_title]
     end
     after do
       @topic1.delete
