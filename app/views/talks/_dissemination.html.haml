@@ -1,9 +1,7 @@
 %tr[dissemination]
   %td.identifier
-    =link_to dissemination.instantiation_identifier, recording_instantiations_path(dissemination.pid)
+    =link_to dissemination.instantiation_identifier, recording_instantiation_path(dissemination.pid)
+  %td.source_recording
+    =dissemination.recording.document_identifier
   %td.recorded_by
     =dissemination.recording.originally_recorded_by
-  %td.uploaded_by
-    Recording
-  %td.date_uploaded
-    =#dissemination.system_create_date
