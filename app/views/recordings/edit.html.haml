@@ -1,3 +1,4 @@
+- @page_title = application_name + " Edit Recording #{@recording.document_identifier}"
 -content_for :head do
   =stylesheet_link_tag 'forms'
   =javascript_include_tag 'edit_recording'
@@ -9,10 +10,11 @@
 =form_for @recording do |f|
   .title-line
     #title-container
-      %h1#title-text  Recording:
-      =@recording.document_identifier
-    =#f.text_field 'document_identifier'
-    =#link_to 'edit title', '#', :id=>'edit-title'
+      %h1#title-text  
+        Recording:
+        =@recording.document_identifier
+      =#f.text_field 'document_identifier'
+      =#link_to 'edit title', '#', :id=>'edit-title'
     %span.label
       This is a recording of:
     -if @talk 
