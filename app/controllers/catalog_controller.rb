@@ -20,9 +20,13 @@ class CatalogController < ApplicationController
   def exclude_unwanted_models_from_search_results(solr_parameters, user_parameters)
     q = ""
     unwanted_models.each do |m|
-      # escaped_class_uri = "info:fedora/afmodel:#{self.name}".gsub(/(:)/, '\\:')
-      model_pid = ActiveFedora::ContentModel.pid_from_ruby_class(m)
-      escaped_model_uri = "info:fedora/#{model_pid}".gsub(/(:)/, '\\\\\\:')
+      if m.kind_of?(String)
+        model_uri = m
+      else
+        model_pid = ActiveFedora::ContentModel.pid_from_ruby_class(m)
+        model_uri = "info:fedora/#{model_pid}"
+      end
+      escaped_model_uri = model_uri.gsub(/(:)/, '\\\\\\:')
       q << " AND NOT _query_:\"#{escaped_model_uri}\""
     end
     insert_after = "{!dismax qf=$qf_dismax pf=$pf_dismax}"
@@ -31,7 +35,7 @@ class CatalogController < ApplicationController
   end
   
   def unwanted_models
-    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place, Quotation, TalkText]
+    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place, Quotation, TalkText, "info:fedora/afmodel:MarpaCourse"]
   end
 
 end 

@@ -49,14 +49,12 @@ Blacklight.configure(:shared) do |config|
       "topic_facet",
       "place_facet",
       "date_facet",
-      "title_t"
     ]),
     :labels => {
       "active_fedora_model_s" => "Type",
       "topic_facet" => "Topic",
       "place_facet" => "Location",
       "date_facet" => "Date",
-      "title_t" => "Title"
     },
     # Setting a limit will trigger Blacklight's 'more' facet values link.
     # * If left unset, then all facet values returned by solr will be displayed.

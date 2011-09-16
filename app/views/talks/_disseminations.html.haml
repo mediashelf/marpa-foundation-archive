@@ -1,0 +1,10 @@
+%table#disseminations.column
+  %col{:width=>"30%"}/
+  %col{:width=>"25%"}/
+  %col{:width=>"30%"}/
+  %col{:width=>"15%"}/
+  %tr
+    %th Identifier   
+    %th Source Recording          
+    %th Recorded by  
+  =render :partial=>'dissemination', :collection=>@talk.disseminations

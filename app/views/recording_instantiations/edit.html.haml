@@ -37,6 +37,9 @@
       =f.label 'iana_format', 'Digital Format', :class=>'left-col'
       =f.select 'iana_format', Marpa::MarpaCore.iana_mime_types.invert.sort
     %li
+      =f.label 'workflow_status', 'File Size (MB)', :class=>'left-col'
+      =f.select 'workflow_status', RecordingInstantiation.workflow_statuses
+    %li
       =f.label 'file_size_mb', 'File Size (MB)', :class=>'left-col'
       =f.text_field 'file_size_mb'
     %li
@@ -49,8 +52,8 @@
       =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
       =f.text_field 'instantiation_identifier', :class=>"extra_long"
     %li
-      =f.label 'note', 'Notes', :class=>'left-col'
-      =f.text_area 'note', :class=>"fullsize"
+      =f.label 'informal_note', 'Notes', :class=>'left-col'
+      =f.text_area 'informal_note', :class=>"fullsize"
     %li
       =f.label 'technical_note', 'Technical Notes', :class=>'left-col'
       =f.text_area 'technical_note', :class=>"fullsize"
