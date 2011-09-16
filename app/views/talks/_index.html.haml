@@ -2,9 +2,13 @@
   %td
     =link_to document["title_t"], talk_path(document["id"])
   %td
-    =document["date_t"]
+    =document["place_facet"]
+  %td
+    =document["date_facet"]
+  %td
+    =render_field_value( document["topic_facet"] )
   %td
     Talk
-  %td=get_file_asset_count(document)
+
 
 
