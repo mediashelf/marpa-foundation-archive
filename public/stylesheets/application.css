@@ -84,12 +84,6 @@ input[type=submit], input[type=button] {
   font-size: 10pt;
 }
 
-.title-line {
-  margin-bottom: 35px;
-  margin-left: 180px;
-  width: 800px;
-}
-
 .clearfix:after {
   content: ".";
   display: block;
