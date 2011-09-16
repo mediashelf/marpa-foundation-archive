@@ -52,6 +52,7 @@ a {
 h1, h2 {
   color: #cc993e;
   text-transform:uppercase;
+  margin: 0px;
 }
 
 h1 {

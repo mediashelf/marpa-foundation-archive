@@ -1,14 +1,17 @@
-%tr[document]
-  %td
-    =link_to document["title_t"], talk_path(document["id"])
-  %td
-    =document["place_facet"]
-  %td
-    =document["date_facet"]
-  %td
-    =render_field_value( document["topic_facet"] )
-  %td
-    Talk
-
+%li[document]
+  %h2
+    %span.type
+      Talk:
+    =link_to document["title_t"], catalog_path(document["id"])
+  %dl.fields
+    %dt
+      Location
+    %dd=document["place_facet"]
+    %dt
+      Date
+    %dd=document["date_facet"]
+    %dt
+      Topics
+    %dd=document["topic_facet"]
 
 
