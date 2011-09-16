@@ -46,6 +46,7 @@
     :is_studied_by: isStudiedBy
     :is_object_of_study: isObjectOfStudy
     :is_author_of: author
+    :is_translator_of: translator
   info:fedora/fedora-system:def/model#:
     :has_model: hasModel
 #  http://www.openarchives.org/OAI/2.0/: 

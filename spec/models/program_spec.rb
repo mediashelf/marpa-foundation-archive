@@ -13,6 +13,9 @@ describe Program do
       @place = Place.new
       @place.name = "My Location"
       @place.save
+      @translator = Translator.new
+      @translator.tibetan_name = "Bob Dobbs"
+      @translator.save
     end
 
     it "should have many talks" do
@@ -34,6 +37,13 @@ describe Program do
       @program.topics << @topic
       @program.topics.map(&:pid).should == [@topic.pid]
     end
+
+    it "should have a place and a translator" do
+      @program.translator = @translator
+      @program.place = @place
+      @program.translator_id.should == @translator.pid
+      @program.place_id.should == @place.pid
+    end
     
     describe "association facets" do
       it "should populate location_facet" do
@@ -54,6 +64,7 @@ describe Program do
       @talk.delete
       @topic.delete
       @place.delete
+      @translator.delete
     end
   end
 

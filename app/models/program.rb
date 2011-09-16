@@ -7,6 +7,7 @@ class Program < ActiveFedora::Base
     has_many :talks, :property=>:is_part_of
     has_and_belongs_to_many :topics, :property=>:has_topic
     belongs_to :place, :property=>:has_location
+    belongs_to :translator, :property=>:is_translator_of
 
     has_many :program_texts, :property=>:is_studied_by
     

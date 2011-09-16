@@ -50,8 +50,8 @@
 
 
   %li
-    =label_tag 'contributor',  'Translator(s)', :class=>'left-col'
-    =select_tag 'contributor', options_from_collection_for_select(Translator.find(:all, :rows=>1000), "pid", "tibetan_name"), { :include_blank => true }
+    =label_tag 'translator',  'Translator(s)', :class=>'left-col'
+    =f.select :translator_id, options_from_collection_for_select(Translator.find(:all, :rows=>1000), "pid", "tibetan_name", @program.translator_id), { :include_blank => true }
     =link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
   %li
     .fieldset
