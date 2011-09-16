@@ -3,9 +3,12 @@
 }
 
 
-fieldset.recordings {
+.disseminations, .manage_recordings {
   width: 500px;
   float:right;
+  clear: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #title-container {
@@ -17,19 +20,10 @@ fieldset.recordings {
   font-size: 18pt;
 }
 
-table {
-  margin-left: 10px;
-  border: 2px solid black;
-  border-collapse: collapse;
-}
 
 table.associated-quotes, table.associated-songs, table.associated-texts {
   min-width: 500px;
   max-width: 98%;
-}
-
-thead tr {
-  background-color: #aaa;
 }
 
 th {
@@ -37,12 +31,6 @@ th {
   text-align: left;
 }
 
-tr {
-  background-color: #eee;
-}
-tr:nth-child(2n) {
-  background-color: #ccc;
-}
 
 .chapter {
   width: 4em;

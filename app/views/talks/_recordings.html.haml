@@ -3,9 +3,11 @@
   %col{:width=>"25%"}/
   %col{:width=>"30%"}/
   %col{:width=>"15%"}/
-  %tr
-    %th Identifier             
-    %th Recorded by           
-    %th Uploaded by                                                                    
-    %th Date Uploaded
-  =render :partial=>'recording', :collection=>@talk.recordings
+  %thead
+    %tr
+      %th Identifier             
+      %th Recorded by           
+      %th Uploaded by                                                                    
+      %th Date Uploaded
+  %tbody
+    =render :partial=>'recording', :collection=>@talk.recordings

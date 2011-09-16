@@ -4,6 +4,49 @@
   width: 800px;
 }
 
+.fieldset {
+  border:none;
+  background-color: #e1ddd4;
+  padding-bottom: 5px;
+}
+
+.fieldset .legend {
+  padding: 8px;
+  background-color: #f2c270;
+  color: #666;
+  text-transform:uppercase;
+  font-weight: bold;
+  font-size: 10pt;
+  
+}
+
+.fieldset > a, .fieldset > .addline {
+  margin-left: 10px;
+}
+
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+
+}
+thead tr {
+  color: #6e6866;
+}
+
+th {
+  padding: 2px 20px;
+  text-align: left;
+  font-size: 10pt;
+}
+
+
+tbody tr {
+  border-top: 1px dotted #c1c1c1;
+}
+
 
 ul.form-fields {
   padding-left: 0;
