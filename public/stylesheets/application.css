@@ -13,7 +13,7 @@ html {
 .content {
   margin: 0 auto ;
   width: 1036px;
-  padding: 0 15px 70px 15px;
+  padding: 0 15px 20px 15px;
   min-height: 60%;
 
 }
@@ -39,9 +39,7 @@ html {
 .footer {
   width: 1036px;
   height: 70px;
-  bottom:0;
   background-color: #e1ddd4;
-  left: 50%;
   padding: 15px;
   margin: 0 auto;
 }
@@ -60,6 +58,13 @@ h1 {
   font-size: 14pt;
 }
 
+h2 {
+  font-size: 12pt;
+}
+
+h3 {
+  font-size: 10pt;
+}
 
 input[type=text] {
   padding: 0;
@@ -82,3 +87,14 @@ input[type=submit], input[type=button] {
   margin-left: 180px;
   width: 800px;
 }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+
+

@@ -57,13 +57,15 @@
 }
 
 #facets {
-  width: 150px;
+  width: 163px;
   float: left;
 }
 
 #facets ul {
   padding-left: 2px;
   list-style-type: none;
+  font-size: 10pt;
+  overflow: auto;
 }
 
 .pageEntriesInfo {
