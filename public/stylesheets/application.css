@@ -33,6 +33,7 @@ html {
   background: url('../images/logo.png') no-repeat;
   border: 3px solid #e1ddd2;
   position: relative;
+  float: left;
 }
 
 
