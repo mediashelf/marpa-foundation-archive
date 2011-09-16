@@ -1,8 +1,16 @@
-%tr.document
-  %td=link_to document["title_t"], catalog_path(document["id"])
-  %td=document["location_t"]
-  %td=document["date_t"]
-  %td=document["topics"]
-  %td=document_type(document)
+%li.document
+  %h2
+    %span.type=document_type(document)+':'
+    =link_to document["title_t"], catalog_path(document["id"])
+  %dl.fields
+    %dt
+      Location
+    %dd=document["location_t"]
+    %dt
+      Date
+    %dd=document["date_t"]
+    %dt
+      Topics
+    %dd=document["topics"]
 
 
