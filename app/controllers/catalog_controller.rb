@@ -12,6 +12,26 @@ class CatalogController < ApplicationController
   before_filter :enforce_viewing_context_for_show_requests, :only=>:show
   # This applies appropriate access controls to all solr queries
   CatalogController.solr_search_params_logic << :add_access_controls_to_solr_params
+  CatalogController.solr_search_params_logic << :exclude_unwanted_models_from_search_results
 
+  # A really hacky solr search params logic method
+  # Will only work if the solr_parameters[:q] contains "{!dismax qf=$qf_dismax pf=$pf_dismax}"
+  # Inserts filters into the query immediately after that string based on the list of models in #{unwanted_models}
+  def exclude_unwanted_models_from_search_results(solr_parameters, user_parameters)
+    q = ""
+    unwanted_models.each do |m|
+      # escaped_class_uri = "info:fedora/afmodel:#{self.name}".gsub(/(:)/, '\\:')
+      model_pid = ActiveFedora::ContentModel.pid_from_ruby_class(m)
+      escaped_model_uri = "info:fedora/#{model_pid}".gsub(/(:)/, '\\\\\\:')
+      q << " AND NOT _query_:\"#{escaped_model_uri}\""
+    end
+    insert_after = "{!dismax qf=$qf_dismax pf=$pf_dismax}"
+    i = solr_parameters[:q].index(insert_after)+1+insert_after.length
+    solr_parameters[:q].insert(i, q)
+  end
+  
+  def unwanted_models
+    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place]
+  end
 
 end 

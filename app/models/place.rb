@@ -31,6 +31,11 @@ class Place < ActiveFedora::Base
       placeInfo.update_indexed_attributes([:latitude] => lat)
       placeInfo.update_indexed_attributes([:longitude] => lon)
     end
-
+    
+    def to_solr(solr_doc=Hash.new, opts={})
+      super(solr_doc)
+      ::Solrizer::Extractor.insert_solr_field_value(solr_doc, "object_type_facet", "Place")
+      solr_doc
+    end
    
 end
