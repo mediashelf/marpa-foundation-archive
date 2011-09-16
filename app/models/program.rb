@@ -23,6 +23,7 @@ class Program < ActiveFedora::Base
     delegate :start_date, :to=>'descMetadata', :unique=>true
     delegate :end_date, :to=>'descMetadata', :unique=>true
     delegate :note, :to=>'marpaCore', :unique=>true
+    delegate :workflow_note, :to=>'marpaCore', :unique=>true
     delegate :subject, :to=>'descMetadata', :unique=>true
 
     accepts_nested_attributes_for :program_texts
