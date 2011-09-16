@@ -15,8 +15,8 @@ class CatalogController < ApplicationController
   CatalogController.solr_search_params_logic << :exclude_unwanted_models_from_search_results
 
   # A really hacky solr search params logic method
-  # Will only work if the solr_parameters[:q] contains "{!dismax qf=$qf_dismax pf=$pf_dismax}"
-  # Inserts filters into the query immediately after that string based on the list of models in #{unwanted_models}
+  # Will only work if the solr_parameters[:q] contains " AND NOT _query_:\"info\\\\:fedora/afmodel\\\\:FileAsset\""
+  # Inserts filters into the query immediately before that string based on the list of models in #{unwanted_models}
   def exclude_unwanted_models_from_search_results(solr_parameters, user_parameters)
     q = ""
     unwanted_models.each do |m|
@@ -30,7 +30,8 @@ class CatalogController < ApplicationController
       q << " AND NOT _query_:\"#{escaped_model_uri}\""
     end
     insert_after = "{!dismax qf=$qf_dismax pf=$pf_dismax}"
-    i = solr_parameters[:q].index(insert_after)+1+insert_after.length
+    insert_before = " AND NOT _query_:\"info\\\\:fedora/afmodel\\\\:FileAsset\""
+    i = solr_parameters[:q].index(insert_before)
     solr_parameters[:q].insert(i, q)
   end
   
