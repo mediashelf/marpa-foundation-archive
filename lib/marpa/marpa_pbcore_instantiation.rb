@@ -14,7 +14,9 @@ class PbcoreInstantiation < ActiveFedora::NokogiriDatastream
     t.media_type(:path=>"instantiationMediaType")
     t.location(:path=>"instantiationLocation")
     t.note(:path=>"instantiationAnnotation")
+    t.informal_note(:ref=>[:note], :attributes=>{"annotationType"=>"informal"})    
     t.technical_note(:ref=>[:note], :attributes=>{"annotationType"=>"technical"})
+    t.workflow_status(:ref=>[:note], :attributes=>{"annotationType"=>"workflowStatus"})
   end
   
   def self.xml_template

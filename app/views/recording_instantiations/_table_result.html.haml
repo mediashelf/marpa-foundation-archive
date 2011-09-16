@@ -6,6 +6,7 @@
     -unless document["iana_format_t"].empty?
       =Marpa::MarpaCore.iana_mime_types[ document["iana_format_t"].first ]
   %td.uploaded_by
-    
+  %td.workflow_status
+    =document["workflow_status_t"]
   %td.location
     =document["location_t"]

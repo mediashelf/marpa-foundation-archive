@@ -16,13 +16,22 @@ class RecordingInstantiation < ActiveFedora::Base
   delegate :file_size_mb, :to=>'pbCore', :unique=>true
   delegate :media_type, :to=>'pbCore', :unique=>true
   delegate :location, :to=>'pbCore', :unique=>true
-  delegate :note, :to=>'pbCore', :unique=>true  
+  delegate :informal_note, :to=>'pbCore', :unique=>true  
   delegate :technical_note, :to=>'pbCore', :unique=>true
+  delegate :workflow_status, :to=>'pbCore', :unique=>true
   
   has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
   
   has_metadata :name=>"pbCore", :type=>Marpa::PbcoreInstantiation
   
   has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  
+  def self.workflow_statuses
+    [
+      ["Collected", "collected"],
+      ["Post-Production", "postProduction"],
+      ["Dissemination", "dissemination"]
+    ]
+  end
   
 end

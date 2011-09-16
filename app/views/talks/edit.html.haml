@@ -21,12 +21,16 @@
       =f.text_field 'english_title'
       =link_to 'edit title', '#', :id=>'edit-title'
       
-  %fieldset.course-talks 
+  %fieldset.disseminations
     %legend 
-      Recordings of 
+      Disseminations of 
       =@talk.english_title
-    - @solr_result = @talk.parts(:response_format=>:solr, :rows=>1000) # locals isn't working for some reason...
-    = render :partial=>"recordings/table", :locals=>{:solr_result=>@talk.parts(:response_format=>:solr, :rows=>1000)}
+    = render :partial=>"disseminations"
+  %fieldset.manage_recordings
+    %legend
+      Manage Recordings of 
+      =@talk.english_title
+    = render :partial=>"recordings"
     = link_to "Add a Recording", recordings_path(:talk=>@talk), :method=>:post
   %ul.form-fields
     %li
