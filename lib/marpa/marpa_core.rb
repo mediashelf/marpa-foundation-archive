@@ -97,6 +97,7 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
   def self.iana_mime_types
     {
       "audio/mpeg" => "MP3",
+      "audio/x-caf" => "Core Audio Format (CAF)",
       "audio/vnd.wave" => "WAV Audio",
       "audio/mp4"=> "MP4 Audio",
       "video/mp4" => "MP4 Video",

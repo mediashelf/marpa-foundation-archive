@@ -8,7 +8,10 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.english_title(:path=>"title", :attributes=>{'xml:lang'=>"eng"})
     t.tibetan_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Tibt"})
     t.wylie_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'wylie'})
+    t.wylie_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'wylie'})
     t.marpa_transliteration_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'marpa'})
+    t.sanskrit_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'marpa'})
+    t.sanskrit_diacrit_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn"})
     
     t.contributor(:index_as=>[:facetable])
     t.creator

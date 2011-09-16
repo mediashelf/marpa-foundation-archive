@@ -2,5 +2,7 @@
   <title xml:lang="tib" cpf:scriptCode="Tibt"></title> 
   <title xml:lang="tib" cpf:scriptCode="Latn" cpf:transliteration='wylie'></title>
   <title xml:lang="tib" cpf:scriptCode="Latn" cpf:transliteration='marpa'></title>
+  <title xml:lang="skt" cpf:scriptCode="Latn" cpf:transliteration='marpa'></title>
+  <title xml:lang="skt" cpf:scriptCode="Latn"></title>
 </dc>
 

@@ -1,24 +1,33 @@
-%h1#title-text
-  Recording Instantiation:
-  =@instantiation.instantiation_identifier
-.top_info
-%span.label
-  Instantiation of:
--if @recording 
-  =link_to @recording.document_identifier, recording_path(@recording)
-  .top_info
-  %span.label
-    Recorded by:
-    = @recording.originally_recorded_by
--else
-  (No recording document found)
-.top_info
-%span.label
-  This is a recording of:
--if @talk 
-  =link_to @talk.english_title, program_path(@program)
--else
-  (No talk found)  
+-content_for :head do
+  =stylesheet_link_tag 'forms'
+  =javascript_include_tag 'edit_recording_instantiation'
+  :javascript
+    $(document).ready(function() {
+      $(document).editRecordingInstantiation();
+    });
+    
+.title-line
+  #title-container
+    %h1#title-text
+      Recording Instantiation:
+      =@instantiation.instantiation_identifier
+    .top_info
+    %span.label
+      Instantiation of:
+    -if @recording 
+      =link_to @recording.document_identifier, recording_path(@recording)
+      .top_info
+      %span.label
+        Recorded by:
+        = @recording.originally_recorded_by
+    -else
+      (No recording document found)
+    %span.label
+      This is a recording of:
+    -if @talk 
+      =link_to @talk.english_title, program_path(@program)
+    -else
+      (No talk found)  
   
 =form_for @instantiation do |f|
 
@@ -34,15 +43,15 @@
       =f.text_field 'duration'
     %li
       =f.label 'location', 'Location', :class=>'left-col'
-      =f.text_field 'location'
+      =f.text_field 'location', :class=>"extra_long"
     %li
       =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
-      =f.text_field 'instantiation_identifier'
+      =f.text_field 'instantiation_identifier', :class=>"extra_long"
     %li
       =f.label 'note', 'Notes', :class=>'left-col'
-      =f.text_area 'note'
+      =f.text_area 'note', :class=>"fullsize"
     %li
       =f.label 'technical_note', 'Technical Notes', :class=>'left-col'
-      =f.text_area 'technical_note'
+      =f.text_area 'technical_note', :class=>"fullsize"
   =f.submit 'Save instatiation'
   =hidden_field_tag 'recording', params[:recording]

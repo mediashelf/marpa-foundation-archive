@@ -6,14 +6,20 @@
       $(document).editTalk();
     });
 
-.course-title
-  Program:
-  -if @program 
-    =link_to @program.title, program_path(@program)
-  -else
-    (No program found)
-
 =form_for @talk do |f|
+  .title-line
+    Program:
+    -if @program 
+      =link_to @program.title, program_path(@program)
+    -else
+      (No program found)
+    #title-container
+      %h1#title-text
+        Talk:
+        =@talk.english_title
+      =f.text_field 'english_title'
+      =link_to 'edit title', '#', :id=>'edit-title'
+      
   %fieldset.course-talks 
     %legend 
       Recordings of 
@@ -22,14 +28,6 @@
     = render :partial=>"recordings/table", :locals=>{:solr_result=>@talk.parts(:response_format=>:solr, :rows=>1000)}
     = link_to "Add a Recording", recordings_path(:talk=>@talk), :method=>:post
   %ul.form-fields
-    %li
-      %h1#title-text
-        Talk:
-        =@talk.english_title
-      =f.label 'english_title', 'Title', :class=>'left-col'
-      =f.text_field 'english_title'
-      =link_to 'edit title', '#', :id=>'edit-title'
-  
     %li
       =f.label 'date', 'Date', :class=>'left-col'
       =f.text_field 'date'
@@ -42,7 +40,7 @@
       =link_to "add a topic", topics_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'subject', 'Keywords', :class=>'left-col'
-      =f.text_field 'subject'
+      =f.text_field 'subject', :class=>"extra_long"
     %li
       %h3.label
         Texts
@@ -101,7 +99,7 @@
             =link_to "create a quotation", quotations_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'note', 'Notes/Annotations'
-      =f.text_area 'note'
+      =f.text_area 'note', :class=>"fullsize"
     %li
       =f.submit 'Save talk'
       =hidden_field_tag 'course', params[:course]

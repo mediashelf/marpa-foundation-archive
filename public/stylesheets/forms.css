@@ -14,6 +14,19 @@ ul.form-fields li .left-col {
   vertical-align: top;
 }
 
+input.long {
+  width: 300px;
+}
+
+input.extra_long {
+  width: 400px;
+}
+
 label {
   vertical-align: top
+}
+
+textarea.fullsize {
+  height:25em;
+  width:80%;
 }

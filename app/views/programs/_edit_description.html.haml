@@ -5,7 +5,7 @@
 
   %li
     =label_tag 'creator', 'Teacher', :class=>'left-col'
-    = f.text_field(:creator)  
+    = f.text_field(:creator, :class=>"long")  
   %li.start_date
     =label_tag 'start_date', 'Start Date' , :class=>'left-col'
     = f.text_field(:start_date)  
@@ -18,6 +18,9 @@
     =select_tag 'program[topic_ids][]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title", @program.topic_ids), :multiple=>true
     =link_to "add a topic", topics_path(:program=>@program), :method=>'post'
   %li
+    =f.label 'subject', 'Keywords', :class=>'left-col'
+    =f.text_field 'subject', :class=>"long"
+  %li
     =label_tag 'place',  'Location', :class=>'left-col'
     =f.select :place_id, options_from_collection_for_select(Place.find(:all, :rows=>1000), "pid", "name", @program.place_id), { :include_blank => true }
     =link_to "add a location", new_place_path(:program=>@program.pid), {:id => 'add-location', :class=>'addval'}
@@ -26,20 +29,24 @@
     =label_tag 'language',  'Language(s)', :class=>'left-col'
     = f.fields_for :language do |languages|
       .checkbox-group
-        = languages.check_box 'chi', :checked=>@program.language.include?('chi')
-        = label_tag 'language_chi', "Chinese"
+        = languages.check_box 'tib', :checked=>@program.language.include?('tib')
+        = label_tag 'language_tib', "Tibetan"
         %br
         = languages.check_box 'eng', :checked=>@program.language.include?('eng')
         = label_tag 'language_eng', "English"
         %br
-        = languages.check_box 'fre', :checked=>@program.language.include?('fre')
-        = label_tag 'language_fre', "French"
+        = languages.check_box 'chi', :checked=>@program.language.include?('chi')
+        = label_tag 'language_chi', "Chinese"
         %br
         = languages.check_box 'ger', :checked=>@program.language.include?('ger')
         = label_tag 'language_ger', "German"
         %br
-        = languages.check_box 'tib', :checked=>@program.language.include?('tib')
-        = label_tag 'language_tib', "Tibetan"
+        = languages.check_box 'fre', :checked=>@program.language.include?('fre')
+        = label_tag 'language_fre', "French"
+        %br
+        = languages.check_box 'spa', :checked=>@program.language.include?('spa')
+        = label_tag 'language_fre', "Spanish"
+
 
 
   %li
@@ -74,5 +81,5 @@
         =link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
   %li.note
     =f.label 'note', 'Notes/Annotations'
-    =f.text_area 'note'
+    =f.text_area 'note', :class=>"fullsize"
 

@@ -27,6 +27,9 @@ describe Marpa::MarpaDCDatastream do
       @text_dc.term_values(:tibetan_title).should == ['ཐེག་པཆེན་པོ་རྒྱུད་བླ་མའི་བསྟན་བཅོས']
       @text_dc.term_values(:wylie_title).should == ['thek bChen po rgyud bla mai bstan bcos']
       @text_dc.term_values(:marpa_transliteration_title).should == ['thek chenpo gyu la mai ten chö']
+      @text_dc.term_values(:sanskrit_title).should == ['Uttaratantra']
+      @text_dc.term_values(:sanskrit_diacrit_title).should == ['Ratnagotravibhāgavyākhyā/ Mahāyānottaratantrashāstravyākhyā']
+      
     end
   end
   describe "generating xml" do

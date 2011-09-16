@@ -16,6 +16,8 @@ class Text < ActiveFedora::Base
     delegate :tibetan_title, :to=>'descMetadata', :unique=>true
     delegate :wylie_title, :to=>'descMetadata', :unique=>true
     delegate :marpa_transliteration_title, :to=>'descMetadata', :unique=>true
+    delegate :sanskrit_title, :to=>'descMetadata', :unique=>true
+    delegate :sanskrit_diacrit_title, :to=>'descMetadata', :unique=>true
             
     def to_solr(solr_doc=Hash.new, opts={})
       super(solr_doc)

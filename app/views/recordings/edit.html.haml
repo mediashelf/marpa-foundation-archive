@@ -3,45 +3,47 @@
   =javascript_include_tag 'edit_recording'
   :javascript
     $(document).ready(function() {
-      $(document).editTalk();
+      $(document).editRecording();
     });
 
-%h1#title-text
-  Recording:
-  =@recording.document_identifier
-%span.label
-  This is a recording of:
--if @talk 
-  =link_to @talk.english_title, talk_path(@talk)
--else
-  (No talk found)
-  
 =form_for @recording do |f|
+  .title-line
+    #title-container
+      %h1#title-text  Recording:
+      =@recording.document_identifier
+    =#f.text_field 'document_identifier'
+    =#link_to 'edit title', '#', :id=>'edit-title'
+    %span.label
+      This is a recording of:
+    -if @talk 
+      =link_to @talk.english_title, talk_path(@talk)
+    -else
+      (No talk found)
 
   %fieldset 
     %legend General Info
     %ul.form-fields
       %li
         =f.label 'document_identifier', 'Identifier', :class=>'left-col'
-        =f.text_field 'document_identifier'
+        =f.text_field 'document_identifier', :class=>"long"
       %li
         =f.label 'duration', 'Duration', :class=>'left-col'
-        =f.text_field 'duration'
+        =f.text_field 'duration', :class=>"long"
       %li
         =f.label 'originally_recorded_by', 'Recorded By', :class=>'left-col'
-        =f.text_field 'originally_recorded_by'
+        =f.text_field 'originally_recorded_by', :class=>"long"
       %li
         =f.label 'contributed_by', 'Contributed By', :class=>'left-col'
-        =f.text_field 'contributed_by'
+        =f.text_field 'contributed_by', :class=>"long"
       %li
         =f.label 'restriction_level', 'Restriction Level', :class=>'left-col'
         =f.select 'restriction_level', [ ["General Public","public"], ["Vajrayana Students","vajrayana"], ["Other (specify in Restriction Instructions)","other"]]
       %li
         =f.label 'restriction_instructions', 'Restriction Instructions', :class=>'left-col'
-        =f.text_area 'restriction_instructions'
+        =f.text_area 'restriction_instructions', :class=>"fullsize"
       %li
         =f.label 'note', 'Notes', :class=>'left-col'
-        =f.text_area 'note'
+        =f.text_area 'note', :class=>"fullsize"
   %fieldset
     %legend Digital Instantiations
     = render :partial=>"recording_instantiations/table", :locals=>{:solr_result=>@recording.instantiations(:response_format=>:solr, :rows=>1000)}
@@ -54,10 +56,10 @@
         =f.select 'physical_instance_format', Marpa::MarpaCore.ebu_storage_media_codes.invert.sort #{"Cassette Tape"=>"cassette","Compact Disc"=>"cd"} 
       %li
         =f.label 'physical_instance_location', 'Physical Location', :class=>'left-col'
-        =f.text_field 'physical_instance_location'          
+        =f.text_field 'physical_instance_location', :class=>"extra_long"          
       %li
         =f.label 'physical_instance_notes', 'Notes on Original Physical Copy', :class=>'left-col'
-        =f.text_area 'physical_instance_notes' 
+        =f.text_area 'physical_instance_notes', :class=>"fullsize"
                         
   =f.submit 'Save recording'
   =hidden_field_tag 'talk', params[:talk]

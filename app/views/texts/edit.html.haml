@@ -1,20 +1,36 @@
-%h1
-  Text: 
-  =@text.english_title
+-content_for :head do
+  =stylesheet_link_tag 'forms'
+  =javascript_include_tag 'edit_text'
+  :javascript
+    $(document).ready(function() {
+      $(document).editText();
+    });
+    
 =form_for @text do |f|
-  %ul.form_fields
+  .title-line
+    #title-container
+      %h1#title-text
+        Text: 
+        =@text.english_title
+  %ul.form-fields
     %li.english_title
-      =f.label :english_title, "Title" , :class=>'left-col'
-      =f.text_field :english_title, :class=>"long"
+      =f.label :english_title, "Title (English)" , :class=>'left-col'
+      =f.text_field :english_title, :class=>"extra_long"
     %li.tibetan_title.long
       =f.label :tibetan_title, "Title (པོད་སྐད)" , :class=>'left-col'
-      =f.text_field :tibetan_title, :class=>"long"
+      =f.text_field :tibetan_title, :class=>"extra_long"
     %li.wylie_title.long
       =f.label :wylie_title, "Title (wylie)" , :class=>'left-col'
-      =f.text_field :wylie_title, :class=>"long"
+      =f.text_field :wylie_title, :class=>"extra_long"
     %li.marpa_transliteration_title.long
       =f.label :marpa_transliteration_title, "Title (phonetic)" , :class=>'left-col'
-      =f.text_field :marpa_transliteration_title, :class=>"long"
+      =f.text_field :marpa_transliteration_title, :class=>"extra_long"
+    %li.marpa_transliteration_title.long
+      =f.label :sanskrit_diacrit_title, "Title (sanskrit with diacritics)" , :class=>'left-col'
+      =f.text_field :sanskrit_diacrit_title, :class=>"extra_long"
+    %li.marpa_transliteration_title.long
+      =f.label :sanskrit_title, "Title (sanskrit)" , :class=>'left-col'
+      =f.text_field :sanskrit_title, :class=>"extra_long"
       
   =f.submit "Save"
   - if !params[:talk].nil?

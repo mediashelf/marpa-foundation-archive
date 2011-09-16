@@ -8,6 +8,14 @@ fieldset.recordings {
   float:right;
 }
 
+#title-container {
+  margin-top: 40px;
+}
+
+#talk_english_title {
+  width: 800px;
+  font-size: 18pt;
+}
 
 table {
   margin-left: 10px;
