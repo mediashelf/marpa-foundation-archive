@@ -31,7 +31,7 @@ class CatalogController < ApplicationController
   end
   
   def unwanted_models
-    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place, Quotation, TalkText, MarpaCourse]
+    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place, Quotation, TalkText]
   end
 
 end 
