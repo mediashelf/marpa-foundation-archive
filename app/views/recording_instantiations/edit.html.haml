@@ -37,7 +37,7 @@
       =f.label 'iana_format', 'Digital Format', :class=>'left-col'
       =f.select 'iana_format', Marpa::MarpaCore.iana_mime_types.invert.sort
     %li
-      =f.label 'workflow_status', 'File Size (MB)', :class=>'left-col'
+      =f.label 'workflow_status', 'Workflow Status', :class=>'left-col'
       =f.select 'workflow_status', RecordingInstantiation.workflow_statuses
     %li
       =f.label 'file_size_mb', 'File Size (MB)', :class=>'left-col'
