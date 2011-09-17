@@ -30,6 +30,12 @@
     -else
       (No talk found)  
   
+- if @instantiation.location.include?("Amazon S3:")
+  =link_to "play the recording", @instantiation.s3_url
+  %audio{:controls=>"controls"}
+    %source{:src=>@instantiation.s3_url}
+  =link_to "upload replacement", 
+
 =form_for @instantiation do |f|
 
   %ul.form-fields

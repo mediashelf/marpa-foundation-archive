@@ -339,4 +339,15 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
+<foxml:datastream ID="s3" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true"> 
+<foxml:datastreamVersion ID="s3.0" LABEL="" CREATED="2011-09-17T08:59:12.723Z" MIMETYPE="text/xml" SIZE="172"> 
+<foxml:xmlContent> 
+<fields> 
+  <bucket>marpa-foundation</bucket> 
+  <account_id>1RH3E9DNJ81GYNCCX5G2</account_id> 
+  <key>import/rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c/1.mp3</key> 
+</fields> 
+</foxml:xmlContent> 
+</foxml:datastreamVersion> 
+</foxml:datastream>
 </foxml:digitalObject>

@@ -4,6 +4,7 @@ require "marpa/marpa_dc_datastream.rb"
 class RecordingInstantiation < ActiveFedora::Base
   
   include Hydra::ModelMethods
+  include S3Fedora
   
   belongs_to :talk, :property=>:is_part_of
   
