@@ -10,5 +10,7 @@
     =ptf.text_field :sections, :class=>'sections'
   %td
     =ptf.text_field :pages, :class=>'pages'
+  %td
+    =link_to "remove association", remove_program_text_program_path(ptf.object.pid), :method=>:delete
 
 

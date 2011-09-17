@@ -11,6 +11,7 @@ MarpaFoundation::Application.routes.draw do
   resources :programs do
     member do
       post :add_program_text
+      delete :remove_program_text
     end
   end
   resources :songs  
