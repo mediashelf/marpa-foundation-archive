@@ -26,7 +26,7 @@
     %span.label
       This is a recording of:
     -if @talk 
-      =link_to @talk.english_title, program_path(@program)
+      =link_to @talk.english_title, talk_path(@talk)
     -else
       (No talk found)  
   
