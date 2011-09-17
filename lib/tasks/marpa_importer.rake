@@ -49,7 +49,8 @@ namespace :test do
     textf:ngedon
     translatorf:arig
     translatorf:ecallahan
-    fixture:1 fixture:2 fixture:3}
+    fixture:1 fixture:2 fixture:3
+    placef:boudha recordinginstantiationf:nagarjuna1 programf:nagarjuna_verses talkf:nagarjuna_verses_1 programtextf:1 textf:60_verses programtextf:2 textf:valid_cognition recordingf:nagarjuna_verses2 translatorf:kiki}
     
     # ['fixture:1', 'fixture:2', 'fixture:3']
     

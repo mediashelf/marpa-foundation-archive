@@ -1,0 +1,1631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="programf:nagarjuna_verses"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE=""/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-09-16T18:31:40.417Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-09-16T22:11:20.846Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-09-16T18:31:40.417Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:31:41.939Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:31:42.218Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:31:42.490Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:31:42.638Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:34:11.676Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:34:11.747Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:34:11.913Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:34:12.552Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:09.029Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC10">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:09.166Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC11">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:09.267Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC12">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:10.044Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:52.624Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC14">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:52.692Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC15">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:52.866Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC16">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:35:53.583Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC17">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:42:55.101Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC18">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:42:55.156Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC19">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:42:55.297Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC20">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:42:55.455Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC21">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:42:55.910Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC22">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:43:37.505Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC23">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:43:37.573Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC24">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:43:37.668Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC25">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:43:37.815Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC26">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:43:38.508Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC27">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:59:57.340Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC28">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:59:57.404Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC29">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:59:57.511Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC30">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:59:57.653Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC31">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:59:58.195Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC32">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:29:17.237Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC33">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:29:17.301Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC34">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:29:17.411Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC35">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:29:17.630Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC36">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:29:18.436Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC37">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:30:42.247Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC38">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:30:42.320Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC39">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:30:42.435Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC40">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:30:42.585Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC41">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:30:43.709Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC42">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T22:11:18.233Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC43">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T22:11:18.321Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC44">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T22:11:19.229Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC45">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T22:11:19.396Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC46">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T22:11:20.846Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2011-09-16T18:31:40.417Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="336">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:identifier>programf:nagarjuna_verses</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="" CREATED="2011-09-16T18:31:41.939Z" MIMETYPE="text/xml" SIZE="536">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="" CREATED="2011-09-16T18:34:11.747Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.2" LABEL="" CREATED="2011-09-16T18:35:09.166Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.3" LABEL="" CREATED="2011-09-16T18:35:52.692Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.4" LABEL="" CREATED="2011-09-16T18:42:55.156Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.5" LABEL="" CREATED="2011-09-16T18:43:37.573Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.6" LABEL="" CREATED="2011-09-16T18:59:57.404Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.7" LABEL="" CREATED="2011-09-16T19:29:17.301Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.8" LABEL="" CREATED="2011-09-16T19:30:42.320Z" MIMETYPE="text/xml" SIZE="887">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">One Talk on Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; One Talk on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.9" LABEL="" CREATED="2011-09-16T22:11:18.321Z" MIMETYPE="text/xml" SIZE="866">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">Verses from Nagarjuna&apos;s Sixty Verses on Reasoning &amp; on Direct Valid Cognition</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <date>
+    <Vevent>
+      <dtstart>1988-11-7, 1988-11-14</dtstart>
+      <dtend>1988-11-7, 1988-11-14</dtend>
+    </Vevent>
+  </date>
+  <creator>Khenpo Tsultrim Gyamtso Rinpoche</creator>
+  <language>tib</language>
+  <language>eng</language>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="" CREATED="2011-09-16T18:31:42.218Z" MIMETYPE="text/xml" SIZE="265">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.1" LABEL="" CREATED="2011-09-16T18:42:55.455Z" MIMETYPE="text/xml" SIZE="388">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <translator xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/translatorf:kiki"></translator>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.2" LABEL="" CREATED="2011-09-16T18:43:37.815Z" MIMETYPE="text/xml" SIZE="388">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <translator xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/translatorf:kiki"></translator>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.3" LABEL="" CREATED="2011-09-16T18:59:57.653Z" MIMETYPE="text/xml" SIZE="514">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <hasLocation xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/placef:boudha"></hasLocation>
+    <translator xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/translatorf:kiki"></translator>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.4" LABEL="" CREATED="2011-09-16T19:29:17.630Z" MIMETYPE="text/xml" SIZE="514">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <hasLocation xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/placef:boudha"></hasLocation>
+    <translator xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/translatorf:kiki"></translator>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.5" LABEL="" CREATED="2011-09-16T19:30:42.585Z" MIMETYPE="text/xml" SIZE="514">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <hasLocation xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/placef:boudha"></hasLocation>
+    <translator xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/translatorf:kiki"></translator>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.6" LABEL="" CREATED="2011-09-16T22:11:19.396Z" MIMETYPE="text/xml" SIZE="514">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/programf:nagarjuna_verses">
+    <hasLocation xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/placef:boudha"></hasLocation>
+    <translator xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/translatorf:kiki"></translator>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Program"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="marpaCore" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="marpaCore.0" LABEL="" CREATED="2011-09-16T18:31:42.490Z" MIMETYPE="text/xml" SIZE="798">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation type="technical"></annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.1" LABEL="" CREATED="2011-09-16T18:34:11.913Z" MIMETYPE="text/xml" SIZE="753">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.2" LABEL="" CREATED="2011-09-16T18:35:09.267Z" MIMETYPE="text/xml" SIZE="3143">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation>
+  <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.3" LABEL="" CREATED="2011-09-16T18:35:52.866Z" MIMETYPE="text/xml" SIZE="4586">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.4" LABEL="" CREATED="2011-09-16T18:42:55.297Z" MIMETYPE="text/xml" SIZE="4586">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.5" LABEL="" CREATED="2011-09-16T18:43:37.668Z" MIMETYPE="text/xml" SIZE="4729">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation type="technical">someone should listen more carefully to the content and note what verses/text Rinpoche is using. </annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.6" LABEL="" CREATED="2011-09-16T18:59:57.511Z" MIMETYPE="text/xml" SIZE="4729">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation type="technical">someone should listen more carefully to the content and note what verses/text Rinpoche is using. </annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.7" LABEL="" CREATED="2011-09-16T19:29:17.411Z" MIMETYPE="text/xml" SIZE="4737">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation type="technical">talk 2: someone should listen more carefully to the content and note what verses/text Rinpoche is using. </annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.8" LABEL="" CREATED="2011-09-16T19:30:42.435Z" MIMETYPE="text/xml" SIZE="4737">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation type="technical">talk 2: someone should listen more carefully to the content and note what verses/text Rinpoche is using. </annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="marpaCore.9" LABEL="" CREATED="2011-09-16T22:11:19.229Z" MIMETYPE="text/xml" SIZE="4737">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation>EMC:
+This tape has 2 talks. 
+I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+
+Talk One
+The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+
+This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+
+Tibetan:
+gnas med dmigs pa yod ma yin
+rtsa ba med cing gnas pa med
+ma righ rgyu las shin tu byung
+thog ma dbus mtha&apos; rnam spangs
+
+chu zhing bzhin du snying po med
+dri za&apos;i grong khyer &apos;dra ba ste
+rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+&apos;gro ba sgyu ma bzhin du snang
+
+smon lam (aspiration) and dedication start at 23:48.
+
+Talk Two 
+begins at 24:56
+Subject: mngon sum tshad ma.
+
+Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+
+No recording of the translator (Kiki Ekselius).
+ends at 56:29
+
+Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+
+These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation>This tape has 2 talks. 
+</annotation>
+  <annotation>I wonder if this location is correct as Boudha. From comments Rinpoche makes, I wonder if it isn&apos;t Bodh Gaya. Need to ask Peter. 
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk One
+</annotation>
+  <annotation>The translator (Kiki Ekselius) is only recorded until 3:14, which is the introduction to the teaching. After that, Kiki is not recorded except for her translation of the root verse @ 12:23-13:34 and partially at 15:46 (probably mistakenly). 
+</annotation>
+  <annotation></annotation>
+  <annotation>This is a teaching on verses 26-27 in Nagarjuna&apos;s Sixty Verses on Reasoning (Yuktiṣhaṣhṭikākārikā, Rigs pa drug cu pa’i tshig le’ur byas pa) Toh. 3825, which Rinpoche says describe the nature of samsara.
+</annotation>
+  <annotation></annotation>
+  <annotation>Tibetan:
+</annotation>
+  <annotation>gnas med dmigs pa yod ma yin
+</annotation>
+  <annotation>rtsa ba med cing gnas pa med
+</annotation>
+  <annotation>ma righ rgyu las shin tu byung
+</annotation>
+  <annotation>thog ma dbus mtha&apos; rnam spangs
+</annotation>
+  <annotation></annotation>
+  <annotation>chu zhing bzhin du snying po med
+</annotation>
+  <annotation>dri za&apos;i grong khyer &apos;dra ba ste
+</annotation>
+  <annotation>rmongs pa&apos;i grong khyer mi bzad pa&apos;i
+</annotation>
+  <annotation>&apos;gro ba sgyu ma bzhin du snang
+</annotation>
+  <annotation></annotation>
+  <annotation>smon lam (aspiration) and dedication start at 23:48.
+</annotation>
+  <annotation></annotation>
+  <annotation>Talk Two 
+</annotation>
+  <annotation>begins at 24:56
+</annotation>
+  <annotation>Subject: mngon sum tshad ma.
+</annotation>
+  <annotation></annotation>
+  <annotation>Notes: someone should listen more carefully to the content and note what verses/text Rinpoche is using. 
+</annotation>
+  <annotation></annotation>
+  <annotation>No recording of the translator (Kiki Ekselius).
+</annotation>
+  <annotation>ends at 56:29
+</annotation>
+  <annotation></annotation> 
+ <annotation>Sound quality is fine throughout for both talks. No empty spaces and seems not to miss anything of Rinpoche. 
+</annotation>
+  <annotation></annotation>
+  <annotation>These 2 talks should not be listed as having translation. They are only suitable for those who know Tibetan. 
+</annotation>
+  <annotation type="technical">talk 2: someone should listen more carefully to the content and note what verses/text Rinpoche is using. </annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="" CREATED="2011-09-16T18:31:42.638Z" MIMETYPE="text/xml" SIZE="590">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
+  <copyright>
+    <human></human>
+    <machine>
+      <uvalicense>no</uvalicense>
+    </machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <person>archivist1@example.com</person>
+    </machine>
+  </access>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

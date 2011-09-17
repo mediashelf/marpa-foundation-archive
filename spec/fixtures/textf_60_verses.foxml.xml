@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="textf:60_verses"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE=""/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-09-16T18:36:21.986Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-09-16T19:35:27.697Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-09-16T18:36:21.986Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:36:22.137Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:36:22.192Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>marpaCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:36:22.326Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:36:22.401Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:38:26.401Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:38:26.459Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:34:03.667Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:34:03.731Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:34:10.655Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC10">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:34:10.704Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC11">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:34:32.807Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC12">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:34:32.859Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:35:27.643Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC14">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:35:27.697Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2011-09-16T18:36:21.986Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="336">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:identifier>textf:60_verses</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="" CREATED="2011-09-16T18:36:22.137Z" MIMETYPE="text/xml" SIZE="536">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="" CREATED="2011-09-16T18:38:26.459Z" MIMETYPE="text/xml" SIZE="745">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">རིགས་པ་དྲུག་ཅུ་པའི་ཚིག་ལེའུར་བྱས་པ་</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib">yuktiṣhaṣhṭikākārikā</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <title xml:lang="eng">Nagarjuna&apos;s Sixty Verses on Reasoning</title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.2" LABEL="" CREATED="2011-09-16T19:34:03.731Z" MIMETYPE="text/xml" SIZE="745">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">རིགས་པ་དྲུག་ཅུ་པའི་ཚིག་ལེའུར་བྱས་པ་</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib">yuktiṣhaṣhṭikākārikā</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <title xml:lang="eng">Nagarjuna&apos;s Sixty Verses on Reasoning</title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.3" LABEL="" CREATED="2011-09-16T19:34:10.704Z" MIMETYPE="text/xml" SIZE="745">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">རིགས་པ་དྲུག་ཅུ་པའི་ཚིག་ལེའུར་བྱས་པ་</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib">yuktiṣhaṣhṭikākārikā</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <title xml:lang="eng">Nagarjuna&apos;s Sixty Verses on Reasoning</title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.4" LABEL="" CREATED="2011-09-16T19:34:32.859Z" MIMETYPE="text/xml" SIZE="745">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">རིགས་པ་དྲུག་ཅུ་པའི་ཚིག་ལེའུར་བྱས་པ་</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib">yuktiṣhaṣhṭikākārikā</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <title xml:lang="eng">Nagarjuna&apos;s Sixty Verses on Reasoning</title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.5" LABEL="" CREATED="2011-09-16T19:35:27.697Z" MIMETYPE="text/xml" SIZE="745">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib">རིགས་པ་དྲུག་ཅུ་པའི་ཚིག་ལེའུར་བྱས་པ་</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib">yuktiṣhaṣhṭikākārikā</title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+  <title xml:lang="eng">Nagarjuna&apos;s Sixty Verses on Reasoning</title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="" CREATED="2011-09-16T18:36:22.192Z" MIMETYPE="text/xml" SIZE="262">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/textf:60_verses">
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:Text"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="marpaCore" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="marpaCore.0" LABEL="" CREATED="2011-09-16T18:36:22.326Z" MIMETYPE="text/xml" SIZE="798">
+<foxml:xmlContent>
+<marpa_core xmlns="http://yourmediashelf.com/schemas/marpa-core/v0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <description>This xml is loosely imitating PBCore as a placeholder until we implement support for real PBCore XML</description>
+  <subject type="commentary">
+    <author></author>
+    <title></title>
+  </subject>
+  <contributor role="operator"></contributor>
+  <instantiation type="digital">
+    <identifier></identifier>
+    <location></location>
+  </instantiation>
+  <instantiation type="physical">
+    <identifier></identifier>
+    <location></location>
+    <annotation></annotation>
+    <duration></duration>
+  </instantiation>
+  <keywords></keywords>
+  <annotation type="technical"></annotation>
+</marpa_core>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="" CREATED="2011-09-16T18:36:22.401Z" MIMETYPE="text/xml" SIZE="590">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
+  <copyright>
+    <human></human>
+    <machine>
+      <uvalicense>no</uvalicense>
+    </machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <person>archivist1@example.com</person>
+    </machine>
+  </access>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

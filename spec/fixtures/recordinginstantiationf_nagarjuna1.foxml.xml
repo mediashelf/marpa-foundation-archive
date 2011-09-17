@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="recordinginstantiationf:nagarjuna1"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE=""/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-09-16T18:55:01.064Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-09-17T07:29:41.455Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-09-16T18:55:01.064Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:55:01.197Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:55:01.228Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:55:01.332Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T18:55:01.396Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:47:12.113Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:47:12.185Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:47:42.504Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-16T19:47:42.558Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:26:05.765Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC10">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:26:05.818Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC11">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:26:25.229Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC12">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:26:25.294Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:29:13.004Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC14">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:29:13.060Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC15">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:29:29.374Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC16">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:29:29.432Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC17">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:29:41.399Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC18">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>pbCore</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-09-17T07:29:41.455Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2011-09-16T18:55:01.064Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="337">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:identifier>recordinginstantiationf:nagarjuna1</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="" CREATED="2011-09-16T18:55:01.197Z" MIMETYPE="text/xml" SIZE="536">
+<foxml:xmlContent>
+<dc xmlns="http://purl.org/dc/terms/" xmlns:cpf="urn:isbn:1-931666-33-4" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title cpf:scriptCode="Tibt" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="wylie" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="tib"></title>
+  <title cpf:scriptCode="Latn" cpf:transliteration="marpa" xml:lang="skt"></title>
+  <title cpf:scriptCode="Latn" xml:lang="skt"></title>
+</dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="pbCore" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="pbCore.0" LABEL="" CREATED="2011-09-16T18:55:01.228Z" MIMETYPE="text/xml" SIZE="643">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier></instantiationIdentifier>
+  <instantiationLocation></instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types"></instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration></instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.1" LABEL="" CREATED="2011-09-16T19:47:12.185Z" MIMETYPE="text/xml" SIZE="767">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>talk1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/x-caf</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration></instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">collected</instantiationAnnotation>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.2" LABEL="" CREATED="2011-09-16T19:47:42.558Z" MIMETYPE="text/xml" SIZE="771">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>talk1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/x-caf</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration></instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">dissemination</instantiationAnnotation>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.3" LABEL="" CREATED="2011-09-17T07:26:05.818Z" MIMETYPE="text/xml" SIZE="853">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>talk1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/x-caf</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration>1:10:22</instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">dissemination</instantiationAnnotation>
+  <instantiationFileSize unitsOFMeasure="MB">66.88</instantiationFileSize>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.4" LABEL="" CREATED="2011-09-17T07:26:25.294Z" MIMETYPE="text/xml" SIZE="891">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c/1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/x-caf</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration>1:10:22</instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">dissemination</instantiationAnnotation>
+  <instantiationFileSize unitsOFMeasure="MB">66.88</instantiationFileSize>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.5" LABEL="" CREATED="2011-09-17T07:29:13.060Z" MIMETYPE="text/xml" SIZE="988">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c/1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3: http://marpa-foundation.s3.amazonaws.com/import/rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c/1.mp3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/x-caf</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration>1:10:22</instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">dissemination</instantiationAnnotation>
+  <instantiationFileSize unitsOFMeasure="MB">66.88</instantiationFileSize>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.6" LABEL="" CREATED="2011-09-17T07:29:29.432Z" MIMETYPE="text/xml" SIZE="988">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c-1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3: http://marpa-foundation.s3.amazonaws.com/import/rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c/1.mp3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/x-caf</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration>1:10:22</instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">dissemination</instantiationAnnotation>
+  <instantiationFileSize unitsOFMeasure="MB">66.88</instantiationFileSize>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="pbCore.7" LABEL="" CREATED="2011-09-17T07:29:41.455Z" MIMETYPE="text/xml" SIZE="987">
+<foxml:xmlContent>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+  <instantiationIdentifier>rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c-1.mp3</instantiationIdentifier>
+  <instantiationLocation>Amazon S3: http://marpa-foundation.s3.amazonaws.com/import/rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c/1.mp3</instantiationLocation>
+  <instantiationDigital source="IANA MIME Media types">audio/mpeg</instantiationDigital>
+  <instantiationFileSize unitsOfMeasure="MB"></instantiationFileSize>
+  <instantiationDuration>1:10:22</instantiationDuration>
+  <instantiationMediaType></instantiationMediaType>
+  <instantiationAnnotation annotationType="workflowStatus">dissemination</instantiationAnnotation>
+  <instantiationFileSize unitsOFMeasure="MB">66.88</instantiationFileSize>
+</pbcoreInstantiationDocument>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="" CREATED="2011-09-16T18:55:01.332Z" MIMETYPE="text/xml" SIZE="533">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="info:fedora/recordinginstantiationf:nagarjuna1">
+    <isPartOf xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/talkf:nagarjuna_verses_1"></isPartOf>
+    <hasDescription xmlns="info:fedora/fedora-system:def/relations-external#" rdf:resource="info:fedora/recordingf:nagarjuna_verses2"></hasDescription>
+    <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/afmodel:RecordingInstantiation"></hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="" CREATED="2011-09-16T18:55:01.396Z" MIMETYPE="text/xml" SIZE="590">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
+  <copyright>
+    <human></human>
+    <machine>
+      <uvalicense>no</uvalicense>
+    </machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <person>archivist1@example.com</person>
+    </machine>
+  </access>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>
