@@ -1,0 +1,8 @@
+- @page_title = application_name + " Manage Topics" 
+
+%h1 Manage Topics
+
+%ul
+  = render :partial=>"topic", :collection=>@topics
+  
+=link_to "add a topic", topics_path, :method=>'post'

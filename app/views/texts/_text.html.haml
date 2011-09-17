@@ -1,0 +1,32 @@
+%li.text
+  %h2
+    =link_to text.english_title, text_path(text.pid)
+  =link_to "edit", edit_text_path(text.pid), :class=>"action edit"
+  =link_to "delete", text_path(text.pid), :method=>:delete, :class=>"action destroy"
+  %dl.fields
+    - unless text.english_title.empty?
+      %dt
+        English Title
+      %dd=text.english_title
+    - unless text.tibetan_title.empty?
+      %dt
+        Title (པོད་སྐད)
+      %dd=text.tibetan_title
+    - unless text.wylie_title.empty?
+      %dt
+        Title (wylie)
+      %dd=text.wylie_title
+    - unless text.marpa_transliteration_title.empty?
+      %dt
+        Title (phonetic)
+      %dd=text.marpa_transliteration_title
+    - unless text.sanskrit_diacrit_title.empty?
+      %dt
+        Title (sanskrit with diacritics)
+      %dd=text.sanskrit_diacrit_title
+    - unless text.sanskrit_title.empty?
+      %dt
+        Title (sanskrit)
+      %dd=text.sanskrit_title
+  
+

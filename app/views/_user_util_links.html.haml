@@ -1,0 +1,17 @@
+- if current_user 
+  %ul.utils
+    %li= link_to "Search", catalog_index_path()
+    %li= link_to "Manage Topics", topics_path()
+    %li= link_to "Manage Translators", translators_path()
+    %li= link_to "Manage Locations", places_path()
+    %li= link_to "Add a Program", programs_path(), :method=>'post'
+    %li= link_to "Manage Texts", texts_path()
+    %li
+      = link_to current_user.login, edit_user_registration_path 
+      (
+      = link_to "Log Out", destroy_user_session_path 
+      ) 
+- else 
+  %ul.utils
+    %li= link_to 'Login', new_user_session_path() 
+

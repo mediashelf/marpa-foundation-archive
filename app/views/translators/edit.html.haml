@@ -1,0 +1,18 @@
+-content_for :head do
+  =stylesheet_link_tag params[:controller], 'forms'
+
+=link_to "Manage Translators", translators_path
+%h1 
+  Translator: 
+  =@translator.tibetan_name
+  
+=form_for @translator do |f|
+  %ul.form-fields
+    %li
+      =f.label 'tibetan_name', 'Name', :class=>'left-col'
+      =f.text_field 'tibetan_name'
+    %li
+      =hidden_field_tag 'program', params[:program]
+      =f.submit 
+  
+

@@ -1,0 +1,8 @@
+- @page_title = application_name + " Manage Texts" 
+
+%h1 Manage Texts
+
+%ul
+  = render :partial=>"text", :collection=>@texts
+  
+=link_to "add a text", texts_path, :method=>'post'

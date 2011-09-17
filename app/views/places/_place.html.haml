@@ -1,0 +1,6 @@
+%li.place
+  =place.name
+  =place.description
+  =link_to "edit", edit_place_path(place.pid), :class=>"action edit"
+  =link_to "delete", place_path(place.pid), :method=>:delete, :class=>"action destroy"
+

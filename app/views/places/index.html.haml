@@ -1,0 +1,8 @@
+- @page_title = application_name + " Manage Locations" 
+
+%h1 Manage Locations
+
+%ul
+  = render :partial=>"place", :collection=>@places
+  
+=link_to "add a location", places_path, :method=>'post'

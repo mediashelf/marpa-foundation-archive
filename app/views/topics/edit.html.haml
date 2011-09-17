@@ -1,7 +1,10 @@
 - content_for(:head) do
   =stylesheet_link_tag 'application', params[:controller], 'forms'
+=link_to "Manage Topics", topics_path
+
 %h1 
-  Topic
+  Topic: 
+  =@topic.english_title 
 =form_for @topic do |f|
   =f.label :english_title, 'Name'
   =f.text_field :english_title

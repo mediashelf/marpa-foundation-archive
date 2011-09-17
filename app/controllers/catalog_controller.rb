@@ -36,7 +36,7 @@ class CatalogController < ApplicationController
   end
   
   def unwanted_models
-    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place, Text, Quotation, TalkText, "info:fedora/afmodel:MarpaCourse"]
+    return [Recording, RecordingInstantiation, Topic, ProgramText, Translator, Place, Text, Song, Quotation, TalkText, "info:fedora/afmodel:MarpaCourse"]
   end
 
 end 

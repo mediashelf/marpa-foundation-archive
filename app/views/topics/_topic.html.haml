@@ -1,0 +1,5 @@
+%li.topic
+  =topic.english_title
+  =link_to "edit", edit_topic_path(topic.pid), :class=>"action edit"
+  =link_to "delete", topic_path(topic.pid), :method=>:delete, :class=>"action destroy"
+

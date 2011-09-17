@@ -1,0 +1,8 @@
+- @page_title = application_name + " Manage Translators" 
+
+%h1 Manage Translators
+
+%ul
+  = render :partial=>"translator", :collection=>@translators
+
+=link_to "add a translator", translators_path, :method=>'post'

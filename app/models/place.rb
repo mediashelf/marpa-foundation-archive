@@ -1,5 +1,8 @@
 require 'marpa/datastreams/place'
 class Place < ActiveFedora::Base
+  
+    include Hydra::ModelMethods
+  
     def initialize (attrs = {} )
       attrs ||= {}
       super(attrs)

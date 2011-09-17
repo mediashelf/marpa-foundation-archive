@@ -1,0 +1,6 @@
+%li.translator
+  =translator.tibetan_name
+  =link_to "edit", edit_translator_path(translator.pid), :class=>"action edit"
+  =link_to "delete", translator_path(translator.pid), :method=>:delete, :class=>"action destroy"
+
+

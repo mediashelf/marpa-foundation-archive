@@ -26,17 +26,31 @@ class TextsController < ApplicationController
     if !params[:talk].nil?
       redirect_to edit_talk_path(params[:talk])
     elsif !params[:program].nil?
-      redirect_to edit_program_path(params[:talk])
+      redirect_to edit_program_path(params[:program])
     else
       render :action=>"edit"
     end
   end
-
+  
+  def index
+    @texts = Text.find(:all)
+  end
+  
   def edit
     @text = Text.find(params[:id])
   end 
   
   def show
     redirect_to edit_text_path(@text)
+  end
+  
+  def destroy
+    @text = Text.find(params[:id])
+    if @text.delete
+      flash[:notice] = "Deleted #{@text.english_title}"
+    else
+      flash[:error] = "Could not delete #{@text.english_title}."
+    end
+    redirect_to texts_path
   end
 end
