@@ -58,6 +58,16 @@ class TalksController < ApplicationController
     @talk_text.save
     render :partial=>'nested_texts', :locals=>{:talk_text=>@talk_text}
   end
+  
+  def remove_talk_text
+    @talk_text = TalkText.find(params[:id])
+    @talk = @talk_text.talk
+    if @talk_text.delete
+      redirect_to(edit_talk_path(@talk), :notice => 'Text association was successfully deleted.') 
+    else
+      redirect_to(edit_talk_path(@talk), :notice => 'Could not delete text association.') 
+    end
+  end
 
   def add_quotation
     @talk = Talk.find(params[:id])

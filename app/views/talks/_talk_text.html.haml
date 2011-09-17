@@ -10,6 +10,8 @@
     =ttf.text_field :sections, :class=>'sections'
   %td
     =ttf.text_field :pages, :class=>'pages'
+  %td
+    =link_to "remove association", remove_talk_text_talk_path(ttf.object.pid), :method=>:delete
 
 
 
