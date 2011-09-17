@@ -25,11 +25,16 @@ class RecordingInstantiationsController < ApplicationController
   
   def update 
     @instantiation = RecordingInstantiation.find(params[:id])
-    @instantiation.update_attributes(params[:recording_instantiation])
-    if params[:recording].nil? || params[:recording].empty?
-      redirect_to :action=>"edit"
-    else
-      redirect_to edit_recording_path(params[:recording])
+    
+    if params.has_key?("Filedata")
+      @instantiation.store(params["Filedata"])
+    else     
+      @instantiation.update_attributes(params[:recording_instantiation])
+      if params[:recording].nil? || params[:recording].empty?
+        redirect_to :action=>"edit"
+      else
+        redirect_to edit_recording_path(params[:recording])
+      end
     end
   end
 

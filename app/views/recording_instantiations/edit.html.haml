@@ -34,11 +34,16 @@
   =link_to "play the recording", @instantiation.s3_url
   %audio{:controls=>"controls"}
     %source{:src=>@instantiation.s3_url}
-  =link_to "upload replacement", 
+%div.upload
+  %h2 Upload
+  =render :partial=>"uploader"
 
 =form_for @instantiation do |f|
 
   %ul.form-fields
+    %li
+      =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
+      =f.text_field 'instantiation_identifier', :class=>"extra_long"
     %li
       =f.label 'iana_format', 'Digital Format', :class=>'left-col'
       =f.select 'iana_format', Marpa::MarpaCore.iana_mime_types.invert.sort
@@ -46,17 +51,14 @@
       =f.label 'workflow_status', 'Workflow Status', :class=>'left-col'
       =f.select 'workflow_status', RecordingInstantiation.workflow_statuses
     %li
+      =f.label 'location', 'Location', :class=>'left-col'
+      =f.text_field 'location', :class=>"extra_long"      
+    %li
       =f.label 'file_size_mb', 'File Size (MB)', :class=>'left-col'
       =f.text_field 'file_size_mb'
     %li
       =f.label 'duration', 'Duration', :class=>'left-col'
       =f.text_field 'duration'
-    %li
-      =f.label 'location', 'Location', :class=>'left-col'
-      =f.text_field 'location', :class=>"extra_long"
-    %li
-      =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
-      =f.text_field 'instantiation_identifier', :class=>"extra_long"
     %li
       =f.label 'informal_note', 'Notes', :class=>'left-col'
       =f.text_area 'informal_note', :class=>"fullsize"

@@ -1,0 +1,8 @@
+- form_tag(recording_instantiation_url,:method=>"post",:enctype=>"multipart/form-data", :class=>"uploader-form") do 
+  - field_tag_options = defined?(uploader_options) ? uploader_options : {:id => nil} 
+  %div.uploader-contents
+    %p Browse to upload a file.
+    = file_field_tag "Filedata[]", field_tag_options
+  %p
+    = submit_tag("Upload File", :name=>"upload_file")
+    = submit_tag("Upload and Finish", :name=>"finish") unless params[:new_asset] or session[:scripts]

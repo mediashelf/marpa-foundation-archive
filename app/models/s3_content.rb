@@ -30,6 +30,21 @@ class S3Content < ActiveFedora::Base
     AWS::S3::S3Object.url_for(key, bucket, :expires_in => 60 * 60 * 1.5)
   end
   
+  def store(data,filename=nil,bucket="uploads")
+    s3_ds = datastreams["s3"]
+    if s3_ds.bucket_values.empty?
+      s3_ds.bucket_values = bucket
+    end
+    if s3_ds.key_values.empty?
+      s3_ds.key_values = filename
+    end    
+    bucket = s3_ds.bucket_values.first
+    key = s3_ds.key_values.first
+    establish_s3_connection
+
+    S3Object.store(key, data, bucket)
+  end
+  
   def establish_s3_connection
     # Set up the connection to S3 if it has not already been established
     s3keys = YAML.load(File.open(File.join(RAILS_ROOT,"config","s3.yml")))
