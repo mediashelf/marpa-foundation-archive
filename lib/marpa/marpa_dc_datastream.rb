@@ -97,5 +97,18 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     doc = Nokogiri::XML::Document.parse( File.new(File.join(File.dirname(__FILE__), 'marpa_dc_datastream_template.xml')) )
   end
   
+  # Extending update_indexed_attributes 
+  def update_indexed_attributes(params={}, opts={}) 
+    apply_legacy_xml_fixes
+    super
+  end
+  
+  def apply_legacy_xml_fixes
+    # Clean up old xml documents that don't have all of the necessary namespaces declared
+    unless self.ng_xml.namespaces.has_key?("xmlns:ical")
+      self.ng_xml.root.add_namespace("ical",'http://www.w3.org/2002/12/cal#')
+    end
+  end
+  
 end
 end
