@@ -16,14 +16,16 @@
   %li.topics
     =f.label 'topics', 'Topics', :class=>'left-col'
     =select_tag 'program[topic_ids][]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title", @program.topic_ids), :multiple=>true
-    =link_to "add a topic", topics_path(:program=>@program), :method=>'post'
+    =#link_to "add a topic", topics_path(:program=>@program), :method=>'post'
+    =link_to "manage topics", topics_path(:program=>@program.pid), {:id => 'manage-topics'}
   %li
     =f.label 'subject', 'Keywords', :class=>'left-col'
     =f.text_field 'subject', :class=>"long"
   %li
     =label_tag 'place',  'Location', :class=>'left-col'
     =f.select :place_id, options_from_collection_for_select(Place.find(:all, :rows=>1000), "pid", "name", @program.place_id), { :include_blank => true }
-    =link_to "add a location", new_place_path(:program=>@program.pid), {:id => 'add-location', :class=>'addval'}
+    =link_to "manage locations", places_path(:program=>@program.pid), {:id => 'manage-locations'}
+    =#link_to "add a location", new_place_path(:program=>@program.pid), {:id => 'add-location', :class=>'addval'}
 
   %li
     =label_tag 'language',  'Language(s)', :class=>'left-col'
@@ -52,7 +54,8 @@
   %li
     =label_tag 'translator',  'Translator(s)', :class=>'left-col'
     =f.select :translator_id, options_from_collection_for_select(Translator.find(:all, :rows=>1000), "pid", "tibetan_name", @program.translator_id), { :include_blank => true }
-    =link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
+    =#link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
+    =link_to "manage translators", translators_path(:program=>@program.pid), {:id => 'manage-translators'}
   %li
     .fieldset
       .legend
@@ -78,7 +81,8 @@
       %div.addline
         =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all, :rows=>1000), "pid", "english_title"), { :include_blank => true }
         =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
-        =link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
+        =#link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
+        =link_to "manage texts", texts_path(:program=>@program.pid), {:id => 'manage-texts'}
   %li.workflow_note
     =f.label 'workflow_note', 'Next Steps'
     =f.text_area 'workflow_note', :class=>"fullsize"

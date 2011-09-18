@@ -1,0 +1,8 @@
+- @page_title = application_name + " Manage Songs" 
+
+%h1 Manage Songs
+
+%ul
+  = render :partial=>"song", :collection=>@songs
+  
+=link_to "add a song", songs_path, :method=>'post'

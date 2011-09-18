@@ -1,0 +1,5 @@
+%li.song
+  =song.english_title
+  =link_to "edit", edit_song_path(song.pid), :class=>"action edit"
+  =link_to "delete", song_path(song.pid), :method=>:delete, :class=>"action destroy"
+

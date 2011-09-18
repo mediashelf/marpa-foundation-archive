@@ -35,7 +35,8 @@
     %li
       =f.label 'topics', 'Topics', :class=>'left-col'
       =select_tag 'talk[topic_ids][]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title", @talk.topic_ids), :multiple=>true
-      =link_to "add a topic", topics_path(:talk=>@talk), :method=>'post'
+      =#link_to "add a topic", topics_path(:talk=>@talk), :method=>'post'
+      =link_to "manage topics", topics_path(:talk=>@talk.pid), {:id => 'manage-topics'}
     %li
       =f.label 'subject', 'Keywords', :class=>'left-col'
       =f.text_field 'subject', :class=>"extra_long"
@@ -63,7 +64,8 @@
       .addline
         =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all), "pid", "english_title")
         =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_talk_text_talk_path(@talk), "data-field"=>'text_id'
-        =link_to "create a text", texts_path(:talk=>@talk), :method=>'post'
+        =link_to "manage texts", texts_path(:talk=>@talk.pid), {:id => 'manage-texts'}
+        =#link_to "create a text", texts_path(:talk=>@talk), :method=>'post'
           
     %li.fieldset
       .legend
@@ -79,23 +81,24 @@
       .addline
         =select_tag 'song', options_from_collection_for_select(Song.find(:all), "pid", "english_title")
         =tag 'input', :type=>'button', :value=>"Associate Song", "data-path"=> add_song_talk_path(@talk), "data-field"=>'song'
-        =link_to "create a song", songs_path(:talk=>@talk), :method=>'post'
-    %li.fieldset
-      .legend
-        Verses Quoted
-      %table.associated-quotes
-        %thead
-          %tr
-            %th
-              Title
-            %th
-        %tbody
-          =render :partial=>"quotation", :collection=>@talk.quotations
-      .addline
-        %td{:colspan=>2}
-          =select_tag 'quotation', options_from_collection_for_select(::Quotation.find(:all), "pid", "english_title")
-          =tag 'input', :type=>'button', :value=>"Associate Quotation", "data-path"=> add_quotation_talk_path(@talk), "data-field"=>'quotation'
-          =link_to "create a quotation", quotations_path(:talk=>@talk), :method=>'post'
+        =link_to "manage songs", songs_path(:talk=>@talk.pid), {:id => 'manage-translators'}
+        =#link_to "create a song", songs_path(:talk=>@talk), :method=>'post'
+    / %li.fieldset
+    /   .legend
+    /     Verses Quoted
+    /   %table.associated-quotes
+    /     %thead
+    /       %tr
+    /         %th
+    /           Title
+    /         %th
+    /     %tbody
+    /       =render :partial=>"quotation", :collection=>@talk.quotations
+    /   .addline
+    /     %td{:colspan=>2}
+    /       =select_tag 'quotation', options_from_collection_for_select(::Quotation.find(:all), "pid", "english_title")
+    /       =tag 'input', :type=>'button', :value=>"Associate Quotation", "data-path"=> add_quotation_talk_path(@talk), "data-field"=>'quotation'
+    /       =link_to "create a quotation", quotations_path(:talk=>@talk), :method=>'post'
     %li
       =f.label 'note', 'Notes/Annotations'
       =f.text_area 'note', :class=>"fullsize"

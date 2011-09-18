@@ -1,3 +1,6 @@
+- content_for(:head) do
+  =stylesheet_link_tag 'application', params[:controller], 'forms'
+=link_to "Manage Songs", songs_path
 %h1
   Song
 =form_for @song do |f|
