@@ -47,11 +47,12 @@ describe CatalogController do
       it "should trigger enforce_index_permissions" do
         controller.expects(:add_access_controls_to_solr_params)
         controller.expects(:enforce_index_permissions)
+        controller.expects(:exclude_unwanted_models_from_search_results)
         get :index
       end
     end
     describe "show" do
-      it "should trigger enforce_show_permissions and load_fedora_document" do
+      it "should trigger enforce_show_permissions, load_fedora_document and exclude_unwanted_models_from_search_results" do
         controller.expects(:load_fedora_document)
         controller.expects(:enforce_show_permissions)
         get :show, :id=>'test:3'
