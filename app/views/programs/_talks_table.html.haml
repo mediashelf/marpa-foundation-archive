@@ -1,0 +1,13 @@
+%table#talks.column
+  %col{:width=>"30%"}/
+  %col{:width=>"25%"}/
+  %col{:width=>"30%"}/
+  %col{:width=>"15%"}/
+  %thead
+    %tr
+      %th Talk Title              
+      %th Date recorded           
+      %th Topics                                                                    
+      %th Run Time
+  %tbody
+    =render :partial=>'talks/result', :collection=>@document_fedora.parts(:response_format=>:solr, :rows=>1000).hits    

@@ -4,7 +4,7 @@
     =@talk.english_title
   - recordings = @talk.recordings
   
-  .total
+  %span.count
     Total # of Source Recordings: 
     = recordings.count
     = link_to "Add an alternate Recording", recordings_path(:talk=>@talk), :method=>:post

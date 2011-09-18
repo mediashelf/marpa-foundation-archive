@@ -25,13 +25,9 @@
             =@program.title
           = f.text_field(:title) 
           =link_to 'edit title', '#', {:id=>'edit-title'} 
-      .fieldset.course-talks 
-        .legend
-          Talks
-          %span.count="(#{@document_fedora.parts(:response_format=>:solr, :rows=>1000).hits.length})"
+      
+      =render :partial=>'talks'
 
-        = render :partial => 'programs/talks'
-        = link_to "Add a Talk", talks_path(:program=>@program), :method=>:post
       = render :partial => 'programs/edit_description', :locals=>{:f => f}
       = submit_tag
 

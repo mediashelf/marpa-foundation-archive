@@ -3,6 +3,25 @@
   width: 47%;
 }
 
+dl.details {
+  margin-left: 10px;
+}
+.details dd {
+  margin-left: 10px;
+  margin-top: 0px;
+}
+.details dd ul {
+  padding-left: 0px;
+  list-style: none;
+  margin-top: 5px;
+}
+
+.player {
+  float: right;
+  margin-top: 15px;
+  margin-right: 25px;
+}
+
 #title-container {
   margin-top: 40px;
 }
@@ -35,6 +54,12 @@ fieldset.permissions {
 table.associated-texts {
   min-width: 500px;
   max-width: 98%;
+}
+
+.player {
+  float: right;
+  margin-top: 45px;
+  margin-right: 46px;
 }
 
 .chapter {
