@@ -29,14 +29,16 @@
       =link_to @talk.english_title, talk_path(@talk)
     -else
       (No talk found)  
-  
-- if @instantiation.location.include?("Amazon S3:")
-  =link_to "play the recording", @instantiation.s3_url
-  %audio{:controls=>"controls"}
-    %source{:src=>@instantiation.s3_url}
-%div.upload
-  %h2 Upload
-  =render :partial=>"uploader"
+
+.file-content
+  .player
+    - if @instantiation.location.include?("Amazon S3")
+      %audio{:controls=>"controls"}
+        %source{:src=>@instantiation.s3_url}
+      =#link_to "download the recording", @instantiation.s3_url
+  %div.upload
+    %h2 Upload
+    =render :partial=>"uploader"
 
 =form_for @instantiation do |f|
 

@@ -1,7 +1,11 @@
 %tr[dissemination]
-  %td.identifier
-    =link_to dissemination.instantiation_identifier, recording_instantiation_path(dissemination.pid)
-  %td.source_recording
-    =dissemination.recording.document_identifier
+  - if dissemination.location.include?("Amazon S3")
+    %td.player
+      %audio{:controls=>"controls"}
+        %source{:src=>dissemination.s3_url}
+      =link_to "edit", recording_instantiation_path(dissemination.pid)
+  -else
+    %td.identifier
+      =link_to dissemination.instantiation_identifier, recording_instantiation_path(dissemination.pid)
   %td.recorded_by
     =dissemination.recording.originally_recorded_by

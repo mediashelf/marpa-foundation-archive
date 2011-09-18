@@ -13,4 +13,7 @@ describe Recording do
       @recording.datastreams["marpaCore"].term_values(field.to_sym).should == ["#{field} test value"]
     end
   end
+  it "should respond to document_identifier" do
+    @recording.should respond_to(:document_identifier)
+  end
 end

@@ -28,7 +28,9 @@ MarpaFoundation::Application.routes.draw do
     end
   end
   resources :recordings
-  resources :recording_instantiations
+  resources :recording_instantiations do
+    resource :file, :controller=>:recording_instantiation_files
+  end
 
   resources :topics
 
