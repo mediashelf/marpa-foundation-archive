@@ -3,12 +3,26 @@
 }
 
 
-.disseminations, .manage_recordings {
+.disseminations {
   width: 500px;
   float:right;
   clear: right;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.manage_recordings {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.manage_recordings .recording, .manage_recordings .total {
+  margin: 15px;
+}
+
+.recording .instantiations {
+  margin-left: 15px;
+  margin-right: 25px;
 }
 
 #title-container {

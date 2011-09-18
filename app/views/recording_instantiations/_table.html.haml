@@ -1,6 +1,7 @@
 %span 
-  Total: 
+  Total Instantiations: 
   = solr_result.hits.length
+  =link_to "Create another Instantiation", recording_instantiations_path(:recording=>recording), :method=>'post'
 
 %table#talks.column
   %col{:width=>"30%"}/

@@ -1,8 +1,17 @@
-%tr[recording]
-  %td.identifier
+%div[recording]
+  %h2 
+    Source Recording
     =link_to recording.document_identifier, recording_path(recording.pid)
-  %td.recorded_by
-    =recording.originally_recorded_by
-  %td.uploaded_by
-  %td.date_uploaded
-    =#dissemination.system_create_date
+  %dl
+    %dt.recorded_by Contributed by
+    %dd.recorded_by=recording.contributed_by
+    %dt.uploaded_by Recorded by
+    %dd.uploaded_by=recording.originally_recorded_by
+    %dt.date_uploaded Date Uploaded
+    %dd.date_uploaded=recording.create_date
+    %dt.duration Duration
+    %dd.uploaded_by=recording.duration
+  
+  %h4 Instantiations
+  .instantiations
+    = render :partial=>"recording_instantiations/table", :locals=>{:recording=>recording, :solr_result=>recording.instantiations(:response_format=>:solr, :rows=>1000)}

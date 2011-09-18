@@ -1,13 +1,13 @@
-%table#recordings.column
-  %col{:width=>"30%"}/
-  %col{:width=>"25%"}/
-  %col{:width=>"30%"}/
-  %col{:width=>"15%"}/
-  %thead
-    %tr
-      %th Identifier             
-      %th Recorded by           
-      %th Uploaded by                                                                    
-      %th Date Uploaded
-  %tbody
-    =render :partial=>'recording', :collection=>@talk.recordings
+.fieldset.manage_recordings
+  .legend
+    Manage Recordings of 
+    =@talk.english_title
+  - recordings = @talk.recordings
+  
+  .total
+    Total # of Source Recordings: 
+    = recordings.count
+    = link_to "Add an alternate Recording", recordings_path(:talk=>@talk), :method=>:post
+  
+  =render :partial=>'recording', :collection=>recordings
+      

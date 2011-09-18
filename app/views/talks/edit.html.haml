@@ -23,15 +23,8 @@
       
   .fieldset.disseminations
     .legend 
-      Disseminations of 
-      =@talk.english_title
+      Listen to this talk 
     = render :partial=>"disseminations"
-  .fieldset.manage_recordings
-    .legend
-      Manage Recordings of 
-      =@talk.english_title
-    = render :partial=>"recordings"
-    = link_to "Add a Recording", recordings_path(:talk=>@talk), :method=>:post
   %ul.form-fields
     %li
       =f.label 'date', 'Date', :class=>'left-col'
@@ -109,5 +102,7 @@
     %li
       =f.submit 'Save talk'
       =hidden_field_tag 'course', params[:course]
+
+= render :partial=>"recordings"
 
 

@@ -48,8 +48,7 @@
         =f.text_area 'note', :class=>"fullsize"
   %fieldset
     %legend Digital Instantiations
-    = render :partial=>"recording_instantiations/table", :locals=>{:solr_result=>@recording.instantiations(:response_format=>:solr, :rows=>1000)}
-    =link_to "Create an Instantiation", recording_instantiations_path(:recording=>@recording), :method=>'post'
+    = render :partial=>"recording_instantiations/table", :locals=>{:recording=>@recording, :solr_result=>@recording.instantiations(:response_format=>:solr, :rows=>1000)}
   %fieldset 
     %legend Physical Instantiation (original)
     %ul.form-fields
