@@ -7,6 +7,7 @@ class Text < ActiveFedora::Base
   
     has_relationship "talks", :is_part_of
     belongs_to :author, :property=>:is_author_of
+    has_many :program_texts, :property=>:is_object_of_study
 
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
