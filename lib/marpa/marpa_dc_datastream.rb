@@ -10,8 +10,8 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.wylie_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'wylie'})
     t.wylie_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'wylie'})
     t.marpa_transliteration_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'marpa'})
-    t.sanskrit_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'marpa'})
-    t.sanskrit_diacrit_title(:path=>"title", :attributes=>{'xml:lang'=>"tib", 'cpf:scriptCode'=>"Latn"})
+    t.sanskrit_title(:path=>"title", :attributes=>{'xml:lang'=>"skt", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>'marpa'})
+    t.sanskrit_diacrit_title(:path=>"title", :attributes=>{'xml:lang'=>"skt", 'cpf:scriptCode'=>"Latn", 'cpf:transliteration'=>nil})
     
     t.contributor(:index_as=>[:facetable])
     t.creator
@@ -37,9 +37,9 @@ class MarpaDCDatastream < ActiveFedora::NokogiriDatastream
     t.coverage
     t.created
     t.date(:index_as=>[:not_searchable]) {
-      t.vevent(:xmlns =>'ical', :path=>'Vevent', :index_as=>[:not_searchable]) {
-        t.dtstart(:xmlns=>'ical', :path=>'dtstart', :index_as=>[:facetable])
-        t.dtend(:xmlns=>'ical')
+      t.vevent(:namespace_prefix =>'ical', :path=>'Vevent', :index_as=>[:not_searchable]) {
+        t.dtstart(:namespace_prefix=>'ical', :path=>'dtstart', :index_as=>[:facetable])
+        t.dtend(:namespace_prefix=>'ical')
       }
     }
     t.start_date(:proxy=>[:date, :vevent, :dtstart])

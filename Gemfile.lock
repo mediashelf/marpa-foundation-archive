@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/mediashelf/om.git
+  revision: 1cd4ed036106c881191a8d51d0d0bc2321de7d20
+  specs:
+    om (1.4.1)
+      mediashelf-loggable
+      nokogiri (>= 1.4.2)
+
+GIT
   remote: git://github.com/projecthydra/hydra-head.git
   revision: e66b113e3496e81746675dde4f9aa5f2c09c8ad0
   branch: rails3
@@ -166,9 +174,6 @@ GEM
     mocha (0.9.12)
     multipart-post (1.1.2)
     nokogiri (1.5.0)
-    om (1.4.0)
-      mediashelf-loggable
-      nokogiri (>= 1.4.2)
     orm_adapter (0.0.5)
     polyglot (0.3.2)
     rack (1.2.3)
@@ -273,7 +278,7 @@ DEPENDENCIES
   hydra-head!
   jquery-rails (>= 1.0.12)
   mocha
-  om (~> 1.4.0)
+  om!
   rails (>= 3.0.7)
   rspec
   rspec-rails

@@ -11,7 +11,8 @@ gem "hydra-head", :git => "git://github.com/projecthydra/hydra-head.git", :branc
 gem "aws-s3"
 gem "haml"
 
-gem "om", "~> 1.4.0"
+# gem "om", "~> 1.4.0"
+gem "om", :git=>"git://github.com/mediashelf/om.git"
 gem "active-fedora", "3.0.4" 
 gem 'ruby-debug'
 

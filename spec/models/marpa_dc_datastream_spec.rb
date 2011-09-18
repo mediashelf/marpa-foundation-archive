@@ -11,25 +11,24 @@ describe Marpa::MarpaDCDatastream do
     end
     it "should not need any indexing" do
       puts "Solr doc: #{@solr_doc.inspect}"
-      @solr_doc.should have_key :start_date
+      @solr_doc.should have_key "start_date_t"
     end
   end
   describe "the terminology" do
     before(:each) do
     end
     it "should have stuff" do
-      @datastream.term_values(:start_date).should == ['2010-05-28']
-      @datastream.term_values(:end_date).should == ['2010-06-02']
+      @datastream.start_date.should == ['2010-05-28']
+      @datastream.end_date.should == ['2010-06-02']
     end
     
     it "should work with cpf scriptCode and transliteration values" do
-      @text_dc.term_values(:english_title).should == ['General Teachings on Buddha nature']
-      @text_dc.term_values(:tibetan_title).should == ['ཐེག་པཆེན་པོ་རྒྱུད་བླ་མའི་བསྟན་བཅོས']
-      @text_dc.term_values(:wylie_title).should == ['thek bChen po rgyud bla mai bstan bcos']
-      @text_dc.term_values(:marpa_transliteration_title).should == ['thek chenpo gyu la mai ten chö']
-      @text_dc.term_values(:sanskrit_title).should == ['Uttaratantra']
-      @text_dc.term_values(:sanskrit_diacrit_title).should == ['Ratnagotravibhāgavyākhyā/ Mahāyānottaratantrashāstravyākhyā']
-      
+      @text_dc.english_title.should == ['General Teachings on Buddha nature']
+      @text_dc.tibetan_title.should == ['ཐེག་པཆེན་པོ་རྒྱུད་བླ་མའི་བསྟན་བཅོས']
+      @text_dc.wylie_title.should == ['thek bChen po rgyud bla mai bstan bcos']
+      @text_dc.marpa_transliteration_title.should == ['thek chenpo gyu la mai ten chö']
+      @text_dc.sanskrit_title.should == ['Uttaratantra']
+      @text_dc.sanskrit_diacrit_title.should == ['Ratnagotravibhāgavyākhyā/ Mahāyānottaratantrashāstravyākhyā']      
     end
   end
   describe "generating xml" do
@@ -46,9 +45,9 @@ describe Marpa::MarpaDCDatastream do
     it "should generate xml with the date encoded as ical" do
       @new.update_indexed_attributes({['start_date']=>['1991-02-28']})
       @new.update_indexed_attributes({['end_date']=>['1991-02-28']})
-      @new.find_by_terms(:start_date).to_xml.should == ['<ical:dtstart>1991-02-28</ical:dtstart>']
-      @new.find_by_terms(:end_date).to_xml.should == ['<ical:dtend>1991-02-28</ical:dtend>']
-      @new.find_by_terms(:date).to_xml.should == '<ical:Vevent><ical:dtstart>0000-00-00</ical:dtstart><ical:dtend></ical:dtend></ical:Vevent>'
+      @new.find_by_terms(:start_date).to_xml.should == '<ical:dtstart>1991-02-28</ical:dtstart>'
+      @new.find_by_terms(:end_date).to_xml.should == '<ical:dtend>1991-02-28</ical:dtend>'
+      @new.find_by_terms(:date).to_xml.should be_equivalent_to '<date><ical:Vevent><ical:dtstart>1991-02-28</ical:dtstart><ical:dtend>1991-02-28</ical:dtend></ical:Vevent></date>'
     end
   end
 end
