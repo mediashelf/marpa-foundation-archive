@@ -166,6 +166,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <machine>
       <group>archivist</group>
       <group>admin</group>
+      <person>archivist1@example.com</person>
     </machine>
   </access>
   <embargo>

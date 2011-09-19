@@ -58,10 +58,11 @@ class PlacesController < ApplicationController
   
   def destroy
     @place = Place.find(params[:id])
+    name = @place.name
     if @place.delete
-      flash[:notice] = "Deleted #{@place.name}"
+      flash[:notice] = "Deleted #{name}"
     else
-      flash[:error] = "Could not delete #{@topic.name}."
+      flash[:error] = "Could not delete #{name}."
     end
     redirect_to places_path
   end

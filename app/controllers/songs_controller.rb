@@ -47,13 +47,14 @@ class SongsController < ApplicationController
   
   def destroy
     @song = Song.find(params[:id])
+    name = @song.english_title
     @song.talks.each do |talk|
       talk.songs_remove(@song)
     end
     if @song.delete
-      flash[:notice] = "Deleted #{@song.english_title} and all associations."
+      flash[:notice] = "Deleted #{name} and all associations."
     else
-      flash[:error] = "Could not delete #{@song.english_title}."
+      flash[:error] = "Could not delete #{name}."
     end
     redirect_to songs_path
   end

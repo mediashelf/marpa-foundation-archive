@@ -45,10 +45,11 @@ class TopicsController < ApplicationController
   
   def destroy
     @topic = Topic.find(params[:id])
+    name = @topic.english_title
     if @topic.delete
-      flash[:notice] = "Deleted #{@topic.english_title}"
+      flash[:notice] = "Deleted #{name}"
     else
-      flash[:error] = "Could not delete #{@topic.english_title}."
+      flash[:error] = "Could not delete #{name}."
     end
     redirect_to topics_path
   end

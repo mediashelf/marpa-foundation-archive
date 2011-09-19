@@ -16,6 +16,9 @@
     - if flash[:notice]
       .notice
         = flash[:notice]
+    - if flash[:error]
+      .error
+        = flash[:error]
     
     =form_for @program, :html=>{:id => 'document_metadata'} do |f|
       .title-line

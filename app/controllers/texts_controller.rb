@@ -46,13 +46,14 @@ class TextsController < ApplicationController
   
   def destroy
     @text = Text.find(params[:id])
+    name = {@text.english_title
     @text.program_texts.each do |pt|
       pt.delete
     end
     if @text.delete
-      flash[:notice] = "Deleted #{@text.english_title} and all associations."
+      flash[:notice] = "Deleted #{name} and all associations."
     else
-      flash[:error] = "Could not delete #{@text.english_title}."
+      flash[:error] = "Could not delete #{name}."
     end
     redirect_to texts_path
   end
