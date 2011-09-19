@@ -17,10 +17,11 @@
       Instantiation of:
     -if @recording 
       =link_to @recording.document_identifier, recording_path(@recording)
-      .top_info
-      %span.label
-        Recorded by:
-        = @recording.originally_recorded_by
+      - unless @recording.originally_recorded_by.empty?
+        .top_info
+          %span.label
+            Recorded by:
+            = @recording.originally_recorded_by
     -else
       (No recording document found)
     %span.label

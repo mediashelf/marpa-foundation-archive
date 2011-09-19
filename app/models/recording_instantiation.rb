@@ -52,7 +52,11 @@ class RecordingInstantiation < ActiveFedora::Base
     
     extname = File.extname(filepath)
     pid_as_filename = self.pid.gsub(":","_")
-    recording_identifier = recording.document_identifier
+    if recording.document_identifier.empty?
+      recording_identifier = recording.document_identifier
+    else
+      recording_identifier = recording.pid.gsub(":","_")
+    end
     
     basename = File.basename(filepath)
     self.instantiation_identifier = "#{recording_identifier}/#{pid_as_filename}#{extname}"

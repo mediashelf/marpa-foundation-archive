@@ -33,6 +33,7 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
 
     t.technical_annotation(:path=>"annotation", :attributes=>{:type=>"technical"})
     t.workflow_annotation(:path=>"annotation", :attributes=>{:type=>"workflow"})
+    t.accession_annotation(:path=>"annotation", :attributes=>{:type=>"accession"})
     
     # Proxy Terms
     t.duration(:proxy=>[:physical_instance, :duration])
@@ -42,8 +43,8 @@ class MarpaCore < ActiveFedora::NokogiriDatastream
     t.document_identifier(:proxy=>[:marpa_core, :identifier])
     t.note(:proxy=>[:marpa_core, :annotation])
     t.technical_note(:proxy=>[:marpa_core, :technical_annotation])
-    t.workflow_note(:proxy=>[:marpa_core, :technical_annotation])    
-    
+    t.workflow_note(:proxy=>[:marpa_core, :workflow_annotation])    
+    t.accession_note(:proxy=>[:marpa_core, :accession_annotation])
   end
   
   def self.xml_template

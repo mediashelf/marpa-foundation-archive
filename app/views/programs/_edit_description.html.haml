@@ -83,10 +83,14 @@
         =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
         =#link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
         =link_to "manage texts", texts_path(:program=>@program.pid), {:id => 'manage-texts'}
-  %li.workflow_note
-    =f.label 'workflow_note', 'Next Steps'
-    =f.text_area 'workflow_note', :class=>"fullsize"
-  %li.note
-    =f.label 'note', 'Notes/Annotations'
-    =f.text_area 'note', :class=>"fullsize"
+        
 
+  %li.note
+    =f.label 'note', 'Notes/Annotations', :class=>'left-col'
+    =f.text_area 'note', :class=>"fullsize"
+  %li.accession_annotation
+    =f.label 'accession_note', 'Cassette Collection', :class=>'left-col'
+    =f.text_field 'accession_note', :class=>"long"
+  %li.workflow_note
+    =f.label 'workflow_note', 'Next Steps', :class=>'left-col'
+    =f.text_area 'workflow_note', :class=>"fullsize"
