@@ -1,13 +1,9 @@
 .fieldset.manage_recordings
-  .legend
-    Manage Recordings of 
-    =@talk.english_title
   - recordings = @talk.recordings
+  .legend
+    Recordings (#{recordings.count})
   
-  %span.count
-    Total # of Source Recordings: 
-    = recordings.count
-    = link_to "Add an alternate Recording", recordings_path(:talk=>@talk), :method=>:post
+  = link_to "Add an alternate Recording", recordings_path(:talk=>@talk), :method=>:post
   
   =render :partial=>'recording', :collection=>recordings
       

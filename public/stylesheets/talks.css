@@ -20,9 +20,8 @@
   margin: 15px;
 }
 
-.recording .instantiations {
-  margin-left: 15px;
-  margin-right: 25px;
+.recording #instantiations {
+  background-color: #c1c1c1;
 }
 
 #title-container {
@@ -57,4 +56,11 @@ th {
 .pages {
   width: 4em;
 }
+
+h4 {
+  font-size: 12pt;
+  font-weight: normal;
+  margin-bottom: .2em;
+}
+
 

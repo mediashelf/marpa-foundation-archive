@@ -22,45 +22,43 @@
     -else
       (No talk found)
 
-  %fieldset 
-    %legend General Info
-    %ul.form-fields
-      %li
-        =f.label 'document_identifier', 'Identifier', :class=>'left-col'
-        =f.text_field 'document_identifier', :class=>"long"
-      %li
-        =f.label 'duration', 'Duration', :class=>'left-col'
-        =f.text_field 'duration', :class=>"long"
-      %li
-        =f.label 'originally_recorded_by', 'Recorded By', :class=>'left-col'
-        =f.text_field 'originally_recorded_by', :class=>"long"
-      %li
-        =f.label 'contributed_by', 'Contributed By', :class=>'left-col'
-        =f.text_field 'contributed_by', :class=>"long"
-      %li
-        =f.label 'restriction_level', 'Restriction Level', :class=>'left-col'
-        =f.select 'restriction_level', [ ["General Public","public"], ["Vajrayana Students","vajrayana"], ["Other (specify in Restriction Instructions)","other"]]
-      %li
-        =f.label 'restriction_instructions', 'Restriction Instructions', :class=>'left-col'
-        =f.text_area 'restriction_instructions', :class=>"fullsize"
-      %li
-        =f.label 'note', 'Notes', :class=>'left-col'
-        =f.text_area 'note', :class=>"fullsize"
-  %fieldset
-    %legend Digital Instantiations
-    = render :partial=>"recording_instantiations/table", :locals=>{:recording=>@recording, :solr_result=>@recording.instantiations(:response_format=>:solr, :rows=>1000)}
-  %fieldset 
-    %legend Physical Instantiation (original)
-    %ul.form-fields
-      %li
-        =f.label 'physical_instance_format', 'Physical Format', :class=>'left-col'
-        =f.select 'physical_instance_format', Marpa::MarpaCore.ebu_storage_media_codes.invert.sort #{"Cassette Tape"=>"cassette","Compact Disc"=>"cd"} 
-      %li
-        =f.label 'physical_instance_location', 'Physical Location', :class=>'left-col'
-        =f.text_field 'physical_instance_location', :class=>"extra_long"          
-      %li
-        =f.label 'physical_instance_notes', 'Notes on Original Physical Copy', :class=>'left-col'
-        =f.text_area 'physical_instance_notes', :class=>"fullsize"
+  %ul.form-fields
+    %li
+      =f.label 'document_identifier', 'Identifier', :class=>'left-col'
+      =f.text_field 'document_identifier', :class=>"long"
+    %li
+      =f.label 'duration', 'Duration', :class=>'left-col'
+      =f.text_field 'duration', :class=>"long"
+    %li
+      =f.label 'originally_recorded_by', 'Recorded By', :class=>'left-col'
+      =f.text_field 'originally_recorded_by', :class=>"long"
+    %li
+      =f.label 'contributed_by', 'Contributed By', :class=>'left-col'
+      =f.text_field 'contributed_by', :class=>"long"
+    %li
+      =f.label 'restriction_level', 'Restriction Level', :class=>'left-col'
+      =f.select 'restriction_level', [ ["General Public","public"], ["Vajrayana Students","vajrayana"], ["Other (specify in Restriction Instructions)","other"]]
+    %li
+      =f.label 'restriction_instructions', 'Restriction Instructions', :class=>'left-col'
+      =f.text_area 'restriction_instructions', :class=>"fullsize"
+    %li
+      =f.label 'note', 'Notes', :class=>'left-col'
+      =f.text_area 'note', :class=>"fullsize"
+    %li
+      =f.label 'physical_instance_format', 'Physical Format', :class=>'left-col'
+      =f.select 'physical_instance_format', Marpa::MarpaCore.ebu_storage_media_codes.invert.sort #{"Cassette Tape"=>"cassette","Compact Disc"=>"cd"} 
+    %li
+      =f.label 'physical_instance_location', 'Physical Location', :class=>'left-col'
+      =f.text_field 'physical_instance_location', :class=>"extra_long"          
+    %li
+      =f.label 'physical_instance_notes', 'Notes on Original Physical Copy', :class=>'left-col'
+      =f.text_area 'physical_instance_notes', :class=>"fullsize"
+    %li.fieldset
+      -solr_result = @recording.recording_instantiations(:response_format=>:solr, :rows=>1000)
+      .legend Digital Instantiations (#{solr_result.hits.length})
+      = render :partial=>"recording_instantiations/table", :locals=>{:recording=>@recording, :solr_result=>solr_result}
+      .addline
+        =link_to "Create another Instantiation", recording_instantiations_path(:recording=>@recording), :method=>'post'
                         
   =f.submit 'Save recording'
   =hidden_field_tag 'talk', params[:talk]

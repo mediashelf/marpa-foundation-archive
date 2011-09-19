@@ -1,6 +1,16 @@
+.fieldset {
+  clear: both  /* keeps talks from overrunning texts*/
+}
 .fieldset.course-talks {
   float:right;
   width: 47%;
+}
+
+.fieldset ul {
+  list-style: none;
+  padding-left: 10px;
+}
+.fieldset ul > li {
 }
 
 dl.details {

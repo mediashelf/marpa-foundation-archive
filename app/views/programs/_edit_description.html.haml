@@ -2,6 +2,7 @@
 %ul.form-fields
   /*%li*/
   /*  =label_tag 'tibetian_title',  'Tibetan Title' */
+  =render :partial=>'talks'
 
   %li
     =label_tag 'creator', 'Teacher', :class=>'left-col'
@@ -56,33 +57,32 @@
     =f.select :translator_id, options_from_collection_for_select(Translator.find(:all, :rows=>1000), "pid", "tibetan_name", @program.translator_id), { :include_blank => true }
     =#link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
     =link_to "manage translators", translators_path(:program=>@program.pid), {:id => 'manage-translators'}
-  %li
-    .fieldset
-      .legend
-        Texts
-      %table.associated-texts
-        %thead
-          %tr
-            %th
-              Title
-            %th
-              Author
-            %th
-            %th
-              Root/Commentary
-            %th
-              Chapter
-            %th
-              Section(s)
-            %th
-              Page(s)
-        %tbody
-          =render :partial=>"nested_texts"
-      %div.addline
-        =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all, :rows=>1000), "pid", "english_title"), { :include_blank => true }
-        =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
-        =#link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
-        =link_to "manage texts", texts_path(:program=>@program.pid), {:id => 'manage-texts'}
+  %li.fieldset
+    .legend
+      Texts
+    %table.associated-texts
+      %thead
+        %tr
+          %th
+            Title
+          %th
+            Author
+          %th
+          %th
+            Root/Commentary
+          %th
+            Chapter
+          %th
+            Section(s)
+          %th
+            Page(s)
+      %tbody
+        =render :partial=>"nested_texts"
+    %div.addline
+      =select_tag 'text_id', options_from_collection_for_select(::Text.find(:all, :rows=>1000), "pid", "english_title"), { :include_blank => true }
+      =tag 'input', :type=>'button', :value=>"Associate Text", "data-path"=> add_program_text_program_path(@program), "data-field"=>'text_id'
+      =#link_to "create a text", texts_path(:program=>@program.pid), :method=>'post'
+      =link_to "manage texts", texts_path(:program=>@program.pid), {:id => 'manage-texts'}
         
 
   %li.note

@@ -13,6 +13,6 @@
     %dt.duration Duration
     %dd.uploaded_by=recording.duration
   
-  %h4 Instantiations
-  .instantiations
-    = render :partial=>"recording_instantiations/table", :locals=>{:recording=>recording, :solr_result=>recording.instantiations(:response_format=>:solr, :rows=>1000)}
+  -solr_result = recording.recording_instantiations(:response_format=>:solr, :rows=>1000)
+  %h4 Instantiations (#{solr_result.hits.length}):
+  = render :partial=>"recording_instantiations/table", :locals=>{:recording=>recording, :solr_result=>solr_result}

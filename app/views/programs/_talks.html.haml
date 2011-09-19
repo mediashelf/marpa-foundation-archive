@@ -1,9 +1,10 @@
 - talks = @program.talks
-.fieldset.course-talks
+%li.fieldset.course-talks
   .legend
     Talks
     %span.count="(#{talks.count})"
   
-  =render :partial=>'talk', :collection=>talks
+  %ul
+    =render :partial=>'talk', :collection=>talks
   
   = link_to "Add a Talk", talks_path(:program=>@program), :method=>:post

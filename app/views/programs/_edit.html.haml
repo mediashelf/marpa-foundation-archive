@@ -29,7 +29,6 @@
           = f.text_field(:title) 
           =link_to 'edit title', '#', {:id=>'edit-title'} 
       
-      =render :partial=>'talks'
 
       = render :partial => 'programs/edit_description', :locals=>{:f => f}
       = submit_tag

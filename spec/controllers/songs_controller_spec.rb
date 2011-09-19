@@ -44,7 +44,7 @@ describe SongsController do
     it "should assign the song" do
       put :update, :id => @song.pid, :song=>{:english_title=>"Far and away"}, :talk=>@talk.pid
       Song.find(@song.pid).english_title.should == "Far and away"
-      response.should redirect_to edit_talk_path(@talk)
+      response.should redirect_to edit_song_path(@song)
     end
     after do
       @song.delete

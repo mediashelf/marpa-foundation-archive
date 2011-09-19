@@ -29,8 +29,7 @@ class SongsController < ApplicationController
   def update 
     @song = Song.find(params[:id])
     @song.update_attributes(params[:song])
-    render :action=>:edit
-    # redirect_to edit_song_path(params[:talk])
+    redirect_to edit_song_path(@song)
   end
   
   def index
