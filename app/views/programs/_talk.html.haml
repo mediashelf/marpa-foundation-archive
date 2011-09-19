@@ -19,26 +19,26 @@
         - talk.topics.each do |topic|
           %li
             =topic.english_title
-    %dt.texts Texts
-    %dd.texts
-      %ul
-        - talk.talk_texts.each do |tt|
-          %li
-            %span.text-title.cropped
-              =link_to tt.text.english_title, text_path(tt.text.pid)
-            - unless tt.chapter.empty?
-              Chapter(s) 
-              =tt.chapter
-            - unless tt.sections.empty?
-              Section(s) 
-              =tt.sections
-            - unless tt.pages.empty?
-              Page(s)
-              =tt.pages  
-    %dt.songs Songs
-    %dd.songs
-      %ul
-        - talk.songs.each do |song|
-          %li
-            =link_to song.english_title, song_path(song.pid)
+    / %dt.texts Texts
+    / %dd.texts
+    /   %ul
+    /     - talk.talk_texts.each do |tt|
+    /       %li
+    /         %span.text-title.cropped
+    /           =link_to tt.text.english_title, text_path(tt.text.pid)
+    /         - unless tt.chapter.empty?
+    /           Chapter(s) 
+    /           =tt.chapter
+    /         - unless tt.sections.empty?
+    /           Section(s) 
+    /           =tt.sections
+    /         - unless tt.pages.empty?
+    /           Page(s)
+    /           =tt.pages  
+    / %dt.songs Songs
+    / %dd.songs
+    /   %ul
+    /     - talk.songs.each do |song|
+    /       %li
+    /         =link_to song.english_title, song_path(song.pid)
             
