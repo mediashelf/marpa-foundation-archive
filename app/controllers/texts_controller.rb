@@ -46,7 +46,7 @@ class TextsController < ApplicationController
   
   def destroy
     @text = Text.find(params[:id])
-    name = {@text.english_title
+    name = @text.english_title
     @text.program_texts.each do |pt|
       pt.delete
     end
