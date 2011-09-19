@@ -2,6 +2,7 @@
   %h2 
     Source Recording
     =link_to recording.document_identifier, recording_path(recording.pid)
+  =link_to "delete this recording", recording_path(recording.pid), :method=>:delete  
   %dl
     %dt.recorded_by Contributed by
     %dd.recorded_by=recording.contributed_by

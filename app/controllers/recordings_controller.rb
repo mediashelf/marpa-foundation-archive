@@ -40,4 +40,27 @@ class RecordingsController < ApplicationController
   def show
     redirect_to edit_recording_path(@recording)
   end
+  
+  def destroy
+    @recording = Recording.find(params[:id])
+    name = @recording.document_identifier
+    
+    return_to = {}
+    if @recording.talk.nil?
+      # do nothing
+    else
+      return_to[:talk] = @recording.talk.pid 
+    end   
+       
+    if @recording.delete
+      flash[:notice] = "Deleted #{name}"
+    else
+      flash[:error] = "Could not delete #{name}."
+    end
+    if return_to.has_key?(:talk)
+      redirect_to edit_talk_path(return_to[:talk])
+    else
+      redirect_to catalog_path
+    end
+  end
 end
