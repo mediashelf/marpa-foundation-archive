@@ -33,20 +33,20 @@
 
 .file-content
   .player
-    - if @instantiation.file.present? 
+    - if @instantiation.uploaded.present? 
       %audio{:controls=>"controls"}
-        %source{:src=>@instantiation.file.url}
+        %source{:src=>@instantiation.uploaded.expiring_url(180.minutes)}
       =#link_to "download the recording", @instantiation.s3_url
   %div.upload
     %h2 Upload
     =#render :partial=>"uploader"
 
-=form_for @instantiation do |f|
+=form_for @instantiation, :html => { :multipart => true } do |f|
 
   %ul.form-fields
     %li 
-      =f.label "file", 'File'
-      =f.file_field :file
+      =f.label "uploaded", 'File'
+      =f.file_field :uploaded
     %li
       =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
       =f.text_field 'instantiation_identifier', :class=>"extra_long"

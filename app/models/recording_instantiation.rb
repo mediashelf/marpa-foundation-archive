@@ -21,11 +21,40 @@ class RecordingInstantiation < ActiveFedora::Base
   end
   
   #paperclip
-  has_attached_file :file,
+  has_attached_file :uploaded,
      :storage => :s3,
      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-     :path => "/:style/:id/:filename"
+     :path => "/:style/:id/:filename",
+     :s3_permissions => :private
      
+  def authenticated_s3_get_url(options={})
+   options.reverse_merge! :expires_in => 180.minutes
+   AWS::S3::S3Object.url_for uploaded.path, uploaded.bucket_name, options
+  end
+  
+  before_save :set_s3_metadata
+  
+  def set_s3_metadata
+    unless uploaded.nil?
+      datastreams["s3"].key_values = uploaded.path
+      datastreams["s3"].bucket_values = uploaded.bucket_name
+    
+      extname = File.extname(uploaded.path)
+      pid_as_filename = self.pid.gsub(":","_")
+      if recording.document_identifier.empty?
+        recording_identifier = recording.document_identifier
+      else
+        recording_identifier = recording.pid.gsub(":","_")
+      end
+    
+      self.instantiation_identifier = "#{recording_identifier}/#{pid_as_filename}#{extname}"
+      self.iana_format = uploaded.content_type
+      self.file_size_mb = bytesToMeg(uploaded.file_size).round(3).to_s
+      # duration
+      self.location = "Amazon S3"
+    end
+  end
+  
   def save
     run_callbacks :save do
        super
@@ -53,10 +82,10 @@ class RecordingInstantiation < ActiveFedora::Base
   delegate :technical_note, :to=>'pbCore', :unique=>true
   delegate :workflow_status, :to=>'pbCore', :unique=>true
   
-  delegate :file_file_name, :to=>"paperclip", :unique=>true
-  delegate :file_content_type, :to=>"paperclip", :unique=>true
-  delegate :file_file_size, :to=>"paperclip", :unique=>true
-  delegate :file_updated_at, :to=>"paperclip", :unique=>true
+  delegate :uploaded_file_name, :to=>"paperclip", :unique=>true
+  delegate :uploaded_content_type, :to=>"paperclip", :unique=>true
+  delegate :uploaded_file_size, :to=>"paperclip", :unique=>true
+  delegate :uploaded_updated_at, :to=>"paperclip", :unique=>true
   
   has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
   
