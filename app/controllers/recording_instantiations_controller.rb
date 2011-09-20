@@ -30,6 +30,13 @@ class RecordingInstantiationsController < ApplicationController
       @instantiation.store(params["Filedata"])
     else     
       @instantiation.update_attributes(params[:recording_instantiation])
+      
+      if @instantiation.save
+        flash[:notice] = "Successfully updated #{@instantiation.instantiation_identifier}"
+      else
+        flash[:error] = "Could not update #{@instantiation.instantiation_identifier}"
+      end
+      
       if params[:recording].nil? || params[:recording].empty?
         redirect_to :action=>"edit"
       else

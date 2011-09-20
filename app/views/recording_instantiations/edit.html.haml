@@ -33,17 +33,20 @@
 
 .file-content
   .player
-    - if @instantiation.location.include?("Amazon S3")
+    - if @instantiation.file.present? 
       %audio{:controls=>"controls"}
-        %source{:src=>@instantiation.s3_url}
+        %source{:src=>@instantiation.file.url}
       =#link_to "download the recording", @instantiation.s3_url
   %div.upload
     %h2 Upload
-    =render :partial=>"uploader"
+    =#render :partial=>"uploader"
 
 =form_for @instantiation do |f|
 
   %ul.form-fields
+    %li 
+      =f.label "file", 'File'
+      =f.file_field :file
     %li
       =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
       =f.text_field 'instantiation_identifier', :class=>"extra_long"

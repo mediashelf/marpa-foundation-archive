@@ -1,8 +1,14 @@
-marpa: &DEFAULT 
+development: &DEFAULT 
+  bucket: marpa-dev-uploads
   access_key_id: 1RH3E9DNJ81GYNCCX5G2
   secret_access_key: 9iP8y4mSKWspf2vWPBU3P+zoyGT9752P5y/rHLoY
-mila:
-  access_key_id: 2010203290392
-  secret_access_key: boo
+test:
+  bucket: marpa-test-uploads
+  access_key_id: 1RH3E9DNJ81GYNCCX5G2
+  secret_access_key: 9iP8y4mSKWspf2vWPBU3P+zoyGT9752P5y/rHLoY
+production: 
+  bucket: marpa-uploads
+  access_key_id: 1RH3E9DNJ81GYNCCX5G2
+  secret_access_key: 9iP8y4mSKWspf2vWPBU3P+zoyGT9752P5y/rHLoY
 default:
   <<: *DEFAULT
