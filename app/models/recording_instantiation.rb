@@ -35,22 +35,22 @@ class RecordingInstantiation < ActiveFedora::Base
   before_save :set_s3_metadata
   
   def set_s3_metadata
-    if uploaded.file? && uploaded.dirty?
-      datastreams["s3"].key_values = uploaded.path
-      datastreams["s3"].bucket_values = uploaded.bucket_name
-      extname = File.extname(uploaded.path)
-      pid_as_filename = self.pid.gsub(":","_")
-      if recording.document_identifier.empty?
-        recording_identifier = recording.document_identifier
-      else
-        recording_identifier = recording.pid.gsub(":","_")
-      end
-    
-      self.instantiation_identifier = "#{recording_identifier}/#{pid_as_filename}#{extname}"
-      self.iana_format = uploaded.content_type
-      self.file_size_mb = bytesToMeg(uploaded.size).round(3).to_s
-      # duration
-      self.location = "Amazon S3"
+    # if uploaded.file? && uploaded.dirty?
+    #   datastreams["s3"].key_values = uploaded.path
+    #   datastreams["s3"].bucket_values = uploaded.bucket_name
+    #   extname = File.extname(uploaded.path)
+    #   pid_as_filename = self.pid.gsub(":","_")
+    #   if recording.document_identifier.empty?
+    #     recording_identifier = recording.document_identifier
+    #   else
+    #     recording_identifier = recording.pid.gsub(":","_")
+    #   end
+    # 
+    #   self.instantiation_identifier = "#{recording_identifier}/#{pid_as_filename}#{extname}"
+    #   self.iana_format = uploaded.content_type
+    #   self.file_size_mb = bytesToMeg(uploaded.size).round(3).to_s
+    #   # duration
+    #   self.location = "Amazon S3"
     end
   end
   
