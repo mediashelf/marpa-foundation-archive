@@ -51,7 +51,7 @@ class RecordingInstantiation < ActiveFedora::Base
     #   self.file_size_mb = bytesToMeg(uploaded.size).round(3).to_s
     #   # duration
     #   self.location = "Amazon S3"
-    end
+    # end
   end
   
   def save
