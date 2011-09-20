@@ -10,6 +10,7 @@ gem 'solrizer-fedora'
 gem "hydra-head", :git => "git://github.com/projecthydra/hydra-head.git", :branch=>'rails3'
 gem "aws-s3"
 gem "haml"
+gem "paperclip", "~> 2.4"
 
 # gem "om", "~> 1.4.0"
 gem "om", :git=>"git://github.com/mediashelf/om.git"

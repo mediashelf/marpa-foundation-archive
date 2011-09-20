@@ -1,5 +1,6 @@
 require "marpa/marpa_pbcore_instantiation.rb"
 require "marpa/marpa_dc_datastream.rb"
+require "marpa/datastreams/paperclip.rb"
 
 # A PBCore Recording Instantiation
 # Capable of tracking managing an associated file in Amazon S3
@@ -10,6 +11,32 @@ class RecordingInstantiation < ActiveFedora::Base
   
   include Hydra::ModelMethods
   include S3Fedora
+  include Paperclip::Glue
+  extend ActiveModel::Callbacks
+  
+  define_model_callbacks :save, :destroy
+  
+  def self.validates_each(array)
+    p array.inspect
+  end
+  
+  #paperclip
+  has_attached_file :file,
+     :storage => :s3,
+     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+     :path => "/:style/:id/:filename"
+     
+  def save
+    run_callbacks :save do
+       super
+    end
+  end
+  def destroy
+    run_callbacks :destroy do
+       self.delete
+    end
+  end
+  
   
   belongs_to :talk, :property=>:is_part_of
   
@@ -26,11 +53,18 @@ class RecordingInstantiation < ActiveFedora::Base
   delegate :technical_note, :to=>'pbCore', :unique=>true
   delegate :workflow_status, :to=>'pbCore', :unique=>true
   
+  delegate :file_file_name, :to=>"paperclip", :unique=>true
+  delegate :file_content_type, :to=>"paperclip", :unique=>true
+  delegate :file_file_size, :to=>"paperclip", :unique=>true
+  delegate :file_updated_at, :to=>"paperclip", :unique=>true
+  
   has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
   
   has_metadata :name=>"pbCore", :type=>Marpa::PbcoreInstantiation
   
   has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  
+  has_metadata :name => "paperclip", :type => Marpa::Datastreams::Paperclip
   
   # Saves the content to S3
   # This is no file_content getter method.  Currently, in order to retrieve that content, you must rely on s3_url.
@@ -95,5 +129,6 @@ class RecordingInstantiation < ActiveFedora::Base
   def bytesToMeg bytes
     bytes /  MEGABYTE
   end
+  
   
 end
