@@ -1,6 +1,11 @@
 %tr
-  %td=link_to ptf.object.text.english_title, text_path(ptf.object.text)
-  %td=ptf.object.text.author.tibetian_name if ptf.object.text.author
+  %td
+    - unless ptf.object.text.tibetan_title.nil?
+      =link_to ptf.object.text.tibetan_title, text_path(ptf.object.text), :class=>"tibetan"
+      %br
+    =link_to ptf.object.text.english_title, text_path(ptf.object.text)
+
+  %td=ptf.object.text.author.tibetan_name if ptf.object.text.author
   %td
   %td
     =ptf.select :nature, {'root text'=>'root', 'commentary text' =>'commentary'}

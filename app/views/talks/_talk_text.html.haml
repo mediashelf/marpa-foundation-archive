@@ -1,5 +1,9 @@
 %tr
-  %td=link_to ttf.object.text.english_title, text_path(ttf.object.text)
+  %td
+    - unless ttf.object.text.tibetan_title.nil?
+      =link_to ttf.object.text.tibetan_title, text_path(ttf.object.text), :class=>"tibetan"
+      %br
+    =link_to ttf.object.text.english_title, text_path(ttf.object.text)
   %td=ttf.object.text.author.tibetian_name if ttf.object.text.author
   %td
   %td

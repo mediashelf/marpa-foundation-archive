@@ -92,5 +92,8 @@ input[type=submit], input[type=button] {
   visibility: hidden;
 }
 
+.tibetan {
+  font-size: 1.4em;
+}
 
 
