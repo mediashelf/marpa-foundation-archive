@@ -1,4 +1,6 @@
 MarpaFoundation::Application.routes.draw do
+  resources :s3_uploads
+
   get "texts/songs"
 
   devise_for :users
@@ -29,7 +31,10 @@ MarpaFoundation::Application.routes.draw do
   end
   resources :recordings
   resources :recording_instantiations do
-    resource :file, :controller=>:recording_instantiation_files
+#    resource :file, :controller=>:recording_instantiation_files
+    member do
+      post :upload_success
+    end
   end
 
   resources :topics

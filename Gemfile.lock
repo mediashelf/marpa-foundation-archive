@@ -7,6 +7,12 @@ GIT
       nokogiri (>= 1.4.2)
 
 GIT
+  remote: git://github.com/nathancolgate/s3-swf-upload-plugin
+  revision: 6713b1785d6eb3a6eacca6a8508404f5568ea667
+  specs:
+    s3_swf_upload (0.3.2)
+
+GIT
   remote: git://github.com/projecthydra/hydra-head.git
   revision: e66b113e3496e81746675dde4f9aa5f2c09c8ad0
   branch: rails3
@@ -290,5 +296,6 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby-debug
+  s3_swf_upload!
   solrizer-fedora
   sqlite3-ruby

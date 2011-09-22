@@ -2,13 +2,19 @@ development: &DEFAULT
   bucket: marpa-dev-uploads
   access_key_id: 1RH3E9DNJ81GYNCCX5G2
   secret_access_key: 9iP8y4mSKWspf2vWPBU3P+zoyGT9752P5y/rHLoY
+  max_file_size: 10485760
+  acl: public-read
 test:
   bucket: marpa-test-uploads
   access_key_id: 1RH3E9DNJ81GYNCCX5G2
   secret_access_key: 9iP8y4mSKWspf2vWPBU3P+zoyGT9752P5y/rHLoY
+  max_file_size: 10485760
+  acl: public-read
 production: 
   bucket: marpa-uploads
   access_key_id: 1RH3E9DNJ81GYNCCX5G2
   secret_access_key: 9iP8y4mSKWspf2vWPBU3P+zoyGT9752P5y/rHLoY
+  max_file_size: 10485760
+  acl: public-read
 default:
   <<: *DEFAULT

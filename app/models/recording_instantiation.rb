@@ -23,8 +23,8 @@ class RecordingInstantiation < ActiveFedora::Base
   #paperclip
   has_attached_file :uploaded,
      :storage => :s3,
-     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-     :path => "/:style/:id/:filename",
+     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
+     :path => "/:style/:filename",
      :s3_permissions => :private
      
   def authenticated_s3_get_url(options={})
@@ -32,7 +32,7 @@ class RecordingInstantiation < ActiveFedora::Base
    AWS::S3::S3Object.url_for uploaded.path, uploaded.bucket_name, options
   end
   
-  before_save :set_s3_metadata
+  #before_save :set_s3_metadata
   
   def set_s3_metadata
     # if uploaded.file? && uploaded.dirty?
@@ -94,6 +94,45 @@ class RecordingInstantiation < ActiveFedora::Base
   
   has_metadata :name => "paperclip", :type => Marpa::Datastreams::Paperclip
   
+
+
+  def store_upload 
+
+    # Rename the file on s3 
+    AWS::S3::Base.establish_connection!(:access_key_id => s3config[:access_key_id],:secret_access_key => s3config[:secret_access_key])
+    old_name = "temp/#{self.uploaded_file_name}"
+    self.uploaded_file_name = file_path
+    new_name = self.uploaded.path
+    logger.debug "Moving file from #{old_name} to #{new_name}"
+    (1..5).each do |try|
+      begin
+        # Copy the file
+        AWS::S3::S3Object.rename(old_name, new_name, s3config[:bucket], :copy_acl => :true)
+        break
+      rescue Exception => e
+        logger.error "Couldn't move #{old_name} to #{new_name} try #{try}"
+        sleep 1
+      end
+    end
+  end
+
+  def s3config
+    @s3config ||= HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/amazon_s3.yml")[Rails.env])
+  end
+  
+  def file_path
+
+    extname = File.extname(self.uploaded_file_name)
+    pid_as_filename = self.pid.gsub(":","_")
+    if recording.document_identifier.empty?
+      recording_identifier = recording.document_identifier
+    else
+      recording_identifier = recording.pid.gsub(":","_")
+    end
+    "#{recording_identifier}/#{pid_as_filename}#{extname}"
+  end
+
+
   # Saves the content to S3
   # This is no file_content getter method.  Currently, in order to retrieve that content, you must rely on s3_url.
   def file_content=(data)
@@ -131,7 +170,7 @@ class RecordingInstantiation < ActiveFedora::Base
     
     datastreams["s3"].key_values = "#{recording_identifier}/#{pid_as_filename}#{extname}"
 
-    store(data)
+   # store(data)
     self.save
   end
   

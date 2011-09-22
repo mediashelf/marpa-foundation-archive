@@ -4,7 +4,6 @@
   =javascript_include_tag 'edit_recording_instantiation'
   :javascript
     $(document).ready(function() {
-      $(document).editRecordingInstantiation();
     });
     
 .title-line
@@ -32,6 +31,7 @@
       (No talk found)  
 
 .file-content
+  = @instantiation.uploaded.path
   .player
     - if @instantiation.uploaded.present? 
       %audio{:controls=>"controls"}
@@ -46,7 +46,33 @@
   %ul.form-fields
     %li 
       =f.label "uploaded", 'File'
-      =f.file_field :uploaded
+      #wrapper
+        =raw s3_swf_upload_tag( :fileTypes => '*.mp3;*.wav;*.ogg;*.flac;*.aac;*.mp4;*.wmv;*.mov;*.caf',
+          :fileTypeDescs => 'Audio files.',
+          :keyPrefix=>'temp/',
+          :onFileNotInQueue => "alert('File not found in the queue');",
+          :onFileSizeLimitReached => "alert('That file is too big');",
+          :onQueueChange => "queueChangeHandler(queue);",
+          :onQueueSizeLimitReached => "alert('There are too many files in the queue');",
+          :onQueueEmpty => "alert('You gotta have at least one file in there');",
+          :onQueueClear => "queueClearHandler(queue);",
+          :onUploadingStart => "uploadingStartHandler();",
+          :onUploadingFinish => "uploadingFinishHandler();",
+          :onSignatureIOError => "alert('There was an error');",
+          :onSignatureXMLError => "alert('There was an error');",
+          :onSignatureSecurityError => "alert('There was an error');",
+          :onUploadError => "alert('There was an error');",
+          :onUploadIOError => "alert('There was an error');",
+          :onUploadSecurityError => "alert('There was an error');",
+          :onUploadProgress => "progressHandler(progress_event);",
+          :onUploadComplete => "uploadCompleteHandler(upload_options,event);" )
+        =submit_tag "Start Uploading", :id=>'StartButton', :onclick=>"s3_swf_1_object.startUploading(); return false" 
+        #file_lists
+          %ul#file_done_list.file_list
+          %ul#file_todo_list.file_list
+
+
+
     %li
       =f.label 'instantiation_identifier', 'File Name', :class=>'left-col'
       =f.text_field 'instantiation_identifier', :class=>"extra_long"

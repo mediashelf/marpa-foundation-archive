@@ -8,6 +8,7 @@ gem 'blacklight', '>=3.0.0'
 gem 'solrizer-fedora'
 
 gem "hydra-head", :git => "git://github.com/projecthydra/hydra-head.git", :branch=>'rails3'
+gem 's3_swf_upload', :git => 'git://github.com/nathancolgate/s3-swf-upload-plugin'
 gem "aws-s3"
 gem "haml"
 gem "paperclip", "~> 2.4"

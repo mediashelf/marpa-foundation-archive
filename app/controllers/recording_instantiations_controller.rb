@@ -22,6 +22,14 @@ class RecordingInstantiationsController < ApplicationController
       render :action=>"edit"
     end
   end
+
+  def upload_success
+    @instantiation = RecordingInstantiation.find(params[:id])
+    @instantiation.attributes=params[:upload]
+    @instantiation.store_upload()
+    @instantiation.save
+    render :text=>"OK"
+  end
   
   def update 
     @instantiation = RecordingInstantiation.find(params[:id])   
