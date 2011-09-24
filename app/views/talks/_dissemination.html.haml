@@ -1,5 +1,5 @@
 %tr[dissemination]
-  - if dissemination.uploaded.file?
+  - if dissemination.uploaded.present?
     %td.player
       %audio{:controls=>"controls"}
         %source{:src=>dissemination.authenticated_s3_get_url}

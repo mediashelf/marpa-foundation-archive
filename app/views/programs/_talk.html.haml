@@ -5,7 +5,7 @@
   - disseminations = talk.disseminations
   - unless disseminations.empty?
     - disseminations.each do |dissemination|
-      - if dissemination.uploaded.file?
+      - if dissemination.uploaded.present?
         .player
           %audio{:controls=>"controls"}
             %source{:src=>dissemination.authenticated_s3_get_url}
