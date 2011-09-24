@@ -1,8 +1,8 @@
 %tr[dissemination]
-  - if dissemination.location.include?("Amazon S3")
+  - if dissemination.uploaded.file?
     %td.player
       %audio{:controls=>"controls"}
-        %source{:src=>dissemination.s3_url}
+        %source{:src=>dissemination.authenticated_s3_get_url}
   -else
     %td.identifier
       =link_to dissemination.instantiation_identifier, recording_instantiation_path(dissemination.pid)

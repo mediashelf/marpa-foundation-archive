@@ -5,10 +5,10 @@
   - disseminations = talk.disseminations
   - unless disseminations.empty?
     - disseminations.each do |dissemination|
-      - if dissemination.location.include?("Amazon S3")
+      - if dissemination.uploaded.file?
         .player
           %audio{:controls=>"controls"}
-            %source{:src=>dissemination.s3_url}
+            %source{:src=>dissemination.authenticated_s3_get_url}
             
   %dl.details
     %dt.date Date

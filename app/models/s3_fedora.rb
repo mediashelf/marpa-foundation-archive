@@ -54,7 +54,7 @@ module S3Fedora
   
   def establish_s3_connection
     # Set up the connection to S3 if it has not already been established
-    s3keys = YAML.load(File.open(File.join(RAILS_ROOT,"config","s3.yml")))
+    s3keys = YAML.load(File.open(File.join(Rails.root,"config","amazon_s3.yml")))
   
     account_id = self.datastreams["s3"].account_id_values.first
     # if self.datastreams["s3"].account_id_values.empty?
@@ -73,8 +73,8 @@ module S3Fedora
     
     begin
       AWS::S3::Base.establish_connection!(
-        :access_key_id     => s3keys["default"]["access_key_id"],
-        :secret_access_key => s3keys["default"]['secret_access_key']
+        :access_key_id     => s3keys[Rails.env]["access_key_id"],
+        :secret_access_key => s3keys[Rails.env]['secret_access_key']
       )
     end
   end
