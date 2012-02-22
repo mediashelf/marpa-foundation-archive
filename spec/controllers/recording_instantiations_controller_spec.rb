@@ -14,7 +14,7 @@ describe RecordingInstantiationsController do
       assigns[:instantiation].uploaded_file_size.should  == "48064"
       assigns[:instantiation].uploaded_updated_at.should  include(Time.now.to_s[0..15])
     
-      assigns[:instantiation].iana_format.should == "audio/mpeg"
+      assigns[:instantiation].iana_format.should == "audio/x-caf" #"audio/mpeg"
       assigns[:instantiation].file_size_mb.should == "0.046"
       # @instantiation.expects(:duration=).with("")
       assigns[:instantiation].location.should == "Amazon S3"
