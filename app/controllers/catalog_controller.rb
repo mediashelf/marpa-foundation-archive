@@ -12,27 +12,23 @@ class CatalogController < ApplicationController
   before_filter :enforce_viewing_context_for_show_requests, :only=>:show
   # This applies appropriate access controls to all solr queries
   CatalogController.solr_search_params_logic << :add_access_controls_to_solr_params
-  CatalogController.solr_search_params_logic << :exclude_unwanted_models_from_search_results
+  CatalogController.solr_search_params_logic << :exclude_unwanted_models
 
-  # A really hacky solr search params logic method
-  # Will only work if the solr_parameters[:q] contains " AND NOT _query_:\"info\\\\:fedora/afmodel\\\\:FileAsset\""
-  # Inserts filters into the query immediately before that string based on the list of models in #{unwanted_models}
-  def exclude_unwanted_models_from_search_results(solr_parameters, user_parameters)
-    q = ""
-    unwanted_models.each do |m|
-      if m.kind_of?(String)
-        model_uri = m
+  # This filters out objects that you want to exclude from search results.  By default it only excludes FileAssets
+  # @param solr_parameters the current solr parameters
+  # @param user_parameters the current user-subitted parameters
+  def exclude_unwanted_models(solr_parameters, user_parameters)
+    solr_parameters[:fq] ||= []
+    unwanted_models.each do |um|
+      if um.kind_of?(String)
+        model_uri = um
       else
-        model_pid = ActiveFedora::ContentModel.pid_from_ruby_class(m)
+        model_pid = ActiveFedora::ContentModel.pid_from_ruby_class(um)
         model_uri = "info:fedora/#{model_pid}"
       end
-      escaped_model_uri = model_uri.gsub(/(:)/, '\\\\\\:')
-      q << " AND NOT _query_:\"#{escaped_model_uri}\""
+      solr_parameters[:fq] << "-has_model_s:\"#{model_uri}\""
     end
-    insert_after = "{!dismax qf=$qf_dismax pf=$pf_dismax}"
-    insert_before = " AND NOT _query_:\"info\\\\:fedora/afmodel\\\\:FileAsset\""
-    i = solr_parameters[:q].index(insert_before)
-    solr_parameters[:q].insert(i, q)
+    solr_parameters[:fq] << "-has_model_s:\"info:fedora/afmodel:FileAsset\""
   end
   
   def unwanted_models

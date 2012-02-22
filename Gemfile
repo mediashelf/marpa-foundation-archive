@@ -4,12 +4,11 @@ gem 'rails', '3.0.10'
 gem 'jquery-rails', '>= 1.0.12'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem "mysql"
 gem 'blacklight', '3.0.0'
 gem 'solrizer-fedora'
 
-# gem "hydra-head", :git => "git://github.com/projecthydra/hydra-head.git", :ref=>"89f2a175546f864940a283201951c35313df8d26"  # commit that was in git when we deployed
-# gem "active-fedora", "3.0.7"  # version that was released when we deployed
-
+gem "rsolr", "1.0.2"  # there's a bug in 1.0.7
 gem "hydra-head", "3.0.1"
 gem 's3_swf_upload', :git => 'git://github.com/nathancolgate/s3-swf-upload-plugin'
 gem "aws-s3"

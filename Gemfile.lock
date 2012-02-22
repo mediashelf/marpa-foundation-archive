@@ -178,6 +178,7 @@ GEM
     multi_json (1.0.4)
     multi_xml (0.4.1)
     multipart-post (1.1.2)
+    mysql (2.8.1)
     nokogiri (1.5.0)
     om (1.4.4)
       mediashelf-loggable
@@ -213,7 +214,7 @@ GEM
     rcov (1.0.0)
     rdoc (3.12)
       json (~> 1.4)
-    rsolr (1.0.7)
+    rsolr (1.0.2)
       builder (>= 2.1.2)
     rsolr-ext (1.0.3)
       rsolr (>= 1.0.2)
@@ -294,10 +295,12 @@ DEPENDENCIES
   hydra-head (= 3.0.1)
   jquery-rails (>= 1.0.12)
   mocha
+  mysql
   om (~> 1.4.3)
   paperclip (~> 2.4)
   rails (= 3.0.10)
   rbx-require-relative (= 0.0.5)
+  rsolr (= 1.0.2)
   rspec
   rspec-rails
   ruby-debug
