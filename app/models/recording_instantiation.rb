@@ -23,7 +23,7 @@ class RecordingInstantiation < ActiveFedora::Base
   #paperclip
   has_attached_file :uploaded,
      :storage => :s3,
-     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
+     :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
      :path => "/:style/:filename",
      :s3_permissions => :private
      

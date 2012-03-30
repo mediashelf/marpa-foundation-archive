@@ -3,20 +3,8 @@ require "marpa/marpa_core"
 
 class Talk < ActiveFedora::Base
     include Hydra::ModelMethods
+    include ActiveFedora::Relationships
 
-    # def initialize (attrs =nil)
-    #   attrs ||= {}
-    #   super(attrs.dup)
-    #   # pid and new_object are set when you call ActiveFedora::Base.find
-    #   [:pid, :new_object,:create_date, :modified_date].each { |k| attrs.delete(k)}
-    #   self.attributes = attrs unless attrs.empty?
-    # end
-
-    # def update_attributes(properties)
-    #   self.attributes = properties
-    #   save
-    # end
-  
     belongs_to :program, :property=>:is_part_of
     has_relationship "disseminations", :is_part_of, :inbound => true, :solr_fq=>"workflow_status_t:dissemination"
     #has_many :disseminations, :property=>:is_part_of

@@ -4,6 +4,7 @@ require "marpa/marpa_core"
 class Recording < ActiveFedora::Base
   
   include Hydra::ModelMethods
+  include ActiveFedora::Relationships
   
   belongs_to :talk, :property=>:is_part_of
   has_relationship "recording_instantiations", :has_description, :inbound=>true

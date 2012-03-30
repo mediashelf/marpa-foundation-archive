@@ -1,6 +1,7 @@
 require 'marpa/marpa_dc_datastream'
 class Song < ActiveFedora::Base
     include Hydra::ModelMethods
+    include ActiveFedora::Relationships
 
     has_relationship "talks", :is_about_songs, :inbound=>true
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 

@@ -5,6 +5,8 @@ describe SongsController do
     @talk = Talk.new()
     @talk.english_title='This modern world'
     @talk.save
+    @user = User.new(:email=>"archivist@example.com")
+    controller.stubs(:current_user).returns(@user)
   end
 
   describe "create action" do

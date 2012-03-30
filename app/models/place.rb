@@ -2,6 +2,7 @@ require 'marpa/datastreams/place'
 class Place < ActiveFedora::Base
   
     include Hydra::ModelMethods
+    include ActiveFedora::Relationships
   
     def initialize (attrs = {} )
       attrs ||= {}
