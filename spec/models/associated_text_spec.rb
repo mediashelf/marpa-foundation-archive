@@ -27,7 +27,7 @@ describe Marpa::Datastreams::AssociatedText do
 
   describe "with a new document" do
     before :each do
-      @datastream = Marpa::Datastreams::AssociatedText.new
+      @datastream = Marpa::Datastreams::AssociatedText.new(nil, nil)
     end
 
     it "Should set chapter" do

@@ -33,7 +33,7 @@ describe Marpa::MarpaDCDatastream do
   end
   describe "generating xml" do
     before :each do
-      @new = Marpa::MarpaDCDatastream.new()
+      @new = Marpa::MarpaDCDatastream.new(nil, nil)
     end
     it "should generate xml with scriptcode and transliteration set" do
       # !! Cheating !! these fields are prefabricated in the xml template file

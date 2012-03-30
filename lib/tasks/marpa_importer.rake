@@ -37,7 +37,7 @@ namespace :test do
   desc "Load marpa test fixtures into solr/fedora"
   task :fixtures => [:environment] do
     #TODO -empty fedora first?
-    loader =  Hydra::FixtureLoader.new('spec/fixtures')
+    loader =  ActiveFedora::FixtureLoader.new('spec/fixtures')
     
     fixtures_array = %w{programf:ktd_gyu_lama
     talkf:ktd_gyu_lama_1

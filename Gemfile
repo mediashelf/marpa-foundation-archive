@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '>=3.0.7'
 gem 'jquery-rails', '>= 1.0.12'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3', :require => 'sqlite3'
 gem 'blacklight', '>=3.0.0'
 gem 'solrizer-fedora'
 
@@ -15,8 +15,10 @@ gem "paperclip", "~> 2.4"
 
 # gem "om", "~> 1.4.0"
 gem "om", :git=>"git://github.com/mediashelf/om.git"
-gem "active-fedora", "3.0.4" 
+gem "active-fedora", "3.1.0.pre5" 
 gem 'ruby-debug'
+
+gem 'jettywrapper', '>=1.0.0'
 
 group :development, :test do
   gem 'rspec'

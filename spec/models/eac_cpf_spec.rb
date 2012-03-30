@@ -31,7 +31,7 @@ describe Marpa::Datastreams::EacCpf do
 
   describe "generating xml" do
     before :each do
-      @new = Marpa::Datastreams::EacCpf.new()
+      @new = Marpa::Datastreams::EacCpf.new(nil, nil)
     end
     it "should generate xml with two attributes on the name" do
       @new.update_indexed_attributes({['tibetan_name']=>['steve']})
