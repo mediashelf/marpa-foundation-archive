@@ -18,13 +18,12 @@ gem "om", :git=>"git://github.com/mediashelf/om.git"
 gem "active-fedora", "3.1.0.pre5" 
 gem 'ruby-debug'
 
-gem 'jettywrapper', '>=1.0.0'
+gem 'jettywrapper'
 
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'mocha'
-  gem 'cucumber', '>=0.8.5'
   gem 'cucumber-rails'
   gem 'gherkin'
   gem "equivalent-xml", ">= 0.2.4"
