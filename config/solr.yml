@@ -7,4 +7,4 @@ test: &TEST
 cucumber:
   <<: *TEST
 production:
-  url: http://ec2-107-20-44-160.compute-1.amazonaws.com:8983/solr/development
+  url: http://archives.ktgrinpoche.org:8080/solr_marpa_foundation_archive
