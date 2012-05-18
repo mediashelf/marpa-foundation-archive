@@ -14,7 +14,7 @@ class S3Content < ActiveFedora::Base
     m.field "account_id", :symbol
   end  
   
-  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata 
   
   def label=(label)
     super

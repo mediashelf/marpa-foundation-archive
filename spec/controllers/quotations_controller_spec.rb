@@ -5,6 +5,8 @@ describe QuotationsController do
     @talk = Talk.new()
     @talk.english_title='This modern world'
     @talk.save
+    @user = FactoryGirl.find_or_create(:archivist)
+    sign_in @user
   end
 
   describe "create action" do
@@ -19,8 +21,6 @@ describe QuotationsController do
   describe "edit action" do
 
     before do
-      @user = User.new(:email=>"archivist@example.com")
-      controller.stubs(:current_user).returns(@user)
       @quote = Quotation.new()
       @quote.english_title='Rolling in the deep'
       @quote.apply_depositor_metadata(@user.login)

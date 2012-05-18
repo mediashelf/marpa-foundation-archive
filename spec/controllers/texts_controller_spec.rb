@@ -6,6 +6,7 @@ describe TextsController do
     @talk = Talk.new()
     @talk.english_title='This modern world'
     @talk.save
+    sign_in FactoryGirl.find_or_create(:archivist)
   end
 
   describe "create action" do
@@ -19,8 +20,8 @@ describe TextsController do
   describe "edit action" do
 
     before do
-      @user = User.new(:email=>"archivist@example.com")
-      controller.stubs(:current_user).returns(@user)
+      @user = FactoryGirl.find_or_create(:archivist)
+      sign_in @user
       @text = Text.new()
       @text.english_title='Tis nobler in the mind to suffer'
       @text.apply_depositor_metadata(@user.login)

@@ -3,7 +3,7 @@ class Translator < ActiveFedora::Base
   include Hydra::ModelMethods
   
   has_metadata :name => "eacCpf", :type => Marpa::Datastreams::EacCpf
-  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata 
   
 #    has_relationship "course", :is_translator_of
 

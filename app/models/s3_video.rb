@@ -6,6 +6,6 @@ class S3Video < ActiveFedora::Base
     m.field :import_id, :symbol, :xml_node=>'identifier', :element_attrs=>{:type=>'import'}
   end
   
-  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata
+  has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata
   
 end

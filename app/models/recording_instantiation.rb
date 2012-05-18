@@ -90,7 +90,7 @@ class RecordingInstantiation < ActiveFedora::Base
   
   has_metadata :name=>"pbCore", :type=>Marpa::PbcoreInstantiation
   
-  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+  has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata 
   
   has_metadata :name => "paperclip", :type => Marpa::Datastreams::Paperclip
   
@@ -136,6 +136,7 @@ class RecordingInstantiation < ActiveFedora::Base
   # Saves the content to S3
   # This is no file_content getter method.  Currently, in order to retrieve that content, you must rely on s3_url.
   def file_content=(data)
+puts "Setting file content"
     
     if datastreams["s3"].bucket_values.empty?
       datastreams["s3"].bucket_values = default_s3_bucket
@@ -150,6 +151,7 @@ class RecordingInstantiation < ActiveFedora::Base
     else 
       raise TypeError, "RecordingInstantiation doesn't know how to handle #{data.class} objects"
     end
+puts "Hey"
     
     extname = File.extname(filepath)
     pid_as_filename = self.pid.gsub(":","_")

@@ -1,11 +1,13 @@
 require 'spec_helper'
 
 describe TopicsController do
-    before do
-      @talk = Talk.new()
-      @talk.english_title='This modern world'
-      @talk.save
-    end
+  before do
+    @talk = Talk.new()
+    @talk.english_title='This modern world'
+    @talk.save
+    @user = FactoryGirl.find_or_create(:archivist)
+    sign_in @user
+  end
 
   describe "create action" do
     it "should assign the talk and a new topic" do
@@ -20,8 +22,6 @@ describe TopicsController do
   describe "edit action" do
 
     before do
-      @user = User.new(:email=>"archivist@example.com")
-      controller.stubs(:current_user).returns(@user)
       @topic = Talk.new()
       @topic.english_title='This modern world'
       @topic.apply_depositor_metadata(@user.login)

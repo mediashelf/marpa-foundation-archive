@@ -26,7 +26,7 @@ class Talk < ActiveFedora::Base
     
     has_metadata :name=>"marpaCore", :type=>Marpa::MarpaCore
     
-    has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata 
+    has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata 
 
     delegate :english_title, :to=>'descMetadata', :unique=>true
     delegate :date, :to=>'descMetadata', :unique=>true

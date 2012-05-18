@@ -5,7 +5,7 @@ class Quotation < ActiveFedora::Base
 
     has_relationship "talks", :is_about_quotations, :inbound=>true
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
-    has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata
+    has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata
 
 
     delegate :english_title, :to=>'descMetadata', :unique=>true

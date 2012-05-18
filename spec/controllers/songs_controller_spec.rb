@@ -5,8 +5,8 @@ describe SongsController do
     @talk = Talk.new()
     @talk.english_title='This modern world'
     @talk.save
-    @user = User.new(:email=>"archivist@example.com")
-    controller.stubs(:current_user).returns(@user)
+    @user = FactoryGirl.find_or_create(:archivist)
+    sign_in @user
   end
 
   describe "create action" do
@@ -20,8 +20,6 @@ describe SongsController do
   describe "edit action" do
 
     before do
-      @user = User.new(:email=>"archivist@example.com")
-      controller.stubs(:current_user).returns(@user)
       @song = Song.new()
       @song.english_title='Rolling in the deep'
       @song.apply_depositor_metadata(@user.login)
