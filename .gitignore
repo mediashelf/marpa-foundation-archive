@@ -27,7 +27,6 @@ db/*.sqlite3-journal
 
 .project
 .buildpath
-.rvmrc
 
 /.bundle
 /.yardoc
