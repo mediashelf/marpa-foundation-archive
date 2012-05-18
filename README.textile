@@ -19,3 +19,11 @@ rake marpa_importer:populate_titles
 h2. Loading Fixtures
 
 rake test:fixtures
+
+h2. Running tests
+
+<pre>
+RAILS_ENV=test rake test:fixtures
+rake spec
+</pre>
+

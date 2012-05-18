@@ -23,8 +23,7 @@ class CatalogController < ApplicationController
       if um.kind_of?(String)
         model_uri = um
       else
-        model_pid = ActiveFedora::ContentModel.pid_from_ruby_class(um)
-        model_uri = "info:fedora/#{model_pid}"
+        model_uri = um.to_class_uri
       end
       solr_parameters[:fq] << "-has_model_s:\"#{model_uri}\""
     end

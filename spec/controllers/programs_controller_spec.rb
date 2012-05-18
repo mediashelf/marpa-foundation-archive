@@ -25,7 +25,8 @@ describe ProgramsController do
           }
         object = Program.find(@program.pid)
         object.creator.should == 'Thich Nhat Hanh'
-        object.language.should == ['tib', 'fre', 'ger']
+        object.language.size.should == 3
+        object.language.should include( 'tib', 'fre', 'ger')
         object.place.pid.should == @place.pid
         prog_text = ProgramText.find(@program_text.pid)
         prog_text.chapter.should == "chapt"

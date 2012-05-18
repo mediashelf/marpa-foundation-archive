@@ -40,6 +40,7 @@
     :is_part_of: isPartOf
     :is_subset_of: isSubsetOf
     :has_topic: hasTopic
+    :is_topic_of: isTopicOf
     :is_about_texts: isAboutText
     :is_about_quotations: isAboutQuotation
     :is_about_songs: isAboutSongs

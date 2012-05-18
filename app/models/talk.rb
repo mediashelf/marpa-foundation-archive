@@ -14,7 +14,7 @@ class Talk < ActiveFedora::Base
 
     has_relationship "manifestation", :is_description_of
 
-    has_and_belongs_to_many :topics, :property=>:has_topic
+    has_and_belongs_to_many :topics, :property=>:has_topic, :inverse_of=>:is_topic_of
 
     has_relationship "songs", :is_about_songs
     has_relationship "quotations", :is_about_quotations

@@ -44,7 +44,7 @@ class Marpa::TalkMatcher
   end
   
   def load_fobject_from_hit(hit)
-    ActiveFedora::Base.load_instance(hit["id"])
+    ActiveFedora::Base.find(hit["id"], :cast=>true)
   end
   
   def delete_corresponding_fobjects(hits)

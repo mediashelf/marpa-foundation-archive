@@ -14,7 +14,7 @@ class LecturesController < ApplicationController
   end
   
   def show
-    @lecture = Lecture.load_instance(params[:id])
+    @lecture = Lecture.find(params[:id])
     if params[:layout] == "false"
       render :action=>"show_embedded", :layout=>false
     else
@@ -23,7 +23,7 @@ class LecturesController < ApplicationController
   end
   
   def edit
-    @lecture = Lecture.load_instance(params[:id])
+    @lecture = Lecture.find(params[:id])
     if params[:layout] == "false"
       render :action=>"edit", :layout=>false
     else

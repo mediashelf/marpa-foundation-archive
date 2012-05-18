@@ -1,4 +1,4 @@
-- s3_object = S3Content.load_instance(document["id"])
+- s3_object = S3Content.find(document["id"])
 
 %tr.file_asset.document{:id=>document["id"], :class=>cycle("even","odd")}
   %td

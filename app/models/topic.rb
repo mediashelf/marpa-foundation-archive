@@ -2,9 +2,8 @@ require 'marpa/marpa_dc_datastream'
 class Topic < ActiveFedora::Base
     include Hydra::ModelMethods
 
-    has_and_belongs_to_many :talks, :property=>:has_topic  ### Good test case for has_and_belongs_to_many
-    has_and_belongs_to_many :programs, :property=>:has_topic  ### Good test case for has_and_belongs_to_many
-    #has_relationship "talks", :has_topic, :inbound => true
+    has_and_belongs_to_many :talks, :property=>:is_topic_of, :inverse_of=>:has_topic  ### Good test case for has_and_belongs_to_many
+    has_and_belongs_to_many :programs, :property=>:is_topic_of, :inverse_of=>:has_topic  ### Good test case for has_and_belongs_to_many
     has_metadata :name => "descMetadata", :type => Marpa::MarpaDCDatastream 
     has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata
 

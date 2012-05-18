@@ -14,6 +14,7 @@ describe TopicsController do
       post :create, {:talk => @talk.pid}
       assigns(:talk).english_title.should == 'This modern world'
       assigns(:topic).persisted?.should be true
+      assigns(:talk).topics.should include assigns(:topic)
       assigns(:topic).talks.map(&:pid).should include assigns(:talk).pid
       response.should redirect_to(edit_topic_path(assigns(:topic), :talk=>assigns(:talk)))
     end
