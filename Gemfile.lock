@@ -70,10 +70,6 @@ GEM
     akami (1.0.0)
       gyoku (>= 0.4.0)
     arel (3.0.2)
-    aws-s3 (0.6.2)
-      builder
-      mime-types
-      xml-simple
     aws-sdk (1.5.2)
       httparty (~> 0.7)
       json (~> 1.4)
@@ -320,7 +316,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-s3
   aws-sdk
   blacklight (>= 3.3.4)
   cucumber-rails

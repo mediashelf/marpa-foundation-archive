@@ -2,7 +2,6 @@ require 'aws/s3'
 module S3Fedora
   
   def self.included(klazz)
-    # klazz.extend Hydra::ModelMethods
     
     metadata_definition_proc = Proc.new do |m| 
       m.field "key", :symbol
@@ -23,7 +22,8 @@ module S3Fedora
     establish_s3_connection
     bucket = self.datastreams["s3"].bucket_values.first
     key = self.datastreams["s3"].key_values.first
-    AWS::S3::S3Object.url_for(key, bucket, :expires_in => 60 * 60 * 1.5)
+    s3 = AWS::S3.new
+    s3.buckets[bucket].objects[key].url_for(:read, :expires => 60 * 60 * 1.5)
   end
   
   # Store the given data in S3
@@ -57,22 +57,9 @@ module S3Fedora
     s3keys = YAML.load(File.open(File.join(Rails.root,"config","amazon_s3.yml")))
   
     account_id = self.datastreams["s3"].account_id_values.first
-    # if self.datastreams["s3"].account_id_values.empty?
-    #   raise Exception, "The S3 account id must be set on the object before you try to connect to s3."
-    # end
-    # if s3keys.has_key?(account_id)
-    #   begin
-    #     AWS::S3::Base.establish_connection!(
-    #       :access_key_id     => s3keys[account_id]["access_key_id"],
-    #       :secret_access_key => s3keys[account_id]['secret_access_key']
-    #     )
-    #   end
-    # else
-    #   raise StandardError, "There is no access key information for #{account_id} in config/s3.yml"
-    # end
     
     begin
-      AWS::S3::Base.establish_connection!(
+      AWS.config(
         :access_key_id     => s3keys[Rails.env]["access_key_id"],
         :secret_access_key => s3keys[Rails.env]['secret_access_key']
       )
@@ -86,16 +73,9 @@ module S3Fedora
   
   # Ensure that the bucket you want to use exists and you have permission to use it
   def ensure_bucket_exists(bucket)
-    begin
-      AWS::S3::Bucket.find(bucket)
-    rescue AWS::S3::NoSuchBucket
-      AWS::S3::Bucket.create(bucket)
-    rescue AWS::S3::AccessDenied
-      begin
-        AWS::S3::Bucket.create(bucket)
-      rescue AWS::S3::BucketAlreadyExists
-        raise AWS::S3::AccessDenied, "The bucket you're trying to use already exists but you don't have permission to use it.  Check your ACLs"
-      end
+    s3 = AWS::S3.new
+    unless s3.buckets.collect(&:name).include?(bucket)
+      s3.buckets.create(bucket)
     end
   end
   

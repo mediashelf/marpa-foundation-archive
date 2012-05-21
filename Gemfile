@@ -10,7 +10,7 @@ gem 'solrizer-fedora'
 
 gem "hydra-head", :git => 'git://github.com/projecthydra/hydra-head.git',  :ref=>"5a55e23"
 gem 's3_swf_upload', :git => 'git://github.com/nathancolgate/s3-swf-upload-plugin'
-gem "aws-s3"
+#gem "aws-s3"
 gem "aws-sdk"
 gem "haml"
 gem "paperclip", "~> 2.4"
