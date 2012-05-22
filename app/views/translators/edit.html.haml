@@ -2,17 +2,14 @@
   =stylesheet_link_tag params[:controller], 'forms'
 
 =link_to "Manage Translators", translators_path
-%h1 
-  Translator: 
-  =@translator.tibetan_name
   
 =form_for @translator do |f|
-  %ul.form-fields
-    %li
+  %fieldset
+    %legend="Translator: #{@translator.tibetan_name}"
+    .control-group
       =f.label 'tibetan_name', 'Name', :class=>'left-col'
       =f.text_field 'tibetan_name'
-    %li
+    .form-actions 
       =hidden_field_tag 'program', params[:program]
-      =f.submit 
-  
+      =f.submit :class=>"btn btn-primary"
 

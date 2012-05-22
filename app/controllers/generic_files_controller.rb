@@ -1,0 +1,2 @@
+class GenericFilesController < ApplicationController
+end

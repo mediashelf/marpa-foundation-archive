@@ -1,3 +1,6 @@
+$lt-orange: #FAAF5A;
+$orange: #db882a;
+$dk-orange: #E09641;
 body {
   margin: 0;
   padding: 0;
@@ -34,6 +37,7 @@ html {
   border: 3px solid #e1ddd2;
   position: relative;
   float: left;
+  margin-right: 10px;
 }
 
 
@@ -77,11 +81,30 @@ input[type=text] {
 
 input[type=submit], input[type=button] {
   height: 28px;
-  border: 1px solid #c1c1c1;
-  background-color: #db882a;
+  border: 1px solid $dk-orange;
+  background-color: $orange;
   color: white;
-  text-transform:uppercase;
   font-size: 10pt;
+}
+
+
+.btn-primary {
+  background-color: $orange;
+  background-image: -moz-linear-gradient(top, $lt-orange, $orange);
+  background-image: -ms-linear-gradient(top, $lt-orange, $orange);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($lt-orange), to($orange));
+  background-image: -webkit-linear-gradient(top, $lt-orange, $orange);
+  background-image: -o-linear-gradient(top, $lt-orange, $orange);
+  background-image: linear-gradient(top, $lt-orange, $orange);
+}
+.btn-primary:hover {
+  background-color: $orange;
+  background-image: -moz-linear-gradient(top, $lt-orange, $dk-orange);
+  background-image: -ms-linear-gradient(top, $lt-orange, $dk-orange);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($lt-orange), to($dk-orange));
+  background-image: -webkit-linear-gradient(top, $lt-orange, $dk-orange);
+  background-image: -o-linear-gradient(top, $lt-orange, $dk-orange);
+  background-image: linear-gradient(top, $lt-orange, $dk-orange);
 }
 
 .clearfix:after {

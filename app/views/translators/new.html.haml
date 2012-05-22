@@ -1,12 +1,11 @@
 -content_for :head do
   =stylesheet_link_tag params[:controller], 'forms'
 =form_for @translator do |f|
-  %ul.form-fields
-    %li
-      =f.label 'tibetan_name', 'Name', :class=>'left-col'
-      =f.text_field 'tibetan_name'
-    %li
-      =hidden_field_tag 'program', params[:program]
-      =f.submit 
+  .control-group
+    =f.label 'tibetan_name', 'Name', :class=>'left-col'
+    =f.text_field 'tibetan_name'
+  .form-actions 
+    =hidden_field_tag 'program', params[:program]
+    =f.submit 
   
 
