@@ -23,7 +23,9 @@ describe RecordingInstantiation do
       
       # Should also update s3 key info 
       s3_ds = @instantiation.datastreams["s3"]
-      @instantiation.stubs(:recording).returns(mock("Recording", :document_identifier=>"rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c-talk1"))
+      recording = mock("Recording")
+      recording.expects(:document_identifier).returns("rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c-talk1").twice
+      @instantiation.stubs(:recording).returns(recording)
       pid_as_filename = @instantiation.pid.gsub(":","_")
       s3_ds.expects(:key_values=).with("rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c-talk1/#{pid_as_filename}.mp3")
       

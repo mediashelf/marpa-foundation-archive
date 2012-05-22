@@ -19,14 +19,14 @@ gem "paperclip", "~> 2.4"
 gem 'jettywrapper'
 
 group :development, :test do
-  gem 'rspec'
+#  gem 'rspec'
   gem 'rspec-rails'
   gem 'mocha'
   gem 'gherkin'
   gem "equivalent-xml", ">= 0.2.4"
 
-  gem 'ruby-debug'
-  gem "rbx-require-relative", "0.0.5"
+  # gem 'ruby-debug'
+  # gem "rbx-require-relative", "0.0.5"
 end
 group :test do
   gem 'cucumber-rails', :require=>false

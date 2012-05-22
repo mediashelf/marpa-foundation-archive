@@ -155,7 +155,7 @@ puts "Hey"
     
     extname = File.extname(filepath)
     pid_as_filename = self.pid.gsub(":","_")
-    if recording.document_identifier.empty?
+    if recording.document_identifier.present?
       recording_identifier = recording.document_identifier
     else
       recording_identifier = recording.pid.gsub(":","_")
