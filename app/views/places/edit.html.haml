@@ -2,21 +2,19 @@
   =stylesheet_link_tag 'application', params[:controller], 'forms'
 =link_to "Manage Locations", places_path
 
-%h1 
-  Location: 
-  =@place.name 
 =form_for @place do |f|
-  %ul.form-fields
-    %li
+  %fieldset
+    %legend="Location: #{@place.name}"
+    .control-group
       =f.label 'name', 'Location/Center Name', :class=>'left-col'
       =f.text_field 'name'
-    %li
+    .control-group
       =f.label 'map_coordinates', :class=>'left-col'
       =f.text_field 'map_coordinates'
-    %li
+    .control-group
       =f.label 'description', :class=>'left-col'
       =f.text_area  'description'
-    %li
+    .form-actions 
       -unless params[:program].nil? 
         =hidden_field_tag 'program', params[:program]
       =f.submit
