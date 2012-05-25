@@ -38,11 +38,12 @@ namespace :test do
     #TODO -empty fedora first?
     loader =  ActiveFedora::FixtureLoader.new('spec/fixtures')
     
-    fixtures_array = %w{programf:ktd_gyu_lama
+    fixtures_array = %w{
+    locationf:ktd
+    programf:ktd_gyu_lama
     talkf:ktd_gyu_lama_1
     topicf:bodhicitta
     topicf:mahamudra
-    locationf:ktd
     songf:five_poisons
     textf:gyu_lama
     textf:ngedon
