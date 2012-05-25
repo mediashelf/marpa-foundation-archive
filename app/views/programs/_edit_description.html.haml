@@ -1,64 +1,59 @@
 %input#content_type{:type=>"hidden", :name=>"content_type", :value=>"marpa_course"}
-%ul.form-fields
-  /*%li*/
-  /*  =label_tag 'tibetian_title',  'Tibetan Title' */
   =render :partial=>'talks'
 
-  %li
+  .control-group
     =label_tag 'creator', 'Teacher', :class=>'left-col'
     = f.text_field(:creator, :class=>"long")  
-  %li.start_date
+  .control-group
     =label_tag 'start_date', 'Start Date' , :class=>'left-col'
     = f.text_field(:start_date)  
 
-  %li.end_date
+  .control-group
     =label_tag 'end_date', 'End Date' , :class=>'left-col'
     = f.text_field(:end_date)  
-  %li.topics
+  .control-group
     =f.label 'topics', 'Topics', :class=>'left-col'
     =select_tag 'program[topic_ids][]', options_from_collection_for_select(Topic.find(:all), "pid", "english_title", @program.topic_ids), :multiple=>true
-    =#link_to "add a topic", topics_path(:program=>@program), :method=>'post'
     =link_to "manage topics", topics_path(:program=>@program.pid), {:id => 'manage-topics'}
-  %li
+  .control-group
     =f.label 'subject', 'Keywords', :class=>'left-col'
     =f.text_field 'subject', :class=>"long"
-  %li
+  .control-group
     =label_tag 'place',  'Location', :class=>'left-col'
     =f.select :place_id, options_from_collection_for_select(Place.find(:all, :rows=>1000), "pid", "name", @program.place_id), { :include_blank => true }
     =link_to "manage locations", places_path(:program=>@program.pid), {:id => 'manage-locations'}
-    =#link_to "add a location", new_place_path(:program=>@program.pid), {:id => 'add-location', :class=>'addval'}
 
-  %li
-    =label_tag 'language',  'Language(s)', :class=>'left-col'
+  .control-group
+    =label_tag 'language',  'Language(s)', :class=>'control-label'
     = f.fields_for :language do |languages|
-      .checkbox-group
-        = languages.check_box 'tib', :checked=>@program.language.include?('tib')
-        = label_tag 'language_tib', "Tibetan"
-        %br
-        = languages.check_box 'eng', :checked=>@program.language.include?('eng')
-        = label_tag 'language_eng', "English"
-        %br
-        = languages.check_box 'chi', :checked=>@program.language.include?('chi')
-        = label_tag 'language_chi', "Chinese"
-        %br
-        = languages.check_box 'ger', :checked=>@program.language.include?('ger')
-        = label_tag 'language_ger', "German"
-        %br
-        = languages.check_box 'fre', :checked=>@program.language.include?('fre')
-        = label_tag 'language_fre', "French"
-        %br
-        = languages.check_box 'spa', :checked=>@program.language.include?('spa')
-        = label_tag 'language_fre', "Spanish"
+      .controls
+        %label.checkbox
+          = languages.check_box 'tib', :checked=>@program.language.include?('tib')
+          Tibetan
+        %label.checkbox
+          = languages.check_box 'eng', :checked=>@program.language.include?('eng')
+          English
+        %label.checkbox
+          = languages.check_box 'chi', :checked=>@program.language.include?('chi')
+          Chinese
+        %label.checkbox
+          = languages.check_box 'ger', :checked=>@program.language.include?('ger')
+          German
+        %label.checkbox
+          = languages.check_box 'fre', :checked=>@program.language.include?('fre')
+          French
+        %label.checkbox
+          = languages.check_box 'spa', :checked=>@program.language.include?('spa')
+          Spanish
 
 
 
-  %li
+  .control-group
     =label_tag 'translator',  'Translator(s)', :class=>'left-col'
     =f.select :translator_id, options_from_collection_for_select(Translator.find(:all, :rows=>1000), "pid", "tibetan_name", @program.translator_id), { :include_blank => true }
-    =#link_to "add a translator", new_translator_path(:program=>@program.pid), {:id => 'add-translator', :class=>'addval'}
     =link_to "manage translators", translators_path(:program=>@program.pid), {:id => 'manage-translators'}
-  %li.fieldset
-    .legend
+  %fieldset
+    %legend
       Texts
     %table.associated-texts
       %thead
@@ -85,12 +80,12 @@
       =link_to "manage texts", texts_path(:program=>@program.pid), {:id => 'manage-texts'}
         
 
-  %li.note
+  .control-group
     =f.label 'note', 'Notes/Annotations', :class=>'left-col'
     =f.text_area 'note', :class=>"fullsize"
-  %li.accession_annotation
+  .control-group
     =f.label 'accession_note', 'Cassette Collection', :class=>'left-col'
     =f.text_field 'accession_note', :class=>"long"
-  %li.workflow_note
+  .control-group
     =f.label 'workflow_note', 'Next Steps', :class=>'left-col'
     =f.text_area 'workflow_note', :class=>"fullsize"

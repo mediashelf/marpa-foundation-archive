@@ -2,7 +2,7 @@
  *= require jquery.ui.all
  *= require jquery.fileupload-ui.css
  *= require twitter/bootstrap
- *= require marpa 
+ *= require_tree 
  *= require_self
 */
 

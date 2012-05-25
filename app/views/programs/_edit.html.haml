@@ -1,46 +1,36 @@
 - @page_title = application_name + " #{@program.title}"
 - content_for(:head) do
   =stylesheet_link_tag 'forms'
-  =csrf_meta_tag
-  =javascript_include_tag :defaults
-  =javascript_include_tag 'edit_program'
   :javascript
     $(document).ready(function() {
       $(document).editProgram();
     });
 
-.document_viewer#cover_container.clearfix
-  .multipleEdit
-    #loading{:style=>"display:none;"}
-      -image_tag "images/ajax-loader.gif", :width=>"32", :height=>"32", :alt=>"Saving..." 
-    - if flash[:notice]
-      .notice
-        = flash[:notice]
-    - if flash[:error]
-      .error
-        = flash[:error]
+#cover_container
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
+  - if flash[:error]
+    .error
+      = flash[:error]
+  
+  =form_for @program, :html=>{:id => 'document_metadata'} do |f|
+    %fieldset
+      %legend Program:
+      .control-group
+        =f.label 'title', 'Title'
+        = f.text_field(:title) 
+        =link_to 'edit title', '#', {:id=>'edit-title'} 
     
-    =form_for @program, :html=>{:id => 'document_metadata'} do |f|
-      .title-line
-        #title-container
-          %h1#title-text
-            Program:
-            =@program.title
-          = f.text_field(:title) 
-          =link_to 'edit title', '#', {:id=>'edit-title'} 
-      
-
       = render :partial => 'programs/edit_description', :locals=>{:f => f}
-      = submit_tag
-
-          
-
-
     %fieldset.permissions 
-      Set permissions
+      %legend Set permissions
       %span#permissions
         = render :partial => "permissions/index", :locals => {:document => @program, :asset_id=>params[:id]}
+    .form-actions 
+      = submit_tag
+      = delete_asset_link(params[:id], "program")
 
-    = delete_asset_link(params[:id], "program")
 
-= #async_load_tag(asset_file_assets_path(params[:id], :layout=>"false"), 'uploads')
+
+

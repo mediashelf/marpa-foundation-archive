@@ -2,10 +2,8 @@ $lt-orange: #FAAF5A;
 $orange: #db882a;
 $dk-orange: #E09641;
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
   font-family: 'Questrial', Helvetica, sans-serif;
+  background-color: transparent;
 }
 
 html {
@@ -73,20 +71,13 @@ h3 {
 }
 
 input[type=text] {
-  padding: 0;
-  margin: 0;
-  border: 1px solid #c1c1c1;
-  height: 26px;
 }
 
-input[type=submit], input[type=button] {
-  height: 28px;
+input[type=submit], input[type=button], button {
   border: 1px solid $dk-orange;
   background-color: $orange;
   color: white;
-  font-size: 10pt;
 }
-
 
 .btn-primary {
   background-color: $orange;
@@ -96,6 +87,7 @@ input[type=submit], input[type=button] {
   background-image: -webkit-linear-gradient(top, $lt-orange, $orange);
   background-image: -o-linear-gradient(top, $lt-orange, $orange);
   background-image: linear-gradient(top, $lt-orange, $orange);
+  border: 1px solid $dk-orange;
 }
 .btn-primary:hover {
   background-color: $orange;

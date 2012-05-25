@@ -1,6 +1,7 @@
 <div id="search" class="search">
-  <%= form_tag catalog_index_path, :method => :get do %>
-    <%= text_field_tag :q, params[:q], :class => "q"  %><%= submit_tag('Search &raquo;'.html_safe, :id => "submit", :alt=>"Search") %>
+  <%= form_tag catalog_index_path, :method => :get, :class=>'form-search' do %>
+    <%= text_field_tag :q, params[:q], :class => "q search-query"  %>
+    <%= button_tag('Search &raquo;'.html_safe, :id => "submit", :alt=>"Search", :class=>'btn btn-primary') %>
     <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt]) %>        
   <% end %>
 </div>
