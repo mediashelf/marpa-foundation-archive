@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.4'
 gem 'blacklight', '>=3.3.4'
-gem "hydra-head", :git => 'git://github.com/projecthydra/hydra-head.git',  :ref=>"5a55e23"
+gem "hydra-head", :git => 'git://github.com/projecthydra/hydra-head.git',  :ref=>"25cb42c"
 
 
 # Gems used only for assets and not required
