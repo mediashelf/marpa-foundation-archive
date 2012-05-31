@@ -31,6 +31,21 @@ namespace :marpa_importer do
   end
 end
 
+# This ci task adapted from lib/tasks/narm.rake in the narm project 
+desc "Run ci"
+task :ci do
+  Rake::Task["hydra:jetty:config"].invoke
+  
+  require 'jettywrapper'
+  jetty_params = Jettywrapper.load_config.merge({:jetty_home => File.join(Rails.root , 'jetty'), :startup_wait=>30 })
+  
+  error = nil
+  error = Jettywrapper.wrap(jetty_params) do
+      puts %x[rake test:fixtures RAILS_ENV=test]
+      Rake::Task['spec'].invoke
+  end
+  raise "test failures: #{error}" if error
+end
 
 namespace :test do
   desc "Load marpa test fixtures into solr/fedora"
