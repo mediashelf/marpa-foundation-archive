@@ -33,7 +33,7 @@ end
 
 # This ci task adapted from lib/tasks/narm.rake in the narm project 
 desc "Run ci"
-task :ci do
+task :ci => ["db:migrate"] do
   Rake::Task["hydra:jetty:config"].invoke
   
   require 'jettywrapper'
