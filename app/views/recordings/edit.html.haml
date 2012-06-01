@@ -55,7 +55,7 @@
       =f.text_area 'physical_instance_notes', :class=>"fullsize"
     %li.fieldset
       -solr_result = @recording.recording_instantiations(:response_format=>:solr, :rows=>1000)
-      .legend Digital Instantiations (#{solr_result.hits.length})
+      .legend Digital Instantiations (#{solr_result["response"]["numFound"]})
       = render :partial=>"recording_instantiations/table", :locals=>{:recording=>@recording, :solr_result=>solr_result}
       .addline
         =link_to "Create another Instantiation", recording_instantiations_path(:recording=>@recording), :method=>'post'

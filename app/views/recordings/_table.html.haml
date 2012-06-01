@@ -8,4 +8,4 @@
     %th Recorded by           
     %th Uploaded by                                                                    
     %th Date Uploaded
-  =render :partial=>'recordings/index', :collection=>@solr_result.hits
+  =render :partial=>'recordings/index', :collection=>@solr_result["response"]["docs"]
