@@ -29,7 +29,6 @@ describe RecordingInstantiation do
       pid_as_filename = @instantiation.pid.gsub(":","_")
       s3_ds.expects(:key_values=).with("rigs.pa.drug.cu.pa-bouddha-1988-psc-te-1c-talk1/#{pid_as_filename}.mp3")
       
-      @instantiation.expects(:store).with(@file)
       @instantiation.file_content = @file      
     end
   end

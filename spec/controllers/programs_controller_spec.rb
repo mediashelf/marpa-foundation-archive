@@ -40,7 +40,7 @@ describe ProgramsController do
     end 
 
     describe "create" do
-      it "Should assign the course and a new talk" do
+      it "Should save the program" do
         post :create
         assigns(:program).persisted?.should be true
         response.should redirect_to(edit_program_path(assigns(:program)))
@@ -49,7 +49,7 @@ describe ProgramsController do
     end
 
     describe "edit" do
-      it "should assign the course" do
+      it "should assign the program" do
         get :edit, :id=>'fixture:1'
         assigns(:program).should_not be_nil
         response.should render_template 'edit'
