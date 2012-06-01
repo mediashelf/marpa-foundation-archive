@@ -2,7 +2,7 @@
 
 %span 
   Total: 
-  = @solr_result.hits.length
+  = @solr_result["response"]["docs"].length
   
 =render :partial=>"recordings/index_table"
   

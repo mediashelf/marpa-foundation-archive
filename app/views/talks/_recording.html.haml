@@ -14,5 +14,5 @@
     %dd.uploaded_by=recording.duration
   
   -solr_result = recording.recording_instantiations(:response_format=>:solr, :rows=>1000)
-  %h4 Instantiations (#{solr_result.hits.length}):
+  %h4 Instantiations (#{solr_result["response"]["numFound"]}):
   = render :partial=>"recording_instantiations/table", :locals=>{:recording=>recording, :solr_result=>solr_result}

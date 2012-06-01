@@ -13,5 +13,5 @@
   %th Date Recorded
   %th Location 
   %th Main Topics 
-  =render :partial=>'courses/result', :collection=>@solr_result.hits
+  =render :partial=>'courses/result', :collection=>@solr_result["response"]["docs"]
 

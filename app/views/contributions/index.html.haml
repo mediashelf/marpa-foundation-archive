@@ -14,5 +14,5 @@
   %th Date Recorded
   %th Location 
   %th Main Topics 
-  =render :partial=>'marpa_courses/index', :collection=>@solr_result.hits
+  =render :partial=>'marpa_courses/index', :collection=>@solr_result["response"]["docs"]
 

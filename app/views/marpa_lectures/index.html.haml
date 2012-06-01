@@ -9,7 +9,7 @@
   %th Date recorded           
   %th Topics                                                                    
   %th Run Time
-  =render :partial=>'result', :collection=>@solr_result.hits    
+  =render :partial=>'result', :collection=>@solr_result["response"]["docs"]    
 .section_footer
   #uploader
     =link_to_ajax_form "Add lectures", new_file_asset_path(:course_id=>@course.pid)

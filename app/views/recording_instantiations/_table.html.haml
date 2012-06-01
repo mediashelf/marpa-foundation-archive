@@ -12,5 +12,5 @@
       %th Location
       %th 
   %tbody
-    =render :partial=>'recording_instantiations/table_result', :collection=>solr_result.hits
+    =render :partial=>'recording_instantiations/table_result', :collection=>solr_result["response"]["docs"]
 
