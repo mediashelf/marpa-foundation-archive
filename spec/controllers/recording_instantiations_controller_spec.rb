@@ -3,8 +3,35 @@ require "spec_helper"
 
 describe RecordingInstantiationsController do
 
+  describe "create" do
+    before do
+      @talk = Talk.create
+      @recording = Recording.create(:talk=>@talk)
+      sign_in FactoryGirl.find_or_create(:archivist)
+    end
+    after do
+      @talk.delete
+      @recording.delete
+    end
+    it "should store uploaded filedata in S3" do
+      @recording_instantiation = RecordingInstantiation.new
+      RecordingInstantiation.expects(:new).returns(@recording_instantiation)
+      file = fixture_file_upload('spec/fixtures/YogurtMeow.mp3','application/mp3')
+      xhr :post, :create, :files=>[file], :Filename=>"Meow.mp3", :talk_id =>@talk.pid
+
+      response.should redirect_to edit_recording_instantiation_path(@recording_instantiation)
+      assigns[:instantiation].should == @recording_instantiation
+      assigns[:instantiation].recording.should == @recording
+      assigns[:instantiation].talk.should == @talk
+
+    end
+
+
+  end
+
   describe "update" do
     it "should store uploaded filedata in S3" do
+pending "This is old and broken, may be removed soon"
       file_fixture = fixture("YogurtMeow.mp3")
       # RecordingInstantiation.expects(:find).with("test:22").returns(mock_ri)
       # AWS::S3::S3Object.expects(:store)

@@ -13,6 +13,7 @@ describe TalksController do
       get :edit, :id=>@talk.pid
       assigns(:talk).pid.should == @talk.pid
       assigns(:program).pid.should == @program.pid
+      assigns(:recording_instantiation).should be_kind_of RecordingInstantiation
     end
     after do
       @program.delete

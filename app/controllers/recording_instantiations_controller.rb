@@ -11,25 +11,34 @@ class RecordingInstantiationsController < ApplicationController
   RecordingsController.solr_search_params_logic << :add_access_controls_to_solr_params
   
   def create
-    @recording = Recording.find(params[:recording])
+    # If this talk doesn't have a recording already, then create a recording.
+    #set talk on recording
+    @talk = Talk.find(params[:talk_id])
+    raise RuntimeError, "Couldn't find talk for #{params[:talk_id]}" unless @talk
+    
+    @recording = @talk.recordings.first || Recording.create(:talk_id => @talk)
+
     @instantiation = RecordingInstantiation.new(params[:recording_instantiation])
     @instantiation.recording = @recording
-    @instantiation.talk = Talk.find(@recording.talk.pid)
+    #TODO why does @instantiation.talk = @recording.talk fail?
+    @instantiation.talk_id = @recording.talk.pid
+    @instantiation.save  ### NEED TO SAVE BEFORE UPLOADING TO S3
+    @instantiation.file_content = params[:files][0]
     apply_depositor_metadata(@instantiation)
     if (@instantiation.save)
-        redirect_to(edit_recording_instantiation_path(@instantiation, :recording=>params[:recording]), :notice => 'Instantiation was successfully created.') 
+      render :json => [@instantiation.to_jq_upload].to_json
     else 
       render :action=>"edit"
     end
   end
 
-  def upload_success
-    @instantiation = RecordingInstantiation.find(params[:id])
-    @instantiation.attributes=params[:upload]
-    @instantiation.store_upload()
-    @instantiation.save
-    render :text=>"OK"
+  def index
+    #TODO only those for this talk
+    # @talk = Talk.find(params[:talk_id])
+    # raise RuntimeError, "Couldn't find talk for #{params[:talk_id]}" unless @talk
+    render :json => [RecordingInstantiation.find(:all).map(&:to_jq_upload)].to_json
   end
+
   
   def update 
     @instantiation = RecordingInstantiation.find(params[:id])   

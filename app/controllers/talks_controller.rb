@@ -15,6 +15,7 @@ class TalksController < ApplicationController
 
   def edit
     @talk = Talk.find(params[:id])
+    @recording_instantiation = RecordingInstantiation.new
     @program = @talk.program
   end
   

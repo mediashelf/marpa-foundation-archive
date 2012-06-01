@@ -24,3 +24,10 @@ module FactoryGirl
     tmpl.class.send("find_by_#{by}".to_sym, tmpl.send(by)) || FactoryGirl.create(handle)
   end
 end
+
+# Monkeypatch fixing missing tempfile handler in rack-test
+class Rack::Test::UploadedFile
+  def tempfile
+    @tempfile
+  end
+end

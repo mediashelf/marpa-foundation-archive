@@ -11,62 +11,16 @@ class RecordingInstantiation < ActiveFedora::Base
   
   include Hydra::ModelMethods
   include S3Fedora
-  include Paperclip::Glue
   extend ActiveModel::Callbacks
   
-  define_model_callbacks :save, :destroy
-  
-  def self.validates_each(array)
-    p array.inspect
-  end
-  
-  #paperclip
-  has_attached_file :uploaded,
-     :storage => :s3,
-     :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
-     :path => "/:style/:filename",
-     :s3_permissions => :private
-     
   def authenticated_s3_get_url(options={})
    options.reverse_merge! :expires_in => 180.minutes
    AWS::S3::S3Object.url_for uploaded.path, uploaded.bucket_name, options
   end
   
-  #before_save :set_s3_metadata
-  
-  def set_s3_metadata
-    # if uploaded.file? && uploaded.dirty?
-    #   datastreams["s3"].key_values = uploaded.path
-    #   datastreams["s3"].bucket_values = uploaded.bucket_name
-    #   extname = File.extname(uploaded.path)
-    #   pid_as_filename = self.pid.gsub(":","_")
-    #   if recording.document_identifier.empty?
-    #     recording_identifier = recording.document_identifier
-    #   else
-    #     recording_identifier = recording.pid.gsub(":","_")
-    #   end
-    # 
-    #   self.instantiation_identifier = "#{recording_identifier}/#{pid_as_filename}#{extname}"
-    #   self.iana_format = uploaded.content_type
-    #   self.file_size_mb = bytesToMeg(uploaded.size).round(3).to_s
-    #   # duration
-    #   self.location = "Amazon S3"
-    # end
-  end
-  
-  def save
-    run_callbacks :save do
-       super
-    end
-  end
-  def destroy
-    run_callbacks :destroy do
-       self.delete
-    end
-  end
   
   
-  belongs_to :talk, :property=>:is_part_of
+  belongs_to :talk, :property=>:is_part_of, :class_name=>'Talk'
   
   belongs_to :recording, :property=>:has_description
   
@@ -96,62 +50,12 @@ class RecordingInstantiation < ActiveFedora::Base
   
 
 
-  def store_upload 
-
-    # Rename the file on s3 
-    AWS::S3::Base.establish_connection!(:access_key_id => s3config[:access_key_id],:secret_access_key => s3config[:secret_access_key])
-    old_name = "temp/#{self.uploaded_file_name}"
-    self.uploaded_file_name = file_path
-    new_name = self.uploaded.path
-    logger.debug "Moving file from #{old_name} to #{new_name}"
-    (1..5).each do |try|
-      begin
-        # Copy the file
-        AWS::S3::S3Object.rename(old_name, new_name, s3config[:bucket], :copy_acl => :true)
-        break
-      rescue Exception => e
-        logger.error "Couldn't move #{old_name} to #{new_name} try #{try}"
-        sleep 1
-      end
-    end
-  end
-
-  def s3config
-    @s3config ||= HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/amazon_s3.yml")[Rails.env])
-  end
-  
-  def file_path
-
-    extname = File.extname(self.uploaded_file_name)
-    pid_as_filename = self.pid.gsub(":","_")
-    if recording.document_identifier.empty?
-      recording_identifier = recording.document_identifier
-    else
-      recording_identifier = recording.pid.gsub(":","_")
-    end
-    "#{recording_identifier}/#{pid_as_filename}#{extname}"
-  end
-
 
   # Saves the content to S3
   # This is no file_content getter method.  Currently, in order to retrieve that content, you must rely on s3_url.
   def file_content=(data)
-    
-    if datastreams["s3"].bucket_values.empty?
-      datastreams["s3"].bucket_values = default_s3_bucket
-    end
-    
-    if data.class == File 
-      filepath = data.path
-      filesize = File.size(data)
-    elsif data.class == ActionDispatch::Http::UploadedFile
-      filepath = data.original_filename
-      filesize = data.size
-    else 
-      raise TypeError, "RecordingInstantiation doesn't know how to handle #{data.class} objects"
-    end
-    
-    extname = File.extname(filepath)
+    extname = File.extname(data.original_filename)
+    basename = File.basename(data.original_filename)
     pid_as_filename = self.pid.gsub(":","_")
     if recording.document_identifier.present?
       recording_identifier = recording.document_identifier
@@ -159,18 +63,26 @@ class RecordingInstantiation < ActiveFedora::Base
       recording_identifier = recording.pid.gsub(":","_")
     end
     
-    basename = File.basename(filepath)
+    self.uploaded_file_name = "#{pid_as_filename}#{extname}"
+    self.uploaded_content_type = data.content_type
+    self.uploaded_file_size = data.size
+    self.uploaded_updated_at = Time.now
+
     self.instantiation_identifier = "#{recording_identifier}/#{pid_as_filename}#{extname}"
     self.iana_format = mime_type(basename)
-    self.file_size_mb = bytesToMeg(filesize).round(3).to_s
+    self.file_size_mb = bytesToMeg(data.size).round(3).to_s
     # duration
     self.location = "Amazon S3"
     
-
-    
     datastreams["s3"].key_values = "#{recording_identifier}/#{pid_as_filename}#{extname}"
+    store(data.tempfile)
 
     self.save
+  end
+
+  # The s3 key this object is saved under.
+  def key
+    instantiation_identifier
   end
   
   def self.workflow_statuses
@@ -179,6 +91,17 @@ class RecordingInstantiation < ActiveFedora::Base
       ["Post-Production", "postProduction"],
       ["Dissemination", "dissemination"]
     ]
+  end
+
+  def to_jq_upload
+    return {
+      "name" => self.pid, #uploaded_file_name,
+      "size" => uploaded_file_size,
+      "url" => "/recording_instantiations/#{pid}",
+      "thumbnail_url" => self.pid,
+      "delete_url" => "/recording_instantiations/#{pid}",
+      "delete_type" => "DELETE" 
+    }
   end
   
   private

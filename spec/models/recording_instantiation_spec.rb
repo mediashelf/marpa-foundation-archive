@@ -1,5 +1,4 @@
 require File.join( File.dirname(__FILE__), "../spec_helper" )
-
 describe RecordingInstantiation do
   
   before(:each) do
@@ -9,10 +8,10 @@ describe RecordingInstantiation do
   it "should include S3Fedora" do
     RecordingInstantiation.included_modules.should include(S3Fedora)
   end
-  
+
   describe "file_content=" do
     before(:each) do
-      @file = fixture("YogurtMeow.mp3")
+      @file = Rack::Test::UploadedFile.new("spec/fixtures/YogurtMeow.mp3", 'application/mp3')
     end
     it "should update the object metadata based on submitted data and store the content in s3 using recording id + pid" do
       # should update the pbcore metadata
