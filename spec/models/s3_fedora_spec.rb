@@ -5,6 +5,9 @@ describe S3Fedora do
   before(:all) do
     class S3FedoraTest < ActiveFedora::Base
       include S3Fedora
+      def key
+        "test_key"
+      end
     end
   end
   
@@ -14,11 +17,14 @@ describe S3Fedora do
   end
   
   describe "store" do
-    it "should store the given data in S3 using the bucket & key info from the s3 datastream" do
-      s3_ds = @s3fedora.datastreams["s3"]
-      s3_ds.bucket_values = "presetbucket"
-      s3_ds.key_values = "foo/bar.mp3"
-      AWS::S3::S3Object.expects(:store).with("foo/bar.mp3", @file, "presetbucket")
+    it "should store the given data in S3 using the bucket from the config" do
+      mock_object = mock("S3 object")
+      mock_object.expects(:write).with(@file)
+      @file.rewind
+      mock_bucket = mock("Bucket", :objects=>{'test_key' => mock_object})
+      stub_buckets = stub("buckets", :[] => mock_bucket, :collect=>[mock_bucket], :create=>'marpa-test-uploads')
+      stub_s3 = stub("Mock S3", :buckets=>stub_buckets) 
+      AWS::S3.expects(:new).returns(stub_s3).twice
       @s3fedora.store(@file)
     end
   end
