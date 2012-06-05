@@ -2,8 +2,9 @@ class TalksController < ApplicationController
   include Blacklight::Catalog
   include Hydra::Catalog
 
+
   # These before_filters apply the hydra access controls
-  #before_filter :enforce_access_controls, :only=>[:show, :index, :edit]
+  before_filter :enforce_access_controls, :only=>[:show, :index, :edit]
   
 
   # This applies appropriate access controls to all solr queries
@@ -20,12 +21,14 @@ class TalksController < ApplicationController
   end
   
   def show
+    @talk = Talk.find(params[:id])
     redirect_to edit_talk_path(@talk)
   end
 
   def create
     @program = Program.find(params[:program])
     @talk = Talk.new(params[:talk])
+    @talk.apply_depositor_metadata(current_user.login)
     @talk.program = @program
     if (@talk.save)
       redirect_to(edit_talk_path(@talk), :notice => 'Talk was successfully created.') 

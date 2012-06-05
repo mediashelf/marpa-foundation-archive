@@ -21,6 +21,7 @@ MarpaFoundation::Application.routes.draw do
   resources :texts  
   resources :places  
   resources :translators
+  resources :recording_instantiations, :only=>[:show, :edit, :destroy]
   resources :talks do
     member do
       post :add_song
@@ -28,14 +29,9 @@ MarpaFoundation::Application.routes.draw do
       post :add_talk_text
       delete :remove_talk_text
     end
+    resources :recording_instantiations, :only=>[:index, :create]
   end
   resources :recordings
-  resources :recording_instantiations do
-#    resource :file, :controller=>:recording_instantiation_files
-    member do
-      post :upload_success
-    end
-  end
 
   resources :topics
 

@@ -6,8 +6,8 @@ GIT
 
 GIT
   remote: git://github.com/projecthydra/active_fedora.git
-  revision: c40b25c17917e5dbb584b782deb2236ca1644f5f
-  ref: c40b25c
+  revision: c77b3776ac91b052ed06d68547c72d2bf1141892
+  ref: c77b377
   specs:
     active-fedora (4.2.0)
       activeresource (>= 3.0.0)
@@ -27,15 +27,16 @@ GIT
 
 GIT
   remote: git://github.com/projecthydra/hydra-head.git
-  revision: 25cb42c77d1c807e8948d678a251a358b1436352
-  ref: 25cb42c
+  revision: 701b1c49c20c8817423e30cb7a41571b5ab63948
+  ref: 701b1c4
   specs:
-    hydra-head (4.0.1)
+    hydra-head (4.0.3)
       RedCloth (= 4.2.9)
       active-fedora (~> 4.1)
       blacklight (~> 3.4.2)
       block_helpers
       cancan
+      deprecation
       devise
       jquery-rails
       rails (~> 3.2.3)
@@ -137,6 +138,8 @@ GEM
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
     daemons (1.1.8)
+    deprecation (0.0.3)
+      activesupport
     devise (2.1.0)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.7)

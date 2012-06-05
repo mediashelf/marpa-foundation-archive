@@ -9,8 +9,7 @@ class Talk < ActiveFedora::Base
     has_relationship "disseminations", :is_part_of, :inbound => true, :solr_fq=>"workflow_status_t:dissemination"
     #has_many :disseminations, :property=>:is_part_of
 
-    has_relationship "recordings", :is_part_of, :inbound => true, :solr_fq=>"has_model_s:info\\:fedora/afmodel\\:Recording"
-    #has_many :recordings, :property=>:is_part_of
+    has_many :recordings, :property=>:is_part_of
 
     has_relationship "manifestation", :is_description_of
 

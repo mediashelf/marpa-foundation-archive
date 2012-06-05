@@ -5,7 +5,6 @@ class RecordingInstantiationsController < ApplicationController
 
   # These before_filters apply the hydra access controls
   before_filter :enforce_access_controls, :only=>[:show, :index, :edit]
-  
 
   # This applies appropriate access controls to all solr queries
   RecordingsController.solr_search_params_logic << :add_access_controls_to_solr_params
@@ -16,7 +15,7 @@ class RecordingInstantiationsController < ApplicationController
     @talk = Talk.find(params[:talk_id])
     raise RuntimeError, "Couldn't find talk for #{params[:talk_id]}" unless @talk
     
-    @recording = @talk.recordings.first || Recording.create(:talk_id => @talk)
+    @recording = @talk.recordings.first || Recording.create(:talk_id => @talk.pid)
 
     @instantiation = RecordingInstantiation.new(params[:recording_instantiation])
     @instantiation.recording = @recording
@@ -33,29 +32,18 @@ class RecordingInstantiationsController < ApplicationController
   end
 
   def index
-    #TODO only those for this talk
-    # @talk = Talk.find(params[:talk_id])
-    # raise RuntimeError, "Couldn't find talk for #{params[:talk_id]}" unless @talk
-    render :json => [RecordingInstantiation.find(:all).map(&:to_jq_upload)].to_json
+    # only those for this talk
+    @talk = Talk.find(params[:talk_id])
+    raise RuntimeError, "Couldn't find talk for #{params[:talk_id]}" unless @talk
+    
+    @instantiations = []
+    @talk.recording_ids.each do |recording_id|
+      #TODO support OR in solr search
+      @instantiations += RecordingInstantiation.find(:has_description_s=>"info:fedora/#{recording_id}" )
+    end
+    render :json => @instantiations.map(&:to_jq_upload).to_json
   end
 
-  
-  def update 
-    @instantiation = RecordingInstantiation.find(params[:id])   
-    @instantiation.update_attributes(params[:recording_instantiation])
-    
-    if @instantiation.save
-      flash[:notice] = "Successfully updated #{@instantiation.instantiation_identifier}"
-    else
-      flash[:error] = "Could not update #{@instantiation.instantiation_identifier}"
-    end
-    
-    if params[:recording].nil? || params[:recording].empty?
-      redirect_to :action=>"edit"
-    else
-      redirect_to edit_recording_path(params[:recording])
-    end
-  end
 
   def edit
     @instantiation = RecordingInstantiation.find(params[:id])
@@ -64,6 +52,7 @@ class RecordingInstantiationsController < ApplicationController
   end 
   
   def show
+    @instantiation = RecordingInstantiation.find(params[:id])
     redirect_to edit_recording_instantiation_path(@instantiation)
   end
   

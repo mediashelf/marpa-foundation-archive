@@ -95,7 +95,7 @@ class RecordingInstantiation < ActiveFedora::Base
 
   def to_jq_upload
     return {
-      "name" => self.pid, #uploaded_file_name,
+      "name" => uploaded_file_name,
       "size" => uploaded_file_size,
       "url" => "/recording_instantiations/#{pid}",
       "thumbnail_url" => self.pid,
