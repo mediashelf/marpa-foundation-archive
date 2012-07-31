@@ -27,3 +27,4 @@ RAILS_ENV=test rake test:fixtures
 rake spec
 </pre>
 
+Testing github hook.
