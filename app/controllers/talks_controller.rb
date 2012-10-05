@@ -1,6 +1,6 @@
 class TalksController < ApplicationController
   include Blacklight::Catalog
-  include Hydra::Catalog
+  include Hydra::Controller::ControllerBehavior
 
 
   # These before_filters apply the hydra access controls

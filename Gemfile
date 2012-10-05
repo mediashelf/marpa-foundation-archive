@@ -1,9 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.4'
+gem 'rails', '3.2.8'
 gem 'blacklight', '>=3.3.4'
-gem "hydra-head", :git => 'git://github.com/projecthydra/hydra-head.git',  :ref=>"701b1c4"
-gem 'active-fedora', :git=>'git://github.com/projecthydra/active_fedora.git', :ref=>'c77b377'
+gem "hydra-head", '5.0.0.pre2'
+gem 'hydra-file-access'
+#gem 'active-fedora', :git=>'git://github.com/projecthydra/active_fedora.git', :ref=>'c77b377'
 
 
 

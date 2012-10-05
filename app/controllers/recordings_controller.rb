@@ -1,6 +1,6 @@
 class RecordingsController < ApplicationController
   include Blacklight::Catalog
-  include Hydra::Catalog
+  include Hydra::Controller::ControllerBehavior
   include Hydra::AssetsControllerHelper
 
   # These before_filters apply the hydra access controls

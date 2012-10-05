@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   include Blacklight::Catalog
-  include Hydra::Catalog
+  include Hydra::Controller::ControllerBehavior
   include Hydra::AssetsControllerHelper
   # Extend Blacklight::Catalog with Hydra behaviors (primarily editing).
   before_filter :enforce_access_controls, :only=>[:edit, :update]

@@ -1,6 +1,5 @@
 class RecordingInstantiationFilesController < ApplicationController
-  # include Blacklight::Catalog
-  include Hydra::Catalog
+  include Hydra::Controller::ControllerBehavior
   include Hydra::AssetsControllerHelper
   
 
